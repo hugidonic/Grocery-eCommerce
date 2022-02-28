@@ -16,7 +16,7 @@ import { ProductType } from '../../models/product/product';
 import { Block } from '..';
 import { Text } from '..';
 import { useNavigation } from '@react-navigation/native';
-import { NavigatorParamList, ProductScreenProps } from '../../navigators';
+import { NavigatorParamList, NavigatorScreenProps } from '../../navigators';
 
 export interface ProductProps {
 	product: ProductType;
@@ -29,7 +29,7 @@ const IMAGE_SIZE = 120;
 export const Product = observer(function Product(props: ProductProps) {
 	const { product } = props;
 
-	const nav = useNavigation<ProductScreenProps>();
+	const nav = useNavigation<NavigatorScreenProps>();
 
 	const handleNavigation = () => {
 		nav.navigate('product', { productId: product.productId });

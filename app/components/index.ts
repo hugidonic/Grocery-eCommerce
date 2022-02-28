@@ -16,3 +16,6 @@ export * from './group-list-item/group-list-item';
 export * from "./cart-list/cart-list"
 export * from "./cart-list-item/cart-list-item"
 export * from "./operation-btn/operation-btn"
+export * from "./profile-header/profile-header"
+export * from "./profile-list/profile-list"
+export * from "./profile-list-item/profile-list-item"

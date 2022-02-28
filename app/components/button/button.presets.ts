@@ -7,7 +7,7 @@ import { colors, spacing } from '../../theme';
 const BASE_VIEW: ViewStyle = {
 	paddingVertical: spacing[2],
 	paddingHorizontal: spacing[2],
-	borderRadius: 4,
+	borderRadius: 40,
 	justifyContent: 'center',
 	alignItems: 'center'
 };
@@ -45,7 +45,15 @@ export const viewPresets: Record<string, ViewStyle> = {
     paddingVertical: spacing[4],
     width: '80%'
 	} as ViewStyle,
-
+	outline: {
+		...BASE_VIEW,
+		backgroundColor: colors.palette.lighterGrey,
+		borderWidth: 2,
+		borderRadius: spacing[8],
+    paddingVertical: spacing[4],
+		paddingHorizontal: spacing[2],
+    width: '80%'
+	} as ViewStyle,
 	/**
    * A button without extras.
    */
@@ -62,6 +70,11 @@ export const textPresets: Record<ButtonPresetNames, TextStyle> = {
 		...BASE_TEXT,
 		color: colors.palette.white
 	} as TextStyle,
+	outline: {
+		...BASE_TEXT,
+		color: colors.palette.black,
+		fontWeight: 'bold',
+	} as ViewStyle,
 	link: {
 		...BASE_TEXT,
 		color: colors.text,

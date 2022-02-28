@@ -9,7 +9,7 @@ import {
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { navigationRef, useBackButtonHandler } from './navigation-utilities';
 import { ProfileNavigatorParamList, TabsNavigator, TabsNavigatorParamList } from '.';
-import { CreateProductScreen } from '../screens';
+// import { CreateProductScreen } from '../screens';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { GroupType, ProductType } from '../models';
 
@@ -31,7 +31,7 @@ export type NavigatorParamList = {
 	group: {groupId: GroupType['groupId']};
 };
 
-export type ProductScreenProps = StackNavigationProp<NavigatorParamList>
+export type NavigatorScreenProps = StackNavigationProp<NavigatorParamList>
 
 // Documentation: https://reactnavigation.org/docs/stack-navigator/
 const Stack = createNativeStackNavigator<NavigatorParamList>();

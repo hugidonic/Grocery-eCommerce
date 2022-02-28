@@ -1,11 +1,10 @@
 // React and packages
 import React, { FC } from "react"
 import { observer } from "mobx-react-lite"
-import { StyleSheet } from "react-native"
 import { StackScreenProps } from "@react-navigation/stack"
 // Types and utils
 import { TabsNavigatorParamList } from "../../navigators"
-import { colors, spacing } from "../../theme"
+import { colors } from "../../theme"
 // Components
 import { Screen, Text, Block, Button } from "../../components"
 import { CartList } from "../../components/cart-list/cart-list"
@@ -34,8 +33,4 @@ export const CartScreen: FC<CartScreenProps> = observer(function CartScreen() {
 			</Block>
 		</>
   )
-})
-
-
-const styles = StyleSheet.create({
 })

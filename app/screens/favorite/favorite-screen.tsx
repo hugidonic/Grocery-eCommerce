@@ -1,28 +1,36 @@
 // React and packages
 import React, { FC } from "react"
 import { observer } from "mobx-react-lite"
-import { StyleSheet } from "react-native"
 import { StackScreenProps } from "@react-navigation/stack"
 // Types and utils
 import { TabsNavigatorParamList } from "../../navigators"
-// import { useNavigation } from "@react-navigation/native"
-// import { useStores } from "../../models"
 import { colors } from "../../theme"
 // Components
-import { Screen, Text } from "../../components"
+import { Screen, Text, Block, Button } from "../../components"
+import { CartList } from "../../components/cart-list/cart-list"
 
-export const FavoriteScreen: FC<StackScreenProps<TabsNavigatorParamList, "favorite">> = observer(function FavoriteScreen() {
+type FavoriteScreenProps = StackScreenProps<TabsNavigatorParamList, "favorite">
+
+export const FavoriteScreen: FC<FavoriteScreenProps> = observer(function FavoriteScreen() {
   return (
-    <Screen style={styles.container} preset="scroll">
-      <Text preset="header">favorite</Text>
-    </Screen>
+    <>
+			<Screen backgroundColor={colors.palette.offWhite} preset="scroll">
+      <Block justify="center" row style={{ marginVertical: 30 }}>
+				<Text black title>
+					Favorite products
+				</Text>
+			</Block>
+
+			<CartList />	
+
+			</Screen>
+			<Block
+				justify="center"
+				row
+				style={{ position: 'absolute', bottom: 25, right: 0, left: 0 }}
+			>
+				<Button shadow text="Go to checkout" onPress={() => {}} />
+			</Block>
+		</>
   )
-})
-
-
-const styles = StyleSheet.create({
-  container: {
-    backgroundColor: colors.palette.black,
-    flex: 1,
-  }
 })
