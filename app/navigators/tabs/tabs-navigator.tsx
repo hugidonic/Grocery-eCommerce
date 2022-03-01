@@ -7,6 +7,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import { RouteProp } from '@react-navigation/native';
 import { colors } from '../../theme';
 import { NavigatorParamList } from '..';
+import { Text } from '../../components';
 
 // Screens
 import { HomeScreen } from './../../screens/home/home-screen';
@@ -31,8 +32,12 @@ type screenOptionsType =
 const tabsScreenOptions: screenOptionsType = ({ route }) => ({
 	headerShown: false,
 	//TODO: Make tab bar look better
-	tabBarStyle: {},
+	tabBarStyle: {
+	},
 	tabBarInActiveTintColor: colors.dim,
+	tabBarLabel: ({focused, color, position}) => {
+		return focused ? <Text text={route.name} small color={colors.primary} /> : null
+	},
 	tabBarActiveTintColor: colors.primary,
 	tabBarIcon: ({ focused, color, size }) => {
 		let IconName;
@@ -81,7 +86,7 @@ const Stack = createBottomTabNavigator<TabsNavigatorParamList>();
 
 export const TabsNavigator = () => {
 	return (
-		<Stack.Navigator screenOptions={tabsScreenOptions}>
+		<Stack.Navigator screenOptions={tabsScreenOptions} initialRouteName='home'>
 			<Stack.Screen name="home" component={HomeScreen} />
 			<Stack.Screen name="explore" component={ExploreScreen} />
 			<Stack.Screen name="cart" component={CartScreen} />

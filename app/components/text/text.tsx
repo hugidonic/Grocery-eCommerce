@@ -40,7 +40,7 @@ export function Text(props: TextProps) {
     title !== undefined && {fontSize: 26},
     large !== undefined && {fontSize: 22},
     medium !== undefined && {fontSize: 18},
-    small !== undefined && {fontSize: 14},
+    small !== undefined && {fontSize: 12},
     styleOverride
   ])
 

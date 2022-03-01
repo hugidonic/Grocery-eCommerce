@@ -1,3 +1,4 @@
+import 'react-native-gesture-handler';
 import './utils/ignore-warnings';
 import React, { useState, useEffect } from 'react';
 import {
@@ -6,6 +7,7 @@ import {
 } from 'react-native-safe-area-context';
 import { initFonts } from './theme/fonts'; // expo
 import * as storage from './utils/storage';
+import {gestureHandlerRootHOC} from 'react-native-gesture-handler'
 import { AppNavigator, useNavigationPersistence } from './navigators';
 import { RootStore, RootStoreProvider, setupRootStore } from './models';
 import { ToggleStorybook } from '../storybook/toggle-storybook';
@@ -57,4 +59,4 @@ const App = () => {
 	);
 }
 
-export default App;
+export default gestureHandlerRootHOC(App);

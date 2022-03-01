@@ -13,7 +13,7 @@ import { observer } from 'mobx-react-lite';
 import { GroupType } from '../../models';
 // Components
 import { Text, Block } from '..';
-import { TabsStackScreenProps } from '../../navigators';
+import { NavigatorScreenProps } from '../../navigators';
 import { spacing } from '../../theme';
 
 export interface GroupListItemProps {
@@ -27,7 +27,7 @@ export const GroupListItem = observer(function GroupListItem(
 	const { style, group } = props;
 	const styles = Object.assign({}, st, style);
 
-	const nav = useNavigation<TabsStackScreenProps>();
+	const nav = useNavigation<NavigatorScreenProps>();
 
 	return (
 		<Block
@@ -43,7 +43,7 @@ export const GroupListItem = observer(function GroupListItem(
 			<TouchableOpacity
 				style={{ padding: spacing[2], }}
 				onPress={() =>
-					nav.navigation.navigate('group', {
+					nav.navigate('group', {
 						groupId: group.groupId
 					})}
 			>

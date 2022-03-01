@@ -1,12 +1,7 @@
 // React and packages
 import React, { FC } from 'react';
 import { observer } from 'mobx-react-lite';
-import {
-	Dimensions,
-	Image,
-	StyleSheet,
-	TouchableOpacity,
-} from 'react-native';
+import { Dimensions, Image, StyleSheet, TouchableOpacity } from 'react-native';
 import { StackScreenProps } from '@react-navigation/stack';
 // Types and utils
 import { NavigatorParamList } from '../../navigators';
@@ -26,26 +21,28 @@ export type ExploreScreenProps = StackScreenProps<
 export const ExploreScreen: FC<
 	ExploreScreenProps
 > = observer(function ExploreScreen(props) {
+
+
 	const renderGroup = (group: GroupType, idx: number) => (
-		<TouchableOpacity
+		<Block
+			style={styles.group}
+			bRadius={14}
+			shadow
+			color={group.color}
 			key={group.groupId}
-			style={{ marginBottom: 10 }}
-			// onPress={() =>
-			// 	props.navigation.navigate('group', {groupId: group.groupId})}
 		>
-			<Block
-				style={styles.group}
-				justify="center"
-				align="center"
-				color={group.color}
+			<TouchableOpacity
+				style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}
+				onPress={() =>
+					props.navigation.navigate('group', {groupId: group.groupId})}
 			>
 				{/* @ts-ignore */}
 				<Image source={group.picture} style={styles.image} />
 				<Text bold large>
 					{group.name}
 				</Text>
-			</Block>
-		</TouchableOpacity>
+			</TouchableOpacity>
+		</Block>
 	);
 
 	return (
@@ -84,11 +81,11 @@ const styles = StyleSheet.create({
 		resizeMode: 'contain',
 		marginBottom: 20,
 		width: 80,
-		height: 80
+		height: 80,
 	},
 	group: {
-		width: width * 0.5 - 30,
+		width: width * 0.5 - 32,
 		height: 180,
-		borderRadius: 14
+		marginBottom: spacing[4] 
 	}
 });

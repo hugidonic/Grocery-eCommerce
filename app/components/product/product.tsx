@@ -32,7 +32,7 @@ export const Product = observer(function Product(props: ProductProps) {
 	const nav = useNavigation<NavigatorScreenProps>();
 
 	const handleNavigation = () => {
-		nav.navigate('product', { productId: product.productId });
+		nav.navigate('productDetails', { productId: product.productId });
 	}
 		
 	return (

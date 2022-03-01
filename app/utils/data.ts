@@ -89,6 +89,7 @@ type DataType = {
 	products: {
 		fruits: ProductType[];
 		vegetables: ProductType[];
+		all: ProductType[];
 	};
 	groups: GroupType[];
 };
@@ -104,7 +105,7 @@ export const data: DataType = {
 				pictureUri: image.image
 			};
 		}),
-		vegetables: images.fruits.map((image) => {
+		vegetables: images.vegetables.map((image) => {
 			return {
 				productId: uuid(),
 				name: image.name,
@@ -112,7 +113,8 @@ export const data: DataType = {
 				price: 4.99,
 				pictureUri: image.image
 			};
-		})
+		}),
+		all: [],
 	},
 	groups: [...images.groups.map((image, idx) => {
 		return {
@@ -130,6 +132,10 @@ export const data: DataType = {
 		};
 	})]
 };
+
+
+data.products.all = [...data.products.fruits, ...data.products.vegetables]
+
 
 
 // @ts-ignore
