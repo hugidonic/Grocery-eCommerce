@@ -8,7 +8,7 @@ import {
 } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { ScreenProps } from './screen.props';
-import { isNonScrolling, offsets, presets } from './screen.presets';
+import { isNonScrolling, offsets, presets } from '../Screen/screen.presets';
 
 const isIos = Platform.OS === 'ios';
 

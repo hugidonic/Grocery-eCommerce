@@ -1,12 +1,10 @@
-require("../app/components/text/text.story")
-require("../app/components/auto-image/auto-image.story")
-require("../app/components/button/button.story")
-require("../app/components/switch/switch.story")
-require("../app/components/text-field/text-field.story")
-require("../app/components/icon/icon.story")
-require("../app/components/header/header.story")
+// require("../app/components/Text/text.story")
+// require("../app/components/AutoImage/AutoImage.story")
+// require("../app/components/Button/Button.story")
+// require("../app/components/Switch/Switch.story")
+// require("../app/components/TextField/TextField.story")
 
-require("../app/components/product/product.story")
-require("../app/components/product-list/product-list.story")
+// require("../app/components/Product/Product.story")
+// require("../app/components/ProductList/ProductList.story")
 
 

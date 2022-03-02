@@ -9,14 +9,13 @@ import {
 } from 'react-native';
 import { observer } from 'mobx-react-lite';
 import Feather from 'react-native-vector-icons/Feather';
+import { useNavigation } from '@react-navigation/native';
 // Types and utils
 import { colors, spacing } from '../../theme';
+import { navigationRef, NavigatorScreenProps } from '../../navigators';
 import { ProductType } from '../../models/product/product';
 // Components
-import { Block } from '..';
-import { Text } from '..';
-import { useNavigation } from '@react-navigation/native';
-import { NavigatorParamList, NavigatorScreenProps } from '../../navigators';
+import { Block, Text} from '..';
 
 export interface ProductProps {
 	product: ProductType;
@@ -28,11 +27,13 @@ const IMAGE_SIZE = 120;
 
 export const Product = observer(function Product(props: ProductProps) {
 	const { product } = props;
-
+	
 	const nav = useNavigation<NavigatorScreenProps>();
-
+		
 	const handleNavigation = () => {
-		nav.navigate('productDetails', { productId: product.productId });
+		if (navigationRef.isReady) {
+			nav.navigate('productDetails', { productId: product.productId });
+		}
 	}
 		
 	return (

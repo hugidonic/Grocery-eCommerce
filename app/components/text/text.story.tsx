@@ -6,7 +6,7 @@ import { View, ViewStyle } from "react-native"
 import { storiesOf } from "@storybook/react-native"
 import { StoryScreen, Story, UseCase } from "../../../storybook/views"
 import { colors } from "../../theme"
-import { Text } from "./text"
+import { Text } from ".."
 
 declare let module
 
@@ -32,11 +32,6 @@ storiesOf("Text", module)
           <Text>$123,456,789.00</Text>
         </View>
       </UseCase>
-      <UseCase text="bold" usage="Used for bolded body text.">
-        <View style={VIEWSTYLE}>
-          <Text preset="bold">Osnap! I'm puffy.</Text>
-        </View>
-      </UseCase>
       <UseCase text="header" usage="Used for major section headers.">
         <View style={VIEWSTYLE}>
           <Text preset="header">Behold!</Text>
@@ -60,26 +55,6 @@ storiesOf("Text", module)
       >
         <View style={VIEWSTYLE}>
           <Text>Passing strings as children.</Text>
-        </View>
-      </UseCase>
-      <UseCase text="nested children" usage="You can embed them and change styles too.">
-        <View style={VIEWSTYLE}>
-          <Text>
-            {" "}
-            Hello <Text preset="bold">bolded</Text> World.
-          </Text>
-        </View>
-      </UseCase>
-    </Story>
-  ))
-  .add("Styling", () => (
-    <Story>
-      <UseCase text="Style array" usage="Text with style array">
-        <View style={viewStyleArray}>
-          <Text>
-            {" "}
-            Hello <Text preset="bold">bolded</Text> World.
-          </Text>
         </View>
       </UseCase>
     </Story>
