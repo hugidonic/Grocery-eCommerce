@@ -70,9 +70,10 @@ export const CartListItem = observer(function CartListItem(props: CartListItemPr
             </Block>
             <OperationBtn func={increment} type="Increment" />
           </Block>
-          <Text black large>{cartItem.product.price}</Text>
+          <Text black large>{cartItem.product.price}$</Text>
         </Block>
       </Block>
+      
     </Block>
   )
 })
