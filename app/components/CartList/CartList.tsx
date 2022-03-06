@@ -5,36 +5,35 @@ import { observer } from 'mobx-react-lite';
 // Types and utils
 import { spacing } from '../../theme';
 import { data } from '../../utils/data';
+import {CartItemType} from '../../models/CartItem/CartItem'
 // Components
-import { Block, CartListItem, CartListItemProps } from '..';
+import { Block, CartListItem } from '..';
+import { useStores } from '../../models';
+import { Text } from './../Text/Text';
 
 export interface CartListProps {
 	style?: StyleProp<ViewStyle>;
 }
 
 export const CartList = observer(function CartList(props: CartListProps) {
+
+	const {UserStore: {cartItems}} = useStores()
+
 	const renderCartListItem = (
-		cartItem: CartListItemProps['cartItem'],
+		cartItem: CartItemType,
 		idx: number
-	) => (
-		<Block key={cartItem.product.productId} marginVertical={spacing[2]}>
-			<CartListItem cartItem={cartItem} />
-		</Block>
-	);
+		) => {
+			return (
+			<Block key={cartItem.product.productId} marginVertical={spacing[2]}>
+				<CartListItem cartItem={cartItem} />
+			</Block>
+		)
+	};
 
 	return (
 		<Block padding={[ 0, 0, 200, 0 ]}>
-			{cartData.map(renderCartListItem)}
+			{cartItems.items.map(renderCartListItem)}
+			<Text large style={{textAlign: 'center'}} black>Total: {cartItems.totalCost}$</Text>
 		</Block>
 	);
 });
-
-// TODO: Remove that
-const cartData: CartListItemProps['cartItem'][] = data.products.fruits.map(
-	(f) => {
-		return {
-			product: f,
-			count: 1
-		};
-	}
-);

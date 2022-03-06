@@ -2,6 +2,7 @@ import { onSnapshot } from "mobx-state-tree"
 import { RootStoreModel, RootStore } from "./root-store"
 import { Environment } from "../environment"
 import * as storage from "../../utils/storage"
+import {data as products} from "../../utils/data"
 
 /**
  * The key we'll be saving our state as within async storage.
@@ -32,7 +33,20 @@ export async function setupRootStore() {
   const env = await createEnvironment()
   try {
     // load data from storage
-    data = (await storage.load(ROOT_STATE_STORAGE_KEY)) || {}
+    data = {
+      UserStore: {
+        userId: 'id1',
+        nickname: "Vadim",
+        email: "admin@gmail.com",
+        cartItems: {
+          items: []
+        },
+        favoriteItems: {
+          items: []
+        },
+      }
+    }
+    // console.tron.log(data)
     rootStore = RootStoreModel.create(data, env)
   } catch (e) {
     // if there's any problems loading, then let's at least fallback to an empty state

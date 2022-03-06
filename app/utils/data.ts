@@ -1,4 +1,4 @@
-import { GroupType, ProductType } from '../models';
+import { CartListModel, CartListType, GroupType, ProductType, UserModel, UserType } from '../models';
 import uuid from './uuid';
 const groupColors: string[] = [
 	'#F7B2BD',
@@ -136,16 +136,12 @@ export const data: DataType = {
 
 data.products.all = [...data.products.fruits, ...data.products.vegetables]
 
-
-
 // @ts-ignore
-const user = {
+export const UserInitState = {
 	userId: 'id1',
-	name: '',
-	email: '',
-	cartItems: [ 'id1', 'id2', 'id3' ],
-	favoriteItems: [ 'id1', 'id2', 'id3' ]
-};
+	nickname: 'Vadim',
+	email: 'Aminev',
+}
 
 // @ts-ignore
 const productList = {

@@ -11,7 +11,7 @@ interface BlockProps {
 	bRadius?: number;
 
 	row?: boolean;
-	flex?: boolean;
+	flex?: boolean | number;
 	shadow?: boolean;
 	border?: boolean;
 

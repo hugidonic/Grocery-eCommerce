@@ -1,5 +1,5 @@
 import { Instance, SnapshotOut, types } from 'mobx-state-tree';
-import { ProductModel, ProductType } from '..';
+import { ProductModel, ProductType } from '../product/product';
 
 /**
  * Array of products

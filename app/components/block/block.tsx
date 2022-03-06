@@ -27,11 +27,18 @@ export const Block = (props: BlockProps) => {
 		paddingHorizontal,
 		paddingVertical
 	} = props
-	
+	let fflex: number;
+
+	if (flex !== undefined && typeof flex == 'number') {
+		fflex = flex
+	} else if (flex !== undefined && typeof flex == 'boolean') {
+		fflex = 1
+	}
+
 	const styles: ViewStyle = StyleSheet.flatten([
 		style,
 
-		flex !== undefined && { flex: 1 },
+		flex !== undefined && { flex: fflex },
 		border !== undefined && { borderWidth: 1 },
 		bRadius !== undefined && { borderRadius: bRadius },
 		justify !== undefined && { justifyContent: justify },

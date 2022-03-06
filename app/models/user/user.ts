@@ -1,4 +1,10 @@
 import { Instance, SnapshotOut, types } from "mobx-state-tree"
+// Utils
+import uuid from "../../utils/uuid";
+import { withEnvironment } from "../extensions/with-environment";
+// Models
+import { CartListModel } from "../CartList/CartList";
+import { FavoriteListModel } from './../FavoriteList/FavoriteList';
 
 /**
  * User model
@@ -6,29 +12,21 @@ import { Instance, SnapshotOut, types } from "mobx-state-tree"
 export const UserModel = types
   .model("User")
   .props({
-    userId: types.identifier,
-
-    email: types.maybe(types.string),
-    nickname: types.maybe(types.string),
-    cartItems: types.maybe(types.array(types.identifier)),
-    favoriteItems: types.maybe(types.array(types.identifier)),
+    userId: types.optional(types.identifier, uuid()),
+    email: types.optional(types.string, ""),
+    nickname: types.optional(types.string, ""),
+    cartItems: types.optional(CartListModel, {}),
+    favoriteItems: types.optional(FavoriteListModel, {}),
   })
+  .extend(withEnvironment)
   .views((self) => ({
-    get CartItemsCount() {
-      return self.cartItems.length
-    }
   }))
   .actions((self) => ({
-    addToCart: (productId: string) => {
-      self.cartItems.push(productId);
-    },
-    removeFromCart: (productId: string) => {
-      self.cartItems.remove(productId);
-    },
+
   })) 
 
-type UserType = Instance<typeof UserModel>
-export interface User extends UserType {}
+export type UserType = Instance<typeof UserModel>
+// export interface User extends UserType {}
 type UserSnapshotType = SnapshotOut<typeof UserModel>
 export interface UserSnapshot extends UserSnapshotType {}
 export const createUserDefaultModel = () => types.optional(UserModel, {})

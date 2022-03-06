@@ -11,8 +11,7 @@ export const ProductModel = types
     name: types.string,
     description: types.optional(types.string, ""),
     price: types.optional(types.number, 0),
-    // pictureUri: types.maybe(types.late(() => types.string)),
-    pictureUri: types.maybe(types.string),
+    pictureUri: types.optional(types.number, 1),
     
   })
 	.views((self) => ({}))
