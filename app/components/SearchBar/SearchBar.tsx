@@ -30,7 +30,7 @@ export const SearchBar = observer(function SearchBar(props: SearchBarProps) {
 				value={search}
 				onChangeText={(t) => setSearch(t)}
 				placeholder="Поиск по товарам..."
-				placeholderTextColor={colors.palette.lightGrey}
+				placeholderTextColor={colors.palette.grey}
 			/>
 		</Block>
 	);
