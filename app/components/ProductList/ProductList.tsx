@@ -22,7 +22,7 @@ export const ProductList = observer(function ProductList(props: ProductListProps
   return (
     <Block>
 			<Block row justify="space-between" align="center" style={{ marginVertical: 8 }}>
-				<Text large black>
+				<Text size="large" weight='black'>
 					{title}
 				</Text>
 				{/* TODO: Make this a Link comoponent */}

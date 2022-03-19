@@ -52,7 +52,7 @@ export const ProfileListItem = observer(function ProfileListItem(
 						style={{ marginRight: 15 }}
 					/>
 				)}
-				<Text bold medium>
+				<Text weight='bold' size='medium'>
 					{title}
 				</Text>
 				<Ionicons

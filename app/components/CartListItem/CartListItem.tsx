@@ -46,7 +46,7 @@ export const CartListItem = observer(function CartListItem(props: CartListItemPr
       <Block flex={2}>
         <Block  flex row justify="space-between">
           <Block style={{ marginBottom: 8 }}>
-            <Text black large>
+            <Text weight='black' size="large">
               {cartItem.product.name}
             </Text>
             <Text color={colors.dim}>{cartItem.product.description}</Text>
@@ -64,13 +64,13 @@ export const CartListItem = observer(function CartListItem(props: CartListItemPr
               justify="center"
               align="center"
             >
-              <Text bold large>
+              <Text weight="bold" size="large">
                 {count}
               </Text>
             </Block>
             <OperationBtn func={increment} type="Increment" />
           </Block>
-          <Text black large>{cartItem.product.price}$</Text>
+          <Text weight='black' size="large">{cartItem.product.price}$</Text>
         </Block>
       </Block>
       

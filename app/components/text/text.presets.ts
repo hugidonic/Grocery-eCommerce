@@ -1,13 +1,12 @@
 import { TextStyle } from "react-native"
-import { colors, typography } from "../../theme"
+import { colors } from "../../theme"
 
 /**
  * All text will start off looking like this.
  */
 const BASE: TextStyle = {
-  fontFamily: typography.primary,
   color: colors.text,
-  fontSize: 15,
+  fontSize: 16,
 }
 
 /**
@@ -26,12 +25,12 @@ export const presets = {
   /**
    * Field labels that appear on forms above the inputs.
    */
-  fieldLabel: { ...BASE, fontSize: 13, color: colors.dim } as TextStyle,
+  fieldLabel: { ...BASE, fontSize: 13, color: colors.secondary } as TextStyle,
 
   /**
    * A smaller piece of secondary information.
    */
-  secondary: { ...BASE, fontSize: 9, color: colors.dim } as TextStyle,
+  secondary: { ...BASE, fontSize: 9, color: colors.secondary } as TextStyle,
 }
 
 /**

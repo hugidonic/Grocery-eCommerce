@@ -47,7 +47,7 @@ export const ProductDetailsInfo = observer(function ProductDetailsInfo(
 				style={{ marginVertical: 15 }}
 			>
 				<Block style={styles.price}>
-					<Text black medium color={colors.primary}>
+					<Text weight='black' size='medium' color={colors.primary}>
 						${product.price}
 					</Text>
 				</Block>
@@ -67,7 +67,7 @@ export const ProductDetailsInfo = observer(function ProductDetailsInfo(
 			</Block>
 
 			<Block>
-				<Text black title>
+				<Text weight='black' size='title'>
 					{product.name}
 				</Text>
 				<Block row align="center" style={{ marginVertical: 15 }}>
@@ -114,9 +114,9 @@ export const ProductDetailsInfo = observer(function ProductDetailsInfo(
 							shadowColor="#ccc"
 							bgColor="#fff"
 						>
-							<Text medium>{proteinPercentage}%</Text>
+							<Text size='medium'>{proteinPercentage}%</Text>
 						</ProgressCircle>
-						<Text style={{marginTop: 10}} bold>Protein</Text>
+						<Text style={{marginTop: 10}} weight="bold">Protein</Text>
 					</Block>
 					<Block align='center'>
 						<ProgressCircle
@@ -127,9 +127,9 @@ export const ProductDetailsInfo = observer(function ProductDetailsInfo(
 							shadowColor="#ccc"
 							bgColor="#fff"
 						>
-							<Text medium>{fatsPercentage}%</Text>
+							<Text size='medium'>{fatsPercentage}%</Text>
 						</ProgressCircle>
-						<Text style={{marginTop: 10}} bold>Fats</Text>
+						<Text style={{marginTop: 10}} weight="bold">Fats</Text>
 					</Block>
 					<Block align='center'>
 						<ProgressCircle
@@ -140,9 +140,9 @@ export const ProductDetailsInfo = observer(function ProductDetailsInfo(
 							shadowColor="#ccc"
 							bgColor="#fff"
 						>
-							<Text medium>{carbsPercentage}%</Text>
+							<Text size='medium'>{carbsPercentage}%</Text>
 						</ProgressCircle>
-						<Text style={{marginTop: 10}} bold>Carbs</Text>
+						<Text style={{marginTop: 10}} weight="bold">Carbs</Text>
 					</Block>
 				</Block>
 			</Block>

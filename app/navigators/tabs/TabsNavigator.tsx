@@ -37,7 +37,7 @@ const tabsScreenOptions: screenOptionsType = ({ route }) => ({
 	tabBarInActiveTintColor: colors.dim,
 	tabBarLabel: ({ focused, color, position }) => {
 		return focused ? (
-			<Text text={route.name} small color={colors.primary} />
+			<Text text={route.name} size='small' color={colors.primary} />
 		) : null;
 	},
 	tabBarActiveTintColor: colors.primary,

@@ -60,16 +60,16 @@ export const Product = observer(function Product(props: ProductProps) {
 				/>
 
 				<Block style={{ marginVertical: 8 }}>
-					<Text black medium>
+					<Text weight='black' size='medium'>
 						{product.name}
 					</Text>
-					<Text color="#999" bold>
+					<Text color="#999" weight='bold'>
 						{product.description}
 					</Text>
 				</Block>
 
 				<Block row align="center" justify="space-between">
-					<Text black medium>
+					<Text weight='black' size='medium'>
 						$ {product.price}
 					</Text>
 					<AddBtn />

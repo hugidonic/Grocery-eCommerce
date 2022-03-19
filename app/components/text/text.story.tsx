@@ -1,61 +1,142 @@
-/* eslint-disable react-native/no-inline-styles */
-/* eslint-disable react-native/no-color-literals */
+/* eslint-disable */
+import * as React from 'react';
+import { storiesOf } from '@storybook/react-native';
+import { StoryScreen, Story, UseCase } from '../../../storybook/views';
+import { text, number, optionsKnob, array, select } from '@storybook/addon-knobs';
 
-import * as React from "react"
-import { View, ViewStyle } from "react-native"
-import { storiesOf } from "@storybook/react-native"
-import { StoryScreen, Story, UseCase } from "../../../storybook/views"
-import { colors } from "../../theme"
-import { Text } from ".."
+import { Text } from './Text';
+import { colors } from '../../theme';
+import { FontSizesType, FontWeightsType } from './Text.props';
 
-declare let module
+storiesOf('Text', module)
+	.addDecorator((fn) => <StoryScreen>{fn()}</StoryScreen>)
+	.addParameters({
+		options: optionsKnob
+	})
+	.add('Universal', () => {
+		type names = {
+			small: 'small';
+			regular: 'regular';
+			medium: 'medium';
+			large: 'large';
+			title: 'title';
+		};
 
-const VIEWSTYLE = {
-  flex: 1,
-  backgroundColor: colors.storybookDarkBg,
-}
-const viewStyleArray: ViewStyle[] = [VIEWSTYLE, { backgroundColor: "#7fff00" }]
+		const fontSizeNames: names = {
+			small: 'small',
+			regular: 'regular',
+			medium: 'medium',
+			large: 'large',
+			title: 'title'
+		};
+		type weights = {
+      thin: "thin",
+      light: "light",
+      regular: "regular",
+      medium: "medium",
+      bold: "bold",
+      black: "black",
+		};
 
-storiesOf("Text", module)
-  .addDecorator((fn) => <StoryScreen>{fn()}</StoryScreen>)
-  .add("Style Presets", () => (
-    <Story>
-      <UseCase text="default" usage="Used for normal body text.">
-        <View style={VIEWSTYLE}>
-          <Text>Hello!</Text>
-          <Text style={{ paddingTop: 10 }}>
-            Check out{"\n"}
-            my{"\n"}
-            line height
-          </Text>
-          <Text style={{ paddingTop: 10 }}>The quick brown fox jumped over the slow lazy dog.</Text>
-          <Text>$123,456,789.00</Text>
-        </View>
-      </UseCase>
-      <UseCase text="header" usage="Used for major section headers.">
-        <View style={VIEWSTYLE}>
-          <Text preset="header">Behold!</Text>
-        </View>
-      </UseCase>
-    </Story>
-  ))
-  .add("Passing Content", () => (
-    <Story>
-      <UseCase
-        text="text"
-        usage="Used when you want to pass a value but don't want to open a child."
-      >
-        <View style={VIEWSTYLE}>
-          <Text text="Heyo!" />
-        </View>
-      </UseCase>
-      <UseCase
-        text="children"
-        usage="Used like you would normally use a React Native <Text> component."
-      >
-        <View style={VIEWSTYLE}>
-          <Text>Passing strings as children.</Text>
-        </View>
-      </UseCase>
-    </Story>
-  ))
+		const fontSizeWeights: weights = {
+      thin: "thin",
+      light: "light",
+      regular: "regular",
+      medium: "medium",
+      bold: "bold",
+      black: "black",
+		};
+
+		return (
+			<Story>
+				<UseCase
+					text={select('Size', fontSizeNames, fontSizeNames.title, 'SIZES')}
+				>
+					<Text
+            weight={select<FontWeightsType>(
+							'Weight',
+							fontSizeWeights,
+							fontSizeWeights.black,
+							'WEIGHTS'
+						)}
+						size={select<FontSizesType>(
+							'Size',
+							fontSizeNames,
+							fontSizeNames.title,
+							'SIZES'
+						)}
+						color={colors.palette.black}
+					>
+						{text('Change text', 'Hello world', 'TEXT')}
+					</Text>
+				</UseCase>
+			</Story>
+		);
+	})
+	.add('Text Weights', () => {
+		return (
+			<Story>
+				<UseCase text="black">
+					<Text weight="black" color={colors.palette.black}>
+						Hello beaches
+					</Text>
+				</UseCase>
+				<UseCase text="bold">
+					<Text weight="bold" color={colors.palette.black}>
+						Hello beaches
+					</Text>
+				</UseCase>
+				<UseCase text="medium">
+					<Text weight="medium" color={colors.palette.black}>
+						Hello beaches
+					</Text>
+				</UseCase>
+				<UseCase text="regular">
+					<Text weight="regular" color={colors.palette.black}>
+						Hello beaches
+					</Text>
+				</UseCase>
+				<UseCase text="light">
+					<Text weight="light" color={colors.palette.black}>
+						Hello beaches
+					</Text>
+				</UseCase>
+				<UseCase text="thin">
+					<Text weight="thin" color={colors.palette.black}>
+						Hello beaches
+					</Text>
+				</UseCase>
+			</Story>
+		);
+	})
+	.add('Text sizes', () => {
+		return (
+			<Story>
+				<UseCase text="title">
+					<Text size="title" color={colors.palette.black}>
+						Hello beaches
+					</Text>
+				</UseCase>
+				<UseCase text="large">
+					<Text size="large" color={colors.palette.black}>
+						Hello beaches
+					</Text>
+				</UseCase>
+				<UseCase text="medium">
+					<Text size="medium" color={colors.palette.black}>
+						Hello beaches
+					</Text>
+				</UseCase>
+				<UseCase text="regular">
+					<Text size="regular" color={colors.palette.black}>
+						Hello beaches
+					</Text>
+				</UseCase>
+				<UseCase text="small">
+					<Text size="small" color={colors.palette.black}>
+						Hello beaches
+					</Text>
+				</UseCase>
+			</Story>
+		);
+	});

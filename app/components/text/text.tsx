@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Text as ReactNativeText, StyleSheet, TextStyle } from 'react-native';
-import { presets } from './text.presets';
-import { TextProps } from './text.props';
+import { presets } from './Text.presets';
+import { FontWeights, TextProps, FontSizes } from './Text.props';
 import { colors } from '../../theme/colors';
 
 /**
@@ -10,17 +10,12 @@ import { colors } from '../../theme/colors';
 export function Text(props: TextProps) {
 	// grab the props
 	const {
-		preset = 'default',
 		children,
+    preset = 'default',
 		text,
-    color: propColor,
-    bold,
-    black,
-    light,
-    title,
-    large,
-    medium,
-    small,
+    color,
+    weight,
+    size,
 		style: styleOverride,
 		...rest
 	} = props;
@@ -31,16 +26,10 @@ export function Text(props: TextProps) {
     {fontSize: 16, fontFamily: 'Roboto-Regular', color: colors.text},
 
     stylePresets,
-    propColor !== undefined && {color: propColor},
+    color !== undefined && {color},
+    weight !== undefined && {fontFamily: FontWeights[weight]},
+    size !== undefined && {fontSize: FontSizes[size]},
     
-    bold !== undefined && {fontFamily: 'Roboto-Medium'},
-    black !== undefined && {fontFamily: 'Roboto-Bold'},
-    light !== undefined && {fontFamily: 'Roboto-Light'},
-    
-    title !== undefined && {fontSize: 26},
-    large !== undefined && {fontSize: 22},
-    medium !== undefined && {fontSize: 18},
-    small !== undefined && {fontSize: 12},
     styleOverride
   ])
 

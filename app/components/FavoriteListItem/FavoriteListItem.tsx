@@ -41,7 +41,7 @@ export const FavoriteListItem = observer(function FavoriteListItem(
 			/>
 			<Block>
 				<Block style={{ marginBottom: 8 }}>
-					<Text black large>
+					<Text weight='black' size="large">
 						{product.name}
 					</Text>
 					<Text color={colors.dim}>{product.description}</Text>

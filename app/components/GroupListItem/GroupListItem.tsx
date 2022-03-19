@@ -57,7 +57,7 @@ export const GroupListItem = observer(function GroupListItem(
 							resizeMode: 'contain'
 						}}
 					/>
-					<Text bold large>
+					<Text weight='bold' size="large">
 						{group.name}
 					</Text>
 				</Block>

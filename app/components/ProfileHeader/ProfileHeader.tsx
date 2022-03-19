@@ -30,7 +30,7 @@ export const ProfileHeader = observer(function ProfileHeader(props: ProfileHeade
 			/>
 
 			<Block style={{ marginLeft: spacing[4] }}>
-				<Text black large style={{ marginBottom: spacing[1] }}>
+				<Text weight='black' size="large" style={{ marginBottom: spacing[1] }}>
 					Aminev Vadim
 				</Text>
 				<Text color={colors.dim}>hugidonic@ya.ru</Text>

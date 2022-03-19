@@ -38,7 +38,7 @@ export const ExploreScreen: FC<
 			>
 				{/* @ts-ignore */}
 				<Image source={group.picture} style={styles.image} />
-				<Text bold large>
+				<Text weight='bold' size="large">
 					{group.name}
 				</Text>
 			</TouchableOpacity>
@@ -52,7 +52,7 @@ export const ExploreScreen: FC<
 				align="center"
 				style={{ marginVertical: 30 }}
 			>
-				<Text black title>
+				<Text weight='black' size='title'>
 					Find Products
 				</Text>
 			</Block>
