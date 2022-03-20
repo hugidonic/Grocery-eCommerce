@@ -2,14 +2,13 @@ import * as React from "react"
 import { ScrollView, View, ViewStyle } from "react-native"
 
 export interface StoryProps {
-  children?: React.ReactNode
+  children?: React.ReactNode,
+  border?: boolean
 }
 
-const ROOT: ViewStyle = { flex: 1 }
-
-export function Story(props: StoryProps) {
+export const Story = (props: StoryProps) => {
   return (
-    <View style={ROOT}>
+    <View style={{ flex: 1, borderWidth: props.border? 1 : 0 }}>
       <ScrollView keyboardShouldPersistTaps="handled">{props.children}</ScrollView>
     </View>
   )

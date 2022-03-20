@@ -142,57 +142,57 @@ export class Reactotron {
       // connect to the app
       Tron.connect()
 
-      // Register Custom Commands
-      Tron.onCustomCommand({
-        title: "Reset Root Store",
-        description: "Resets the MST store",
-        command: "resetStore",
-        handler: () => {
-          console.tron.log("resetting store")
-          clear()
-        },
-      })
+      // // Register Custom Commands
+      // Tron.onCustomCommand({
+      //   title: "Reset Root Store",
+      //   description: "Resets the MST store",
+      //   command: "resetStore",
+      //   handler: () => {
+      //     console.tron.log("resetting store")
+      //     clear()
+      //   },
+      // })
 
-      Tron.onCustomCommand({
-        title: "Reset Navigation State",
-        description: "Resets the navigation state",
-        command: "resetNavigation",
-        handler: () => {
-          console.tron.log("resetting navigation state")
-          resetRoot({ index: 0, routes: [] })
-        },
-      })
+      // Tron.onCustomCommand({
+      //   title: "Reset Navigation State",
+      //   description: "Resets the navigation state",
+      //   command: "resetNavigation",
+      //   handler: () => {
+      //     console.tron.log("resetting navigation state")
+      //     resetRoot({ index: 0, routes: [] })
+      //   },
+      // })
 
-      Tron.onCustomCommand({
-        command: "navigateTo",
-        handler: (args) => {
-          const { route } = args
-          if (route) {
-            console.log(`Navigating to: ${route}`)
-            navigate(route)
-          } else {
-            console.log("Could not navigate. No route provided.")
-          }
-        },
-        title: "Navigate To Screen",
-        description: "Navigates to a screen by name.",
-        args: [
-          {
-            name: "route",
-            type: ArgType.String,
-          },
-        ],
-      })
+      // Tron.onCustomCommand({
+      //   command: "navigateTo",
+      //   handler: (args) => {
+      //     const { route } = args
+      //     if (route) {
+      //       console.log(`Navigating to: ${route}`)
+      //       navigate(route)
+      //     } else {
+      //       console.log("Could not navigate. No route provided.")
+      //     }
+      //   },
+      //   title: "Navigate To Screen",
+      //   description: "Navigates to a screen by name.",
+      //   args: [
+      //     {
+      //       name: "route",
+      //       type: ArgType.String,
+      //     },
+      //   ],
+      // })
 
-      Tron.onCustomCommand({
-        title: "Go Back",
-        description: "Goes back",
-        command: "goBack",
-        handler: () => {
-          console.tron.log("Going back")
-          goBack()
-        },
-      })
+      // Tron.onCustomCommand({
+      //   title: "Go Back",
+      //   description: "Goes back",
+      //   command: "goBack",
+      //   handler: () => {
+      //     console.tron.log("Going back")
+      //     goBack()
+      //   },
+      // })
 
       // clear if we should
       if (this.config.clearOnLoad) {

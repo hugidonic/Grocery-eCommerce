@@ -1,4 +1,4 @@
-// require("../app/components/Text/text.story")
+require("../app/modules/Cart/components/Checkout/Checkout.story")
 // require("../app/components/AutoImage/AutoImage.story")
 // require("../app/components/Button/Button.story")
 // require("../app/components/Switch/Switch.story")

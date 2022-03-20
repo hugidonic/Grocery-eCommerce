@@ -15,8 +15,8 @@ import { CartList, Checkout } from '../../modules';
 type CartScreenProps = StackScreenProps<TabsNavigatorParamList, 'cart'>;
 
 export const CartScreen: FC<CartScreenProps> = observer(function CartScreen() {
-	const { UserStore } = useStores();
 
+	const {UserStore} = useStores()
 	React.useEffect(() => {
 		data.products.fruits.map((product) => UserStore.cartItems.addToCart(product));
 	}, []);
@@ -46,9 +46,7 @@ export const CartScreen: FC<CartScreenProps> = observer(function CartScreen() {
 				/>
 			</Block>
 
-			<Checkout sheetRef={sheetRef} />
-
-			
+			<Checkout sheetRef={sheetRef} totalCost={UserStore.cartItems.totalCost} />
 		</React.Fragment>
 	);
 });

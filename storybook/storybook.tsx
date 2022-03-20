@@ -2,7 +2,9 @@ import React, { useEffect } from "react"
 import { getStorybookUI, configure } from "@storybook/react-native"
 import { initFonts } from "../app/theme/fonts"
 
-declare let module
+import "./rn-addons"
+
+// declare let module
 
 configure(() => {
   require("./storybook-registry")
