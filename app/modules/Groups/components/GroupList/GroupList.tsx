@@ -9,7 +9,7 @@ import { GroupListItem } from "..";
 import { Block } from "../../../../components";
 
 export interface GroupListProps {
-  style?: StyleProp<ViewStyle>
+  style?: StyleProp<ViewStyle>;
 }
 
 const { width } = Dimensions.get('screen');

@@ -16,7 +16,10 @@ export interface ProfileListProps {
 export const ProfileList = observer(function ProfileList(
 	props: ProfileListProps
 ) {
-	const nav = useNavigation<NavigatorScreenProps>();
+	// const nav = useNavigation<NavigatorScreenProps>();
+	const nav = {
+		navigate: (name: string, obj: any) => {}
+	}
 	return (
 		<Block>
 			<ProfileListItem

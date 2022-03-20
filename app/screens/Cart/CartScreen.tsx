@@ -32,7 +32,8 @@ export const CartScreen: FC<CartScreenProps> = observer(function CartScreen() {
 					</Text>
 				</Block>
 
-				<CartList />
+				<CartList cartItems={UserStore.cartItems.items} />
+
 			</Screen>
 			<Block
 				justify="center"

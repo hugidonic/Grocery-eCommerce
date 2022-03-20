@@ -26,19 +26,19 @@ export const HomeScreen: FC<
 			{/* TODO: Make this a slider fadeinout thing */}
 			<BgSlider />
 
-			<ProductList title="Fruits" data={data.products.fruits} />
-			<ProductList title="Vegetables" data={data.products.vegetables} />
+			<ProductList title="Fruits" productsList={data.products.fruits} />
+			<ProductList title="Vegetables" productsList={data.products.vegetables} />
 
 			<GroupList />
 
-			<ProductList title="Exclusive offer" data={data.products.fruits} />
-			<ProductList title="Best selling" data={data.products.fruits} />
+			<ProductList title="Exclusive offer" productsList={data.products.fruits} />
+			<ProductList title="Best selling" productsList={data.products.fruits} />
 
 			<GroupList />
 
 			<ProductList
 				title="All"
-				data={[ ...data.products.vegetables, ...data.products.fruits ]}
+				productsList={[ ...data.products.vegetables, ...data.products.fruits ]}
 			/>
 		</Screen>
 	);

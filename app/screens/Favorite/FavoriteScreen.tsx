@@ -30,7 +30,7 @@ export const FavoriteScreen: FC<FavoriteScreenProps> = observer(function Favorit
 					</Text>
 				</Block>
 
-				<FavoriteList />	
+				<FavoriteList favoriteItems={UserStore.favoriteItems.items} />	
 			</Screen>
 
 

@@ -20,21 +20,22 @@ import { Block, Text } from '../../../../components';
 export interface ProductProps {
 	product: ProductType;
 	style?: StyleProp<ViewStyle>;
+	onPress?: () => void;
 }
 
 const { width } = Dimensions.get('screen');
 const IMAGE_SIZE = 120;
 
 export const Product = observer(function Product(props: ProductProps) {
-	const { product } = props;
+	const { product, onPress = () => {} } = props;
 	
-	const nav = useNavigation<NavigatorScreenProps>();
+	// const nav = useNavigation<NavigatorScreenProps>();
 		
-	const handleNavigation = () => {
-		if (navigationRef.isReady) {
-			nav.navigate('productDetails', { productId: product.productId });
-		}
-	}
+	// const handleNavigation = () => {
+	// 	if (navigationRef.isReady) {
+	// 		nav.navigate('productDetails', { productId: product.productId });
+	// 	}
+	// }
 		
 	return (
 		<Block
@@ -46,7 +47,7 @@ export const Product = observer(function Product(props: ProductProps) {
 			margin={[ 8, 8, 12, 8 ]}
 		>
 			<TouchableOpacity
-				onPress={handleNavigation}
+				onPress={onPress}
 				style={{ padding: spacing[2], }}
 			>
 				<Image
@@ -60,16 +61,16 @@ export const Product = observer(function Product(props: ProductProps) {
 				/>
 
 				<Block style={{ marginVertical: 8 }}>
-					<Text weight='black' size='medium'>
+					<Text weight='bold' size='medium'>
 						{product.name}
 					</Text>
-					<Text color="#999" weight='bold'>
+					<Text color="#999" weight='regular'>
 						{product.description}
 					</Text>
 				</Block>
 
 				<Block row align="center" justify="space-between">
-					<Text weight='black' size='medium'>
+					<Text weight='bold' size='medium'>
 						$ {product.price}
 					</Text>
 					<AddBtn />

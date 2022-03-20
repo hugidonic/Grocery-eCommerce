@@ -1,10 +1,7 @@
-require("../app/modules/Cart/components/Checkout/Checkout.story")
-// require("../app/components/AutoImage/AutoImage.story")
-// require("../app/components/Button/Button.story")
-// require("../app/components/Switch/Switch.story")
-// require("../app/components/TextField/TextField.story")
-
-// require("../app/components/Product/Product.story")
-// require("../app/components/ProductList/ProductList.story")
+require("../app/modules/Cart/components/Cart.story")
+require("../app/modules/Favorite/components/Favorite.story")
+require("../app/modules/Groups/components/Groups.story")
+require("../app/modules/Products/components/Products.story")
+require("../app/modules/Profile/components/Profile.story")
 
 

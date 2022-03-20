@@ -4,20 +4,22 @@ import { StyleProp, ViewStyle } from 'react-native';
 import { observer } from 'mobx-react-lite';
 // Types and utils
 import { spacing } from '../../../../theme';
-import { data } from '../../../../utils/data';
 // Components
 import { Block } from '../../../../components';
-import { ProductType, useStores } from '../../../../models';
+import { ProductType } from '../../../../models';
 import { FavoriteListItem } from '..';
  
 export interface FavoriteListProps {
 	style?: StyleProp<ViewStyle>;
+	favoriteItems?: ProductType[]
 }
 
 export const FavoriteList = observer(function FavoriteList(props: FavoriteListProps) {
 
-	const {UserStore: {favoriteItems}} = useStores()
-
+	const {
+		favoriteItems = []
+	} = props
+	
 	const renderFavoriteListItem = (
 		product: ProductType,
 		idx: number
@@ -31,7 +33,7 @@ export const FavoriteList = observer(function FavoriteList(props: FavoriteListPr
 
 	return (
 		<Block padding={[ 0, 0, 200, 0 ]}>
-			{favoriteItems.items.map(renderFavoriteListItem)}
+			{favoriteItems.map(renderFavoriteListItem)}
 		</Block>
 	);
 });

@@ -10,20 +10,20 @@ import { Block, Text } from "../../../../components"
 import { Product } from '..';
 
 export interface ProductListProps {
-  title: string,
-  data: ProductType[]
+  title?: string,
+  productsList?: ProductType[]
   style?: StyleProp<ViewStyle>
 }
 
 const {width} = Dimensions.get('screen')
 
 export const ProductList = observer(function ProductList(props: ProductListProps) {
-  const { data, title } = props
+  const { productsList = [], title = '' } = props
 
   return (
     <Block>
 			<Block row justify="space-between" align="center" style={{ marginVertical: 8 }}>
-				<Text size="large" weight='black'>
+				<Text size="large" weight='medium'>
 					{title}
 				</Text>
 				{/* TODO: Make this a Link comoponent */}
@@ -31,7 +31,7 @@ export const ProductList = observer(function ProductList(props: ProductListProps
 			</Block>
 
 			<FlatList
-				data={data}
+				data={productsList}
 				renderItem={({ item }) => (
 					<Product product={item} />
 				)}

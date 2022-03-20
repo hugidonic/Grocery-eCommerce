@@ -19,15 +19,16 @@ import { Block, Text } from '../../../../components';
 export interface GroupListItemProps {
 	group: GroupType;
 	style?: StyleProp<ViewStyle>;
+	onPress?: () => void
 }
 
 export const GroupListItem = observer(function GroupListItem(
 	props: GroupListItemProps
 ) {
-	const { style, group } = props;
+	const { style, group, onPress = () => {} } = props;
 	const styles = Object.assign({}, st, style);
 
-	const nav = useNavigation<NavigatorScreenProps>();
+	// const nav = useNavigation<NavigatorScreenProps>();
 
 	return (
 		<Block
@@ -42,10 +43,10 @@ export const GroupListItem = observer(function GroupListItem(
 		>
 			<TouchableOpacity
 				style={{ padding: spacing[2], }}
-				onPress={() =>
-					nav.navigate('group', {
-						groupId: group.groupId
-					})}
+				onPress={onPress}
+					// nav.navigate('group', {
+					// 	groupId: group.groupId
+					// })}
 			>
 				<Block row align="center">
 					<Image
