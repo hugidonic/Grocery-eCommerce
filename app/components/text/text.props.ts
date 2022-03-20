@@ -1,5 +1,5 @@
 import { StyleProp, TextProps as TextProperties, TextStyle } from 'react-native';
-import { TextPresets } from './text.presets';
+import { TextPresets } from './Text.presets';
 
 export interface TextProps extends TextProperties {
 	/**

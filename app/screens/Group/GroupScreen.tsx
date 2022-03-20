@@ -5,12 +5,11 @@ import { FlatList, StyleSheet } from "react-native"
 import { StackScreenProps } from "@react-navigation/stack"
 // Types and utils
 import { NavigatorParamList } from "../../navigators"
-// import { useNavigation } from "@react-navigation/native"
-// import { useStores } from "../../models"
 import { colors, spacing } from '../../theme';
 // Components
-import { Product, ProductDetailsHeader, Screen, Text } from "../../components"
+import { Screen, Text } from "../../components"
 import { data } from "../../utils/data"
+import { Product, ProductDetailsHeader } from "../../modules"
 
 export const GroupScreen: FC<StackScreenProps<NavigatorParamList, "group">> = observer(function GroupScreen(props) {
 

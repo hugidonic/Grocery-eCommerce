@@ -6,15 +6,15 @@ import { StackScreenProps } from '@react-navigation/stack';
 // Types and utils
 import { TabsNavigatorParamList } from '../../navigators';
 import { colors, spacing } from '../../theme';
+import { data } from '../../utils/data';
 // Components
 import {
-	ProductList,
 	Screen,
-	GroupList,
 	BgSlider,
 	SearchBar,
 } from '../../components';
-import { data } from '../../utils/data';
+import { GroupList, ProductList } from '../../modules';
+
 
 export const HomeScreen: FC<
 	StackScreenProps<TabsNavigatorParamList, 'home'>

@@ -7,7 +7,8 @@ import { StackNavigationProp } from '@react-navigation/stack';
 import { TabsNavigatorParamList } from '../../navigators';
 import { colors } from '../../theme';
 // Components
-import { ProfileList, Screen, Block, Button, ProfileHeader } from '../../components';
+import { Screen, Block, Button,  } from '../../components';
+import { ProfileHeader, ProfileList } from '../../modules';
 
 export const ProfileScreen: FC<
 	StackNavigationProp<TabsNavigatorParamList, 'profile'>

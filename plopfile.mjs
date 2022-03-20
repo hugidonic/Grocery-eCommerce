@@ -16,7 +16,8 @@ export default function(plop) {
       {
         type: 'add',
         path: './app/modules/{{pascalCase name}}/index.ts',
-        template: `export * from './actions'
+        template: `export * from './components'
+export * from './actions'
 export * from './actionTypes'
 export * from './reducer'
 export * from './constants'`

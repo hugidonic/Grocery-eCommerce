@@ -4,12 +4,13 @@ import { observer } from 'mobx-react-lite';
 import { StackScreenProps } from '@react-navigation/stack';
 import BottomSheet from 'reanimated-bottom-sheet';
 // Components
-import { Screen, Text, Block, Button, CartList, Checkout } from '../../components';
+import { Screen, Text, Block, Button, } from '../../components';
 // Types and utils
 import { TabsNavigatorParamList } from '../../navigators';
 import { useStores } from '../../models';
 import { data } from '../../utils/data';
 import { colors } from '../../theme';
+import { CartList, Checkout } from '../../modules';
 
 type CartScreenProps = StackScreenProps<TabsNavigatorParamList, 'cart'>;
 

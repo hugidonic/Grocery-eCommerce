@@ -9,8 +9,9 @@ import { NavigatorParamList } from '../../navigators';
 // import { useStores } from "../../models"
 import { colors, spacing } from '../../theme';
 // Components
-import { Block, ProductDetailsHeader, ProductDetailsInfo, Screen } from '../../components';
+import { Block, Screen } from '../../components';
 import { data } from '../../utils/data';
+import { ProductDetailsHeader, ProductDetailsInfo } from '../../modules';
 
 const {height} = Dimensions.get('screen')
 

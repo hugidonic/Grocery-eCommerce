@@ -5,10 +5,11 @@ import { StackScreenProps } from "@react-navigation/stack"
 // Types and utils
 import { TabsNavigatorParamList } from "../../navigators"
 import { colors } from "../../theme"
-// Components
-import { Screen, Text, Block, Button, CartList, FavoriteList } from "../../components"
 import { useStores } from "../../models"
 import { data } from "../../utils/data"
+// Components
+import { Screen, Text, Block, Button } from "../../components"
+import { FavoriteList } from "../../modules"
 
 type FavoriteScreenProps = StackScreenProps<TabsNavigatorParamList, "favorite">
 
