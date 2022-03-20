@@ -24,7 +24,7 @@ export const FavoriteScreen: FC<FavoriteScreenProps> = observer(function Favorit
     <>
 			<Screen backgroundColor={colors.palette.offWhite} preset="scroll">
 				<Block justify="center" row style={{ marginVertical: 30 }}>
-					<Textweight='black' size='title'>
+					<Text weight='black' size='title'>
 						Favorite products
 					</Text>
 				</Block>
