@@ -28,6 +28,7 @@
     "clean-all": "npx react-native clean-project-auto"
   },
   "dependencies": {
+    "@gorhom/bottom-sheet": "^4",
     "@react-native-async-storage/async-storage": "^1.14.1",
     "@react-native-firebase/app": "^14.5.0",
     "@react-navigation/bottom-tabs": "^6.2.0",

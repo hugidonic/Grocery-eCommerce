@@ -5,8 +5,6 @@ import { Dimensions, Image, StyleSheet } from 'react-native';
 import { StackScreenProps } from '@react-navigation/stack';
 // Types and utils
 import { NavigatorParamList } from '../../navigators';
-// import { useNavigation } from "@react-navigation/native"
-// import { useStores } from "../../models"
 import { colors, spacing } from '../../theme';
 // Components
 import { Block, Screen } from '../../components';
@@ -21,6 +19,10 @@ export const ProductDetailsScreen: FC<
 
   const {productId} = props.route.params
   const product = data.products.all.find(p => p.productId === productId)
+
+  React.useEffect(() => {
+    console.log(scrollY);
+  }, [scrollY])
 
   React.useEffect(() => {
     if (!product) {

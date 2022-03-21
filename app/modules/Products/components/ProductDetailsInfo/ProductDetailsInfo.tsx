@@ -9,7 +9,7 @@ import AntDesign from 'react-native-vector-icons/AntDesign';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 // Types and utils
 import { colors, spacing } from '../../../../theme';
-import { ProductType } from '../../../../RootStore';
+import { ProductType } from '../../';
 // Components
 import { Block, Text } from '../../../../components';
 
@@ -32,15 +32,12 @@ const carbsPercentage = +(banana.carbs / all * 100).toFixed(2);
 
 const { height } = Dimensions.get('screen');
 
-export const ProductDetailsInfo = observer(function ProductDetailsInfo(
-	props: ProductDetailsInfoProps
-) {
+export const ProductDetailsInfo = observer((props: ProductDetailsInfoProps) => {
 	const { style, product } = props;
 	const styles = Object.assign({}, st, style);
 
-	const snapPoints = React.useMemo(() => [ '60%', height ], []);
+	const snapPoints = React.useMemo(() => [ height*0.6, height ], []);
 	return (
-		<Block flex>
 			<BottomSheet
 				snapPoints={snapPoints}
 				initialPosition={snapPoints[0]}
@@ -49,7 +46,11 @@ export const ProductDetailsInfo = observer(function ProductDetailsInfo(
 				isRoundBorderWithTipHeader
 				overDrag={false}
 				body={
-					<Block color='#fff' paddingHorizontal={spacing[5]} style={{paddingTop: 10}}>
+					<Block
+						color="#fff"
+						paddingHorizontal={spacing[5]}
+						style={{ paddingTop: 10 }}
+					>
 						<Block
 							row
 							justify="space-between"
@@ -165,7 +166,6 @@ export const ProductDetailsInfo = observer(function ProductDetailsInfo(
 					</Block>
 				}
 			/>
-		</Block>
 	);
 });
 

@@ -5,6 +5,7 @@ specifiers:
   '@babel/plugin-proposal-decorators': 7.12.1
   '@babel/plugin-proposal-optional-catch-binding': 7.12.1
   '@babel/runtime': ^7.12.5
+  '@gorhom/bottom-sheet': ^4
   '@react-native-async-storage/async-storage': ^1.14.1
   '@react-native-community/cli-platform-ios': ^6.2.0
   '@react-native-firebase/app': ^14.5.0
@@ -86,6 +87,7 @@ specifiers:
   validate.js: 0.13.1
 
 dependencies:
+  '@gorhom/bottom-sheet': 4.1.5_7da67e69e1e621a1231badd37776e0e9
   '@react-native-async-storage/async-storage': 1.16.1_react-native@0.67.2
   '@react-native-firebase/app': 14.5.0_react-native@0.67.2+react@17.0.2
   '@react-navigation/bottom-tabs': 6.2.0_3c5604254d8f04b632d9bdf78c158a14
@@ -1836,6 +1838,35 @@ packages:
       lodash.omit: 4.5.0
       lodash.pick: 4.4.0
       lodash.template: 4.5.0
+    dev: false
+
+  /@gorhom/bottom-sheet/4.1.5_7da67e69e1e621a1231badd37776e0e9:
+    resolution: {integrity: sha512-3F5P8jK3NXwT2lGwkAdkdLwDVHaRvMZalUTXjK6Ogf0Tki6idffJ3TNlQZlg8k6+OnXAx0+i80f4XaI+J4GFrA==}
+    peerDependencies:
+      react: '*'
+      react-native: '*'
+      react-native-gesture-handler: '>=1.10.1'
+      react-native-reanimated: '>=2.2.0'
+    dependencies:
+      '@gorhom/portal': 1.0.12_react-native@0.67.2+react@17.0.2
+      invariant: 2.2.4
+      nanoid: 3.3.1
+      react: 17.0.2
+      react-native: 0.67.2_react@17.0.2
+      react-native-gesture-handler: 1.10.3
+      react-native-reanimated: 2.4.1_cfc5135401dd140d1f99e8dcfea819fb
+      react-native-redash: 16.2.3_7da67e69e1e621a1231badd37776e0e9
+    dev: false
+
+  /@gorhom/portal/1.0.12_react-native@0.67.2+react@17.0.2:
+    resolution: {integrity: sha512-JOYe85RUwiksgdMbhLWDCLpH3kgFFz+LCu1lnxOMMBQSfAKtL5kkTKVrhtmQ3Lq3lJM2paGnLc4wJrlVuaC5Jw==}
+    peerDependencies:
+      react: '*'
+      react-native: '*'
+    dependencies:
+      nanoid: 3.3.1
+      react: 17.0.2
+      react-native: 0.67.2_react@17.0.2
     dev: false
 
   /@hapi/hoek/9.2.1:
@@ -3928,6 +3959,10 @@ packages:
     engines: {node: '>=6.5'}
     dependencies:
       event-target-shim: 5.0.1
+    dev: false
+
+  /abs-svg-path/0.1.1:
+    resolution: {integrity: sha1-32Acjo0roQ1KdtYl4japo5wnI78=}
     dev: false
 
   /absolute-path/0.0.0:
@@ -11645,6 +11680,12 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: true
 
+  /normalize-svg-path/1.1.0:
+    resolution: {integrity: sha512-r9KHKG2UUeB5LoTouwDzBy2VxXlHsiM6fyLQvnJa0S5hrhzqElH/CH7TUGhT1fVvIYBIKf3OpY4YJ4CK+iaqHg==}
+    dependencies:
+      svg-arc-to-cubic-bezier: 3.2.0
+    dev: false
+
   /normalize-url/6.1.0:
     resolution: {integrity: sha512-DlL+XwOy3NxAQ8xuC0okPgK46iuVNAK01YN7RueYBqqFeGsBjV9XmCAzAdgt+667bCl5kPh9EqKKDwnaPG1I7A==}
     engines: {node: '>=10'}
@@ -12151,6 +12192,10 @@ packages:
       qs: 6.10.3
       query-string: 6.14.1
     dev: true
+
+  /parse-svg-path/0.1.2:
+    resolution: {integrity: sha1-en7A0esG+lMlx9PgCbhZoJtdSes=}
+    dev: false
 
   /parse-url/6.0.0:
     resolution: {integrity: sha512-cYyojeX7yIIwuJzledIHeLUBVJ6COVLeT4eF+2P6aKVzwvgKQPndCBv3+yQ7pcWjqToYwaligxzSYNNmGoMAvw==}
@@ -13429,6 +13474,23 @@ packages:
       string-hash-64: 1.0.3
     transitivePeerDependencies:
       - '@babel/core'
+    dev: false
+
+  /react-native-redash/16.2.3_7da67e69e1e621a1231badd37776e0e9:
+    resolution: {integrity: sha512-vSjHA6/mBY3IpDYPish3DlG06PKNLkb/b89hw7nsDM3yxAJ7Db+yMnEL3pp2YsoYblDc3s+0+wBRlvxay4X4vQ==}
+    peerDependencies:
+      react: '*'
+      react-native: '*'
+      react-native-gesture-handler: '*'
+      react-native-reanimated: '>=2.0.0'
+    dependencies:
+      abs-svg-path: 0.1.1
+      normalize-svg-path: 1.1.0
+      parse-svg-path: 0.1.2
+      react: 17.0.2
+      react-native: 0.67.2_react@17.0.2
+      react-native-gesture-handler: 1.10.3
+      react-native-reanimated: 2.4.1_cfc5135401dd140d1f99e8dcfea819fb
     dev: false
 
   /react-native-safe-area-context/3.1.8_react-native@0.67.2+react@17.0.2:
@@ -15174,6 +15236,10 @@ packages:
   /supports-preserve-symlinks-flag/1.0.0:
     resolution: {integrity: sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==}
     engines: {node: '>= 0.4'}
+
+  /svg-arc-to-cubic-bezier/3.2.0:
+    resolution: {integrity: sha512-djbJ/vZKZO+gPoSDThGNpKDO+o+bAeA4XQKovvkNCqnIS2t+S4qnLAGQhyyrulhCFRl1WWzAp0wUDV8PpTVU3g==}
+    dev: false
 
   /symbol-tree/3.2.4:
     resolution: {integrity: sha512-9QNk5KwDF+Bvz+PyObkmSYjI5ksVUYtjW7AU22r2NKcfLJcXp96hkDWU3+XndOsUb+AQ9QhfzfCT2O+CNWT5Tw==}

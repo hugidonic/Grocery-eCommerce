@@ -1,26 +1,23 @@
+// React
 import React from 'react'
+import { Dimensions } from 'react-native';
+// Storybook
 import { storiesOf } from '@storybook/react-native';
 import { Story, StoryScreen, UseCase } from '../../../../storybook/views';
-import { Product } from './Product/Product';
-import { data } from '../../../utils/data';
-import { ProductList } from './ProductList/ProductList';
+// Stories
+import { ProductUI } from './Product/Product';
 import { ProductDetailsInfo } from './ProductDetailsInfo/ProductDetailsInfo';
-import { Dimensions } from 'react-native';
-import { Block, Button } from '../../../components';
+// Components
+import { Block } from '../../../components';
+// Utils
+import { data } from '../../../utils/data';
 
 storiesOf('Products', module)
   .addDecorator(fn => <StoryScreen>{fn()}</StoryScreen>)
-  .add("Products List", () => (
-    <Story>
-      <UseCase text="List of products">
-        <ProductList title="Fruits" productsList={data.products.fruits} />
-      </UseCase>
-    </Story>
-  ))
   .add("Product", () => (
     <Story>
       <UseCase text="Single Product">
-        <Product product={data.products.fruits[0]} />
+        <ProductUI product={data.products.fruits[0]} />
       </UseCase>
     </Story>
   ))

@@ -44,8 +44,8 @@ const App = () => {
 				<SafeAreaProvider initialMetrics={initialWindowMetrics}>
 					<ErrorBoundary catchErrors={'always'}>
 						<AppNavigator
-							initialState={initialNavigationState}
-							onStateChange={onNavigationStateChange}
+							// initialState={initialNavigationState}
+							// onStateChange={onNavigationStateChange}
 						/>
 					</ErrorBoundary>
 				</SafeAreaProvider>
