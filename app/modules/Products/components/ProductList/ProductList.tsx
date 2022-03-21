@@ -4,7 +4,7 @@ import { StyleProp, ViewStyle, FlatList, Dimensions } from "react-native"
 import { observer } from "mobx-react-lite"
 // Types and utils
 import { colors } from "../../../../theme"
-import { ProductType } from "../../../../models"
+import { ProductType } from "../../../../RootStore"
 // Components
 import { Block, Text } from "../../../../components"
 import { Product } from '..';

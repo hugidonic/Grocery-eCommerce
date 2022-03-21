@@ -6,7 +6,7 @@ import { observer } from 'mobx-react-lite';
 import { spacing } from '../../../../theme';
 // Components
 import { Block } from '../../../../components';
-import { ProductType } from '../../../../models';
+import { ProductType } from '../../../../RootStore';
 import { FavoriteListItem } from '..';
  
 export interface FavoriteListProps {

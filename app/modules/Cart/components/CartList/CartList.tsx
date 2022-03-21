@@ -3,7 +3,7 @@ import React from 'react';
 import { StyleProp, ViewStyle } from 'react-native';
 // Types and utils
 import { spacing } from '../../../../theme';
-import { CartItemType } from '../../../../models/CartItem/CartItem';
+import { CartItemType } from '../../';
 // Components
 import { Block } from '../../../../components';
 import { CartListItem } from '..';

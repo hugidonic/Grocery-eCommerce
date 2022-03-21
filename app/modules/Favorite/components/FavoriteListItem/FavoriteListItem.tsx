@@ -11,7 +11,7 @@ import { observer } from 'mobx-react-lite';
 import Entypo from 'react-native-vector-icons/Entypo';
 import Feather from 'react-native-vector-icons/Feather';
 // Types and utils
-import { ProductType } from '../../../../models';
+import { ProductType } from '../../../../RootStore';
 import { colors } from '../../../../theme';
 // Components
 import { Block, Text } from '../../../../components';

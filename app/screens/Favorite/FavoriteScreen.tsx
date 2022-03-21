@@ -5,7 +5,7 @@ import { StackScreenProps } from "@react-navigation/stack"
 // Types and utils
 import { TabsNavigatorParamList } from "../../navigators"
 import { colors } from "../../theme"
-import { useStores } from "../../models"
+import { useStores } from "../../RootStore"
 import { data } from "../../utils/data"
 // Components
 import { Screen, Text, Block, Button } from "../../components"

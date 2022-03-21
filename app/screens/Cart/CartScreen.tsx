@@ -7,7 +7,7 @@ import BottomSheet from 'reanimated-bottom-sheet';
 import { Screen, Text, Block, Button, } from '../../components';
 // Types and utils
 import { TabsNavigatorParamList } from '../../navigators';
-import { useStores } from '../../models';
+import { useStores } from '../../RootStore';
 import { data } from '../../utils/data';
 import { colors } from '../../theme';
 import { CartList, Checkout } from '../../modules';

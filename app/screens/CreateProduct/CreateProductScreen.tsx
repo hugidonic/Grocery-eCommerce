@@ -9,7 +9,7 @@ import { NavigatorParamList } from "../../navigators"
 // import { useStores } from "../../models"
 import { colors } from "../../theme"
 // Components
-import { Screen, Text, Block, TextField } from "../../components"
+import { Screen, TextField } from "../../components"
 
 
 export const CreateProductScreen: FC<StackScreenProps<NavigatorParamList, "createProduct">> = observer(function CreateProductScreen() {

@@ -1,15 +1,12 @@
 import 'react-native-gesture-handler';
 import './utils/ignore-warnings';
 import React, { useState, useEffect } from 'react';
-import {
-	SafeAreaProvider,
-	initialWindowMetrics
-} from 'react-native-safe-area-context';
+import { SafeAreaProvider, initialWindowMetrics } from 'react-native-safe-area-context';
 import { initFonts } from './theme/fonts'; // expo
 import * as storage from './utils/storage';
-import {gestureHandlerRootHOC} from 'react-native-gesture-handler'
+import { gestureHandlerRootHOC } from 'react-native-gesture-handler';
 import { AppNavigator, useNavigationPersistence } from './navigators';
-import { RootStore, RootStoreProvider, setupRootStore } from './models';
+import { RootStore, RootStoreProvider, setupRootStore } from './RootStore';
 import { ToggleStorybook } from '../storybook/toggle-storybook';
 import { ErrorBoundary } from './screens/Error/ErrorBoundry';
 
@@ -23,9 +20,7 @@ export const NAVIGATION_PERSISTENCE_KEY = 'NAVIGATION_STATE';
  * This is the root component of our app.
  */
 const App = () => {
-	const [ rootStore, setRootStore ] = useState<RootStore | undefined>(
-		undefined
-	);
+	const [ rootStore, setRootStore ] = useState<RootStore | undefined>(undefined);
 
 	const {
 		initialNavigationState,
@@ -57,6 +52,6 @@ const App = () => {
 			</RootStoreProvider>
 		</ToggleStorybook>
 	);
-}
+};
 
 export default gestureHandlerRootHOC(App);

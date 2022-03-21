@@ -9,7 +9,7 @@ import AntDesign from 'react-native-vector-icons/AntDesign';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 // Types and utils
 import { colors, spacing } from '../../../../theme';
-import { ProductType } from '../../../../models';
+import { ProductType } from '../../../../RootStore';
 // Components
 import { Block, Text } from '../../../../components';
 

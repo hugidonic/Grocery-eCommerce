@@ -1,5 +1,6 @@
-import { CartListModel, CartListType, GroupType, ProductType, UserModel, UserType } from '../models';
+import { GroupType, ProductType } from '../modules';
 import uuid from './uuid';
+
 const groupColors: string[] = [
 	'#F7B2BD',
 	'#A6B1E1',

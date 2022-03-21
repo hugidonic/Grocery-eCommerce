@@ -10,7 +10,7 @@ import {
 import { useNavigation } from '@react-navigation/native';
 import { observer } from 'mobx-react-lite';
 // Types and utils
-import { GroupType } from '../../../../models';
+import { GroupType } from '../../../../RootStore';
 import { NavigatorScreenProps } from '../../../../navigators';
 import { spacing } from '../../../../theme';
 // Components

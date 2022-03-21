@@ -11,7 +11,9 @@ import { navigationRef, useBackButtonHandler } from './navigation-utilities';
 import { ProfileNavigatorParamList, TabsNavigator, TabsNavigatorParamList } from '.';
 // import { CreateProductScreen } from '../screens';
 import { StackNavigationProp } from '@react-navigation/stack';
-import { GroupType, ProductType } from '../models';
+// Types
+import { GroupType, ProductType } from '../modules';
+// Screens
 import { GroupScreen, ProductDetailsScreen } from '../screens';
 
 /**

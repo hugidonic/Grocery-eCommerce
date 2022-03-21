@@ -5,7 +5,7 @@ import { observer } from 'mobx-react-lite';
 import Entypo from 'react-native-vector-icons/Entypo';
 // Types and utils
 import { colors } from '../../../../theme';
-import { CartItemType } from '../../../../models';
+import { CartItemType } from '../../../../RootStore';
 // Components
 import { OperationBtn } from '..';
 import { Block, Text } from './../../../../components';

@@ -6,7 +6,7 @@ import { StackScreenProps } from '@react-navigation/stack';
 // Types and utils
 import { NavigatorParamList } from '../../navigators';
 import { colors, spacing } from '../../theme';
-import { GroupType } from '../../models';
+import { GroupType } from '../../modules';
 import { data } from '../../utils/data';
 // Components
 import { Block, Screen, SearchBar, Text } from '../../components';
