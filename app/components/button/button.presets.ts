@@ -41,15 +41,16 @@ export const viewPresets: Record<string, ViewStyle> = {
 	primary: {
 		...BASE_VIEW,
 		backgroundColor: colors.palette.green,
-		borderRadius: spacing[8],
+		borderRadius: spacing[4],
     paddingVertical: spacing[4],
     width: '80%'
 	} as ViewStyle,
+	
 	outline: {
 		...BASE_VIEW,
 		backgroundColor: colors.palette.lighterGrey,
 		borderWidth: 2,
-		borderRadius: spacing[8],
+		borderRadius: spacing[4],
     paddingVertical: spacing[4],
 		paddingHorizontal: spacing[2],
     width: '80%'

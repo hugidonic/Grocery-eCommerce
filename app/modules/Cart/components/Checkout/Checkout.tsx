@@ -48,9 +48,6 @@ export const Checkout = observer(function Checkout(props: CheckoutProps) {
 	const closeSheet = () => {
 		sheetRef.current.snapTo(0);
 	};
-	// const openSheet = () => {
-	// 	sheetRef.current.snapTo(1);
-	// };
 
 	return (
 		<React.Fragment>
