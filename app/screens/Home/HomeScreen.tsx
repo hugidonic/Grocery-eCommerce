@@ -3,6 +3,9 @@ import React, { FC } from 'react';
 import { observer } from 'mobx-react-lite';
 import { StyleSheet } from 'react-native';
 import { StackScreenProps } from '@react-navigation/stack';
+// Mobx
+import { GroupList, ProductList } from '../../modules';
+import { useStores } from '../../RootStore';
 // Types and utils
 import { TabsNavigatorParamList } from '../../navigators';
 import { colors, spacing } from '../../theme';
@@ -12,13 +15,24 @@ import {
 	Screen,
 	BgSlider,
 	SearchBar,
+	Loading,
 } from '../../components';
-import { GroupList, ProductList } from '../../modules';
 
 
 export const HomeScreen: FC<
 	StackScreenProps<TabsNavigatorParamList, 'home'>
 > = observer(function HomeScreen() {
+
+	const {ProductsStore} = useStores()
+
+	React.useEffect(() => {
+		ProductsStore.loadProductsFromApi()
+	}, [])
+
+	if (!ProductsStore.isLoading) {
+		return <Loading />
+	}
+	
 	return (
 		<Screen style={styles.container} preset="scroll">
 			<SearchBar />

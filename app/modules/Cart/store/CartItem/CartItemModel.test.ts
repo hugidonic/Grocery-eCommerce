@@ -1,4 +1,4 @@
-import { CartItemModel } from "./cart-item"
+import { CartItemModel } from "./CartItemModel"
 
 test("can be created", () => {
   const instance = CartItemModel.create({})

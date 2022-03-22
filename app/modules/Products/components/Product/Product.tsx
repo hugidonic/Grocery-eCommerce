@@ -7,7 +7,7 @@ import { useNavigation } from '@react-navigation/native';
 // Types and utils
 import { colors, spacing } from '../../../../theme';
 import { navigationRef, NavigatorScreenProps } from '../../../../navigators';
-import { ProductType } from '../../store/Product/Product';
+import { ProductType } from '../../store';
 // Components
 import { Block, Text } from '../../../../components';
 

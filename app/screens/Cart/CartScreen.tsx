@@ -4,36 +4,37 @@ import { observer } from 'mobx-react-lite';
 import { StackScreenProps } from '@react-navigation/stack';
 import BottomSheet from 'reanimated-bottom-sheet';
 // Components
-import { Screen, Text, Block, Button, } from '../../components';
+import { Screen, Text, Block, Button, Loading } from '../../components';
 // Types and utils
 import { TabsNavigatorParamList } from '../../navigators';
 import { useStores } from '../../RootStore';
-import { data } from '../../utils/data';
 import { colors } from '../../theme';
 import { CartList, Checkout } from '../../modules';
 
 type CartScreenProps = StackScreenProps<TabsNavigatorParamList, 'cart'>;
 
 export const CartScreen: FC<CartScreenProps> = observer(function CartScreen() {
-
-	const {UserStore} = useStores()
+	const { CartStore } = useStores();
 	React.useEffect(() => {
-		data.products.fruits.map((product) => UserStore.cartItems.addToCart(product));
+		CartStore.loadCartItemsFromApi();
 	}, []);
 
-	const sheetRef = React.useRef<BottomSheet>(null)
+	const sheetRef = React.useRef<BottomSheet>(null);
+
+	if (!CartStore.isLoading) {
+		return <Loading />;
+	}
 
 	return (
 		<React.Fragment>
 			<Screen backgroundColor={colors.palette.offWhite} preset="scroll">
 				<Block justify="center" row style={{ marginVertical: 30 }}>
-					<Text weight='black' size='title'>
+					<Text weight="black" size="title">
 						My Cart
 					</Text>
 				</Block>
 
-				<CartList cartItems={UserStore.cartItems.items} />
-
+				<CartList cartItems={CartStore.items} />
 			</Screen>
 			<Block
 				justify="center"
@@ -47,7 +48,7 @@ export const CartScreen: FC<CartScreenProps> = observer(function CartScreen() {
 				/>
 			</Block>
 
-			<Checkout sheetRef={sheetRef} totalCost={UserStore.cartItems.totalCost} />
+			<Checkout sheetRef={sheetRef} totalCost={CartStore.totalCost} />
 		</React.Fragment>
 	);
 });

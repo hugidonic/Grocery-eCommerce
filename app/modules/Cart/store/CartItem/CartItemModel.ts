@@ -1,5 +1,5 @@
 import { Instance, SnapshotOut, types } from "mobx-state-tree"
-import { ProductModel } from "../../../Products/store/Product/Product"
+import { ProductModel } from "../../../Products/store/Product/ProductModel"
 
 /**
  * Cart item model which is used in user model
@@ -7,7 +7,7 @@ import { ProductModel } from "../../../Products/store/Product/Product"
 export const CartItemModel = types
   .model("CartItem")
   .props({
-    // product: types.maybe(types.reference(types.late(() => ProductModel))),
+    // product: types.maybe(types.reference(ProductModel)),
     product: types.maybe(ProductModel),
     count: types.optional(types.number, 1)
   })

@@ -1,4 +1,4 @@
-import { GroupType, ProductType } from '../modules';
+import { CartItemType, GroupType, ProductModel, ProductType } from '../modules';
 import uuid from './uuid';
 
 const groupColors: string[] = [
@@ -15,145 +15,133 @@ const groupColors: string[] = [
 export const images = {
 	groups: [
 		{
-			name: "Drinks",
+			name: 'Drinks',
 			image: require('../../assets/images/Drinks.png')
 		},
 		{
-			name: "Diary",
+			name: 'Diary',
 			image: require('../../assets/images/Diary.png')
 		},
 		{
-			name: "Sauces",
+			name: 'Sauces',
 			image: require('../../assets/images/Sauces.png')
 		},
 		{
-			name: "Rice",
+			name: 'Rice',
 			image: require('../../assets/images/Rice.png')
 		},
 		{
-			name: "Pulses",
+			name: 'Pulses',
 			image: require('../../assets/images/Pulses.png')
 		},
 		{
-			name: "Oils",
+			name: 'Oils',
 			image: require('../../assets/images/Oils.png')
-		},
-
+		}
 	],
 	vegetables: [
 		{
-			name: "Carrots",
+			name: 'Carrots',
 			image: require('../../assets/images/Carrots.png')
 		},
 		{
-			name: "Potatoes",
+			name: 'Potatoes',
 			image: require('../../assets/images/Potatoes.png')
 		},
 		{
-			name: "Cucumbers",
+			name: 'Cucumbers',
 			image: require('../../assets/images/Cucumbers.png')
 		},
 		{
-			name: "Corns",
+			name: 'Corns',
 			image: require('../../assets/images/Corns.png')
 		},
 		{
-			name: "Tomatoes",
+			name: 'Tomatoes',
 			image: require('../../assets/images/Tomatoes.png')
-		},
+		}
 	],
 	fruits: [
 		{
-			name: "Bananas",
+			name: 'Bananas',
 			image: require('../../assets/images/Bananas.png')
 		},
 		{
-			name: "Apples",
+			name: 'Apples',
 			image: require('../../assets/images/Apples.png')
 		},
 		{
-			name: "Kiwies",
+			name: 'Kiwies',
 			image: require('../../assets/images/Kiwies.png')
 		},
 		{
-			name: "Oranges",
+			name: 'Oranges',
 			image: require('../../assets/images/Oranges.png')
 		},
 		{
-			name: "Pears",
+			name: 'Pears',
 			image: require('../../assets/images/Pears.png')
-		},
+		}
 	]
 };
 
 type DataType = {
-	products: {
-		fruits: ProductType[];
-		vegetables: ProductType[];
-		all: ProductType[];
+	products?: {
+		fruits?: ProductType[];
+		vegetables?: ProductType[];
+		all?: ProductType[];
 	};
-	groups: GroupType[];
+	groups?: GroupType[];
 };
 
 export const data: DataType = {
 	products: {
 		fruits: images.fruits.map((image) => {
-			return {
+			return ProductModel.create({
 				productId: uuid(),
+				type: 'fruit',
 				name: image.name,
 				description: 'Organic',
 				price: 4.99,
 				pictureUri: image.image
-			};
+			});
 		}),
 		vegetables: images.vegetables.map((image) => {
-			return {
+			return ProductModel.create({
 				productId: uuid(),
+				type: 'vegetable',
 				name: image.name,
 				description: 'Organic',
 				price: 4.99,
 				pictureUri: image.image
+			});
+		}),
+		all: []
+	},
+	groups: [
+		...images.groups.map((image, idx) => {
+			return {
+				groupId: uuid(),
+				name: image.name,
+				color: groupColors[idx],
+				picture: image.image
 			};
 		}),
-		all: [],
-	},
-	groups: [...images.groups.map((image, idx) => {
-		return {
-			groupId: uuid(),
-			name: image.name,
-			color: groupColors[idx],
-			picture: image.image
-		};
-	}), ...images.groups.map((image, idx) => {
-		return {
-			groupId: uuid(),
-			name: image.name,
-			color: groupColors[idx],
-			picture: image.image
-		};
-	})]
+		...images.groups.map((image, idx) => {
+			return {
+				groupId: uuid(),
+				name: image.name,
+				color: groupColors[idx],
+				picture: image.image
+			};
+		})
+	]
 };
 
+data.products.all = [ ...data.products.fruits, ...data.products.vegetables ];
 
-data.products.all = [...data.products.fruits, ...data.products.vegetables]
 
-// @ts-ignore
-export const UserInitState = {
-	userId: 'id1',
-	nickname: 'Vadim',
-	email: 'Aminev',
-}
-
-// @ts-ignore
-const productList = {
-	products: [ 'id1', 'id2', 'id3', 'id4' ]
-};
-
-// @ts-ignore
-const product = {
-	productId: 'id1',
-	name: '',
-	description: '',
-	price: 12,
-	pictureUri: ''
-};
+export const CartData: CartItemType[] = data.products.fruits.map((product) => ({
+	count: 1,
+	product
+}));

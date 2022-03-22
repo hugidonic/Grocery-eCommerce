@@ -2,9 +2,6 @@ import { Instance, SnapshotOut, types } from "mobx-state-tree"
 // Utils
 import uuid from "../../../../utils/uuid";
 import { withEnvironment } from "../../../../RootStore/extensions/with-environment";
-// Models
-import { CartListModel } from "../../../Cart";
-import { FavoriteListModel } from '../../../Favorite';
 
 /**
  * User model
@@ -13,10 +10,8 @@ export const UserModel = types
   .model("User")
   .props({
     userId: types.optional(types.identifier, uuid()),
-    email: types.optional(types.string, ""),
-    nickname: types.optional(types.string, ""),
-    cartItems: types.optional(CartListModel, {}),
-    favoriteItems: types.optional(FavoriteListModel, {}),
+    email: types.optional(types.string, "Aminev"),
+    nickname: types.optional(types.string, "Vadim"),
   })
   .extend(withEnvironment)
   .views((self) => ({

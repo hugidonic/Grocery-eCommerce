@@ -1,4 +1,4 @@
-import { ProductModel } from "./Product"
+import { ProductModel } from "./ProductModel"
 
 test("can be created", () => {
   const instance = ProductModel.create({})
