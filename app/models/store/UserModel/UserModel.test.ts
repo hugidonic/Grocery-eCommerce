@@ -5,7 +5,6 @@ test("can be created", () => {
     userId: 'id1',
     nickname: 'Vadim',
     email: 'admin@gmail.com',
-    cartItems: []
   })
 
   expect(user).toMatchSnapshot()

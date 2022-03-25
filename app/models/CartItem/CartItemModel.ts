@@ -7,8 +7,8 @@ import { ProductModel } from "../../../Products/store/Product/ProductModel"
 export const CartItemModel = types
   .model("CartItem")
   .props({
-    // product: types.maybe(types.reference(ProductModel)),
-    product: types.maybe(ProductModel),
+    id: types.identifier,
+    product: types.reference(ProductModel),
     count: types.optional(types.number, 1)
   })
   .views((self) => ({}))

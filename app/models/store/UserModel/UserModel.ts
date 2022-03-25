@@ -1,7 +1,7 @@
 import { Instance, SnapshotOut, types } from "mobx-state-tree"
 // Utils
-import uuid from "../../../../utils/uuid";
-import { withEnvironment } from "../../../../RootStore/extensions/with-environment";
+import uuid from "../../../utils/uuid";
+import { withEnvironment } from "../../../RootStore/extensions/with-environment";
 
 /**
  * User model

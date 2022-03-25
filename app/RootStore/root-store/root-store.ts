@@ -1,11 +1,9 @@
 import { Instance, SnapshotOut, types } from 'mobx-state-tree';
-import {
-	UserModel,
-	CartStoreModel,
-	FavoriteStoreModel,
-	ProductsStoreModel
-} from '../../modules';
-
+import { CartStoreModel } from '../../models/CartStore/CartStoreModel';
+import { FavoriteStoreModel } from '../../models/FavoriteStore/FavoriteStoreModel';
+import { ProductsStoreModel } from '../../models/ProductStore/ProductStoreModel';
+// Models
+import { UserModel } from '../../models/store/UserModel/UserModel';
 /**
  * A RootStore model.
  */
@@ -22,7 +20,7 @@ export const RootStoreModel = types
 /**
  * The RootStore instance.
  */
-export type RootStore = Instance<typeof RootStoreModel>;
+export type RootStoreType = Instance<typeof RootStoreModel>;
 
 /**
  * The data of a RootStore.

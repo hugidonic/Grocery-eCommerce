@@ -7,14 +7,12 @@ import {
 	Image,
 	TouchableOpacity
 } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
 import { observer } from 'mobx-react-lite';
 // Types and utils
-import { GroupType } from '../../../../RootStore';
-import { NavigatorScreenProps } from '../../../../navigators';
 import { spacing } from '../../../../theme';
 // Components
 import { Block, Text } from '../../../../components';
+import { GroupType } from '../../store';
 
 export interface GroupListItemProps {
 	group: GroupType;

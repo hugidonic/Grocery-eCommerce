@@ -76,10 +76,6 @@ specifiers:
   react-native-vector-icons: ^9.1.0
   react-native-web: ^0.16.3
   react-redux: ^7.2.6
-  reactotron-core-client: ^2.8.10
-  reactotron-mst: 3.1.4
-  reactotron-react-js: ^3.3.7
-  reactotron-react-native: 5.0.1
   reanimated-bottom-sheet: ^1.0.0-alpha.22
   solidarity: 2.3.1
   ts-jest: '26'
@@ -115,9 +111,6 @@ dependencies:
   react-native-screens: 3.8.0_react-native@0.67.2+react@17.0.2
   react-native-vector-icons: 9.1.0
   react-redux: 7.2.6_fb5bcf13e44340e6c2dcca6cf0aa4642
-  reactotron-mst: 3.1.4_29b9e7c2e329dab8e073450058714a61
-  reactotron-react-js: 3.3.7
-  reactotron-react-native: 5.0.1_react-native@0.67.2+react@17.0.2
   reanimated-bottom-sheet: 1.0.0-alpha.22_7da67e69e1e621a1231badd37776e0e9
   validate.js: 0.13.1
 
@@ -169,7 +162,6 @@ devDependencies:
   react-dom: 17.0.2_react@17.0.2
   react-native-clean-project: 3.6.7
   react-native-web: 0.16.5_react-dom@17.0.2+react@17.0.2
-  reactotron-core-client: 2.8.10
   solidarity: 2.3.1
   ts-jest: 26.5.6_jest@26.6.3+typescript@4.2.3
   typescript: 4.2.3
@@ -11359,10 +11351,6 @@ packages:
       through2: 2.0.5
     dev: true
 
-  /mitt/1.1.3:
-    resolution: {integrity: sha512-mUDCnVNsAi+eD6qA0HkRkwYczbLHJ49z17BGe2PYRhZL4wpZUFZGJHU7/5tmvohoma+Hdn0Vh/oJTiPEmgSruA==}
-    dev: false
-
   /mixin-deep/1.3.2:
     resolution: {integrity: sha512-WRoDn//mXBiJ1H40rqa3vH0toePwSsGb45iInWlTySa+Uu4k3tYUSxa2v1KqAiLtvlrSzaExqS1gtk96A9zvEA==}
     engines: {node: '>=0.10.0'}
@@ -13028,15 +13016,6 @@ packages:
     engines: {node: '>=0.6'}
     dev: true
 
-  /query-string/6.10.1:
-    resolution: {integrity: sha512-SHTUV6gDlgMXg/AQUuLpTiBtW/etZ9JT6k6RCtCyqADquApLX0Aq5oK/s5UeTUAWBG50IExjIr587GqfXRfM4A==}
-    engines: {node: '>=6'}
-    dependencies:
-      decode-uri-component: 0.2.0
-      split-on-first: 1.1.0
-      strict-uri-encode: 2.0.0
-    dev: false
-
   /query-string/6.14.1:
     resolution: {integrity: sha512-XDxAeVmpfu1/6IjyT/gXHOl+S0vQ9owggJ30hhWKdHAsNPOcasn5o9BW0eejZqL2e4vMjhAxoW3jVHcD6mbcYw==}
     engines: {node: '>=6'}
@@ -13373,17 +13352,6 @@ packages:
       - '@babel/preset-env'
       - supports-color
     dev: false
-
-  /react-native-flipper/0.34.0_react-native@0.67.2+react@17.0.2:
-    resolution: {integrity: sha512-48wgm29HJTOlZ0DibBsvXueEOY0EPIVL0wWKbwRfgrk86+luSEuLW3aZC50oJa95zSFb9qYShTV/6dWqh4Jamg==}
-    peerDependencies:
-      react: ^16.8.1
-      react-native: ^0.62.0
-    dependencies:
-      react: 17.0.2
-      react-native: 0.67.2_react@17.0.2
-    dev: false
-    optional: true
 
   /react-native-gesture-handler/1.10.3:
     resolution: {integrity: sha512-cBGMi1IEsIVMgoox4RvMx7V2r6bNKw0uR1Mu1o7NbuHS6BRSVLq0dP34l2ecnPlC+jpWd3le6Yg1nrdCjby2Mw==}
@@ -13827,49 +13795,6 @@ packages:
       object-assign: 4.1.1
     dev: false
 
-  /reactotron-core-client/2.8.10:
-    resolution: {integrity: sha512-SYRO4OCutJzfWMnaULUGVyETZnMDCU5ECNflXyM3Z5Gnfxp/wV6d7jYonhfxHdpU/aGb4Eg15C22myOCXSu6HQ==}
-
-  /reactotron-core-client/2.8.9:
-    resolution: {integrity: sha512-IAfNEst/VrWC4b5kOWkHLV0xCwM5n3Pd8q59ueotg1Tql81HnhCeHW1/lCPaaNh2B3/Eh3rAXuiM3yYWvdU36g==}
-    dev: false
-
-  /reactotron-mst/3.1.4_29b9e7c2e329dab8e073450058714a61:
-    resolution: {integrity: sha512-dRFMcWbGpXKx7o6mWfHNyh+JwLh5kaOwhlX478K+Tc/e+8OeUO9ku56PqkcrMZh005ntIcvDjBgj3mq4la1J6A==}
-    peerDependencies:
-      mobx: ^3.4.1 || ^4.1.0 || >6.0.0
-      mobx-state-tree: ^1.4.0 || ^2.0.2 || >3.0.0
-      reactotron-core-client: ^2.5.0
-    dependencies:
-      mobx: 6.1.8
-      mobx-state-tree: 5.0.1_mobx@6.1.8
-      ramda: 0.25.0
-      reactotron-core-client: 2.8.10
-    dev: false
-
-  /reactotron-react-js/3.3.7:
-    resolution: {integrity: sha512-wWC2P2A2OhtUMN0L4vIphaPZXcC2HRwotNljCipEyzHDzTwvRmgsb5ZNKQjmAWGPZlqlb8EEAJA1L9A7HB8B2A==}
-    dependencies:
-      reactotron-core-client: 2.8.9
-      stacktrace-js: 2.0.1
-    dev: false
-
-  /reactotron-react-native/5.0.1_react-native@0.67.2+react@17.0.2:
-    resolution: {integrity: sha512-xiwTjJuQga6mD+ynt7fj50scMbfiSFDe1AIsf7VVqcSDrYJNnzVqHZtlC+lqYlzDu7TucOUQVVxJALcASEWYrg==}
-    peerDependencies:
-      react-native: '>=0.40.0'
-    dependencies:
-      mitt: 1.1.3
-      query-string: 6.10.1
-      react-native: 0.67.2_react@17.0.2
-      reactotron-core-client: 2.8.10
-      rn-host-detect: 1.2.0
-    optionalDependencies:
-      react-native-flipper: 0.34.0_react-native@0.67.2+react@17.0.2
-    transitivePeerDependencies:
-      - react
-    dev: false
-
   /read-pkg-up/2.0.0:
     resolution: {integrity: sha1-a3KoBImE4MQeeVEP1en6mbO1Sb4=}
     engines: {node: '>=4'}
@@ -14309,10 +14234,6 @@ packages:
       hash-base: 3.1.0
       inherits: 2.0.4
     dev: true
-
-  /rn-host-detect/1.2.0:
-    resolution: {integrity: sha512-btNg5kzHcjZZ7t7mvvV/4wNJ9e3MPgrWivkRgWURzXL0JJ0pwWlU4zrbmdlz3HHzHOxhBhHB4D+/dbMFfu4/4A==}
-    dev: false
 
   /rsvp/4.8.5:
     resolution: {integrity: sha512-nfMOlASu9OnRJo1mbEk2cz0D56a1MBNrJ7orjRZQG10XDyuvwksKbuXNp6qa+kbn839HwjwhBzhFmdsaEAfauA==}
@@ -14841,11 +14762,6 @@ packages:
     resolution: {integrity: sha512-cPiFOTLUKvJFIg4SKVScy4ilPPW6rFgMgfuZJPNoDuMs3nC1HbMUycBoJw77xFIp6z1UJQJOfx6C9GMH80DiTw==}
     deprecated: See https://github.com/lydell/source-map-url#deprecated
 
-  /source-map/0.5.6:
-    resolution: {integrity: sha1-dc449SvwczxafwwRjYEzSiu19BI=}
-    engines: {node: '>=0.10.0'}
-    dev: false
-
   /source-map/0.5.7:
     resolution: {integrity: sha1-igOdLRAh0i0eoUyA2OpGi6LvP8w=}
     engines: {node: '>=0.10.0'}
@@ -14915,12 +14831,6 @@ packages:
     resolution: {integrity: sha512-ji9qxRnOVfcuLDySj9qzhGSEFVobyt1kIOSkj1qZzYLzq7Tos/oUUWvotUPQLlrsidqsK6tBH89Bc9kL5zHA6w==}
     dev: true
 
-  /stack-generator/2.0.5:
-    resolution: {integrity: sha512-/t1ebrbHkrLrDuNMdeAcsvynWgoH/i4o8EGGfX7dEYDoTXOYVAkEpFdtshlvabzc6JlJ8Kf9YdFEoz7JkzGN9Q==}
-    dependencies:
-      stackframe: 1.2.1
-    dev: false
-
   /stack-utils/2.0.5:
     resolution: {integrity: sha512-xrQcmYhOsn/1kX+Vraq+7j4oE2j/6BFscZ0etmYg81xuM8Gq0022Pxb8+IqgOFUIaxHs0KaSb7T1+OegiNrNFA==}
     engines: {node: '>=10'}
@@ -14930,21 +14840,6 @@ packages:
 
   /stackframe/1.2.1:
     resolution: {integrity: sha512-h88QkzREN/hy8eRdyNhhsO7RSJ5oyTqxxmmn0dzBIMUclZsjpfmrsg81vp8mjjAs2vAZ72nyWxRUwSwmh0e4xg==}
-    dev: false
-
-  /stacktrace-gps/3.0.4:
-    resolution: {integrity: sha512-qIr8x41yZVSldqdqe6jciXEaSCKw1U8XTXpjDuy0ki/apyTn/r3w9hDAAQOhZdxvsC93H+WwwEu5cq5VemzYeg==}
-    dependencies:
-      source-map: 0.5.6
-      stackframe: 1.2.1
-    dev: false
-
-  /stacktrace-js/2.0.1:
-    resolution: {integrity: sha512-13oDNgBSeWtdGa4/2BycNyKqe+VktCoJ8VLx4pDoJkwGGJVtiHdfMOAj3aW9xTi8oR2v34z9IcvfCvT6XNdNAw==}
-    dependencies:
-      error-stack-parser: 2.0.7
-      stack-generator: 2.0.5
-      stacktrace-gps: 3.0.4
     dev: false
 
   /stacktrace-parser/0.1.10:

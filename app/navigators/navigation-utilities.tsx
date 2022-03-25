@@ -6,7 +6,6 @@ import {
   NavigationAction,
   createNavigationContainerRef,
 } from "@react-navigation/native"
-import { NavigatorScreenProps } from "./AppNavigator"
 
 /* eslint-disable */
 export const RootNavigation = {
@@ -97,11 +96,6 @@ export function useNavigationPersistence(storage: any, persistenceKey: string) {
   const onNavigationStateChange = (state) => {
     const previousRouteName = routeNameRef.current
     const currentRouteName = getActiveRouteName(state)
-
-    if (previousRouteName !== currentRouteName) {
-      // track screens.
-      __DEV__ && console.tron.log(currentRouteName)
-    }
 
     // Save the current route name for later comparision
     routeNameRef.current = currentRouteName

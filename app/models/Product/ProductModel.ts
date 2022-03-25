@@ -8,10 +8,13 @@ export const ProductModel = types
 	.model('Product')
 	.props({
 		productId: types.identifier,
+		
 		type: types.enumeration<'fruit' | 'vegetable'>('Type', [ 'fruit', 'vegetable' ]),
+
 		name: types.optional(types.string, ''),
 		description: types.optional(types.string, ''),
 		price: types.optional(types.number, 0),
+		
 		pictureUri: types.optional(types.number, 1)
 	})
 	.views((self) => ({}))

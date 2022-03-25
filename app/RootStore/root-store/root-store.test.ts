@@ -1,13 +1,15 @@
 import {RootStoreModel} from './root-store'
 
 it('should be createad', () => {
-  const store = RootStoreModel.create({
-    UserStore: {
-      userId: 'id'
-    }
-  })
-  console.log('store', store)
+  const store = RootStoreModel.create()
 
-  expect(store).toBeInstanceOf(RootStoreModel)
+  expect(store).toBeTruthy()
+})
 
+it('has all properties', () => {
+  const store = RootStoreModel.create()
+  expect(store).toHaveProperty('User')
+  expect(store).toHaveProperty('CartStore')
+  expect(store).toHaveProperty('FavoriteStore')
+  expect(store).toHaveProperty('ProductsStore')
 })

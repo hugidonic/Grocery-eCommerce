@@ -1,5 +1,5 @@
 import { onSnapshot } from "mobx-state-tree"
-import { RootStoreModel, RootStore } from "./root-store"
+import { RootStoreModel, RootStoreType } from "./root-store"
 import { Environment } from "../environment"
 import * as storage from "../../utils/storage"
 
@@ -25,27 +25,13 @@ export async function createEnvironment() {
  * Setup the root state.
  */
 export async function setupRootStore() {
-  let rootStore: RootStore
+  let rootStore: RootStoreType
   let data: any
 
   // prepare the environment that will be associated with the RootStore.
   const env = await createEnvironment()
   try {
     // load data from storage
-    data = {
-      UserStore: {
-        userId: 'id1',
-        nickname: "Vadim",
-        email: "admin@gmail.com",
-        cartItems: {
-          items: []
-        },
-        favoriteItems: {
-          items: []
-        },
-      }
-    }
-    // console.tron.log(data)
     rootStore = RootStoreModel.create(data, env)
   } catch (e) {
     // if there's any problems loading, then let's at least fallback to an empty state
@@ -53,14 +39,8 @@ export async function setupRootStore() {
     rootStore = RootStoreModel.create({}, env)
 
     // but please inform us what happened
-    __DEV__ && console.tron.error(e.message, null)
+    __DEV__ && console.error(e.message, null)
   }
-
-  // reactotron logging
-  if (__DEV__) {
-    env.reactotron.setRootStore(rootStore, data)
-  }
-
   // track changes & save to storage
   onSnapshot(rootStore, (snapshot) => storage.save(ROOT_STATE_STORAGE_KEY, snapshot))
 

@@ -29,7 +29,7 @@ export const HomeScreen: FC<
 		ProductsStore.loadProductsFromApi()
 	}, [])
 
-	if (!ProductsStore.isLoading) {
+	if (!ProductsStore.IsLoading) {
 		return <Loading />
 	}
 	

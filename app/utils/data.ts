@@ -1,4 +1,5 @@
-import { CartItemType, GroupType, ProductModel, ProductType } from '../modules';
+
+import { GroupType, ProductType } from '../modules';
 import uuid from './uuid';
 
 const groupColors: string[] = [
@@ -85,7 +86,7 @@ export const images = {
 	]
 };
 
-type DataType = {
+export type DataType = {
 	products?: {
 		fruits?: ProductType[];
 		vegetables?: ProductType[];
@@ -97,24 +98,24 @@ type DataType = {
 export const data: DataType = {
 	products: {
 		fruits: images.fruits.map((image) => {
-			return ProductModel.create({
+			return {
 				productId: uuid(),
 				type: 'fruit',
 				name: image.name,
 				description: 'Organic',
 				price: 4.99,
 				pictureUri: image.image
-			});
+			};
 		}),
 		vegetables: images.vegetables.map((image) => {
-			return ProductModel.create({
+			return {
 				productId: uuid(),
 				type: 'vegetable',
 				name: image.name,
 				description: 'Organic',
 				price: 4.99,
 				pictureUri: image.image
-			});
+			};
 		}),
 		all: []
 	},
@@ -141,7 +142,4 @@ export const data: DataType = {
 data.products.all = [ ...data.products.fruits, ...data.products.vegetables ];
 
 
-export const CartData: CartItemType[] = data.products.fruits.map((product) => ({
-	count: 1,
-	product
-}));
+export const dataJSON = JSON.stringify(data);
