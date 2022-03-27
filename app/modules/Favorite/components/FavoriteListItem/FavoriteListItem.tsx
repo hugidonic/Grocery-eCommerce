@@ -7,11 +7,10 @@ import {
 	Pressable,
 	Image
 } from 'react-native';
-import { observer } from 'mobx-react-lite';
+
 import Entypo from 'react-native-vector-icons/Entypo';
 import Feather from 'react-native-vector-icons/Feather';
 // Types and utils
-import { ProductType } from '../../../../RootStore';
 import { colors } from '../../../../theme';
 // Components
 import { Block, Text } from '../../../../components';
@@ -21,9 +20,9 @@ export interface FavoriteListItemProps {
 	style?: StyleProp<ViewStyle>;
 }
 
-export const FavoriteListItem = observer(function FavoriteListItem(
+export const FavoriteListItem = (
 	props: FavoriteListItemProps
-) {
+) => {
 	const { style, product } = props;
 	const styles = Object.assign({}, st, style);
 
@@ -53,7 +52,7 @@ export const FavoriteListItem = observer(function FavoriteListItem(
 			</Pressable>
 		</Block>
 	);
-});
+};
 
 const st = StyleSheet.create({
 	container: {

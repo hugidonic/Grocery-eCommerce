@@ -1,20 +1,18 @@
 // React and packages
 import React, { FC } from 'react';
-import { observer } from 'mobx-react-lite';
+
 import { StackScreenProps } from '@react-navigation/stack';
 import BottomSheet from 'reanimated-bottom-sheet';
 // Components
 import { Screen, Text, Block, Button, Loading } from '../../components';
 // Types and utils
 import { TabsNavigatorParamList } from '../../navigators';
-import { useStores } from '../../RootStore';
 import { colors } from '../../theme';
 import { CartList, Checkout } from '../../modules';
 
 type CartScreenProps = StackScreenProps<TabsNavigatorParamList, 'cart'>;
 
-export const CartScreen: FC<CartScreenProps> = observer(function CartScreen() {
-	const { CartStore } = useStores();
+export const CartScreen: FC<CartScreenProps> = (props: CartScreenProps) => {
 	React.useEffect(() => {
 		CartStore.loadCartItemsFromApi();
 	}, []);
@@ -51,4 +49,4 @@ export const CartScreen: FC<CartScreenProps> = observer(function CartScreen() {
 			<Checkout sheetRef={sheetRef} totalCost={CartStore.totalCost} />
 		</React.Fragment>
 	);
-});
+}

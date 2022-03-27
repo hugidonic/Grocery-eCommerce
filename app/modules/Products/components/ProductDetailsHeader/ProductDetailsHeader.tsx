@@ -2,7 +2,7 @@
 import React from "react"
 import { StyleSheet, StyleProp, ViewStyle, Pressable } from "react-native"
 import Entypo from 'react-native-vector-icons/Entypo'
-import { observer } from "mobx-react-lite"
+
 // Types and utils
 import { colors, spacing } from "../../../../theme"
 // Components
@@ -13,7 +13,7 @@ export interface ProductDetailsHeaderProps {
   goBack: () => void
 }
 
-export const ProductDetailsHeader = observer(function ProductDetailsHeader(props: ProductDetailsHeaderProps) {
+export const ProductDetailsHeader = (props: ProductDetailsHeaderProps) => {
   const { style, goBack } = props
   const styles = Object.assign({}, st, style)
 
@@ -38,7 +38,7 @@ export const ProductDetailsHeader = observer(function ProductDetailsHeader(props
 			</Pressable>
 		</Block>
   )
-})
+}
 
 const st = StyleSheet.create({
 	container: {

@@ -1,12 +1,11 @@
 // React and packages
 import React, { FC } from 'react';
-import { observer } from 'mobx-react-lite';
+
 import { Dimensions, Image, StyleSheet, TouchableOpacity } from 'react-native';
 import { StackScreenProps } from '@react-navigation/stack';
 // Types and utils
 import { NavigatorParamList } from '../../navigators';
 import { colors, spacing } from '../../theme';
-import { GroupType } from '../../modules';
 import { data } from '../../utils/data';
 // Components
 import { Block, Screen, SearchBar, Text } from '../../components';
@@ -20,8 +19,7 @@ export type ExploreScreenProps = StackScreenProps<
 
 export const ExploreScreen: FC<
 	ExploreScreenProps
-> = observer(function ExploreScreen(props) {
-
+> = (props) => {
 
 	const renderGroup = (group: GroupType, idx: number) => (
 		<Block
@@ -70,7 +68,7 @@ export const ExploreScreen: FC<
 			</Block>
 		</Screen>
 	);
-});
+}
 
 const styles = StyleSheet.create({
 	container: {

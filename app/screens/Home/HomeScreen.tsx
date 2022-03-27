@@ -1,6 +1,6 @@
 // React and packages
 import React, { FC } from 'react';
-import { observer } from 'mobx-react-lite';
+
 import { StyleSheet } from 'react-native';
 import { StackScreenProps } from '@react-navigation/stack';
 // Mobx
@@ -21,7 +21,7 @@ import {
 
 export const HomeScreen: FC<
 	StackScreenProps<TabsNavigatorParamList, 'home'>
-> = observer(function HomeScreen() {
+> = () => {
 
 	const {ProductsStore} = useStores()
 
@@ -56,7 +56,7 @@ export const HomeScreen: FC<
 			/>
 		</Screen>
 	);
-});
+}
 
 const styles = StyleSheet.create({
 	container: {

@@ -1,6 +1,6 @@
 // React and packages
 import React, { FC } from "react"
-import { observer } from "mobx-react-lite"
+
 import { StyleSheet } from "react-native"
 import { StackScreenProps } from "@react-navigation/stack"
 // Types and utils
@@ -15,13 +15,13 @@ import { Screen, Text } from "../../components"
 <%= props.camelCaseName %>: undefined
 <Stack.Screen name="<%= props.camelCaseName %>" component={<%= props.pascalCaseName%>Screen} />
 
-export const <%= props.pascalCaseName %>Screen: FC<StackScreenProps<NavigatorParamList, "<%= props.camelCaseName %>">> = observer(function <%= props.pascalCaseName %>Screen() {
+export const <%= props.pascalCaseName %>Screen: FC<StackScreenProps<NavigatorParamList, "<%= props.camelCaseName %>">> = () => {
   return (
     <Screen style={styles.container} preset="scroll">
       <Text preset="header"><%= props.camelCaseName %></Text>
     </Screen>
   )
-})
+}
 
 
 const styles = StyleSheet.create({

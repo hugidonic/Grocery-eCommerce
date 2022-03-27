@@ -1,6 +1,6 @@
 // React and packages
 import React, { FC } from "react"
-import { observer } from "mobx-react-lite"
+
 import { FlatList, StyleSheet } from "react-native"
 import { StackScreenProps } from "@react-navigation/stack"
 // Types and utils
@@ -11,7 +11,7 @@ import { Screen, Text } from "../../components"
 import { data } from "../../utils/data"
 import { Product, ProductDetailsHeader } from "../../modules"
 
-export const GroupScreen: FC<StackScreenProps<NavigatorParamList, "group">> = observer(function GroupScreen(props) {
+export const GroupScreen: FC<StackScreenProps<NavigatorParamList, "group">> = (props) => {
 
   const {groupId} = props.route.params
   const group = data.groups.find(p => p.groupId === groupId)
@@ -44,8 +44,7 @@ export const GroupScreen: FC<StackScreenProps<NavigatorParamList, "group">> = ob
 			/>
     </Screen>
   )
-})
-
+}
 
 const styles = StyleSheet.create({
   container: {

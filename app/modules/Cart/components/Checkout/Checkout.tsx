@@ -2,7 +2,7 @@
 import React from 'react';
 import { StyleSheet, StyleProp, ViewStyle, TouchableOpacity, Dimensions } from 'react-native';
 import BottomSheet from 'react-native-bottomsheet-reanimated';
-import { observer } from 'mobx-react-lite';
+
 // Icons
 import Entypo from 'react-native-vector-icons/Entypo';
 import Ionicons from 'react-native-vector-icons/Ionicons';
@@ -33,7 +33,7 @@ export interface CheckoutProps {
 
 const BOTTOMSHEETHEIGHT = 520;
 
-export const Checkout = observer(function Checkout(props: CheckoutProps) {
+export const Checkout = (props: CheckoutProps) => {
 	const { 
 		style = {},
 		sheetRef = React.useRef<any>(null),
@@ -133,7 +133,7 @@ export const Checkout = observer(function Checkout(props: CheckoutProps) {
 			/>
 		</React.Fragment>
 	);
-});
+};
 
 const Hairline = () => (
 	<Block style={{ height: 1, width: '100%', opacity: 0.3 }} color={colors.dim} />

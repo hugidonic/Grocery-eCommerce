@@ -1,6 +1,6 @@
 // React and packages
 import React, { FC } from 'react';
-import { observer } from 'mobx-react-lite';
+
 import { Dimensions, Image, StyleSheet } from 'react-native';
 import { StackScreenProps } from '@react-navigation/stack';
 // Types and utils
@@ -15,7 +15,7 @@ const {height} = Dimensions.get('screen')
 
 export const ProductDetailsScreen: FC<
 	StackScreenProps<NavigatorParamList, 'productDetails'>
-> = observer(function ProductDetailsScreen(props) {
+> = (props) => {
 
   const {productId} = props.route.params
   const product = data.products.all.find(p => p.productId === productId)
@@ -47,8 +47,7 @@ export const ProductDetailsScreen: FC<
       <ProductDetailsInfo product={product} />
     </Screen>
   )
-});
-
+}
 const PictureSize = height*0.25
 
 const styles = StyleSheet.create({

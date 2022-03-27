@@ -1,7 +1,7 @@
 // React and packages
 import React from 'react';
 import { StyleProp, ViewStyle, Dimensions, TouchableOpacity, Image } from 'react-native';
-import { observer } from 'mobx-react-lite';
+
 import Feather from 'react-native-vector-icons/Feather';
 import { useNavigation } from '@react-navigation/native';
 // Types and utils
@@ -19,7 +19,7 @@ export interface ProductProps {
 const { width } = Dimensions.get('screen');
 const IMAGE_SIZE = 120;
 
-export const Product = observer((props: ProductProps) => {
+export const Product = (props: ProductProps) => {
 	const { product } = props;
 
 	const nav = useNavigation<NavigatorScreenProps>();
@@ -31,7 +31,7 @@ export const Product = observer((props: ProductProps) => {
 	};
 
 	return <ProductUI handleNavigation={handleNavigation} product={product} />;
-});
+};
 
 export const ProductUI = (props: {
 	handleNavigation?: () => void;

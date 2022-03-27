@@ -1,6 +1,6 @@
 // React and packages
 import React, { FC } from "react"
-import { observer } from "mobx-react-lite"
+
 import { StackScreenProps } from "@react-navigation/stack"
 // Types and utils
 import { TabsNavigatorParamList } from "../../navigators"
@@ -13,7 +13,7 @@ import { FavoriteList } from "../../modules"
 
 type FavoriteScreenProps = StackScreenProps<TabsNavigatorParamList, "favorite">
 
-export const FavoriteScreen: FC<FavoriteScreenProps> = observer(function FavoriteScreen() {
+export const FavoriteScreen: FC<FavoriteScreenProps> = (props) => {
 
 	const { UserStore } = useStores()
 
@@ -43,4 +43,4 @@ export const FavoriteScreen: FC<FavoriteScreenProps> = observer(function Favorit
 			</Block>
 		</>
   )
-})
+}

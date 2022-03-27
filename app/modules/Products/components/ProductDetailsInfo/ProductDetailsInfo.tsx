@@ -3,13 +3,12 @@ import React from 'react';
 import BottomSheet from 'react-native-bottomsheet-reanimated';
 import { StyleSheet, StyleProp, ViewStyle, Dimensions } from 'react-native';
 import ProgressCircle from 'react-native-progress-circle';
-import { observer } from 'mobx-react-lite';
+
 // Icons
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 // Types and utils
 import { colors, spacing } from '../../../../theme';
-import { ProductType } from '../../';
 // Components
 import { Block, Text } from '../../../../components';
 
@@ -32,7 +31,7 @@ const carbsPercentage = +(banana.carbs / all * 100).toFixed(2);
 
 const { height } = Dimensions.get('screen');
 
-export const ProductDetailsInfo = observer((props: ProductDetailsInfoProps) => {
+export const ProductDetailsInfo = (props: ProductDetailsInfoProps) => {
 	const { style, product } = props;
 	const styles = Object.assign({}, st, style);
 
@@ -167,7 +166,7 @@ export const ProductDetailsInfo = observer((props: ProductDetailsInfoProps) => {
 				}
 			/>
 	);
-});
+};
 
 const st = StyleSheet.create({
 	container: {

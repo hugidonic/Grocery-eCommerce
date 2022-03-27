@@ -1,7 +1,7 @@
 // React and packages
 import React from "react"
 import { StyleSheet, StyleProp, ViewStyle } from "react-native"
-import { observer } from "mobx-react-lite"
+
 // Types and utils
 import { colors, typography } from "../../theme"
 // Components
@@ -11,7 +11,7 @@ export interface <%= props.pascalCaseName %>Props {
   style?: StyleProp<ViewStyle>
 }
 
-export const <%= props.pascalCaseName %> = observer(function <%= props.pascalCaseName %>(props: <%= props.pascalCaseName %>Props) {
+export const <%= props.pascalCaseName %> = (props: <%= props.pascalCaseName %>Props) => {
   const { style } = props
   const styles = Object.assign({}, st, style)
 
@@ -20,7 +20,7 @@ export const <%= props.pascalCaseName %> = observer(function <%= props.pascalCas
       <Text style={styles.text}>Hello</Text>
     </Block>
   )
-})
+}
 
 const st = StyleSheet.create({
   container: {

@@ -1,7 +1,7 @@
 // React and packages
 import React from "react"
 import { StyleProp, ViewStyle, FlatList, Dimensions } from "react-native"
-import { observer } from "mobx-react-lite"
+
 // Types and utils
 import { colors } from "../../../../theme"
 // Components
@@ -17,7 +17,7 @@ export interface ProductListProps {
 
 const {width} = Dimensions.get('screen')
 
-export const ProductList = observer(function ProductList(props: ProductListProps) {
+export const ProductList = (props: ProductListProps) => {
   const { productsList = [], title = '' } = props
 
   return (
@@ -47,4 +47,4 @@ export const ProductList = observer(function ProductList(props: ProductListProps
 			/>
 		</Block>
   )
-})
+}

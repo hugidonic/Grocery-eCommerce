@@ -7,7 +7,7 @@ import {
 	Image,
 	TouchableOpacity
 } from 'react-native';
-import { observer } from 'mobx-react-lite';
+
 // Types and utils
 import { spacing } from '../../../../theme';
 // Components
@@ -20,9 +20,9 @@ export interface GroupListItemProps {
 	onPress?: () => void
 }
 
-export const GroupListItem = observer(function GroupListItem(
+export const GroupListItem = (
 	props: GroupListItemProps
-) {
+) => {
 	const { style, group, onPress = () => {} } = props;
 	const styles = Object.assign({}, st, style);
 
@@ -63,7 +63,7 @@ export const GroupListItem = observer(function GroupListItem(
 			</TouchableOpacity>
 		</Block>
 	);
-});
+};
 
 const st = StyleSheet.create({
 	container: {

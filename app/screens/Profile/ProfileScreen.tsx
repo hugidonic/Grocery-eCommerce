@@ -1,6 +1,6 @@
 // React and packages
 import React, { FC } from 'react';
-import { observer } from 'mobx-react-lite';
+
 import { StyleSheet } from 'react-native';
 // Types and utils
 import { StackNavigationProp } from '@react-navigation/stack';
@@ -12,7 +12,7 @@ import { ProfileHeader, ProfileList } from '../../modules';
 
 export const ProfileScreen: FC<
 	StackNavigationProp<TabsNavigatorParamList, 'profile'>
-> = observer(function ProfileScreen(props) {
+> = (props) => {
 	return (
 		<Screen backgroundColor={colors.palette.offWhite} preset="scroll">
 			<ProfileHeader />
@@ -24,7 +24,7 @@ export const ProfileScreen: FC<
 			</Block>
 		</Screen>
 	);
-});
+}
 
 const styles = StyleSheet.create({
 });

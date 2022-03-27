@@ -1,7 +1,7 @@
 // React and packages
 import React from "react"
 import { StyleProp, ViewStyle } from "react-native"
-import { observer } from "mobx-react-lite"
+
 // Types and utils
 import { colors, spacing } from "../../../../theme"
 // Components
@@ -11,7 +11,7 @@ export interface ProfileHeaderProps {
   style?: StyleProp<ViewStyle>
 }
 
-export const ProfileHeader = observer(function ProfileHeader(props: ProfileHeaderProps) {
+export const ProfileHeader = (props: ProfileHeaderProps) => {
   return (
 		<Block
 			row
@@ -37,4 +37,5 @@ export const ProfileHeader = observer(function ProfileHeader(props: ProfileHeade
 			</Block>
 		</Block>
 	);
-})
+}
+

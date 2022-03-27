@@ -1,7 +1,7 @@
 // React and packages
 import React from "react";
 import { StyleProp, ViewStyle, FlatList, Dimensions } from "react-native";
-import { observer } from "mobx-react-lite";
+;
 // Types and utils
 import { data } from "../../../../utils/data";
 // Components
@@ -14,7 +14,7 @@ export interface GroupListProps {
 
 const { width } = Dimensions.get('screen');
 
-export const GroupList = observer(function GroupList(props: GroupListProps) {
+export const GroupList = (props: GroupListProps) => {
 	return (
 		<FlatList
 			data={data.groups}
@@ -30,4 +30,4 @@ export const GroupList = observer(function GroupList(props: GroupListProps) {
 			)}
 		/>
 	);
-})
+}

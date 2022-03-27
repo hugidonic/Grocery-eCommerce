@@ -6,7 +6,7 @@ import {
 } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
-import { observer } from 'mobx-react-lite';
+
 // Types and utils
 import { colors, spacing } from '../../../../theme';
 // Components
@@ -28,9 +28,9 @@ type ProfileListItemProps = {
 };
 const ICONSIZE = 26;
 
-export const ProfileListItem = observer(function ProfileListItem(
+export const ProfileListItem = (
 	props: ProfileListItemProps
-) {
+) => {
 	const { title, iconType, iconName, func } = props;
 	return (
 		<TouchableOpacity onPress={() => func()}>
@@ -64,7 +64,7 @@ export const ProfileListItem = observer(function ProfileListItem(
 			</Block>
 		</TouchableOpacity>
 	);
-});
+};
 
 const styles = StyleSheet.create({
 	container: {

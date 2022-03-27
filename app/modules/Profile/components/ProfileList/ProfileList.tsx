@@ -1,10 +1,8 @@
 // React and packages
 import React from 'react';
 import { StyleProp, ViewStyle } from 'react-native';
-import { observer } from 'mobx-react-lite';
-import { useNavigation } from '@react-navigation/native';
+
 // Types and utils
-import { NavigatorScreenProps } from '../../../../navigators';
 // Components
 import { ProfileListItem } from '..';
 import { Block } from '../../../../components';
@@ -13,9 +11,9 @@ export interface ProfileListProps {
 	style?: StyleProp<ViewStyle>;
 }
 
-export const ProfileList = observer(function ProfileList(
+export const ProfileList = (
 	props: ProfileListProps
-) {
+) => {
 	// const nav = useNavigation<NavigatorScreenProps>();
 	const nav = {
 		navigate: (name: string, obj: any) => {}
@@ -77,4 +75,4 @@ export const ProfileList = observer(function ProfileList(
 			/>
 		</Block>
 	);
-});
+};

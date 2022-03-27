@@ -1,9 +1,8 @@
 // React and packages
 import React from "react"
 import { StyleSheet, StyleProp, ViewStyle, Image } from "react-native"
-import { observer } from "mobx-react-lite"
 // Types and utils
-// import { colors } from "../../theme"
+import { colors } from "../../theme"
 // Components
 import { Block } from ".."
 
@@ -22,7 +21,7 @@ export interface BgSliderProps {
   style?: StyleProp<ViewStyle>
 }
 
-export const BgSlider = observer(function BgSlider(props: BgSliderProps) {
+export const BgSlider = (props: BgSliderProps) => {
   const { style } = props
   const styles = Object.assign({}, st, style)
 
@@ -31,7 +30,7 @@ export const BgSlider = observer(function BgSlider(props: BgSliderProps) {
 			<Image source={{uri: images[0]}} style={{resizeMode: 'cover'}} />
 		</Block>
 	);
-})
+}
 
 const st = StyleSheet.create({
 	cover: {

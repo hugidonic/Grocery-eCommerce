@@ -1,12 +1,11 @@
 // React and packages
 import React from 'react';
 import { StyleProp, ViewStyle } from 'react-native';
-import { observer } from 'mobx-react-lite';
+
 // Types and utils
 import { spacing } from '../../../../theme';
 // Components
 import { Block } from '../../../../components';
-import { ProductType } from '../../../../RootStore';
 import { FavoriteListItem } from '..';
  
 export interface FavoriteListProps {
@@ -14,7 +13,7 @@ export interface FavoriteListProps {
 	favoriteItems?: ProductType[]
 }
 
-export const FavoriteList = observer(function FavoriteList(props: FavoriteListProps) {
+export const FavoriteList = (props: FavoriteListProps) => {
 
 	const {
 		favoriteItems = []
@@ -36,4 +35,4 @@ export const FavoriteList = observer(function FavoriteList(props: FavoriteListPr
 			{favoriteItems.map(renderFavoriteListItem)}
 		</Block>
 	);
-});
+};
