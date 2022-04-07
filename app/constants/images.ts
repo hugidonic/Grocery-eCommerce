@@ -1,0 +1,1 @@
+export const IMAGES_URL = "https://disk.yandex.ru/d/z4DXHna-dCJjqQ"

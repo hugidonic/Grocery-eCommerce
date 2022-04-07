@@ -1,6 +1,6 @@
 // React and packages
 import React from 'react';
-import { StyleSheet, StyleProp, ViewStyle, TouchableOpacity, Dimensions } from 'react-native';
+import { StyleSheet, StyleProp, ViewStyle, TouchableOpacity } from 'react-native';
 import BottomSheet from 'react-native-bottomsheet-reanimated';
 
 // Icons

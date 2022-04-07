@@ -1,4 +1,4 @@
-export * from './Groups'
+export * from './Categories'
 export * from './Products'
 export * from './Cart'
 export * from './Profile'

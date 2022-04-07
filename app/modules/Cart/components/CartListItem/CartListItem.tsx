@@ -5,12 +5,13 @@ import { StyleSheet, StyleProp, ViewStyle, TouchableOpacity, Image } from 'react
 import Entypo from 'react-native-vector-icons/Entypo';
 // Types and utils
 import { colors } from '../../../../theme';
+import { CartItemType } from '../../cart.types';
 // Components
 import { OperationBtn } from '..';
 import { Block, Text } from './../../../../components';
 
 export interface CartListItemProps {
-	cartItem: any;
+	cartItem: CartItemType;
 	style?: StyleProp<ViewStyle>;
 }
 
