@@ -4,8 +4,7 @@ import React, { FC } from 'react';
 import { StyleSheet } from 'react-native';
 import { StackScreenProps } from '@react-navigation/stack';
 // Mobx
-import { GroupList, ProductList } from '../../modules';
-import { useStores } from '../../RootStore';
+import { CategoriesList, ProductList } from '../../modules';
 // Types and utils
 import { TabsNavigatorParamList } from '../../navigators';
 import { colors, spacing } from '../../theme';
@@ -15,7 +14,6 @@ import {
 	Screen,
 	BgSlider,
 	SearchBar,
-	Loading,
 } from '../../components';
 
 
@@ -23,16 +21,6 @@ export const HomeScreen: FC<
 	StackScreenProps<TabsNavigatorParamList, 'home'>
 > = () => {
 
-	const {ProductsStore} = useStores()
-
-	React.useEffect(() => {
-		ProductsStore.loadProductsFromApi()
-	}, [])
-
-	if (!ProductsStore.IsLoading) {
-		return <Loading />
-	}
-	
 	return (
 		<Screen style={styles.container} preset="scroll">
 			<SearchBar />
@@ -40,19 +28,19 @@ export const HomeScreen: FC<
 			{/* TODO: Make this a slider fadeinout thing */}
 			<BgSlider />
 
-			<ProductList title="Fruits" productsList={data.products.fruits} />
-			<ProductList title="Vegetables" productsList={data.products.vegetables} />
+			<ProductList title="Fruits" productsList={data.products.fruit} />
+			<ProductList title="Vegetables" productsList={data.products.vegetable} />
 
-			<GroupList />
+			<CategoriesList />
 
-			<ProductList title="Exclusive offer" productsList={data.products.fruits} />
-			<ProductList title="Best selling" productsList={data.products.fruits} />
+			<ProductList title="Exclusive offer" productsList={data.products.fruit} />
+			<ProductList title="Best selling" productsList={data.products.fruit} />
 
-			<GroupList />
+			<CategoriesList />
 
 			<ProductList
 				title="All"
-				productsList={[ ...data.products.vegetables, ...data.products.fruits ]}
+				productsList={[ ...data.products.vegetable, ...data.products.fruit ]}
 			/>
 		</Screen>
 	);

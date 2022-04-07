@@ -5,20 +5,20 @@ import { StyleProp, ViewStyle, FlatList, Dimensions } from "react-native";
 // Types and utils
 import { data } from "../../../../utils/data";
 // Components
-import { GroupListItem } from "..";
+import { CategoriesListItem } from "..";
 import { Block } from "../../../../components";
 
-export interface GroupListProps {
+export interface CategoriesListProps {
   style?: StyleProp<ViewStyle>;
 }
 
 const { width } = Dimensions.get('screen');
 
-export const GroupList = (props: GroupListProps) => {
+export const CategoriesList = (props: CategoriesListProps) => {
 	return (
 		<FlatList
-			data={data.groups}
-			renderItem={({ item }) => <GroupListItem group={item} />}
+			data={data.categories}
+			renderItem={({ item }) => <CategoriesListItem category={item} />}
 			keyExtractor={(item, idx) => idx.toString()}
 			horizontal
 			showsHorizontalScrollIndicator={false}

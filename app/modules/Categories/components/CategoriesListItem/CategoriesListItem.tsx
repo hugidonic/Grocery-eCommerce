@@ -12,18 +12,17 @@ import {
 import { spacing } from '../../../../theme';
 // Components
 import { Block, Text } from '../../../../components';
-import { GroupType } from '../../store';
 
-export interface GroupListItemProps {
-	group: GroupType;
+export interface CategoriesListItemProps {
+	category: CategoryType;
 	style?: StyleProp<ViewStyle>;
 	onPress?: () => void
 }
 
-export const GroupListItem = (
-	props: GroupListItemProps
+export const CategoriesListItem = (
+	props: CategoriesListItemProps
 ) => {
-	const { style, group, onPress = () => {} } = props;
+	const { style, category, onPress = () => {} } = props;
 	const styles = Object.assign({}, st, style);
 
 	// const nav = useNavigation<NavigatorScreenProps>();
@@ -36,20 +35,20 @@ export const GroupListItem = (
 			align="center"
 			justify="center"
 			style={styles.container}
-			color={group.color}
+			color={category.color}
 			marginVertical={10}
 		>
 			<TouchableOpacity
 				style={{ padding: spacing[2], }}
 				onPress={onPress}
-					// nav.navigate('group', {
-					// 	groupId: group.groupId
+					// nav.navigate('category', {
+					// 	categoryId: category.categoryId
 					// })}
 			>
 				<Block row align="center">
 					<Image
 						// @ts-ignore
-						source={group.picture}
+						source={category.picture}
 						style={{
 							width: 80,
 							height: 80,
@@ -57,7 +56,7 @@ export const GroupListItem = (
 						}}
 					/>
 					<Text weight='bold' size="large">
-						{group.name}
+						{category.name}
 					</Text>
 				</Block>
 			</TouchableOpacity>
