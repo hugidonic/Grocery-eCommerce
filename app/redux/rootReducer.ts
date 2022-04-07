@@ -1,16 +1,6 @@
 import { combineReducers } from "redux";
-
-const initialState = {}
-
-const appRed = (state = initialState, { type, payload }) => {
-  return state
-}
-
-export type RootStoreType = {
-  app: any
-}
-
+import productsReducer from "../modules/Products/products.reducer";
 
 export const rootReducer = combineReducers({
-  app: appRed
+  ProductStore: productsReducer
 })

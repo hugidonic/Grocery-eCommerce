@@ -1,6 +1,5 @@
-import { ProductsActions, ProductsTypes } from './products.actions';
+import { ProductsActions, ProductsTypes } from './products.types';
 import { ProductsState} from './products.types';
-
 
 const initialState: ProductsState = {
 	loading: true,

@@ -8,18 +8,25 @@ import { CategoriesList, ProductList } from '../../modules';
 // Types and utils
 import { TabsNavigatorParamList } from '../../navigators';
 import { colors, spacing } from '../../theme';
-import { data } from '../../utils/data';
 // Components
 import {
 	Screen,
 	BgSlider,
 	SearchBar,
 } from '../../components';
+// Selectors
+import { useTypedSelector } from '../../redux/hooks/useTypedSelector';
+import * as ProductsSelector from '../../modules/Products/products.selectors'
 
 
 export const HomeScreen: FC<
 	StackScreenProps<TabsNavigatorParamList, 'home'>
 > = () => {
+	
+	const fruits = useTypedSelector(ProductsSelector.fruits)
+	const vegetables = useTypedSelector(ProductsSelector.vegetables)
+	const allProducts = useTypedSelector(ProductsSelector.allProducts)
+	
 
 	return (
 		<Screen style={styles.container} preset="scroll">
@@ -28,19 +35,19 @@ export const HomeScreen: FC<
 			{/* TODO: Make this a slider fadeinout thing */}
 			<BgSlider />
 
-			<ProductList title="Fruits" productsList={data.products.fruit} />
-			<ProductList title="Vegetables" productsList={data.products.vegetable} />
+			<ProductList title="Fruits" productsList={fruits} />
+			<ProductList title="Vegetables" productsList={vegetables} />
 
 			<CategoriesList />
 
-			<ProductList title="Exclusive offer" productsList={data.products.fruit} />
-			<ProductList title="Best selling" productsList={data.products.fruit} />
+			<ProductList title="Exclusive offer" productsList={fruits} />
+			<ProductList title="Best selling" productsList={fruits} />
 
 			<CategoriesList />
 
 			<ProductList
 				title="All"
-				productsList={[ ...data.products.vegetable, ...data.products.fruit ]}
+				productsList={allProducts}
 			/>
 		</Screen>
 	);
