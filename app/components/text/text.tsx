@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Text as ReactNativeText, StyleSheet, TextStyle } from 'react-native';
 import { presets } from './Text.presets';
 import { FontWeights, TextProps, FontSizes } from './Text.props';
-import { colors } from '../../theme/colors';
+import { colors } from '../../theme';
 
 /**
  * This component is a HOC over the built-in React Native one.

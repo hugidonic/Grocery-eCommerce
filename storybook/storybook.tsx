@@ -1,6 +1,5 @@
 import React, { useEffect } from "react"
 import { getStorybookUI, configure } from "@storybook/react-native"
-import { initFonts } from "../app/theme/fonts"
 
 import "./rn-addons"
 import { NavigationContainer } from "@react-navigation/native"

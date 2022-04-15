@@ -1,6 +1,5 @@
 import { applyMiddleware, createStore } from 'redux'
 import thunk from 'redux-thunk'
-import { createAPI } from '../services/api'
 import { rootReducer } from './rootReducer'
 
 
@@ -9,8 +8,6 @@ export const store = createStore(
   applyMiddleware(thunk)
 )
 
-export const API = createAPI()
-  
 /**
  *  Infer the `RootState` types from the store itself
  */
