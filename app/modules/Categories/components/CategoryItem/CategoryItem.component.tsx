@@ -1,31 +1,15 @@
 // React and packages
 import React from 'react';
-import {
-	StyleSheet,
-	StyleProp,
-	ViewStyle,
-	Image,
-	TouchableOpacity
-} from 'react-native';
-
+import { StyleSheet, Image, TouchableOpacity } from 'react-native';
 // Types and utils
+import { CategoryItemProps } from './CategoryItem.container';
 import { spacing } from '../../../../theme';
 // Components
 import { Block, Text } from '../../../../components';
 
-export interface CategoriesListItemProps {
-	category: CategoryType;
-	style?: StyleProp<ViewStyle>;
-	onPress?: () => void
-}
-
-export const CategoriesListItem = (
-	props: CategoriesListItemProps
-) => {
-	const { style, category, onPress = () => {} } = props;
+export const CategoryItemComponent = (props: CategoryItemProps) => {
+	const { style = {}, category, onPress = () => {} } = props;
 	const styles = Object.assign({}, st, style);
-
-	// const nav = useNavigation<NavigatorScreenProps>();
 
 	return (
 		<Block
@@ -38,13 +22,7 @@ export const CategoriesListItem = (
 			color={category.color}
 			marginVertical={10}
 		>
-			<TouchableOpacity
-				style={{ padding: spacing[2], }}
-				onPress={onPress}
-					// nav.navigate('category', {
-					// 	categoryId: category.categoryId
-					// })}
-			>
+			<TouchableOpacity style={{ padding: spacing[2] }} onPress={onPress}>
 				<Block row align="center">
 					<Image
 						// @ts-ignore
@@ -55,7 +33,7 @@ export const CategoriesListItem = (
 							resizeMode: 'contain'
 						}}
 					/>
-					<Text weight='bold' size="large">
+					<Text weight="bold" size="large">
 						{category.name}
 					</Text>
 				</Block>
@@ -68,6 +46,6 @@ const st = StyleSheet.create({
 	container: {
 		flex: 1,
 		justifyContent: 'center',
-		alignItems: 'center',
+		alignItems: 'center'
 	}
 });

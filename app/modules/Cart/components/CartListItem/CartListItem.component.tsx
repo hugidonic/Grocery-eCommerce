@@ -1,21 +1,16 @@
 // React and packages
 import React from 'react';
-import { StyleSheet, StyleProp, ViewStyle, TouchableOpacity, Image } from 'react-native';
+import { StyleSheet, TouchableOpacity, Image } from 'react-native';
 
 import Entypo from 'react-native-vector-icons/Entypo';
 // Types and utils
 import { colors } from '../../../../theme';
-import { CartItemType } from '../../cart.types';
+import { CartListItemProps } from './CartListItem.container';
 // Components
 import { OperationBtn } from '..';
-import { Block, Text } from './../../../../components';
+import { Block, Text } from '../../../../components';
 
-export interface CartListItemProps {
-	cartItem: CartItemType;
-	style?: StyleProp<ViewStyle>;
-}
-
-export const CartListItem = (props: CartListItemProps) => {
+export const CartListItemComponent = (props: CartListItemProps) => {
 	const { style, cartItem } = props;
 	const styles = Object.assign({}, st, style);
 
@@ -32,8 +27,7 @@ export const CartListItem = (props: CartListItemProps) => {
 		<Block color="#fff" row shadow bRadius={20} style={styles.container}>
 			<Block flex={1}>
 				<Image
-					// @ts-ignore
-					source={cartItem.product.pictureUri}
+					source={{uri: cartItem.product.pictureUri}}
 					style={{
 						width: 100,
 						height: 100,

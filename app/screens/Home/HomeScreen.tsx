@@ -13,21 +13,33 @@ import {
 	Screen,
 	BgSlider,
 	SearchBar,
+	Loading,
 } from '../../components';
 // Selectors
 import { useTypedSelector } from '../../redux/hooks/useTypedSelector';
 import * as ProductsSelector from '../../modules/Products/products.selectors'
-
+import * as CategoriesSelector from '../../modules/Categories/categories.selectors'
 
 export const HomeScreen: FC<
 	StackScreenProps<TabsNavigatorParamList, 'home'>
 > = () => {
-	
-	const fruits = useTypedSelector(ProductsSelector.fruits)
-	const vegetables = useTypedSelector(ProductsSelector.vegetables)
-	const allProducts = useTypedSelector(ProductsSelector.allProducts)
-	
+	const ProductStore = useTypedSelector(state => state.ProductStore)
+	const CategoriesStore = useTypedSelector(state => state.CategoriesStore)
 
+	const allProducts = ProductStore.products
+
+	const fruits = allProducts.filter(product => product.type === 'fruit')
+	const vegetables = allProducts.filter(product => product.type === 'vegetable')
+	const categories = CategoriesStore.categories
+	// const allProducts = useTypedSelector(state => state.ProductStore.products)
+	// const vegetables = useTypedSelector(ProductsSelector.vegetables)
+	// const fruits = useTypedSelector(ProductsSelector.fruits)
+	// const categories = useTypedSelector(CategoriesSelector.categories)
+
+	if (ProductStore.isLoading || CategoriesStore.isLoading) {
+		return <Loading />
+	}
+	
 	return (
 		<Screen style={styles.container} preset="scroll">
 			<SearchBar />
@@ -38,12 +50,12 @@ export const HomeScreen: FC<
 			<ProductList title="Fruits" productsList={fruits} />
 			<ProductList title="Vegetables" productsList={vegetables} />
 
-			<CategoriesList />
+			<CategoriesList categories={categories} />
 
 			<ProductList title="Exclusive offer" productsList={fruits} />
 			<ProductList title="Best selling" productsList={fruits} />
 
-			<CategoriesList />
+			<CategoriesList categories={categories} />
 
 			<ProductList
 				title="All"

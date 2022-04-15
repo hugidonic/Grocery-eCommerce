@@ -14,6 +14,7 @@ import Feather from 'react-native-vector-icons/Feather';
 import { colors } from '../../../../theme';
 // Components
 import { Block, Text } from '../../../../components';
+import { ProductType } from '../../../Products';
 
 export interface FavoriteListItemProps {
 	product: ProductType;
@@ -29,8 +30,7 @@ export const FavoriteListItem = (
 	return (
 		<Block row color="#fff" shadow bRadius={20} style={styles.container}>
 			<Image
-				// @ts-ignore
-				source={product.pictureUri}
+				source={{uri: product.pictureUri}}
 				style={{
 					width: 100,
 					height: 100,

@@ -26,8 +26,8 @@ export const BgSlider = (props: BgSliderProps) => {
   const styles = Object.assign({}, st, style)
 
   return (
-		<Block border style={styles.cover}>
-			<Image source={{uri: images[0]}} style={{resizeMode: 'cover'}} />
+		<Block style={styles.cover}>
+			<Image source={{uri: images[5]}} style={{resizeMode: 'cover', width: '100%', height: 120}} />
 		</Block>
 	);
 }
@@ -36,6 +36,7 @@ const st = StyleSheet.create({
 	cover: {
 		width: '100%',
 		height: 120,
+		overflow: 'hidden',
 		borderRadius: 14,
 		marginVertical: 20
 	}

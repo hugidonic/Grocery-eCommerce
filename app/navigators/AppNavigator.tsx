@@ -12,9 +12,10 @@ import { ProfileNavigatorParamList, TabsNavigator, TabsNavigatorParamList } from
 // import { CreateProductScreen } from '../screens';
 import { StackNavigationProp } from '@react-navigation/stack';
 // Types
-import { GroupType, ProductType } from '../modules';
+import { ProductType } from '../modules';
 // Screens
-import { GroupScreen, ProductDetailsScreen } from '../screens';
+import { CategoryScreen, ProductDetailsScreen } from '../screens';
+import { CategoryType } from '../modules/Categories';
 
 /**
  * If no params are allowed, pass through `undefined`. Generally speaking, we
@@ -29,9 +30,9 @@ export type NavigatorParamList = {
 	TabsStack: NavigatorScreenParams<TabsNavigatorParamList>;
 	ProfileStack: NavigatorScreenParams<ProfileNavigatorParamList>;
 
-	productDetails: {productId: ProductType['productId'] };
+	productDetails: {product: ProductType };
 	createProduct: undefined;
-	group: {groupId: GroupType['groupId']};
+	category: {categoryId: CategoryType['categoryId']}
 };
 
 export type NavigatorScreenProps = StackNavigationProp<NavigatorParamList>
@@ -49,8 +50,7 @@ const AppStack = () => {
 		>
 			<Stack.Screen name="TabsStack" component={TabsNavigator} />
 			<Stack.Screen name="productDetails" component={ProductDetailsScreen} />
-			<Stack.Screen name="group" component={GroupScreen} />
-
+			<Stack.Screen name="category" component={CategoryScreen} />
 
 			{/* <Stack.Screen name="createProduct" component={CreateProductScreen} /> */}
 		</Stack.Navigator>

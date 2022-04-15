@@ -1,15 +1,12 @@
 // React and packages
 import React from 'react';
 import { StyleProp, ViewStyle, Dimensions, TouchableOpacity, Image } from 'react-native';
-
 import Feather from 'react-native-vector-icons/Feather';
-import { useNavigation } from '@react-navigation/native';
 // Types and utils
 import { colors, spacing } from '../../../../theme';
-import { navigationRef, NavigatorScreenProps } from '../../../../navigators';
-import { ProductType } from '../../store';
 // Components
 import { Block, Text } from '../../../../components';
+import { ProductType } from '../../products.types';
 
 export interface ProductProps {
 	product: ProductType;
@@ -19,21 +16,7 @@ export interface ProductProps {
 const { width } = Dimensions.get('screen');
 const IMAGE_SIZE = 120;
 
-export const Product = (props: ProductProps) => {
-	const { product } = props;
-
-	const nav = useNavigation<NavigatorScreenProps>();
-	
-	const handleNavigation = () => {
-		if (navigationRef.isReady()) {
-			nav.navigate('productDetails', { productId: product.productId });
-		}
-	};
-
-	return <ProductUI handleNavigation={handleNavigation} product={product} />;
-};
-
-export const ProductUI = (props: {
+export const ProductComponent = (props: {
 	handleNavigation?: () => void;
 	product: ProductType;
 }) => {
@@ -50,7 +33,7 @@ export const ProductUI = (props: {
 			<TouchableOpacity onPress={handleNavigation} style={{ padding: spacing[2] }}>
 				<Image
 					// @ts-ignore
-					source={product.pictureUri}
+					source={product.picture}
 					style={{
 						resizeMode: 'contain',
 						width: IMAGE_SIZE,

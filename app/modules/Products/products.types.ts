@@ -1,3 +1,5 @@
+import { BaseInitialState } from "../../redux/store";
+
 export enum ProductsTypes {
 	SET_ERROR = 'SET_ERROR',
 	LOAD_PRODUCTS = 'LOAD_PRODUCTS',
@@ -24,10 +26,8 @@ export type ProductsActions = | LoadProductsAction | SetProductsAction | SetErro
 /**
  * The initial state of the products store
  */
-export type ProductsState = {
-	loading: boolean;
-	errorMessage: null | string;
-	products: null | ProductType[];
+export interface ProductsState extends BaseInitialState {
+	products: ProductType[];
 }
 
 export type ProductType = {
@@ -39,5 +39,5 @@ export type ProductType = {
 	richDescription?: string;
 	price: number;
 
-	pictureUri: string;
+	picture: ReturnType<typeof require>;
 };

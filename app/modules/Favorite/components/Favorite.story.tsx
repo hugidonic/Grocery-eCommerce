@@ -12,14 +12,14 @@ storiesOf("Favorite", module)
   .add("FavoriteList", () => (
     <Story>
       <UseCase text="Favorite list of items" >
-        <FavoriteList favoriteItems={data.products.vegetables} />
+        <FavoriteList favoriteItems={data.products.vegetable} />
       </UseCase>
     </Story>
   ))
   .add("FavoriteListItem", () => (
     <Story>
       <UseCase text="Favorite item from list">
-        <FavoriteListItem product={data.products.vegetables[0]} />
+        <FavoriteListItem product={data.products.vegetable[0]} />
       </UseCase>
     </Story>
   ))

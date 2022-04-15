@@ -5,21 +5,22 @@ import { StackScreenProps } from '@react-navigation/stack';
 import BottomSheet from 'reanimated-bottom-sheet';
 // Components
 import { Screen, Text, Block, Button, Loading } from '../../components';
+import { CartList, Checkout } from '../../modules';
 // Types and utils
 import { TabsNavigatorParamList } from '../../navigators';
 import { colors } from '../../theme';
-import { CartList, Checkout } from '../../modules';
+import { useTypedSelector } from '../../redux/hooks/useTypedSelector';
+import * as CartSelector from '../../modules/Cart/cart.selectors';
 
 type CartScreenProps = StackScreenProps<TabsNavigatorParamList, 'cart'>;
 
 export const CartScreen: FC<CartScreenProps> = (props: CartScreenProps) => {
-	React.useEffect(() => {
-		CartStore.loadCartItemsFromApi();
-	}, []);
-
 	const sheetRef = React.useRef<BottomSheet>(null);
 
-	if (!CartStore.isLoading) {
+	const { isLoading, cartItems } = useTypedSelector((state) => state.CartStore);
+	const totalCost: number = useTypedSelector(CartSelector.totalCost);
+
+	if (isLoading) {
 		return <Loading />;
 	}
 
@@ -32,7 +33,7 @@ export const CartScreen: FC<CartScreenProps> = (props: CartScreenProps) => {
 					</Text>
 				</Block>
 
-				<CartList cartItems={CartStore.items} />
+				<CartList cartItems={cartItems} />
 			</Screen>
 			<Block
 				justify="center"
@@ -46,7 +47,7 @@ export const CartScreen: FC<CartScreenProps> = (props: CartScreenProps) => {
 				/>
 			</Block>
 
-			<Checkout sheetRef={sheetRef} totalCost={CartStore.totalCost} />
+			<Checkout sheetRef={sheetRef} totalCost={totalCost} />
 		</React.Fragment>
 	);
-}
+};

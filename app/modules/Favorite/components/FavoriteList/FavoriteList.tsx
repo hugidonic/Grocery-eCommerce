@@ -7,6 +7,7 @@ import { spacing } from '../../../../theme';
 // Components
 import { Block } from '../../../../components';
 import { FavoriteListItem } from '..';
+import { ProductType } from '../../../Products';
  
 export interface FavoriteListProps {
 	style?: StyleProp<ViewStyle>;

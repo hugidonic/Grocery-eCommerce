@@ -11,6 +11,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import { colors, spacing } from '../../../../theme';
 // Components
 import { Block, Text } from '../../../../components';
+import { ProductType } from '../../products.types';
 
 export interface ProductDetailsInfoProps {
 	style?: StyleProp<ViewStyle>;

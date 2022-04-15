@@ -8,7 +8,6 @@ import { NavigatorParamList } from '../../navigators';
 import { colors, spacing } from '../../theme';
 // Components
 import { Block, Screen } from '../../components';
-import { data } from '../../utils/data';
 import { ProductDetailsHeader, ProductDetailsInfo } from '../../modules';
 
 const {height} = Dimensions.get('screen')
@@ -17,12 +16,7 @@ export const ProductDetailsScreen: FC<
 	StackScreenProps<NavigatorParamList, 'productDetails'>
 > = (props) => {
 
-  const {productId} = props.route.params
-  const product = data.products.all.find(p => p.productId === productId)
-
-  React.useEffect(() => {
-    console.log(scrollY);
-  }, [scrollY])
+  const {product} = props.route.params
 
   React.useEffect(() => {
     if (!product) {
@@ -38,8 +32,8 @@ export const ProductDetailsScreen: FC<
       
       <Block justify="center" align="center" style={{marginVertical: 15}}>
         <Image
-          // @ts-ignore
-          source={(product.pictureUri) ?? {uri:  'https://imallpenza.ru/img/nophoto400.jpg'}}
+          source={{uri: product.pictureUri}}
+          // source={({uri: product.pictureUri}) ?? {uri:  'https://imallpenza.ru/img/nophoto400.jpg'}}
           style={styles.picture}
         />
       </Block>

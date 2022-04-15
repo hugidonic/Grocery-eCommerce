@@ -1,24 +1,26 @@
 // React and packages
 import React from "react";
 import { StyleProp, ViewStyle, FlatList, Dimensions } from "react-native";
-;
 // Types and utils
-import { data } from "../../../../utils/data";
+import { CategoryType } from "../../categories.types";
 // Components
-import { CategoriesListItem } from "..";
 import { Block } from "../../../../components";
+import { CategoryItem } from "../CategoryItem";
 
 export interface CategoriesListProps {
   style?: StyleProp<ViewStyle>;
+	categories?: CategoryType[];
 }
 
 const { width } = Dimensions.get('screen');
 
 export const CategoriesList = (props: CategoriesListProps) => {
+	const {categories = []} = props
+	
 	return (
 		<FlatList
-			data={data.categories}
-			renderItem={({ item }) => <CategoriesListItem category={item} />}
+			data={categories}
+			renderItem={({ item }) => <CategoryItem category={item} />}
 			keyExtractor={(item, idx) => idx.toString()}
 			horizontal
 			showsHorizontalScrollIndicator={false}

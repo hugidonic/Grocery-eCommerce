@@ -5,8 +5,6 @@ import { StackScreenProps } from "@react-navigation/stack"
 // Types and utils
 import { TabsNavigatorParamList } from "../../navigators"
 import { colors } from "../../theme"
-import { useStores } from "../../RootStore"
-import { data } from "../../utils/data"
 // Components
 import { Screen, Text, Block, Button } from "../../components"
 import { FavoriteList } from "../../modules"
@@ -15,12 +13,8 @@ type FavoriteScreenProps = StackScreenProps<TabsNavigatorParamList, "favorite">
 
 export const FavoriteScreen: FC<FavoriteScreenProps> = (props) => {
 
-	const { UserStore } = useStores()
-
-	React.useEffect(() => {
-		data.products.vegetables.map(product => UserStore.favoriteItems.addToFavorite(product))
-	}, [])
 	
+
   return (
     <>
 			<Screen backgroundColor={colors.palette.offWhite} preset="scroll">
@@ -30,7 +24,7 @@ export const FavoriteScreen: FC<FavoriteScreenProps> = (props) => {
 					</Text>
 				</Block>
 
-				<FavoriteList favoriteItems={UserStore.favoriteItems.items} />	
+				<FavoriteList />	
 			</Screen>
 
 

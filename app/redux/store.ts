@@ -1,22 +1,27 @@
 import { applyMiddleware, createStore } from 'redux'
-import createSagaMiddleware from 'redux-saga'
+import thunk from 'redux-thunk'
+import { createAPI } from '../services/api'
 import { rootReducer } from './rootReducer'
-import { rootSaga } from './rootSaga'
-
-const sagaMiddleware = createSagaMiddleware()
 
 
 export const store = createStore(
   rootReducer,
-  applyMiddleware(sagaMiddleware)
+  applyMiddleware(thunk)
 )
-  
-sagaMiddleware.run(rootSaga)
 
+export const API = createAPI()
+  
 /**
  *  Infer the `RootState` types from the store itself
  */
 export type RootStateType = ReturnType<typeof store.getState>
+/**
+ * Basic state with loading and error message 
+ */
+export interface BaseInitialState {
+  isLoading: boolean,
+  errorMessage: string | null,
+}
 /**
  *  Infer the `AppDispatch` types from the store itself
  */

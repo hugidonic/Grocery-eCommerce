@@ -2,9 +2,9 @@ import { ProductsActions, ProductsTypes } from './products.types';
 import { ProductsState} from './products.types';
 
 const initialState: ProductsState = {
-	loading: true,
-	errorMessage: '',
-	products: null,
+	isLoading: true,
+	errorMessage: null,
+	products: [],
 };
 
 export default (state = initialState, action: ProductsActions): ProductsState=> {
@@ -12,21 +12,21 @@ export default (state = initialState, action: ProductsActions): ProductsState=> 
 		case ProductsTypes.LOAD_PRODUCTS:
 			return {
 				...state,
-				loading: true,
+				isLoading: true,
 				errorMessage: '',
 			}
 		case ProductsTypes.SET_PRODUCTS:
 			return {
 				...state,
-				loading: false,
+				isLoading: false,
 				errorMessage: '',
 				products: action.payload
 			}
 		case ProductsTypes.SET_ERROR:
 			return {
 				...state,
-				loading: false,
-				products: null,
+				isLoading: false,
+				products: [],
 				errorMessage: action.payload
 			}
 

@@ -4,40 +4,40 @@ import React, { FC } from 'react';
 import { Dimensions, Image, StyleSheet, TouchableOpacity } from 'react-native';
 import { StackScreenProps } from '@react-navigation/stack';
 // Types and utils
+import { CategoryType } from '../../modules/Categories';
 import { NavigatorParamList } from '../../navigators';
 import { colors, spacing } from '../../theme';
-import { data } from '../../utils/data';
+import * as CategoriesSelectors from '../../modules/Categories/categories.selectors';
 // Components
 import { Block, Screen, SearchBar, Text } from '../../components';
+import { useTypedSelector } from '../../redux/hooks/useTypedSelector';
 
 const { width } = Dimensions.get('screen');
 
-export type ExploreScreenProps = StackScreenProps<
-	NavigatorParamList,
-	'TabsStack'
->;
+export type ExploreScreenProps = StackScreenProps<NavigatorParamList, 'TabsStack'>;
 
-export const ExploreScreen: FC<
-	ExploreScreenProps
-> = (props) => {
+export const ExploreScreen: FC<ExploreScreenProps> = (props) => {
+	const categories = useTypedSelector(CategoriesSelectors.categories);
 
-	const renderGroup = (group: GroupType, idx: number) => (
+	const renderCategory = (category: CategoryType, idx: number) => (
 		<Block
-			style={styles.group}
+			style={styles.category}
 			bRadius={14}
 			shadow
-			color={group.color}
-			key={group.groupId}
+			color={category.color}
+			key={category.categoryId}
 		>
 			<TouchableOpacity
-				style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}
+				style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}
 				onPress={() =>
-					props.navigation.navigate('group', {groupId: group.groupId})}
+					props.navigation.navigate('category', {
+						categoryId: category.categoryId
+					})}
 			>
 				{/* @ts-ignore */}
-				<Image source={group.picture} style={styles.image} />
-				<Text weight='bold' size="large">
-					{group.name}
+				<Image source={{uri: category.picture}} style={styles.image} />
+				<Text weight="bold" size="large">
+					{category.name}
 				</Text>
 			</TouchableOpacity>
 		</Block>
@@ -45,12 +45,8 @@ export const ExploreScreen: FC<
 
 	return (
 		<Screen style={styles.container} preset="scroll">
-			<Block
-				justify="center"
-				align="center"
-				style={{ marginVertical: 30 }}
-			>
-				<Text weight='black' size='title'>
+			<Block justify="center" align="center" style={{ marginVertical: 30 }}>
+				<Text weight="black" size="title">
 					Find Products
 				</Text>
 			</Block>
@@ -64,11 +60,11 @@ export const ExploreScreen: FC<
 				style={{ width: '100%', flexWrap: 'wrap' }}
 				justify={'space-between'}
 			>
-				{data.groups.map(renderGroup)}
+				{categories.map(renderCategory)}
 			</Block>
 		</Screen>
 	);
-}
+};
 
 const styles = StyleSheet.create({
 	container: {
@@ -79,11 +75,11 @@ const styles = StyleSheet.create({
 		resizeMode: 'contain',
 		marginBottom: 20,
 		width: 80,
-		height: 80,
+		height: 80
 	},
-	group: {
+	category: {
 		width: width * 0.5 - 32,
 		height: 180,
-		marginBottom: spacing[4] 
+		marginBottom: spacing[4]
 	}
 });
