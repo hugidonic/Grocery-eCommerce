@@ -4,14 +4,14 @@ import { StyleProp, ViewStyle } from 'react-native';
 
 // Types and utils
 import { spacing } from '../../../../theme';
+import { FavoriteItemType } from '../../favorite.types';
 // Components
 import { Block } from '../../../../components';
 import { FavoriteListItem } from '..';
-import { ProductType } from '../../../Products';
  
 export interface FavoriteListProps {
 	style?: StyleProp<ViewStyle>;
-	favoriteItems?: ProductType[]
+	favoriteItems?: FavoriteItemType[]
 }
 
 export const FavoriteList = (props: FavoriteListProps) => {
@@ -21,7 +21,7 @@ export const FavoriteList = (props: FavoriteListProps) => {
 	} = props
 	
 	const renderFavoriteListItem = (
-		product: ProductType,
+		product: FavoriteItemType,
 		idx: number
 		) => {
 			return (

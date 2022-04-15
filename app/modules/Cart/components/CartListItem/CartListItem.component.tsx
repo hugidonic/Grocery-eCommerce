@@ -27,7 +27,8 @@ export const CartListItemComponent = (props: CartListItemProps) => {
 		<Block color="#fff" row shadow bRadius={20} style={styles.container}>
 			<Block flex={1}>
 				<Image
-					source={{uri: cartItem.product.pictureUri}}
+					//@ts-ignore
+					source={cartItem.product.picture}
 					style={{
 						width: 100,
 						height: 100,

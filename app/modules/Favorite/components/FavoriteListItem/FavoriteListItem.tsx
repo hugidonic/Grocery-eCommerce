@@ -30,7 +30,8 @@ export const FavoriteListItem = (
 	return (
 		<Block row color="#fff" shadow bRadius={20} style={styles.container}>
 			<Image
-				source={{uri: product.pictureUri}}
+				//@ts-ignore
+				source={product.picture}
 				style={{
 					width: 100,
 					height: 100,

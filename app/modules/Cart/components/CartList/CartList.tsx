@@ -14,7 +14,7 @@ export interface CartListProps {
 }
 
 export const CartList = (props: CartListProps) => {
-	const { cartItems = []} = props;
+	const { cartItems = [] } = props;
 
 	const renderCartListItem = (cartItem: CartItemType, idx: number): JSX.Element => {
 		return (
@@ -26,7 +26,7 @@ export const CartList = (props: CartListProps) => {
 
 	return (
 		<Block padding={[ 0, 0, 200, 0 ]}>
-			{cartItems.map(renderCartListItem)}
+			{cartItems && cartItems.map(renderCartListItem)}
 		</Block>
 	);
 }

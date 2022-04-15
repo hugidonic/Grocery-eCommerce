@@ -21,7 +21,7 @@ export default (state = initialState, action: CategoriesActions): CategoryStateT
         errorMessage: null,
       }
 
-    case CategoriesTypes.ERROR_CATEGORIES:
+    case CategoriesTypes.SET_ERROR:
       return {
         ...state,
         isLoading: false,

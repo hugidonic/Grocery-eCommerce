@@ -7,7 +7,7 @@ export interface CategoryStateType extends BaseInitialState {
 export enum CategoriesTypes {
 	LOAD_CATEGORIES = 'LOAD_CATEGORIES',
 	SET_CATEGORIES = 'SET_CATEGORIES',
-	ERROR_CATEGORIES = 'ERROR_CATEGORIES'
+	SET_ERROR = 'SET_ERROR'
 }
 
 interface LoadCategoriesAction {
@@ -18,7 +18,7 @@ interface SetCategoriesAction {
 	payload: CategoryType[];
 }
 interface ErrorCategoriesAction {
-	type: CategoriesTypes.ERROR_CATEGORIES;
+	type: CategoriesTypes.SET_ERROR;
 	payload: string;
 }
 

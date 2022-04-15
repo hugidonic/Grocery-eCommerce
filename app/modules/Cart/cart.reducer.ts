@@ -20,7 +20,7 @@ export default (state = initialState, action: CartActions) => {
         errorMessage: null,
         cartItems: action.payload
       }
-    case CartTypes.CART_ITEMS_ERROR:
+    case CartTypes.SET_ERROR:
       return {
         ...state,
         isLoading: false,

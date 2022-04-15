@@ -4,7 +4,7 @@ import { ProductType } from "../Products/products.types";
 export enum CartTypes {
   LOAD_CART_ITEMS = "LOAD_CART_ITEMS",
   SET_CART_ITEMS = "SET_CART_ITEMS",
-  CART_ITEMS_ERROR = "CART_ITEMS_ERRORR"
+  SET_ERROR = "SET_ERROR"
 }
 
 
@@ -16,7 +16,7 @@ interface SetCartItemsAction {
   payload: CartItemType[],
 }
 interface CartItemsErrorAction {
-  type: CartTypes.CART_ITEMS_ERROR
+  type: CartTypes.SET_ERROR
   payload: string,
 }
 
