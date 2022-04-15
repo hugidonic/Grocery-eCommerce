@@ -93,9 +93,9 @@ export const TabsNavigator = () => {
 			initialRouteName="home"
 		>
 			<Stack.Screen name="home" component={HomeScreen} />
-			{/* <Stack.Screen name="explore" component={ExploreScreen} /> */}
+			<Stack.Screen name="explore" component={ExploreScreen} />
 			<Stack.Screen name="cart" component={CartScreen} />
-			{/* <Stack.Screen name="favorite" component={FavoriteScreen} /> */}
+			<Stack.Screen name="favorite" component={FavoriteScreen} />
 			<Stack.Screen name="profile" component={ProfileScreen} />
 		</Stack.Navigator>
 	);

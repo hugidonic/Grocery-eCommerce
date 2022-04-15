@@ -6,14 +6,25 @@ import { StackScreenProps } from "@react-navigation/stack"
 import { TabsNavigatorParamList } from "../../navigators"
 import { colors } from "../../theme"
 // Components
-import { Screen, Text, Block, Button } from "../../components"
+import { Screen, Text, Block, Button, Loading } from "../../components"
 import { FavoriteList } from "../../modules"
+import { useTypedSelector } from "../../redux/hooks/useTypedSelector"
+import { useActions } from "../../redux/hooks/useActions"
 
 type FavoriteScreenProps = StackScreenProps<TabsNavigatorParamList, "favorite">
 
 export const FavoriteScreen: FC<FavoriteScreenProps> = (props) => {
-
+	const {favoriteItems, isLoading} = useTypedSelector(state => state.FavoriteStore)
 	
+	const {loadFavoriteItems} = useActions()
+
+	React.useEffect(() => {
+		loadFavoriteItems()
+	}, [])
+	
+	if (isLoading) {
+		return <Loading />
+	}
 
   return (
     <>
@@ -24,17 +35,19 @@ export const FavoriteScreen: FC<FavoriteScreenProps> = (props) => {
 					</Text>
 				</Block>
 
-				<FavoriteList />	
+				<FavoriteList favoriteItems={favoriteItems} />	
 			</Screen>
 
 
-			<Block
-				justify="center"
-				row
-				style={{ position: 'absolute', bottom: 25, right: 0, left: 0 }}
-			>
-				<Button shadow text="Add all to cart" onPress={() => {}} />
-			</Block>
+			{favoriteItems.length > 0 && (
+				<Block
+					justify="center"
+					row
+					style={{ position: 'absolute', bottom: 25, right: 0, left: 0 }}
+				>
+					<Button shadow text="Add all to cart" onPress={() => {}} />
+				</Block>
+			)}
 		</>
   )
 }

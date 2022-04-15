@@ -9,7 +9,7 @@ import { NavigatorParamList } from '../../navigators';
 import { colors, spacing } from '../../theme';
 import * as CategoriesSelectors from '../../modules/Categories/categories.selectors';
 // Components
-import { Block, Screen, SearchBar, Text } from '../../components';
+import { Block, Loading, Screen, SearchBar, Text } from '../../components';
 import { useTypedSelector } from '../../redux/hooks/useTypedSelector';
 
 const { width } = Dimensions.get('screen');
@@ -17,9 +17,14 @@ const { width } = Dimensions.get('screen');
 export type ExploreScreenProps = StackScreenProps<NavigatorParamList, 'TabsStack'>;
 
 export const ExploreScreen: FC<ExploreScreenProps> = (props) => {
+	const IsLoading = useTypedSelector(state => state.CategoriesStore.isLoading)
 	const categories = useTypedSelector(CategoriesSelectors.categories);
 
-	const renderCategory = (category: CategoryType, idx: number) => (
+	if (IsLoading) {
+		return <Loading />
+	}
+
+	const renderCategory = (category: CategoryType) => (
 		<Block
 			style={styles.category}
 			bRadius={14}
@@ -35,7 +40,7 @@ export const ExploreScreen: FC<ExploreScreenProps> = (props) => {
 					})}
 			>
 				{/* @ts-ignore */}
-				<Image source={{uri: category.picture}} style={styles.image} />
+				<Image source={category.picture} style={styles.image} />
 				<Text weight="bold" size="large">
 					{category.name}
 				</Text>

@@ -32,8 +32,8 @@ export const ProductDetailsScreen: FC<
       
       <Block justify="center" align="center" style={{marginVertical: 15}}>
         <Image
-          source={{uri: product.pictureUri}}
-          // source={({uri: product.pictureUri}) ?? {uri:  'https://imallpenza.ru/img/nophoto400.jpg'}}
+          // @ts-ignore
+          source={product.picture}
           style={styles.picture}
         />
       </Block>

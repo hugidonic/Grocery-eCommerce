@@ -1,5 +1,3 @@
-
-import { IMAGES_URL } from '../constants/images';
 import { CategoryType } from '../modules/Categories/categories.types';
 import { ProductType } from '../modules/Products/products.types';
 import uuid from './uuid';
@@ -16,32 +14,79 @@ const colors: string[] = [
 	'#B6B8D6'
 ];
 
-export const categoriesNamesList = [
-	'Drinks',
-	'Diary',
-	'Sauces',
-	'Rice',
-	'Pulses',
-	'Oils',
+const fruitImages = [
+	{
+		name: 'Bananas',
+		image: require('../../assets/images/Bananas.png'),
+	},
+	{
+		name: 'Apples',
+		image: require('../../assets/images/Apples.png'),
+	},
+	{
+		name: 'Kiwies',
+		image: require('../../assets/images/Kiwies.png'),
+	},
+	{
+		name: 'Oranges',
+		image: require('../../assets/images/Oranges.png'),
+	},
+	{
+		name: 'Pears',
+		image: require('../../assets/images/Pears.png'),
+	},
 ]
 
-export const fruitNamesList = [
-	'Bananas',
-	'Apples',
-	'Kiwies',
-	'Oranges',
-	'Pears',
+const categoryImages = [
+	{
+		name: 'Drinks',
+		image: require('../../assets/images/Drinks.png'),
+	},
+	{
+		name: 'Diary',
+		image: require('../../assets/images/Diary.png'),
+	},
+	{
+		name: 'Sauces',
+		image: require('../../assets/images/Sauces.png'),
+	},
+	{
+		name: 'Rice',
+		image: require('../../assets/images/Rice.png'),
+	},
+	{
+		name: 'Pulses',
+		image: require('../../assets/images/Pulses.png'),
+	},
+	{
+		name: 'Oils',
+		image: require('../../assets/images/Oils.png'),
+	},
 ]
 
-export const vegetableNamesList = [
-	'Carrots',
-	'Potatoes',
-	'Cucumbers',
-	'Corns',
-	'Tomatoes',
+const vegetableImages = [
+	
+	{
+		name: 'Carrots',
+		image: require('../../assets/images/Carrots.png'),
+	},
+	{
+		name: 'Potatoes',
+		image: require('../../assets/images/Potatoes.png'),
+	},
+	{
+		name: 'Cucumbers',
+		image: require('../../assets/images/Cucumbers.png'),
+	},
+	{
+		name: 'Corns',
+		image: require('../../assets/images/Corns.png'),
+	},
+	{
+		name: 'Tomatoes',
+		image: require('../../assets/images/Tomatoes.png'),
+	},
 ]
-
-export const images = 
 
 export type DataType = {
 	products?: {
@@ -54,33 +99,33 @@ export type DataType = {
 
 export const data: DataType = {
 	products: {
-		fruit: fruitNamesList.map((name) => {
+		fruit: fruitImages.map((picture) => {
 			return {
 				productId: uuid(),
 				type: 'fruit',
-				name: name,
+				name: picture.name,
 				description: 'Organic',
 				price: 4.99,
-				picture: null,
+				picture: picture.image,
 			};
 		}),
-		vegetable: vegetableNamesList.map((name) => {
+		vegetable: vegetableImages.map((picture) => {
 			return {
 				productId: uuid(),
 				type: 'vegetable',
-				name: name,
+				name: picture.name,
 				description: 'Organic',
 				price: 4.99,
-				picture: null,
+				picture: picture.image,
 			};
 		}),
 		all: []
 	},
-	categories: categoriesNamesList.map((name, idx) => {
+	categories: categoryImages.map((picture, idx) => {
     return {
       categoryId: uuid(),
-      name: name,
-      picture:  null,
+      name: picture.name,
+      picture: picture.image,
       color: colors[idx],
     };
   }),

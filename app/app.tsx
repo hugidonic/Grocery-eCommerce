@@ -12,7 +12,6 @@ import { Provider } from 'react-redux';
 // Redux
 import { store } from './redux/store';
 import { useActions } from './redux/hooks/useActions';
-import { Block, Text } from './components';
 
 export const NAVIGATION_PERSISTENCE_KEY = 'NAVIGATION_STATE';
 

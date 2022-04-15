@@ -23,19 +23,15 @@ import * as CategoriesSelector from '../../modules/Categories/categories.selecto
 export const HomeScreen: FC<
 	StackScreenProps<TabsNavigatorParamList, 'home'>
 > = () => {
+
 	const ProductStore = useTypedSelector(state => state.ProductStore)
 	const CategoriesStore = useTypedSelector(state => state.CategoriesStore)
 
-	const allProducts = ProductStore.products
-
-	const fruits = allProducts.filter(product => product.type === 'fruit')
-	const vegetables = allProducts.filter(product => product.type === 'vegetable')
-	const categories = CategoriesStore.categories
-	// const allProducts = useTypedSelector(state => state.ProductStore.products)
-	// const vegetables = useTypedSelector(ProductsSelector.vegetables)
-	// const fruits = useTypedSelector(ProductsSelector.fruits)
-	// const categories = useTypedSelector(CategoriesSelector.categories)
-
+	const fruits = useTypedSelector(ProductsSelector.fruits)
+	const vegetables = useTypedSelector(ProductsSelector.vegetables)
+	const allProducts = useTypedSelector(ProductsSelector.allProducts)
+	const categories = useTypedSelector(CategoriesSelector.categories)
+	
 	if (ProductStore.isLoading || CategoriesStore.isLoading) {
 		return <Loading />
 	}
