@@ -1,1 +1,138 @@
-{"products":[{"type":"fruit","name":"Berries","description":"Organic","price":5,"pictureUri":"https://disk.yandex.ru/d/z4DXHna-dCJjqQ/Berries.png","productId":"49805"},{"productId":"14979","type":"fruit","name":"Bananas","description":"Organic","price":4.99,"pictureUri":"https://disk.yandex.ru/d/z4DXHna-dCJjqQ/Bananas.png"},{"productId":"47216","type":"fruit","name":"Apples","description":"Organic","price":4.99,"pictureUri":"https://disk.yandex.ru/d/z4DXHna-dCJjqQ/Apples.png"},{"productId":"156692","type":"fruit","name":"Berries","description":"Organic","price":4.99,"pictureUri":"https://disk.yandex.ru/d/z4DXHna-dCJjqQ/Berries.png"},{"productId":"36774","type":"fruit","name":"Kiwies","description":"Organic","price":4.99,"pictureUri":"https://disk.yandex.ru/d/z4DXHna-dCJjqQ/Kiwies.png"},{"productId":"7780","type":"fruit","name":"Oranges","description":"Organic","price":4.99,"pictureUri":"https://disk.yandex.ru/d/z4DXHna-dCJjqQ/Oranges.png"},{"productId":"165673","type":"fruit","name":"Pears","description":"Organic","price":4.99,"pictureUri":"https://disk.yandex.ru/d/z4DXHna-dCJjqQ/Pears.png"},{"productId":"118909","type":"vegetable","name":"Carrots","description":"Organic","price":4.99,"pictureUri":"https://disk.yandex.ru/d/z4DXHna-dCJjqQ/Carrots.png"},{"productId":"23146","type":"vegetable","name":"Potatoes","description":"Organic","price":4.99,"pictureUri":"https://disk.yandex.ru/d/z4DXHna-dCJjqQ/Potatoes.png"},{"productId":"80425","type":"vegetable","name":"Cucumbers","description":"Organic","price":4.99,"pictureUri":"https://disk.yandex.ru/d/z4DXHna-dCJjqQ/Cucumbers.png"},{"productId":"117138","type":"vegetable","name":"Corns","description":"Organic","price":4.99,"pictureUri":"https://disk.yandex.ru/d/z4DXHna-dCJjqQ/Corns.png"},{"productId":"147313","type":"vegetable","name":"Tomatoes","description":"Organic","price":4.99,"pictureUri":"https://disk.yandex.ru/d/z4DXHna-dCJjqQ/Tomatoes.png"}],"categories":[{"categoryId":"63976","name":"Drinks","color":"#F7B2BD","pictureUri":"https://disk.yandex.ru/d/z4DXHna-dCJjqQ/Drinks.png"},{"categoryId":"107299","name":"Diary","color":"#A6B1E1","pictureUri":"https://disk.yandex.ru/d/z4DXHna-dCJjqQ/Diary.png"},{"categoryId":"25811","name":"Sauces","color":"#EEEFA8","pictureUri":"https://disk.yandex.ru/d/z4DXHna-dCJjqQ/Sauces.png"},{"categoryId":"84858","name":"Rice","color":"#C8B8DB","pictureUri":"https://disk.yandex.ru/d/z4DXHna-dCJjqQ/Rice.png"},{"categoryId":"123822","name":"Pulses","color":"#B8DBD9","pictureUri":"https://disk.yandex.ru/d/z4DXHna-dCJjqQ/Pulses.png"},{"categoryId":"85851","name":"Oils","color":"#F5EE9E","pictureUri":"https://disk.yandex.ru/d/z4DXHna-dCJjqQ/Oils.png"}]}
+{
+	"products": [
+		{
+			"type": "fruit",
+			"name": "Berries",
+			"description": "Organic",
+			"price": 5,
+			"pictureUri": "https://disk.yandex.ru/d/z4DXHna-dCJjqQ/Berries.png",
+			"productId": "49805"
+		},
+		{
+			"productId": "14979",
+			"type": "fruit",
+			"name": "Bananas",
+			"description": "Organic",
+			"price": 4.99,
+			"pictureUri": "https://disk.yandex.ru/d/z4DXHna-dCJjqQ/Bananas.png"
+		},
+		{
+			"productId": "47216",
+			"type": "fruit",
+			"name": "Apples",
+			"description": "Organic",
+			"price": 4.99,
+			"pictureUri": "https://disk.yandex.ru/d/z4DXHna-dCJjqQ/Apples.png"
+		},
+		{
+			"productId": "156692",
+			"type": "fruit",
+			"name": "Berries",
+			"description": "Organic",
+			"price": 4.99,
+			"pictureUri": "https://disk.yandex.ru/d/z4DXHna-dCJjqQ/Berries.png"
+		},
+		{
+			"productId": "36774",
+			"type": "fruit",
+			"name": "Kiwies",
+			"description": "Organic",
+			"price": 4.99,
+			"pictureUri": "https://disk.yandex.ru/d/z4DXHna-dCJjqQ/Kiwies.png"
+		},
+		{
+			"productId": "7780",
+			"type": "fruit",
+			"name": "Oranges",
+			"description": "Organic",
+			"price": 4.99,
+			"pictureUri": "https://disk.yandex.ru/d/z4DXHna-dCJjqQ/Oranges.png"
+		},
+		{
+			"productId": "165673",
+			"type": "fruit",
+			"name": "Pears",
+			"description": "Organic",
+			"price": 4.99,
+			"pictureUri": "https://disk.yandex.ru/d/z4DXHna-dCJjqQ/Pears.png"
+		},
+		{
+			"productId": "118909",
+			"type": "vegetable",
+			"name": "Carrots",
+			"description": "Organic",
+			"price": 4.99,
+			"pictureUri": "https://disk.yandex.ru/d/z4DXHna-dCJjqQ/Carrots.png"
+		},
+		{
+			"productId": "23146",
+			"type": "vegetable",
+			"name": "Potatoes",
+			"description": "Organic",
+			"price": 4.99,
+			"pictureUri": "https://disk.yandex.ru/d/z4DXHna-dCJjqQ/Potatoes.png"
+		},
+		{
+			"productId": "80425",
+			"type": "vegetable",
+			"name": "Cucumbers",
+			"description": "Organic",
+			"price": 4.99,
+			"pictureUri": "https://disk.yandex.ru/d/z4DXHna-dCJjqQ/Cucumbers.png"
+		},
+		{
+			"productId": "117138",
+			"type": "vegetable",
+			"name": "Corns",
+			"description": "Organic",
+			"price": 4.99,
+			"pictureUri": "https://disk.yandex.ru/d/z4DXHna-dCJjqQ/Corns.png"
+		},
+		{
+			"productId": "147313",
+			"type": "vegetable",
+			"name": "Tomatoes",
+			"description": "Organic",
+			"price": 4.99,
+			"pictureUri": "https://disk.yandex.ru/d/z4DXHna-dCJjqQ/Tomatoes.png"
+		}
+	],
+	"categories": [
+		{
+			"categoryId": "63976",
+			"name": "Drinks",
+			"color": "#F7B2BD",
+			"pictureUri": "https://disk.yandex.ru/d/z4DXHna-dCJjqQ/Drinks.png"
+		},
+		{
+			"categoryId": "107299",
+			"name": "Diary",
+			"color": "#A6B1E1",
+			"pictureUri": "https://disk.yandex.ru/d/z4DXHna-dCJjqQ/Diary.png"
+		},
+		{
+			"categoryId": "25811",
+			"name": "Sauces",
+			"color": "#EEEFA8",
+			"pictureUri": "https://disk.yandex.ru/d/z4DXHna-dCJjqQ/Sauces.png"
+		},
+		{
+			"categoryId": "84858",
+			"name": "Rice",
+			"color": "#C8B8DB",
+			"pictureUri": "https://disk.yandex.ru/d/z4DXHna-dCJjqQ/Rice.png"
+		},
+		{
+			"categoryId": "123822",
+			"name": "Pulses",
+			"color": "#B8DBD9",
+			"pictureUri": "https://disk.yandex.ru/d/z4DXHna-dCJjqQ/Pulses.png"
+		},
+		{
+			"categoryId": "85851",
+			"name": "Oils",
+			"color": "#F5EE9E",
+			"pictureUri": "https://disk.yandex.ru/d/z4DXHna-dCJjqQ/Oils.png"
+		}
+	]
+}
