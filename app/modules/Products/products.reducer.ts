@@ -1,13 +1,13 @@
 import { ProductsActions, ProductsTypes } from './products.types';
-import { ProductsState} from './products.types';
+import { ProductsStateType } from './products.types';
 
-const initialState: ProductsState = {
+const initialState: ProductsStateType = {
 	isLoading: true,
 	errorMessage: null,
 	products: [],
 };
 
-export default (state = initialState, action: ProductsActions): ProductsState=> {
+export default (state = initialState, action: ProductsActions): ProductsStateType=> {
 	switch (action.type) {
 		case ProductsTypes.LOAD_PRODUCTS:
 			return {

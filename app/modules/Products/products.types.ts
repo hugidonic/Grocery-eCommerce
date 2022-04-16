@@ -26,7 +26,7 @@ export type ProductsActions = | LoadProductsAction | SetProductsAction | SetErro
 /**
  * The initial state of the products store
  */
-export interface ProductsState extends BaseInitialState {
+export interface ProductsStateType extends BaseInitialState {
 	products: ProductType[];
 }
 

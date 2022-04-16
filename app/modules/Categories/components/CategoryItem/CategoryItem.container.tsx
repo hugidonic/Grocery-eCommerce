@@ -5,13 +5,12 @@ import { CategoryType } from '../../categories.types';
 import { useNavigation } from '@react-navigation/native';
 import { navigationRef, NavigatorScreenProps } from '../../../../navigators';
 
-export interface CategoryItemProps {
+export interface CategoryItemContainerProps {
 	category: CategoryType;
 	style?: StyleProp<ViewStyle>;
-	onPress?: () => void
 }
 
-export const CategoryItemContainer = (props: CategoryItemProps) => {
+export const CategoryItemContainer = (props: CategoryItemContainerProps) => {
 	const nav = useNavigation<NavigatorScreenProps>();
 	
 	const handleNavigation = () => {
@@ -21,6 +20,6 @@ export const CategoryItemContainer = (props: CategoryItemProps) => {
 	};
   
   return (
-    <CategoryItemComponent {...props} onPress={handleNavigation} />
+    <CategoryItemComponent {...props} navigateToCategory={handleNavigation} />
   )
 }

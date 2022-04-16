@@ -1,26 +1,28 @@
 // React and packages
 import React from 'react';
-import { StyleProp, ViewStyle, Dimensions, TouchableOpacity, Image } from 'react-native';
+import { Dimensions, TouchableOpacity, Image } from 'react-native';
 import Feather from 'react-native-vector-icons/Feather';
 // Types and utils
 import { colors, spacing } from '../../../../theme';
+import { ProductContainerProps } from './Product.container';
 // Components
 import { Block, Text } from '../../../../components';
-import { ProductType } from '../../products.types';
 
-export interface ProductProps {
-	product: ProductType;
-	style?: StyleProp<ViewStyle>;
-}
-
+// CONSTANTS
 const { width } = Dimensions.get('screen');
 const IMAGE_SIZE = 120;
 
-export const ProductComponent = (props: {
+interface ProductComponentProps extends ProductContainerProps {
+	addToCart?: () => void;
 	handleNavigation?: () => void;
-	product: ProductType;
-}) => {
-	const { handleNavigation = () => {}, product } = props;
+}
+
+export const ProductComponent = (props: ProductComponentProps) => {
+	const { 
+		product,
+		handleNavigation = () => {},
+		addToCart = () => {}
+	} = props;
 	return (
 		<Block
 			shadow
@@ -54,7 +56,9 @@ export const ProductComponent = (props: {
 					<Text weight="bold" size="medium">
 						$ {product.price}
 					</Text>
+
 					<TouchableOpacity
+						onPress={addToCart}
 						style={{
 							backgroundColor: colors.primary,
 							borderRadius: 18,

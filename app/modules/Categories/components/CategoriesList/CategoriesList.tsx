@@ -21,7 +21,7 @@ export const CategoriesList = (props: CategoriesListProps) => {
 		<FlatList
 			data={categories}
 			renderItem={({ item }) => <CategoryItem category={item} />}
-			keyExtractor={(item, idx) => idx.toString()}
+			keyExtractor={(item) => item.categoryId}
 			horizontal
 			showsHorizontalScrollIndicator={false}
 			ListHeaderComponent={() => <Block style={{ width: 20 }} />}

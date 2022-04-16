@@ -93,6 +93,7 @@ export type DataType = {
 		fruit?: ProductType[];
 		vegetable?: ProductType[];
 		all?: ProductType[];
+		default?: ProductType[];
 	};
 	categories?: CategoryType[];
 };
@@ -119,7 +120,8 @@ export const data: DataType = {
 				picture: picture.image,
 			};
 		}),
-		all: []
+		all: [],
+		default: [],
 	},
 	categories: categoryImages.map((picture, idx) => {
     return {
@@ -132,6 +134,7 @@ export const data: DataType = {
 };
 
 data.products.all = [ ...data.products.fruit, ...data.products.vegetable ];
+data.products.all = [ ...data.products.fruit.slice(0,4) ];
 
 
 export const dataJSON = JSON.stringify(data);

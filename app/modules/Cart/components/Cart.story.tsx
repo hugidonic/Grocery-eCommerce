@@ -8,7 +8,7 @@ import { StoryScreen, Story, UseCase } from '../../../../storybook/views';
 import { ProductType } from '../../Products';
 // Components
 import { CartList } from './CartList/CartList';
-import { CartListItem } from './CartListItem';
+import { CartItem } from './CartItem';
 import { Block, Button } from '../../../components';
 import { Checkout } from './Checkout/Checkout';
 import { OperationBtn } from './OperationBtn/OperationBtn';
@@ -25,16 +25,16 @@ storiesOf('CartList', module)
 					cartItems={data.products.all.map((product) => ({
 						product,
 						count: 1,
-						id: product.productId
+						cartItemId: product.productId
 					}))}
 				/>
 			</UseCase>
 		</Story>
 	))
-	.add('CartListItem', () => (
+	.add('CartItem', () => (
 		<Story>
 			<UseCase style={{ paddingVertical: 20 }} text="Cart list Item">
-				<CartListItem cartItem={{ count: 1, product, id: '125' }} />
+				<CartItem cartItem={{ count: 1, product, cartItemId: '125' }} />
 			</UseCase>
 		</Story>
 	))

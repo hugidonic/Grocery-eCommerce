@@ -6,7 +6,7 @@ const initialState: FavoriteStateType = {
   favoriteItems: [],
 }
 
-export default (state = initialState, action: FavoriteActions) => {
+export default (state = initialState, action: FavoriteActions): FavoriteStateType => {
   switch (action.type) {
     case FavoriteTypes.LOAD_FAVORITE_ITEMS:
 			return {
@@ -19,14 +19,32 @@ export default (state = initialState, action: FavoriteActions) => {
 				...state,
 				isLoading: false,
 				errorMessage: '',
-				products: action.payload
+				favoriteItems: action.payload
 			}
 		case FavoriteTypes.SET_ERROR:
 			return {
 				...state,
 				isLoading: false,
-				products: [],
+				favoriteItems: [],
 				errorMessage: action.payload
+			}
+
+		case FavoriteTypes.ADD_PRODUCT_TO_FAVORITE:
+			return {
+				...state,
+				favoriteItems: [action.payload, ...state.favoriteItems]
+			}
+
+		case FavoriteTypes.REMOVE_PRODUCT_FROM_FAVORITE:
+			const id = action.payload
+			const favItemToDeleteIdx = state.favoriteItems.findIndex(items => items.productId === id)
+
+			return {
+				...state,
+				favoriteItems: [
+					...state.favoriteItems.slice(0, favItemToDeleteIdx),
+					...state.favoriteItems.slice(favItemToDeleteIdx+1)
+				]
 			}
     default:
      return state

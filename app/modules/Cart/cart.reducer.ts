@@ -1,12 +1,12 @@
-import { CartActions, CartState, CartTypes } from "./cart.types"
+import { CartActions, CartStateType, CartTypes } from "./cart.types"
 
-const initialState: CartState = {
+const initialState: CartStateType = {
   isLoading: true,
   cartItems: [],
   errorMessage: null,
 }
 
-export default (state = initialState, action: CartActions) => {
+export default (state = initialState, action: CartActions): CartStateType => {
   switch (action.type) {
     case CartTypes.LOAD_CART_ITEMS:
       return {
@@ -18,7 +18,7 @@ export default (state = initialState, action: CartActions) => {
         ...state,
         isLoading: false,
         errorMessage: null,
-        cartItems: action.payload
+        cartItems: action.payload,
       }
     case CartTypes.SET_ERROR:
       return {
@@ -27,6 +27,25 @@ export default (state = initialState, action: CartActions) => {
         errorMessage: action.payload,
         cartItems: [],
       }
+
+    case CartTypes.ADD_PRODUCT_TO_CART:
+      return {
+        ...state,
+        cartItems: [action.payload, ...state.cartItems],
+      }
+    
+    case CartTypes.REMOVE_PRODUCT_FROM_CART:
+      const id = action.payload   
+      const cartItemToRemoveIdx = state.cartItems.findIndex(items => items.cartItemId === id)
+
+      return {
+        ...state,
+        cartItems: [
+          ...state.cartItems.slice(0, cartItemToRemoveIdx),
+          ...state.cartItems.slice(cartItemToRemoveIdx + 1)
+        ]
+      }
+
 
     default:
       return state

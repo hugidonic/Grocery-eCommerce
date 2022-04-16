@@ -4,10 +4,16 @@ export const CATEGORIES = 'CATEGORIES';
 export const CART_ITEMS = 'CART_ITEMS';
 export const USER_INFO = 'USER_INFO';
 
-export type StorageKeys =
-	| typeof PRODUCTS
-	| typeof FAVORITE_ITEMS
-	| typeof CATEGORIES
-	| typeof CART_ITEMS
-	| typeof USER_INFO
+export enum STORAGE_KEYS {
+	PRODUCTS = 'PRODUCTS',
+	FAVORITE_ITEMS = 'FAVORITE_ITEMS',
+	CATEGORIES = 'CATEGORIES',
+	CART_ITEMS = 'CART_ITEMS',
+	USER_INFO = 'USER_INFO',
+}
+
+export type StorageKeys = keyof typeof STORAGE_KEYS
+
+
+
 

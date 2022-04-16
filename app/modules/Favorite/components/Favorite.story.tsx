@@ -3,9 +3,11 @@ import React from "react"
 // StoryBook
 import { storiesOf } from "@storybook/react-native"
 import { StoryScreen, Story, UseCase } from "../../../../storybook/views"
-import { data } from "../../../utils/data"
+// Components
 import { FavoriteList } from "./FavoriteList/FavoriteList"
-import { FavoriteListItem } from "./FavoriteListItem/FavoriteListItem"
+import { FavoriteItemComponent } from "./FavoriteItem/FavoriteItem.component"
+// Types and other utils
+import { data } from "../../../utils/data"
 
 storiesOf("Favorite", module)
   .addDecorator((fn) => <StoryScreen>{fn()}</StoryScreen>)
@@ -19,7 +21,7 @@ storiesOf("Favorite", module)
   .add("FavoriteListItem", () => (
     <Story>
       <UseCase text="Favorite item from list">
-        <FavoriteListItem product={data.products.vegetable[0]} />
+        <FavoriteItemComponent favoriteItem={data.products.vegetable[0]} />
       </UseCase>
     </Story>
   ))

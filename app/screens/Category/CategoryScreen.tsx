@@ -15,7 +15,7 @@ import * as ProductSelectors from '../../modules/Products/products.selectors'
 export const CategoryScreen: FC<StackScreenProps<NavigatorParamList, 'category'>> = (
 	props
 ) => {
-	const { categoryId } = props.route.params;
+	// const { categoryId } = props.route.params;
   const allProducts = useTypedSelector(ProductSelectors.allProducts)
 	return (
 		<Screen style={styles.container} preset="fixed">
@@ -26,7 +26,7 @@ export const CategoryScreen: FC<StackScreenProps<NavigatorParamList, 'category'>
 				renderItem={({ item }) => <Product product={item} />}
 				numColumns={2}
 				showsVerticalScrollIndicator={false}
-				keyExtractor={(item, idx) => idx.toString()}
+				keyExtractor={(item) => item.productId}
 				style={{
 					paddingHorizontal: 20
 				}}

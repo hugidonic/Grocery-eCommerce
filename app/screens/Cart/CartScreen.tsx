@@ -11,23 +11,15 @@ import { TabsNavigatorParamList } from '../../navigators';
 import { colors } from '../../theme';
 import { useTypedSelector } from '../../redux/hooks/useTypedSelector';
 import * as CartSelector from '../../modules/Cart/cart.selectors';
-import { useActions } from './../../redux/hooks/useActions';
 
 type CartScreenProps = StackScreenProps<TabsNavigatorParamList, 'cart'>;
 
 export const CartScreen: FC<CartScreenProps> = (props: CartScreenProps) => {
-	
 	const sheetRef = React.useRef<BottomSheet>(null);
 
-	const { isLoading, cartItems } = useTypedSelector(state => state.CartStore);
+	const { isLoading, cartItems } = useTypedSelector((state) => state.CartStore);
 	const totalCost: number = useTypedSelector(CartSelector.totalCost);
 
-	const {loadCartItems} = useActions()
-
-	React.useEffect(() => {
-		loadCartItems()
-	}, [])
-	
 	if (isLoading) {
 		return <Loading />;
 	}
@@ -57,7 +49,6 @@ export const CartScreen: FC<CartScreenProps> = (props: CartScreenProps) => {
 					/>
 				</Block>
 			)}
-			
 
 			<Checkout sheetRef={sheetRef} totalCost={totalCost} />
 		</React.Fragment>

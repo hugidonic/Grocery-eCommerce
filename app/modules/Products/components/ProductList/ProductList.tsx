@@ -35,7 +35,7 @@ export const ProductList = (props: ProductListProps) => {
 				renderItem={({ item }) => (
 					<Product product={item} />
 				)}
-				keyExtractor={(item, idx) => idx.toString()}
+				keyExtractor={(item) => item.productId}
 				horizontal
 				style={{
 					marginLeft: -20,

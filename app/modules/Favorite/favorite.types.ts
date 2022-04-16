@@ -4,7 +4,9 @@ import { ProductType } from '../Products';
 export enum FavoriteTypes {
 	SET_ERROR = 'SET_ERROR',
 	LOAD_FAVORITE_ITEMS = 'LOAD_FAVORITE_ITEMS',
-	SET_FAVORITE_ITEMS = 'SET_FAVORITE_ITEMS'
+	SET_FAVORITE_ITEMS = 'SET_FAVORITE_ITEMS',
+	ADD_PRODUCT_TO_FAVORITE = 'ADD_PRODUCT_TO_FAVORITE',
+	REMOVE_PRODUCT_FROM_FAVORITE = 'REMOVE_PRODUCT_FROM_FAVORITE'
 }
 
 interface LoadFavoriteItemsAction {
@@ -12,11 +14,20 @@ interface LoadFavoriteItemsAction {
 }
 interface SetFavoriteItemsAction {
 	type: FavoriteTypes.SET_FAVORITE_ITEMS;
-	payload: ProductType[];
+	payload: FavoriteItemType[];
 }
 interface SetErrorAction {
 	type: FavoriteTypes.SET_ERROR;
 	payload: string;
+}
+
+interface AddProductToFavoriteAction {
+	type: FavoriteTypes.ADD_PRODUCT_TO_FAVORITE;
+	payload: FavoriteItemType;
+}
+interface RemoveProductFromFavoriteAction {
+	type: FavoriteTypes.REMOVE_PRODUCT_FROM_FAVORITE;
+	payload: FavoriteItemType['productId'];
 }
 
 /**
@@ -25,6 +36,8 @@ interface SetErrorAction {
 export type FavoriteActions =
 	| LoadFavoriteItemsAction
 	| SetFavoriteItemsAction
+	| RemoveProductFromFavoriteAction
+	| AddProductToFavoriteAction
 	| SetErrorAction;
 
 export interface FavoriteStateType extends BaseInitialState {

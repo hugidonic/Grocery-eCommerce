@@ -1,21 +1,27 @@
 // React and packages
 import React from 'react';
 import { StyleSheet, TouchableOpacity, Image } from 'react-native';
-
 import Entypo from 'react-native-vector-icons/Entypo';
 // Types and utils
 import { colors } from '../../../../theme';
-import { CartListItemProps } from './CartListItem.container';
+import { CartItemContainerProps } from './CartItem.container';
+import { CartItemType } from '../../cart.types';
 // Components
 import { OperationBtn } from '..';
 import { Block, Text } from '../../../../components';
 
-export const CartListItemComponent = (props: CartListItemProps) => {
-	const { style, cartItem } = props;
+interface CartItemComponentProps extends CartItemContainerProps{
+	removeProductFromCart?: () => void;
+}
+
+export const CartItemComponent = (props: CartItemComponentProps) => {
+	const { style, cartItem, removeProductFromCart = () => {} } = props;
 	const styles = Object.assign({}, st, style);
 
+	
+	// Count state of the cart item
 	const [ count, setCount ] = React.useState<number>(cartItem.count);
-
+	// Methods to set count
 	const decrement = () => {
 		if (count > 1) setCount((count) => count - 1);
 	};
@@ -46,7 +52,7 @@ export const CartListItemComponent = (props: CartListItemProps) => {
 						</Text>
 						<Text color={colors.dim}>{cartItem.product.description}</Text>
 					</Block>
-					<TouchableOpacity>
+					<TouchableOpacity onPress={removeProductFromCart}>
 						<Entypo name="cross" size={36} color="black" />
 					</TouchableOpacity>
 				</Block>

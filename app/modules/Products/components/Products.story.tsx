@@ -6,7 +6,7 @@ import { storiesOf } from '@storybook/react-native';
 import { Story, StoryScreen, UseCase } from '../../../../storybook/views';
 // Stories
 import { ProductComponent } from './Product/Product.component';
-import { ProductDetailsInfo } from './ProductDetailsInfo/ProductDetailsInfo';
+import { ProductDetailsInfoComponent } from './ProductDetailsInfo/ProductDetailsInfo.component';
 // Components
 import { Block } from '../../../components';
 import { data } from '../../../utils/data';
@@ -27,7 +27,7 @@ storiesOf('Products', module)
 const ProductDetailsInfoStory = () => {
   return (
     <Block style={{height}}>
-      <ProductDetailsInfo product={data.products.all[0]} />
+      <ProductDetailsInfoComponent isFavorite={true} product={data.products.all[0]} />
     </Block>
   )
 }

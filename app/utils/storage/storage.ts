@@ -50,7 +50,7 @@ export async function load<T>(key: StorageKeys): Promise<T | null> {
  * @param key The key to fetch.
  * @param value The value to store.
  */
-export async function save(key: StorageKeys, value: any): Promise<boolean> {
+export async function save<T>(key: StorageKeys, value: T): Promise<boolean> {
   try {
     await AsyncStorage.setItem(key, JSON.stringify(value))
     return true

@@ -2,13 +2,17 @@
 import React from 'react';
 import { StyleSheet, Image, TouchableOpacity } from 'react-native';
 // Types and utils
-import { CategoryItemProps } from './CategoryItem.container';
+import { CategoryItemContainerProps } from './CategoryItem.container';
 import { spacing } from '../../../../theme';
 // Components
 import { Block, Text } from '../../../../components';
 
-export const CategoryItemComponent = (props: CategoryItemProps) => {
-	const { style = {}, category, onPress = () => {} } = props;
+interface CategoryItemComponentProps extends CategoryItemContainerProps {
+	navigateToCategory?: () => void
+}
+
+export const CategoryItemComponent = (props: CategoryItemComponentProps) => {
+	const { style = {}, category, navigateToCategory = () => {} } = props;
 	const styles = Object.assign({}, st, style);
 
 	return (
@@ -22,7 +26,7 @@ export const CategoryItemComponent = (props: CategoryItemProps) => {
 			color={category.color}
 			marginVertical={10}
 		>
-			<TouchableOpacity style={{ padding: spacing[2] }} onPress={onPress}>
+			<TouchableOpacity style={{ padding: spacing[2] }} onPress={navigateToCategory}>
 				<Block row align="center">
 					<Image
 						// @ts-ignore

@@ -12,16 +12,28 @@ import { Provider } from 'react-redux';
 // Redux
 import { store } from './redux/store';
 import { useActions } from './redux/hooks/useActions';
+// Utils
+
 
 export const NAVIGATION_PERSISTENCE_KEY = 'NAVIGATION_STATE';
 
 const App = () => {
-	const {loadCategories, loadProducts} = useActions()
+	const {loadCategories, loadProducts, loadCartItems, loadFavoriteItems} = useActions()
 
 	React.useEffect(() => {
-		loadProducts()
-		loadCategories()
+		loadProducts();
+		loadCartItems();
+		loadFavoriteItems();
+		loadCategories();
 	}, [])
+
+	// React.useEffect(() => {
+	// 	save<ProductType[]>('PRODUCTS', data.products.all)
+	// 		.then((flag: boolean) => {
+	// 			if (flag) console.log("SAVED")
+	// 			else console.log("unable to save");
+	// 		})
+	// }, [])
 
 	return (
 		// <ToggleStorybook>

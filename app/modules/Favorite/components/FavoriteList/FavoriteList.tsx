@@ -7,7 +7,7 @@ import { spacing } from '../../../../theme';
 import { FavoriteItemType } from '../../favorite.types';
 // Components
 import { Block } from '../../../../components';
-import { FavoriteListItem } from '..';
+import { FavoriteItem } from '../FavoriteItem';
  
 export interface FavoriteListProps {
 	style?: StyleProp<ViewStyle>;
@@ -15,25 +15,23 @@ export interface FavoriteListProps {
 }
 
 export const FavoriteList = (props: FavoriteListProps) => {
-
 	const {
 		favoriteItems = []
 	} = props
 	
-	const renderFavoriteListItem = (
-		product: FavoriteItemType,
-		idx: number
+	const renderFavoriteItem = (
+		favoriteItem: FavoriteItemType,
 		) => {
 			return (
-			<Block key={product.productId} marginVertical={spacing[2]}>
-				<FavoriteListItem product={product} />
+			<Block key={favoriteItem.productId} marginVertical={spacing[2]}>
+				<FavoriteItem favoriteItem={favoriteItem} />
 			</Block>
 		)
 	};
 
 	return (
 		<Block padding={[ 0, 0, 200, 0 ]}>
-			{favoriteItems.map(renderFavoriteListItem)}
+			{favoriteItems.map(renderFavoriteItem)}
 		</Block>
 	);
 };

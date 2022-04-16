@@ -4,7 +4,7 @@ import React from "react"
 import { storiesOf } from "@storybook/react-native"
 import { StoryScreen, Story, UseCase } from "../../../../storybook/views"
 import { CategoriesList } from "./CategoriesList/CategoriesList"
-import { CategoryItem } from './CategoryItem';
+import { CategoryItemComponent } from './CategoryItem/CategoryItem.component';
 import { data } from "../../../utils/data";
 
 storiesOf("Categories (HS)", module)
@@ -19,7 +19,7 @@ storiesOf("Categories (HS)", module)
   .add("CategoriesListItem", () => (
     <Story>
       <UseCase text="Single category item in the Home screen">
-        <CategoryItem category={data.categories[1]} />
+        <CategoryItemComponent category={data.categories[1]} />
       </UseCase>
     </Story>
   ))
