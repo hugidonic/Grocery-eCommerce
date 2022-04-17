@@ -1,12 +1,10 @@
 // React and packages
-import React, { FC, useState, useEffect } from 'react';
+import React, { FC, useState} from 'react';
 
 import { StyleSheet } from 'react-native';
 import { StackScreenProps } from '@react-navigation/stack';
 // Types and utils
 import { NavigatorParamList } from '../../navigators';
-// import { useNavigation } from "@react-navigation/native"
-// import { useStores } from "../../models"
 import { colors } from '../../theme';
 // Components
 import { Screen, TextField } from '../../components';

@@ -50,6 +50,9 @@ export const ExploreScreen: FC<ExploreScreenProps> = (props) => {
 
 	return (
 		<Screen style={styles.container} preset="scroll">
+
+			<SearchBar />
+			
 			<Block justify="center" align="center" style={{ marginVertical: 30 }}>
 				<Text weight="black" size="title">
 					Find Products

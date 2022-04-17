@@ -4,7 +4,8 @@ import {
 	NavigationContainer,
 	DefaultTheme,
 	DarkTheme,
-	NavigatorScreenParams
+	NavigatorScreenParams,
+	useNavigation
 } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { navigationRef, useBackButtonHandler } from './navigation-utilities';
@@ -32,10 +33,11 @@ export type NavigatorParamList = {
 
 	productDetails: {product: ProductType };
 	createProduct: undefined;
-	category: {categoryId: CategoryType['categoryId']}
+	category: {categoryId: CategoryType['categoryId']} | undefined;
 };
 
 export type NavigatorScreenProps = StackNavigationProp<NavigatorParamList>
+export const useAppNavigation = () => useNavigation<NavigatorScreenProps>()
 
 // Documentation: https://reactnavigation.org/docs/stack-navigator/
 const Stack = createNativeStackNavigator<NavigatorParamList>();

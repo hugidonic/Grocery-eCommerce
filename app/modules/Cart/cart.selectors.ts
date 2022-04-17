@@ -7,6 +7,6 @@ export const totalCost = createSelector(
   cartItems,
   (cartItems) => cartItems.reduce((acc, item) => {
     const { product: {price}, count } = item
-    return acc + price * count
+    return acc + +(price * count).toFixed(2)
   }, 0)
 )

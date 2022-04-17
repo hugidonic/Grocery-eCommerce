@@ -1,25 +1,23 @@
 // React and packages
 import React from "react"
-import { StyleProp, ViewStyle, FlatList, Dimensions } from "react-native"
+import { FlatList, Dimensions } from "react-native"
 
 // Types and utils
+import { ProductListContainerProps } from "./ProductList.container";
 import { colors } from "../../../../theme"
 // Components
-import { Block, Text } from "../../../../components"
+import { Block, Button, Text } from "../../../../components"
 import { Product } from '..';
-import { ProductType } from "../../"
-
-export interface ProductListProps {
-  title?: string,
-  productsList?: ProductType[]
-  style?: StyleProp<ViewStyle>
-}
-
+// Constants
 const {width} = Dimensions.get('screen')
 
-export const ProductList = (props: ProductListProps) => {
-  const { productsList = [], title = '' } = props
+export interface ProductListProps extends ProductListContainerProps {
+	OnPressSeeMore: () => void;
+}
 
+export const ProductListComponent = (props: ProductListProps) => {
+  const { productsList = [], title = '', OnPressSeeMore = () => {} } = props
+	
   return (
     <Block>
 			<Block row justify="space-between" align="center" style={{ marginVertical: 8 }}>
@@ -27,7 +25,7 @@ export const ProductList = (props: ProductListProps) => {
 					{title}
 				</Text>
 				{/* TODO: Make this a Link comoponent */}
-				<Text color={colors.primary}>See more</Text>
+				<Button preset="link" onPress={OnPressSeeMore} text="See more" />
 			</Block>
 
 			<FlatList

@@ -2,8 +2,7 @@ import React from 'react'
 import { CategoryItemComponent } from './CategoryItem.component'
 import { StyleProp, ViewStyle } from 'react-native';
 import { CategoryType } from '../../categories.types';
-import { useNavigation } from '@react-navigation/native';
-import { navigationRef, NavigatorScreenProps } from '../../../../navigators';
+import { navigationRef, useAppNavigation } from '../../../../navigators';
 
 export interface CategoryItemContainerProps {
 	category: CategoryType;
@@ -11,7 +10,7 @@ export interface CategoryItemContainerProps {
 }
 
 export const CategoryItemContainer = (props: CategoryItemContainerProps) => {
-	const nav = useNavigation<NavigatorScreenProps>();
+	const nav = useAppNavigation();
 	
 	const handleNavigation = () => {
 		if (navigationRef.isReady()) {

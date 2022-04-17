@@ -1,8 +1,7 @@
 // React and packages
 import React from 'react';
-import { useNavigation } from '@react-navigation/native';
 import { StyleProp, ViewStyle } from 'react-native';
-import { navigationRef, NavigatorScreenProps } from '../../../../navigators';
+import { navigationRef, useAppNavigation } from '../../../../navigators';
 // Types
 import { ProductType } from '../../products.types';
 // Componen
@@ -24,7 +23,7 @@ export const ProductContainer = (props: ProductContainerProps) => {
 	const isProductInCart: boolean = useTypedSelector(ProductSelector.isProductInCart(props.product.productId))
 	
 	// Navigation
-	const nav = useNavigation<NavigatorScreenProps>();
+	const nav = useAppNavigation();
 	const handleNavigation = () => {
 		if (navigationRef.isReady()) {
 			nav.navigate('productDetails', { product: props.product });
