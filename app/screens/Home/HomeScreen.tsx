@@ -3,8 +3,6 @@ import React, { FC } from 'react';
 
 import { StyleSheet } from 'react-native';
 import { StackScreenProps } from '@react-navigation/stack';
-// Mobx
-import { CategoriesList, ProductList } from '../../modules';
 // Types and utils
 import { TabsNavigatorParamList } from '../../navigators';
 import { colors, spacing } from '../../theme';
@@ -15,6 +13,7 @@ import {
 	SearchBar,
 	Loading,
 } from '../../components';
+import { CategoriesList, ProductList } from '../../modules';
 // Selectors
 import { useTypedSelector } from '../../redux/hooks/useTypedSelector';
 import * as ProductsSelector from '../../modules/Products/products.selectors'

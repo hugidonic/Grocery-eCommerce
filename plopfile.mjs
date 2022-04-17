@@ -45,4 +45,27 @@ export * from './constants'`
       },
     ],
   })
+
+  plop.setGenerator("Screen", {
+    description: "Creates new Screen",
+    prompts: [
+      {
+        type: 'input',
+        name: 'name',
+        message: 'Enter screen name: '
+      }
+    ],
+    actions: [
+      {
+        type: 'add',
+        path: './app/screens/{{pascalCase name}}/{{pascalCase name}}Screen.tsx',
+        templateFile: './templates/SCREEN.hbs'
+      },
+      {
+        type: 'append',
+        path: './app/screens/index.ts',
+        template: `export * from './{{pascalCase name}}/{{pascalCase name}}Screen';`
+      },
+    ],
+  })
 }
