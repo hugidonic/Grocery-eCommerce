@@ -1,5 +1,10 @@
-import { RootStateType } from '../../redux/store';
+// Reselect
 import { createSelector } from 'reselect';
+// Types
+import { ProductType } from './products.types';
+import { RootStateType } from '../../redux/store';
+// Cart items selector
+import {cartItems} from '../Cart/cart.selectors'
 
 /**
  * returns a list of fruits
@@ -25,3 +30,13 @@ export const fruits = createSelector(allProducts, (allProducts) =>
 export const vegetables = createSelector(allProducts, (allProducts) =>
 	allProducts && allProducts.filter((product) => product.type === 'vegetable')
 );
+
+/**
+ * Check is the product in cart list
+ */
+
+export const isProductInCart = (productId: ProductType['productId']) => (
+	createSelector(cartItems, (cartItems) => {
+    return cartItems.findIndex(item => item.product.productId === productId) >= 0
+  })
+)

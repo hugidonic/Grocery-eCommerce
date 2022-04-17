@@ -10,11 +10,12 @@ export interface CartItemContainerProps {
 }
 
 export const CartItemContainer = (props: CartItemContainerProps) => {
-	const { removeProductFromCart } = useActions();
+	const { removeProductFromCart, updateCartItem } = useActions();
 
 	return (
 		<CartItemComponent
 			{...props}
+			updateCartItem={updateCartItem}
 			removeProductFromCart={() => removeProductFromCart(props.cartItem.cartItemId)}
 		/>
 	);

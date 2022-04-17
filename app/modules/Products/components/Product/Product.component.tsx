@@ -13,16 +13,21 @@ const { width } = Dimensions.get('screen');
 const IMAGE_SIZE = 120;
 
 interface ProductComponentProps extends ProductContainerProps {
+	isProductInCart?: boolean;
 	addToCart?: () => void;
+	removeFromCart?: () => void;
 	handleNavigation?: () => void;
 }
 
 export const ProductComponent = (props: ProductComponentProps) => {
 	const { 
 		product,
+		isProductInCart = false,
 		handleNavigation = () => {},
-		addToCart = () => {}
+		addToCart = () => {},
+		removeFromCart = () => {},
 	} = props;
+
 	return (
 		<Block
 			shadow
@@ -58,14 +63,14 @@ export const ProductComponent = (props: ProductComponentProps) => {
 					</Text>
 
 					<TouchableOpacity
-						onPress={addToCart}
+						onPress={isProductInCart ? removeFromCart: addToCart}
 						style={{
-							backgroundColor: colors.primary,
+							backgroundColor: isProductInCart? colors.primaryDarker: colors.primary,
 							borderRadius: 18,
 							padding: spacing[2]
 						}}
 					>
-						<Feather name="plus" size={28} color="#fff" />
+						<Feather name={isProductInCart? "minus" :"plus"} size={28} color="#fff" />
 					</TouchableOpacity>
 				</Block>
 			</TouchableOpacity>

@@ -8,5 +8,4 @@ export const isFavorite = (favoriteItemId: FavoriteItemType['productId']) =>
 	createSelector(favoriteItems, (favoriteItems) => {
     return favoriteItems.findIndex(item => item.productId === favoriteItemId) >= 0
   }
-		
-	);
+);

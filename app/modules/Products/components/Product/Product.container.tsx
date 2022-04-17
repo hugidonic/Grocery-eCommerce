@@ -1,10 +1,17 @@
+// React and packages
 import React from 'react';
 import { useNavigation } from '@react-navigation/native';
 import { StyleProp, ViewStyle } from 'react-native';
 import { navigationRef, NavigatorScreenProps } from '../../../../navigators';
+// Types
 import { ProductType } from '../../products.types';
+// Componen
 import { ProductComponent } from './Product.component';
+// Redux
 import { useActions } from './../../../../redux/hooks/useActions';
+// Selectors
+import * as ProductSelector from '../../products.selectors'
+import { useTypedSelector } from '../../../../redux/hooks/useTypedSelector';
 
 export interface ProductContainerProps {
 	product: ProductType;
@@ -12,18 +19,23 @@ export interface ProductContainerProps {
 }
 
 export const ProductContainer = (props: ProductContainerProps) => {
-	const { addProductToCart } = useActions();
-
+	// Redux
+	const { addProductToCart, removeProductFromCart } = useActions();
+	const isProductInCart: boolean = useTypedSelector(ProductSelector.isProductInCart(props.product.productId))
+	
+	// Navigation
 	const nav = useNavigation<NavigatorScreenProps>();
-
 	const handleNavigation = () => {
 		if (navigationRef.isReady()) {
 			nav.navigate('productDetails', { product: props.product });
 		}
 	};
 
+	// Component
 	return (
 		<ProductComponent
+			isProductInCart={isProductInCart}
+			removeFromCart={() => removeProductFromCart(props.product.productId)}
 			addToCart={() => addProductToCart(props.product)}
 			handleNavigation={handleNavigation}
 			{...props}

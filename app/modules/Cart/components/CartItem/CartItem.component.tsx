@@ -10,15 +10,19 @@ import { CartItemType } from '../../cart.types';
 import { OperationBtn } from '..';
 import { Block, Text } from '../../../../components';
 
-interface CartItemComponentProps extends CartItemContainerProps{
+interface CartItemComponentProps extends CartItemContainerProps {
 	removeProductFromCart?: () => void;
+	updateCartItem?: (cartItem: CartItemType) => void;
 }
 
 export const CartItemComponent = (props: CartItemComponentProps) => {
-	const { style, cartItem, removeProductFromCart = () => {} } = props;
+	const {
+		style,
+		cartItem,
+		removeProductFromCart = () => {},
+		updateCartItem = () => {}
+	} = props;
 	const styles = Object.assign({}, st, style);
-
-	
 	// Count state of the cart item
 	const [ count, setCount ] = React.useState<number>(cartItem.count);
 	// Methods to set count
@@ -28,6 +32,14 @@ export const CartItemComponent = (props: CartItemComponentProps) => {
 	const increment = () => {
 		setCount((count) => count + 1);
 	};
+
+	// Watch for every count state change and update the store
+	React.useEffect(() => {
+		updateCartItem({
+			...cartItem,
+			count,
+		})
+	}, [count])
 
 	return (
 		<Block color="#fff" row shadow bRadius={20} style={styles.container}>

@@ -16,7 +16,7 @@ type FavoriteScreenProps = StackScreenProps<TabsNavigatorParamList, "favorite">
 export const FavoriteScreen: FC<FavoriteScreenProps> = (props) => {
 	const {favoriteItems, isLoading} = useTypedSelector(state => state.FavoriteStore)
 	
-	const {loadFavoriteItems} = useActions()
+	const {loadFavoriteItems, addAllFavoriteToCart} = useActions()
 
 	React.useEffect(() => {
 		loadFavoriteItems()
@@ -45,7 +45,7 @@ export const FavoriteScreen: FC<FavoriteScreenProps> = (props) => {
 					row
 					style={{ position: 'absolute', bottom: 25, right: 0, left: 0 }}
 				>
-					<Button shadow text="Add all to cart" onPress={() => {}} />
+					<Button shadow text="Add all to cart" onPress={addAllFavoriteToCart} />
 				</Block>
 			)}
 		</>

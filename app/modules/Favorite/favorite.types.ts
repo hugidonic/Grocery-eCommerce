@@ -4,15 +4,16 @@ import { ProductType } from '../Products';
 export enum FavoriteTypes {
 	SET_ERROR = 'SET_ERROR',
 	LOAD_FAVORITE_ITEMS = 'LOAD_FAVORITE_ITEMS',
+
 	SET_FAVORITE_ITEMS = 'SET_FAVORITE_ITEMS',
 	ADD_PRODUCT_TO_FAVORITE = 'ADD_PRODUCT_TO_FAVORITE',
-	REMOVE_PRODUCT_FROM_FAVORITE = 'REMOVE_PRODUCT_FROM_FAVORITE'
+	REMOVE_PRODUCT_FROM_FAVORITE = 'REMOVE_PRODUCT_FROM_FAVORITE',
 }
 
 interface LoadFavoriteItemsAction {
 	type: FavoriteTypes.LOAD_FAVORITE_ITEMS;
 }
-interface SetFavoriteItemsAction {
+export interface SetFavoriteItemsAction {
 	type: FavoriteTypes.SET_FAVORITE_ITEMS;
 	payload: FavoriteItemType[];
 }
