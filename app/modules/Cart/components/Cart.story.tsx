@@ -6,13 +6,14 @@ import { storiesOf } from '@storybook/react-native';
 import { StoryScreen, Story, UseCase } from '../../../../storybook/views';
 // Utils
 import { ProductType } from '../../Products';
+import { data } from '../../../utils/data';
 // Components
-import { CartList } from './CartList/CartList';
-import { CartItem } from './CartItem';
 import { Block, Button } from '../../../components';
+// Stories
+import { CartList } from './CartList/CartList';
+import { CartItemComponent } from './CartItem/CartItem.component';
 import { Checkout } from './Checkout/Checkout';
 import { OperationBtn } from './OperationBtn/OperationBtn';
-import { data } from '../../../utils/data';
 
 const product: ProductType = data.products.all[0];
 
@@ -34,7 +35,7 @@ storiesOf('CartList', module)
 	.add('CartItem', () => (
 		<Story>
 			<UseCase style={{ paddingVertical: 20 }} text="Cart list Item">
-				<CartItem cartItem={{ count: 1, product, cartItemId: '125' }} />
+				<CartItemComponent cartItem={{ count: 1, product, cartItemId: '125' }} />
 			</UseCase>
 		</Story>
 	))

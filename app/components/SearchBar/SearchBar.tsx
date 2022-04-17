@@ -8,7 +8,7 @@ import { colors, spacing } from '../../theme';
 // Components;
 import { Block } from '..';
 
-export interface SearchBarProps {
+interface SearchBarProps {
 	style?: StyleProp<ViewStyle>;
 }
 

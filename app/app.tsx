@@ -36,13 +36,13 @@ const App = () => {
 	// }, [])
 
 	return (
-		// <ToggleStorybook>
+		<ToggleStorybook>
 			<SafeAreaProvider initialMetrics={initialWindowMetrics}>
 				<ErrorBoundary catchErrors={'always'}>
 					<AppNavigator />
 				</ErrorBoundary>
 			</SafeAreaProvider>
-		// </ToggleStorybook>
+		</ToggleStorybook>
 	);
 };
 

@@ -6,6 +6,7 @@ import { storiesOf } from '@storybook/react-native';
 import { Story, StoryScreen, UseCase } from '../../../../storybook/views';
 // Stories
 import { ProductComponent } from './Product/Product.component';
+import { ProductListComponent } from './ProductList/ProductList.component'
 import { ProductDetailsInfoComponent } from './ProductDetailsInfo/ProductDetailsInfo.component';
 // Components
 import { Block } from '../../../components';
@@ -19,6 +20,13 @@ storiesOf('Products', module)
     <Story>
       <UseCase text="Single Product">
         <ProductComponent product={data.products.all[0]} />
+      </UseCase>
+    </Story>
+  ))
+  .add("Products List", () => (
+    <Story>
+      <UseCase text="List of products">
+        <ProductListComponent title='All' productsList={data.products.all} />
       </UseCase>
     </Story>
   ))

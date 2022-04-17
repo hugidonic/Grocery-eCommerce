@@ -4,7 +4,6 @@ import { FlatList, Dimensions } from "react-native"
 
 // Types and utils
 import { ProductListContainerProps } from "./ProductList.container";
-import { colors } from "../../../../theme"
 // Components
 import { Block, Button, Text } from "../../../../components"
 import { Product } from '..';
@@ -12,7 +11,7 @@ import { Product } from '..';
 const {width} = Dimensions.get('screen')
 
 export interface ProductListProps extends ProductListContainerProps {
-	OnPressSeeMore: () => void;
+	OnPressSeeMore?: () => void;
 }
 
 export const ProductListComponent = (props: ProductListProps) => {
