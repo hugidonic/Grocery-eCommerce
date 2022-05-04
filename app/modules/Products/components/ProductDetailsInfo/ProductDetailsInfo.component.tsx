@@ -43,7 +43,7 @@ export const ProductDetailsInfoComponent = (props: ProductDetailsInfoComponentPr
 		removeFromFavorite = () => {},
 		isFavorite = false
 	} = props;
-	const styles = Object.assign({}, st, style);
+	
 
 	const handleLikePress = isFavorite ? removeFromFavorite : addToFavorite;
 
@@ -184,7 +184,7 @@ export const ProductDetailsInfoComponent = (props: ProductDetailsInfoComponentPr
 	);
 };
 
-const st = StyleSheet.create({
+const styles = StyleSheet.create({
 	container: {
 		height: height,
 		paddingHorizontal: spacing[5],

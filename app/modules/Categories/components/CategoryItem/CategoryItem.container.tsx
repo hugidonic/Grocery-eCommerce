@@ -6,7 +6,7 @@ import { navigationRef, useAppNavigation } from '../../../../navigators';
 
 export interface CategoryItemContainerProps {
 	category: CategoryType;
-	style?: StyleProp<ViewStyle>;
+	
 }
 
 export const CategoryItemContainer = (props: CategoryItemContainerProps) => {

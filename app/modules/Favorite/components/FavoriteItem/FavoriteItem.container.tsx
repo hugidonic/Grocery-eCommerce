@@ -10,7 +10,7 @@ import { useActions } from './../../../../redux/hooks/useActions';
 
 export interface FavoriteItemContainerProps {
   favoriteItem: FavoriteItemType;
-	style?: StyleProp<ViewStyle>;
+	
 }
 
 export const FavoriteItemContainer = (props: FavoriteItemContainerProps) => {

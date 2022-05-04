@@ -17,12 +17,10 @@ interface CartItemComponentProps extends CartItemContainerProps {
 
 export const CartItemComponent = (props: CartItemComponentProps) => {
 	const {
-		style,
 		cartItem,
 		removeProductFromCart = () => {},
 		updateCartItem = () => {}
 	} = props;
-	const styles = Object.assign({}, st, style);
 	// Count state of the cart item
 	const [ count, setCount ] = React.useState<number>(cartItem.count);
 	// Methods to set count
@@ -92,7 +90,7 @@ export const CartItemComponent = (props: CartItemComponentProps) => {
 	);
 };
 
-const st = StyleSheet.create({
+const styles = StyleSheet.create({
 	container: {
 		position: 'relative',
 		padding: 15,

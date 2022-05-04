@@ -8,7 +8,7 @@ import { Block } from "../../../../components";
 import { CategoryItem } from "../CategoryItem";
 
 export interface CategoriesListProps {
-  style?: StyleProp<ViewStyle>;
+  
 	categories?: CategoryType[];
 }
 

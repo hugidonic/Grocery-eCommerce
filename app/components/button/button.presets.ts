@@ -78,7 +78,7 @@ export const textPresets: Record<ButtonPresetNames, TextStyle> = {
 	} as ViewStyle,
 	link: {
 		...BASE_TEXT,
-		color: colors.text,
+		color: colors.primary,
 		paddingHorizontal: 0,
 		paddingVertical: 0
 	} as TextStyle

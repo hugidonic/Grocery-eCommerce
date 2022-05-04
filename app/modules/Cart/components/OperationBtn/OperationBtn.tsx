@@ -7,7 +7,7 @@ import { colors } from '../../../../theme';
 // Components
 
 export interface OperationBtnProps {
-	style?: StyleProp<ViewStyle>;
+	
 	type?: 'Decrement' | 'Increment';
 	func?: () => void;
 }

@@ -1,5 +1,5 @@
 import AsyncStorage from "@react-native-async-storage/async-storage"
-import { StorageKeys } from "./storageKeys"
+import { StorageKeys, STORAGE_KEYS } from "./storageKeys"
 
 /**
  * Loads a string from storage.

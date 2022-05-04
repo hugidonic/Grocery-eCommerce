@@ -134,7 +134,7 @@ export const data: DataType = {
 };
 
 data.products.all = [ ...data.products.fruit, ...data.products.vegetable ];
-data.products.all = [ ...data.products.fruit.slice(0,4) ];
+data.products.default = [ ...data.products.fruit.slice(0,4) ];
 
 
 export const dataJSON = JSON.stringify(data);

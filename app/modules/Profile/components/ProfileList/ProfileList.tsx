@@ -8,7 +8,7 @@ import { ProfileListItem } from '..';
 import { Block } from '../../../../components';
 
 export interface ProfileListProps {
-	style?: StyleProp<ViewStyle>;
+	
 }
 
 export const ProfileList = (

@@ -1,17 +1,17 @@
 import { CategoriesActions, CategoriesTypes, CategoryType} from './categories.types';
 import { Dispatch } from 'redux';
-import { load } from '../../utils/storage';
 import { data } from '../../utils/data';
 
 /**
- * Loads Categories from async storage and passes it to store
+ * // Loads Categories async from API ir async storage and passes it to store
+ * Load categories from data.ts and pass it to store
  */
 export const loadCategories = () => async (dispatch: Dispatch<CategoriesActions>) => {
 	dispatch({
 		type: CategoriesTypes.LOAD_CATEGORIES
 	});
 	try {
-		const categories = await load<CategoryType[]>('CATEGORIES') ?? data.categories;
+		const categories: CategoryType[] = data.categories
 		dispatch({
 			type: CategoriesTypes.SET_CATEGORIES,
 			payload: categories

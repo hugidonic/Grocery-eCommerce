@@ -58,6 +58,7 @@
     "redux-actions": "^2.6.5",
     "redux-thunk": "^2.4.1",
     "reselect": "^4.1.5",
+    "rn-fade-carousel": "^1.0.0",
     "validate.js": "0.13.1"
   },
   "devDependencies": {

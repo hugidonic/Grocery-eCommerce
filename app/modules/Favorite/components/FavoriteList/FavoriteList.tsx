@@ -10,7 +10,7 @@ import { Block } from '../../../../components';
 import { FavoriteItem } from '../FavoriteItem';
  
 export interface FavoriteListProps {
-	style?: StyleProp<ViewStyle>;
+	
 	favoriteItems?: FavoriteItemType[]
 }
 

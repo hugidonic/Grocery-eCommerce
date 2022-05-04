@@ -13,27 +13,21 @@ import { Provider } from 'react-redux';
 import { store } from './redux/store';
 import { useActions } from './redux/hooks/useActions';
 // Utils
-
-
 export const NAVIGATION_PERSISTENCE_KEY = 'NAVIGATION_STATE';
 
 const App = () => {
 	const {loadCategories, loadProducts, loadCartItems, loadFavoriteItems} = useActions()
 
 	React.useEffect(() => {
+		// Load Products to show them in HomeScreen
 		loadProducts();
-		loadCartItems();
-		loadFavoriteItems();
+		// Load categories to show them in HomeScreen
 		loadCategories();
+		// Load cart items to check added items
+		loadCartItems();
+		// Load Favorite items to check is product
+		loadFavoriteItems();
 	}, [])
-
-	// React.useEffect(() => {
-	// 	save<ProductType[]>('PRODUCTS', data.products.all)
-	// 		.then((flag: boolean) => {
-	// 			if (flag) console.log("SAVED")
-	// 			else console.log("unable to save");
-	// 		})
-	// }, [])
 
 	return (
 		<ToggleStorybook>

@@ -12,7 +12,6 @@ import { Text, Block, Button } from '../../../../components';
 import { colors, spacing } from '../../../../theme';
 
 export interface CheckoutProps {
-	style?: StyleProp<ViewStyle>;
 	/**
 	 * Ref to manage the bottom sheet
 	 * @type BottomSheet
@@ -34,16 +33,9 @@ export interface CheckoutProps {
 const BOTTOMSHEETHEIGHT = 520;
 
 export const Checkout = (props: CheckoutProps) => {
-	const { 
-		style = {},
-		sheetRef = React.useRef<any>(null),
-		initialPos = 0,
-		totalCost = 0
-	} = props;
+	const { sheetRef = React.useRef<any>(null), initialPos = 0, totalCost = 0 } = props;
 
-	const snapPoints = React.useMemo(() => [ 0, BOTTOMSHEETHEIGHT ], [])
-
-	const styles = Object.assign({}, st, style);
+	const snapPoints = React.useMemo(() => [ 0, BOTTOMSHEETHEIGHT ], []);
 
 	const closeSheet = () => {
 		sheetRef.current.snapTo(0);
@@ -56,10 +48,10 @@ export const Checkout = (props: CheckoutProps) => {
 				initialPosition={snapPoints[initialPos]}
 				snapPoints={snapPoints}
 				isBackDrop
-        isBackDropDismissByPress={true}
-        isRoundBorderWithTipHeader
-        overDrag={false}
-        backDropColor="#000"
+				isBackDropDismissByPress={true}
+				isRoundBorderWithTipHeader
+				overDrag={false}
+				backDropColor="#000"
 				body={
 					<Block style={styles.checkoutContainer}>
 						<Block
@@ -72,7 +64,11 @@ export const Checkout = (props: CheckoutProps) => {
 								Checkout
 							</Text>
 							<TouchableOpacity onPress={closeSheet}>
-								<Entypo name="cross" size={30} color={colors.palette.black} />
+								<Entypo
+									name="cross"
+									size={30}
+									color={colors.palette.black}
+								/>
 							</TouchableOpacity>
 						</Block>
 
@@ -121,11 +117,7 @@ export const Checkout = (props: CheckoutProps) => {
 							</Text>
 						</Text>
 
-						<Block
-							justify="center"
-							row
-							margin={[10, 0,0,0]}
- 						>
+						<Block justify="center" row margin={[ 10, 0, 0, 0 ]}>
 							<Button shadow text="Place an Order" onPress={closeSheet} />
 						</Block>
 					</Block>
@@ -166,7 +158,7 @@ const CheckoutItem = ({ title, subtitleComponent }: CheckoutItemProps) => {
 	);
 };
 
-const st = StyleSheet.create({
+const styles = StyleSheet.create({
 	checkoutContainer: {
 		height: BOTTOMSHEETHEIGHT,
 		position: 'relative',

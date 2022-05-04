@@ -9,7 +9,7 @@ import { Block } from '../../../../components';
 import { CartItem } from '..';
 
 export interface CartListProps {
-	style?: StyleProp<ViewStyle>;
+	
 	cartItems?: CartItemType[];
 }
 

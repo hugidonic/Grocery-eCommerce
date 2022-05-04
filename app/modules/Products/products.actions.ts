@@ -1,17 +1,17 @@
-import { ProductsActions, ProductsTypes, ProductType } from './products.types';
+import { ProductsActions, ProductsTypes } from './products.types';
 import { Dispatch } from 'redux';
-import { load, STORAGE_KEYS } from '../../utils/storage';
 import { data } from '../../utils/data';
 
 /**
- * Loads products from async storage and passes it to store
+ * // Loads products async from API or async storage and passes it to store
+ * Load products from data.ts and pass to store
  */
 export const loadProducts = () => async (dispatch: Dispatch<ProductsActions>) => {
 	dispatch({
 		type: ProductsTypes.LOAD_PRODUCTS
 	});
 	try {
-		const products = await load<ProductType[]>(STORAGE_KEYS.PRODUCTS) ?? data.products.default; 
+		const products = data.products.all
 		dispatch({
 			type: ProductsTypes.SET_PRODUCTS,
 			payload: products

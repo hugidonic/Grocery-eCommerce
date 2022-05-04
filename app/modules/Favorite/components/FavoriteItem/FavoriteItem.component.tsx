@@ -14,7 +14,7 @@ export interface FavoriteItemComponentProps extends FavoriteItemContainerProps {
 
 export const FavoriteItemComponent = (props: FavoriteItemComponentProps) => {
 	const { style, favoriteItem, removeProductFromFavorite = () => {} } = props;
-	const styles = Object.assign({}, st, style);
+	
 
 	return (
 		<Block row color="#fff" shadow bRadius={20} style={styles.container}>
@@ -47,7 +47,7 @@ export const FavoriteItemComponent = (props: FavoriteItemComponentProps) => {
 	);
 };
 
-const st = StyleSheet.create({
+const styles = StyleSheet.create({
 	container: {
 		position: 'relative',
 		padding: 15,

@@ -11,7 +11,7 @@ import { ProductType } from '../../products.types';
 import { ProductDetailsInfoComponent } from './ProductDetailsInfo.component';
 
 export interface ProductDetailsInfoContainerProps {
-	style?: StyleProp<ViewStyle>;
+	
 	product: ProductType;
 }
 

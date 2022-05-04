@@ -9,14 +9,10 @@ import { colors, spacing } from '../../theme';
 import { Block } from '..';
 
 interface SearchBarProps {
-	style?: StyleProp<ViewStyle>;
 }
 
 export const SearchBar = (props: SearchBarProps) => {
-	const { style } = props;
-	const styles = Object.assign({}, st, style);
   const [ search, setSearch ] = useState('');
-
 	return (
 		<Block>
 			<FontAwesome
@@ -36,7 +32,7 @@ export const SearchBar = (props: SearchBarProps) => {
 	);
 };
 
-const st = StyleSheet.create({
+const styles = StyleSheet.create({
   icon: {
     position: 'absolute',
     left: 20,

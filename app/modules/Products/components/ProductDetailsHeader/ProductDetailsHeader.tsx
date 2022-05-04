@@ -9,13 +9,11 @@ import { colors, spacing } from "../../../../theme"
 import { Block } from "../../../../components"
 
 export interface ProductDetailsHeaderProps {
-  style?: StyleProp<ViewStyle>
   goBack: () => void
 }
 
 export const ProductDetailsHeader = (props: ProductDetailsHeaderProps) => {
-  const { style, goBack } = props
-  const styles = Object.assign({}, st, style)
+  const { goBack } = props
 
   return (
    <Block
@@ -40,7 +38,7 @@ export const ProductDetailsHeader = (props: ProductDetailsHeaderProps) => {
   )
 }
 
-const st = StyleSheet.create({
+const styles = StyleSheet.create({
 	container: {
 		paddingVertical: spacing[1],
 		paddingHorizontal: spacing[5],

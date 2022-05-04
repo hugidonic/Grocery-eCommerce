@@ -14,7 +14,7 @@ import { useTypedSelector } from '../../../../redux/hooks/useTypedSelector';
 
 export interface ProductContainerProps {
 	product: ProductType;
-	style?: StyleProp<ViewStyle>;
+	
 }
 
 export const ProductContainer = (props: ProductContainerProps) => {

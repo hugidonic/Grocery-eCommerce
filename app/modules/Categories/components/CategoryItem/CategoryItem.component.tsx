@@ -12,8 +12,8 @@ interface CategoryItemComponentProps extends CategoryItemContainerProps {
 }
 
 export const CategoryItemComponent = (props: CategoryItemComponentProps) => {
-	const { style = {}, category, navigateToCategory = () => {} } = props;
-	const styles = Object.assign({}, st, style);
+	const {  category, navigateToCategory = () => {} } = props;
+	
 
 	return (
 		<Block
@@ -46,7 +46,7 @@ export const CategoryItemComponent = (props: CategoryItemComponentProps) => {
 	);
 };
 
-const st = StyleSheet.create({
+const styles = StyleSheet.create({
 	container: {
 		flex: 1,
 		justifyContent: 'center',
