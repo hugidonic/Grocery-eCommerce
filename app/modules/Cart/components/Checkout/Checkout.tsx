@@ -1,6 +1,6 @@
 // React and packages
 import React from 'react';
-import { StyleSheet, StyleProp, ViewStyle, TouchableOpacity } from 'react-native';
+import { Dimensions, StyleSheet, TouchableOpacity } from 'react-native';
 import BottomSheet from 'react-native-bottomsheet-reanimated';
 
 // Icons
@@ -31,6 +31,7 @@ export interface CheckoutProps {
 }
 
 const BOTTOMSHEETHEIGHT = 520;
+const SCREENWIDTH = Dimensions.get('screen').width
 
 export const Checkout = (props: CheckoutProps) => {
 	const { sheetRef = React.useRef<any>(null), initialPos = 0, totalCost = 0 } = props;
@@ -53,7 +54,7 @@ export const Checkout = (props: CheckoutProps) => {
 				overDrag={false}
 				backDropColor="#000"
 				body={
-					<Block style={styles.checkoutContainer}>
+					<Block style={styles.checkoutInner}>
 						<Block
 							row
 							justify="space-between"
@@ -77,7 +78,11 @@ export const Checkout = (props: CheckoutProps) => {
 						<CheckoutItem
 							title="Delivery"
 							subtitleComponent={
-								<Text size="medium" weight="medium" color={colors.text}>
+								<Text
+									size="medium"
+									weight="medium"
+									color={colors.text}
+								>
 									Select Method
 								</Text>
 							}
@@ -95,7 +100,11 @@ export const Checkout = (props: CheckoutProps) => {
 						<CheckoutItem
 							title="Promo Code"
 							subtitleComponent={
-								<Text size="medium" weight="medium" color={colors.text}>
+								<Text
+									size="medium"
+									weight="medium"
+									color={colors.text}
+								>
 									Pick Discount
 								</Text>
 							}
@@ -103,7 +112,11 @@ export const Checkout = (props: CheckoutProps) => {
 						<CheckoutItem
 							title="Total Cost"
 							subtitleComponent={
-								<Text size="medium" weight="medium" color={colors.text}>
+								<Text
+									size="medium"
+									weight="medium"
+									color={colors.text}
+								>
 									$
 									{totalCost}
 								</Text>
@@ -118,7 +131,11 @@ export const Checkout = (props: CheckoutProps) => {
 						</Text>
 
 						<Block justify="center" row margin={[ 10, 0, 0, 0 ]}>
-							<Button shadow text="Place an Order" onPress={closeSheet} />
+							<Button
+								shadow
+								text="Place an Order"
+								onPress={closeSheet}
+							/>
 						</Block>
 					</Block>
 				}
@@ -159,11 +176,15 @@ const CheckoutItem = ({ title, subtitleComponent }: CheckoutItemProps) => {
 };
 
 const styles = StyleSheet.create({
-	checkoutContainer: {
+	checkoutInner: {
 		height: BOTTOMSHEETHEIGHT,
 		position: 'relative',
 		paddingHorizontal: spacing[5],
+		width: SCREENWIDTH,
 		paddingTop: spacing[6],
 		backgroundColor: colors.palette.white
+	},
+	checkoutContainer: {
+		width: SCREENWIDTH*2,
 	}
 });

@@ -1,6 +1,6 @@
 // React and packages;
-import React, { useState } from 'react';
-import { StyleSheet, StyleProp, ViewStyle, TextInput } from 'react-native';
+import React from 'react';
+import { StyleSheet, TextInput } from 'react-native';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
 // Types and utils;
