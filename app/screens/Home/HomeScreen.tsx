@@ -37,8 +37,6 @@ export const HomeScreen: FC<
 	
 	return (
 		<Screen style={styles.container} preset="scroll">
-			<SearchBar />
-
 			{/* TODO: Make this a slider fadeinout thing */}
 			<BgSlider />
 

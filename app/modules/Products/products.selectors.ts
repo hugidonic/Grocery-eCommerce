@@ -34,9 +34,14 @@ export const vegetables = createSelector(allProducts, (allProducts) =>
 /**
  * Check is the product in cart list
  */
-
 export const isProductInCart = (productId: ProductType['productId']) => (
 	createSelector(cartItems, (cartItems) => {
     return cartItems.findIndex(item => item.product.productId === productId) >= 0
+  })
+)
+
+export const productsFilteredByName = (searchName: string) => (
+	createSelector(allProducts, (allProducts) => {
+    return allProducts.filter(prod => prod.name.toLowerCase().includes(searchName))
   })
 )

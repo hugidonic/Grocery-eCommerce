@@ -1,15 +1,18 @@
 // React and packages
 import React, { FC } from 'react';
 
-import { Dimensions, Image, StyleSheet, TouchableOpacity } from 'react-native';
+import { Dimensions, Image, StyleSheet, TouchableOpacity, FlatList } from 'react-native';
 import { StackScreenProps } from '@react-navigation/stack';
 // Types and utils
 import { CategoryType } from '../../modules/Categories';
 import { NavigatorParamList } from '../../navigators';
 import { colors, spacing } from '../../theme';
-import * as CategoriesSelectors from '../../modules/Categories/categories.selectors';
 // Components
 import { Block, Loading, Screen, SearchBar, Text } from '../../components';
+import { Product } from '../../modules';
+// Selectors
+import * as ProductSelectors from '../../modules/Products/products.selectors';
+import * as CategoriesSelectors from '../../modules/Categories/categories.selectors';
 import { useTypedSelector } from '../../redux/hooks/useTypedSelector';
 
 const { width } = Dimensions.get('screen');
@@ -17,11 +20,16 @@ const { width } = Dimensions.get('screen');
 export type ExploreScreenProps = StackScreenProps<NavigatorParamList, 'TabsStack'>;
 
 export const ExploreScreen: FC<ExploreScreenProps> = (props) => {
-	const IsLoading = useTypedSelector(state => state.CategoriesStore.isLoading)
+	const [ searchText, setSearchText ] = React.useState<string>('');
+
+	const IsLoading = useTypedSelector((state) => state.CategoriesStore.isLoading);
+	const filteredProducts = useTypedSelector(
+		ProductSelectors.productsFilteredByName(searchText)
+	);
 	const categories = useTypedSelector(CategoriesSelectors.categories);
 
 	if (IsLoading) {
-		return <Loading />
+		return <Loading />;
 	}
 
 	const renderCategory = (category: CategoryType) => (
@@ -49,8 +57,7 @@ export const ExploreScreen: FC<ExploreScreenProps> = (props) => {
 	);
 
 	return (
-		<Screen style={styles.container} preset="scroll">
-
+		<Screen style={styles.container} preset="fixed">
 			<Block justify="center" align="center" style={{ marginVertical: 30 }}>
 				<Text weight="black" size="title">
 					Find Products
@@ -58,16 +65,38 @@ export const ExploreScreen: FC<ExploreScreenProps> = (props) => {
 			</Block>
 
 			<Block style={{ marginBottom: 15 }}>
-				<SearchBar />
+				<SearchBar search={searchText} setSearch={setSearchText} />
 			</Block>
 
-			<Block
-				row
-				style={{ width: '100%', flexWrap: 'wrap' }}
-				justify={'space-between'}
-			>
-				{categories.map(renderCategory)}
-			</Block>
+			{searchText.length === 0 ? (
+				<FlatList
+					data={categories}
+					renderItem={({ item }: { item: CategoryType }) =>
+						renderCategory(item)}
+					keyExtractor={(item: CategoryType) => item.categoryId}
+					showsVerticalScrollIndicator={false}
+					numColumns={2}
+					columnWrapperStyle={{
+						justifyContent: 'space-between'
+					}}
+				/>
+			) : (
+				<Block>
+					<Text weight="bold" size="medium">
+						Products
+					</Text>
+					<FlatList
+						data={filteredProducts}
+						renderItem={({ item }) => <Product product={item} />}
+						numColumns={2}
+						showsVerticalScrollIndicator={false}
+						keyExtractor={(item) => item.productId}
+						columnWrapperStyle={{
+							justifyContent: 'space-between'
+						}}
+					/>
+				</Block>
+			)}
 		</Screen>
 	);
 };

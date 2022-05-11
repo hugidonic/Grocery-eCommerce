@@ -9,10 +9,12 @@ import { colors, spacing } from '../../theme';
 import { Block } from '..';
 
 interface SearchBarProps {
+	search: string;
+	setSearch: (str: string) => void;
 }
 
 export const SearchBar = (props: SearchBarProps) => {
-  const [ search, setSearch ] = useState('');
+  const { search, setSearch } = props;
 	return (
 		<Block>
 			<FontAwesome
