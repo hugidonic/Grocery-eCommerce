@@ -3,7 +3,7 @@ import React from "react";
 
 interface BlockProps {
 	children?: React.ReactNode;
-	style?: StyleProp<ViewStyle>;
+	
 
 	justify?: 'center' | 'flex-start' | 'flex-end' | 'space-between';
 	align?: 'center' | 'flex-start' | 'flex-end' | 'stretch';
@@ -19,6 +19,8 @@ interface BlockProps {
 	 * Padding: Top Right Bottom Left
 	 */
 	padding?: [number, number, number, number];
+
+	style?: StyleProp<ViewStyle>;
 	/**
 	 * Margin: Top Right Bottom Left
 	 */

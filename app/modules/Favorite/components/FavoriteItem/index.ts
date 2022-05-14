@@ -1,0 +1,1 @@
+export {FavoriteItemContainer as FavoriteItem} from './FavoriteItem.container'

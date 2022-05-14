@@ -1,6 +1,6 @@
 // React and packages
 import React, { FC } from 'react';
-import { observer } from 'mobx-react-lite';
+
 import { StyleSheet } from 'react-native';
 import { StackScreenProps } from '@react-navigation/stack';
 // Types and utils
@@ -8,41 +8,55 @@ import { TabsNavigatorParamList } from '../../navigators';
 import { colors, spacing } from '../../theme';
 // Components
 import {
-	ProductList,
 	Screen,
-	GroupList,
 	BgSlider,
 	SearchBar,
+	Loading,
 } from '../../components';
-import { data } from '../../utils/data';
+import { CategoriesList, ProductList } from '../../modules';
+// Selectors
+import { useTypedSelector } from '../../redux/hooks/useTypedSelector';
+import * as ProductsSelector from '../../modules/Products/products.selectors'
+import * as CategoriesSelector from '../../modules/Categories/categories.selectors'
 
 export const HomeScreen: FC<
 	StackScreenProps<TabsNavigatorParamList, 'home'>
-> = observer(function HomeScreen() {
+> = () => {
+
+	const ProductStore = useTypedSelector(state => state.ProductStore)
+	const CategoriesStore = useTypedSelector(state => state.CategoriesStore)
+
+	const fruits = useTypedSelector(ProductsSelector.fruits)
+	const vegetables = useTypedSelector(ProductsSelector.vegetables)
+	const allProducts = useTypedSelector(ProductsSelector.allProducts)
+	const categories = useTypedSelector(CategoriesSelector.categories)
+	
+	if (ProductStore.isLoading || CategoriesStore.isLoading) {
+		return <Loading />
+	}
+	
 	return (
 		<Screen style={styles.container} preset="scroll">
-			<SearchBar />
-
 			{/* TODO: Make this a slider fadeinout thing */}
 			<BgSlider />
 
-			<ProductList title="Fruits" data={data.products.fruits} />
-			<ProductList title="Vegetables" data={data.products.vegetables} />
+			<ProductList title="Fruits" productsList={fruits} />
+			<ProductList title="Vegetables" productsList={vegetables} />
 
-			<GroupList />
+			<CategoriesList categories={categories} />
 
-			<ProductList title="Exclusive offer" data={data.products.fruits} />
-			<ProductList title="Best selling" data={data.products.fruits} />
+			<ProductList title="Exclusive offer" productsList={fruits} />
+			<ProductList title="Best selling" productsList={fruits} />
 
-			<GroupList />
+			<CategoriesList categories={categories} />
 
 			<ProductList
 				title="All"
-				data={[ ...data.products.vegetables, ...data.products.fruits ]}
+				productsList={allProducts}
 			/>
 		</Screen>
 	);
-});
+}
 
 const styles = StyleSheet.create({
 	container: {

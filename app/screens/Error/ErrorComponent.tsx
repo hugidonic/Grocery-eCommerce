@@ -1,5 +1,5 @@
 import React, { ErrorInfo } from "react"
-import { TextStyle, View, ViewStyle, ScrollView, ImageStyle,  } from "react-native"
+import { TextStyle, View, ViewStyle, ScrollView  } from "react-native"
 import { colors } from "../../theme"
 import { Button, Text } from "../../components"
 
@@ -50,12 +50,6 @@ const CONTENT_ERROR: TextStyle = {
 // const CONTENT_BACKTRACE: TextStyle = {
 //   color: colors.dim,
 // }
-
-const ICON: ImageStyle = {
-  marginTop: 30,
-  width: 64,
-  height: 64,
-}
 
 export interface ErrorComponentProps {
   error: Error

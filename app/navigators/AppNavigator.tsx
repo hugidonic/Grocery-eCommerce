@@ -4,15 +4,19 @@ import {
 	NavigationContainer,
 	DefaultTheme,
 	DarkTheme,
-	NavigatorScreenParams
+	NavigatorScreenParams,
+	useNavigation
 } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { navigationRef, useBackButtonHandler } from './navigation-utilities';
 import { ProfileNavigatorParamList, TabsNavigator, TabsNavigatorParamList } from '.';
 // import { CreateProductScreen } from '../screens';
 import { StackNavigationProp } from '@react-navigation/stack';
-import { GroupType, ProductType } from '../models';
-import { GroupScreen, ProductDetailsScreen } from '../screens';
+// Types
+import { ProductType } from '../modules';
+// Screens
+import { CategoryScreen, ProductDetailsScreen } from '../screens';
+import { CategoryType } from '../modules/Categories';
 
 /**
  * If no params are allowed, pass through `undefined`. Generally speaking, we
@@ -27,12 +31,13 @@ export type NavigatorParamList = {
 	TabsStack: NavigatorScreenParams<TabsNavigatorParamList>;
 	ProfileStack: NavigatorScreenParams<ProfileNavigatorParamList>;
 
-	productDetails: {productId: ProductType['productId'] };
+	productDetails: {product: ProductType };
 	createProduct: undefined;
-	group: {groupId: GroupType['groupId']};
+	category: {categoryId: CategoryType['categoryId']} | undefined;
 };
 
 export type NavigatorScreenProps = StackNavigationProp<NavigatorParamList>
+export const useAppNavigation = () => useNavigation<NavigatorScreenProps>()
 
 // Documentation: https://reactnavigation.org/docs/stack-navigator/
 const Stack = createNativeStackNavigator<NavigatorParamList>();
@@ -47,8 +52,7 @@ const AppStack = () => {
 		>
 			<Stack.Screen name="TabsStack" component={TabsNavigator} />
 			<Stack.Screen name="productDetails" component={ProductDetailsScreen} />
-			<Stack.Screen name="group" component={GroupScreen} />
-
+			<Stack.Screen name="category" component={CategoryScreen} />
 
 			{/* <Stack.Screen name="createProduct" component={CreateProductScreen} /> */}
 		</Stack.Navigator>
@@ -66,7 +70,7 @@ export const AppNavigator = (props: NavigationProps) => {
 		<NavigationContainer
 			ref={navigationRef}
 			theme={colorScheme === 'dark' ? DarkTheme : DefaultTheme}
-			{...props}
+			// {...props}
 		>
 			<AppStack />
 		</NavigationContainer>

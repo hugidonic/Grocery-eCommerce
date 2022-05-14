@@ -1,0 +1,19 @@
+import React from "react"
+import { createStackNavigator } from "@react-navigation/stack"
+import {
+  
+} from "../../screens"
+
+export type {{pascalCase name}}NavigatorParamList = {
+  demo: undefined
+}
+
+const Stack = createStackNavigator<{{pascalCase name}}NavigatorParamList>()
+
+export const {{pascalCase name}}Navigator = () => {
+  return (
+    <Stack.Navigator screenOptions={{ cardStyle: { backgroundColor: "transparent" }, headerShown: false, }}>
+      <Stack.Screen name="demo" component={DemoScreen} />
+    </Stack.Navigator>
+  )
+}

@@ -1,43 +1,76 @@
 // React and packages
-import React from "react"
-import { StyleSheet, StyleProp, ViewStyle, Image, Dimensions } from "react-native"
-import { observer } from "mobx-react-lite"
+import React from 'react';
+import { StyleSheet, StyleProp, ViewStyle, Image, Dimensions } from 'react-native';
+import FadeCarousel from 'rn-fade-carousel';
 // Types and utils
-import { colors } from "../../theme"
+import { colors } from '../../theme';
+
 // Components
-import { Text, Block } from ".."
+import { Block } from '..';
 
 const images = [
-	'https://www.konfik.ru/wa-data/public/photos/46/11/1146/1146.970.jpg',
-	'https://www.hollandandbarrett.ie/the-health-hub/wp-content/uploads/2020/06/shutterstock_291789095-1024x684.jpg',
-	'https://www.jigsawplanet.com/RaghavMittal/fruits?rc=face',
-	'https://avatars.mds.yandex.net/get-zen_doc/44972/pub_5cdc45bae1a84300b34081f4_5cdc477deb5ea100b2d1356b/,scale_1200',
-	'https://samchef.ru/assets/i/ai/4/2/8/i/2875863.jpg',
-	'https://ic.pics.livejournal.com/sedov_05/10509632/585235/585235_original.jpg'
+	'https://alev.biz/wp-content/uploads/2019/03/fruit_vegetables-768x480.jpg',
+	'https://img4.goodfon.com/original/320x240/5/7e/ovoshchi-fpukty-iabloki-perets-assorti.jpg',
+	'https://brasilienportal.ch/media/2016/03/Fotolia-monticellllo_100847232_XS.jpg',
+	'https://thejigsawpuzzles.com/img-puzzle-6355215-400/Fruits-and-vegetables_1',
 ];
 
-const { width } = Dimensions.get('screen');
-
 export interface BgSliderProps {
-  style?: StyleProp<ViewStyle>
 }
 
-export const BgSlider = observer(function BgSlider(props: BgSliderProps) {
-  const { style } = props
-  const styles = Object.assign({}, st, style)
+const { width: ScreenWidth } = Dimensions.get('screen');
+const IMAGE_WIDTH = ScreenWidth * 0.9;
+const IMAGE_HEIGHT = 120;
 
-  return (
-		<Block border style={styles.cover}>
-			<Image source={{uri: images[0]}} style={{resizeMode: 'cover'}} />
+export const BgSlider = (props: BgSliderProps) => {
+	const slides = React.useMemo(
+		() =>
+			images.map((uri) => {
+				return <Image source={{ uri }} style={styles.image} />;
+			}),
+		[]
+	);
+	/**
+	 * Duration of the fading animation
+	 */
+	const FADE_DURATION: number = 1000;
+	/**
+	 * Duration of the showing slide 
+	 */
+	const SLIDE_DURATION: number = 3000;
+
+	return (
+		<Block style={styles.container}>
+			<Block shadow style={styles.carouselContainer}>
+				<FadeCarousel
+					elements={slides}
+					fadeDuration={FADE_DURATION}
+					stillDuration={SLIDE_DURATION}
+					start={true}
+				/>
+			</Block>
 		</Block>
 	);
-})
+};
 
-const st = StyleSheet.create({
-	cover: {
+const styles = StyleSheet.create({
+	image: {
+		resizeMode: 'cover',
+		width: IMAGE_WIDTH,
+		height: IMAGE_HEIGHT,
+	},
+	container: {
 		width: '100%',
-		height: 120,
+		height: IMAGE_HEIGHT,
+
+		justifyContent: 'center',
+		alignItems: 'center',
+		marginVertical: 20,
+	},
+	carouselContainer: {
 		borderRadius: 14,
-		marginVertical: 20
+		overflow: 'hidden',
+		width: IMAGE_WIDTH,
+		height: IMAGE_HEIGHT,
 	}
-})
+});

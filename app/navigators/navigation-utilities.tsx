@@ -89,18 +89,13 @@ export function useNavigationPersistence(storage: any, persistenceKey: string) {
   // It is selectively enabled in development mode with
   // the following approach. If you'd like to use navigation persistence
   // in production, remove the __DEV__ and set the state to true
-  const [isRestored, setIsRestored] = useState(!__DEV__)
+  const [isRestored, setIsRestored] = useState(false)
 
   const routeNameRef = useRef<string | undefined>()
 
   const onNavigationStateChange = (state) => {
     const previousRouteName = routeNameRef.current
     const currentRouteName = getActiveRouteName(state)
-
-    if (previousRouteName !== currentRouteName) {
-      // track screens.
-      __DEV__ && console.tron.log(currentRouteName)
-    }
 
     // Save the current route name for later comparision
     routeNameRef.current = currentRouteName

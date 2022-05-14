@@ -1,22 +1,20 @@
 // React and packages;
-import React, { useState } from 'react';
-import { StyleSheet, StyleProp, ViewStyle, TextInput } from 'react-native';
+import React from 'react';
+import { StyleSheet, TextInput } from 'react-native';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
-import { observer } from 'mobx-react-lite';
+
 // Types and utils;
 import { colors, spacing } from '../../theme';
 // Components;
 import { Block } from '..';
 
-export interface SearchBarProps {
-	style?: StyleProp<ViewStyle>;
+interface SearchBarProps {
+	search: string;
+	setSearch: (str: string) => void;
 }
 
-export const SearchBar = observer(function SearchBar(props: SearchBarProps) {
-	const { style } = props;
-	const styles = Object.assign({}, st, style);
-  const [ search, setSearch ] = useState('');
-
+export const SearchBar = (props: SearchBarProps) => {
+  const { search, setSearch } = props;
 	return (
 		<Block>
 			<FontAwesome
@@ -34,9 +32,9 @@ export const SearchBar = observer(function SearchBar(props: SearchBarProps) {
 			/>
 		</Block>
 	);
-});
+};
 
-const st = StyleSheet.create({
+const styles = StyleSheet.create({
   icon: {
     position: 'absolute',
     left: 20,

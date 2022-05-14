@@ -41,15 +41,16 @@ export const viewPresets: Record<string, ViewStyle> = {
 	primary: {
 		...BASE_VIEW,
 		backgroundColor: colors.palette.green,
-		borderRadius: spacing[8],
+		borderRadius: spacing[4],
     paddingVertical: spacing[4],
     width: '80%'
 	} as ViewStyle,
+	
 	outline: {
 		...BASE_VIEW,
 		backgroundColor: colors.palette.lighterGrey,
 		borderWidth: 2,
-		borderRadius: spacing[8],
+		borderRadius: spacing[4],
     paddingVertical: spacing[4],
 		paddingHorizontal: spacing[2],
     width: '80%'
@@ -77,7 +78,7 @@ export const textPresets: Record<ButtonPresetNames, TextStyle> = {
 	} as ViewStyle,
 	link: {
 		...BASE_TEXT,
-		color: colors.text,
+		color: colors.primary,
 		paddingHorizontal: 0,
 		paddingVertical: 0
 	} as TextStyle

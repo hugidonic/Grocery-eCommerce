@@ -1,6 +1,8 @@
-import { CartListModel, CartListType, GroupType, ProductType, UserModel, UserType } from '../models';
+import { CategoryType } from '../modules/Categories/categories.types';
+import { ProductType } from '../modules/Products/products.types';
 import uuid from './uuid';
-const groupColors: string[] = [
+
+const colors: string[] = [
 	'#F7B2BD',
 	'#A6B1E1',
 	'#EEEFA8',
@@ -11,148 +13,128 @@ const groupColors: string[] = [
 	'#EAEFD3',
 	'#B6B8D6'
 ];
-export const images = {
-	groups: [
-		{
-			name: "Drinks",
-			image: require('../../assets/images/Drinks.png')
-		},
-		{
-			name: "Diary",
-			image: require('../../assets/images/Diary.png')
-		},
-		{
-			name: "Sauces",
-			image: require('../../assets/images/Sauces.png')
-		},
-		{
-			name: "Rice",
-			image: require('../../assets/images/Rice.png')
-		},
-		{
-			name: "Pulses",
-			image: require('../../assets/images/Pulses.png')
-		},
-		{
-			name: "Oils",
-			image: require('../../assets/images/Oils.png')
-		},
 
-	],
-	vegetables: [
-		{
-			name: "Carrots",
-			image: require('../../assets/images/Carrots.png')
-		},
-		{
-			name: "Potatoes",
-			image: require('../../assets/images/Potatoes.png')
-		},
-		{
-			name: "Cucumbers",
-			image: require('../../assets/images/Cucumbers.png')
-		},
-		{
-			name: "Corns",
-			image: require('../../assets/images/Corns.png')
-		},
-		{
-			name: "Tomatoes",
-			image: require('../../assets/images/Tomatoes.png')
-		},
-	],
-	fruits: [
-		{
-			name: "Bananas",
-			image: require('../../assets/images/Bananas.png')
-		},
-		{
-			name: "Apples",
-			image: require('../../assets/images/Apples.png')
-		},
-		{
-			name: "Kiwies",
-			image: require('../../assets/images/Kiwies.png')
-		},
-		{
-			name: "Oranges",
-			image: require('../../assets/images/Oranges.png')
-		},
-		{
-			name: "Pears",
-			image: require('../../assets/images/Pears.png')
-		},
-	]
-};
+const fruitImages = [
+	{
+		name: 'Bananas',
+		image: require('../../assets/images/Bananas.png'),
+	},
+	{
+		name: 'Apples',
+		image: require('../../assets/images/Apples.png'),
+	},
+	{
+		name: 'Kiwies',
+		image: require('../../assets/images/Kiwies.png'),
+	},
+	{
+		name: 'Oranges',
+		image: require('../../assets/images/Oranges.png'),
+	},
+	{
+		name: 'Pears',
+		image: require('../../assets/images/Pears.png'),
+	},
+]
 
-type DataType = {
-	products: {
-		fruits: ProductType[];
-		vegetables: ProductType[];
-		all: ProductType[];
+const categoryImages = [
+	{
+		name: 'Drinks',
+		image: require('../../assets/images/Drinks.png'),
+	},
+	{
+		name: 'Diary',
+		image: require('../../assets/images/Diary.png'),
+	},
+	{
+		name: 'Sauces',
+		image: require('../../assets/images/Sauces.png'),
+	},
+	{
+		name: 'Rice',
+		image: require('../../assets/images/Rice.png'),
+	},
+	{
+		name: 'Pulses',
+		image: require('../../assets/images/Pulses.png'),
+	},
+	{
+		name: 'Oils',
+		image: require('../../assets/images/Oils.png'),
+	},
+]
+
+const vegetableImages = [
+	
+	{
+		name: 'Carrots',
+		image: require('../../assets/images/Carrots.png'),
+	},
+	{
+		name: 'Potatoes',
+		image: require('../../assets/images/Potatoes.png'),
+	},
+	{
+		name: 'Cucumbers',
+		image: require('../../assets/images/Cucumbers.png'),
+	},
+	{
+		name: 'Corns',
+		image: require('../../assets/images/Corns.png'),
+	},
+	{
+		name: 'Tomatoes',
+		image: require('../../assets/images/Tomatoes.png'),
+	},
+]
+
+export type DataType = {
+	products?: {
+		fruit?: ProductType[];
+		vegetable?: ProductType[];
+		all?: ProductType[];
+		default?: ProductType[];
 	};
-	groups: GroupType[];
+	categories?: CategoryType[];
 };
 
 export const data: DataType = {
 	products: {
-		fruits: images.fruits.map((image) => {
+		fruit: fruitImages.map((picture) => {
 			return {
 				productId: uuid(),
-				name: image.name,
+				type: 'fruit',
+				name: picture.name,
 				description: 'Organic',
 				price: 4.99,
-				pictureUri: image.image
+				picture: picture.image,
 			};
 		}),
-		vegetables: images.vegetables.map((image) => {
+		vegetable: vegetableImages.map((picture) => {
 			return {
 				productId: uuid(),
-				name: image.name,
+				type: 'vegetable',
+				name: picture.name,
 				description: 'Organic',
 				price: 4.99,
-				pictureUri: image.image
+				picture: picture.image,
 			};
 		}),
 		all: [],
+		default: [],
 	},
-	groups: [...images.groups.map((image, idx) => {
-		return {
-			groupId: uuid(),
-			name: image.name,
-			color: groupColors[idx],
-			picture: image.image
-		};
-	}), ...images.groups.map((image, idx) => {
-		return {
-			groupId: uuid(),
-			name: image.name,
-			color: groupColors[idx],
-			picture: image.image
-		};
-	})]
+	categories: categoryImages.map((picture, idx) => {
+    return {
+      categoryId: uuid(),
+      name: picture.name,
+      picture: picture.image,
+      color: colors[idx],
+    };
+  }),
 };
 
+data.products.all = [ ...data.products.fruit, ...data.products.vegetable ];
+data.products.default = [ ...data.products.fruit.slice(0,4) ];
 
-data.products.all = [...data.products.fruits, ...data.products.vegetables]
 
-// @ts-ignore
-export const UserInitState = {
-	userId: 'id1',
-	nickname: 'Vadim',
-	email: 'Aminev',
-}
-
-// @ts-ignore
-const productList = {
-	products: [ 'id1', 'id2', 'id3', 'id4' ]
-};
-
-// @ts-ignore
-const product = {
-	productId: 'id1',
-	name: '',
-	description: '',
-	price: 12,
-	pictureUri: ''
-};
+export const dataJSON = JSON.stringify(data);

@@ -1,0 +1,1 @@
+export {ProductDetailsInfoContainer as ProductDetailsInfo} from './ProductDetailsInfo.container'
