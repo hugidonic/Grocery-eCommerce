@@ -1,6 +1,6 @@
 import React from "react"
 import { StyleProp, ViewStyle } from "react-native"
-import { KeyboardOffsets, ScreenPresets } from "./screen.presets"
+import { KeyboardOffsets, ScreenPresets } from "./Screen.presets"
 
 export interface ScreenProps {
   /**

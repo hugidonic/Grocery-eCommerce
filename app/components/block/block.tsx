@@ -1,6 +1,6 @@
 import { StyleSheet, View, ViewStyle } from 'react-native';
 import React from 'react';
-import BlockProps from './block.props';
+import BlockProps from './Block.props';
 
 /**
  * This component is a HOC over the built-in <View /> .

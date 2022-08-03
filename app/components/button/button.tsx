@@ -1,8 +1,8 @@
 import * as React from "react"
 import { TouchableOpacity } from "react-native"
 import { Text } from ".."
-import { viewPresets, textPresets, SHADOW } from "./button.presets"
-import { ButtonProps } from "./button.props"
+import { viewPresets, textPresets, SHADOW } from "./Button.presets"
+import { ButtonProps } from "./Button.props"
 
 /**
  * This component is a HOC over the built-in React Native one.
