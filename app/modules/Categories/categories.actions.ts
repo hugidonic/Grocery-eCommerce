@@ -3,7 +3,6 @@ import { Dispatch } from 'redux';
 import { data } from '../../utils/data';
 
 /**
- * // Loads Categories async from API ir async storage and passes it to store
  * Load categories from data.ts and pass it to store
  */
 export const loadCategories = () => async (dispatch: Dispatch<CategoriesActions>) => {

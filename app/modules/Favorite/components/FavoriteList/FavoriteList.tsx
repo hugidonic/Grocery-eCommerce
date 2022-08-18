@@ -1,7 +1,5 @@
 // React and packages
 import React from 'react';
-import { StyleProp, ViewStyle } from 'react-native';
-
 // Types and utils
 import { spacing } from '../../../../theme';
 import { FavoriteItemType } from '../../favorite.types';
@@ -10,7 +8,6 @@ import { Block } from '../../../../components';
 import { FavoriteItem } from '../FavoriteItem';
  
 export interface FavoriteListProps {
-	
 	favoriteItems?: FavoriteItemType[]
 }
 

@@ -7,34 +7,26 @@ import { StackScreenProps } from '@react-navigation/stack';
 import { TabsNavigatorParamList } from '../../navigators';
 import { colors, spacing } from '../../theme';
 // Components
-import {
-	Screen,
-	BgSlider,
-	SearchBar,
-	Loading,
-} from '../../components';
+import { Screen, BgSlider, Loading } from '../../components';
 import { CategoriesList, ProductList } from '../../modules';
-// Selectors
+/* Selectors */
 import { useTypedSelector } from '../../redux/hooks/useTypedSelector';
-import * as ProductsSelector from '../../modules/Products/products.selectors'
-import * as CategoriesSelector from '../../modules/Categories/categories.selectors'
+import * as ProductsSelector from '../../modules/Products/products.selectors';
+import * as CategoriesSelector from '../../modules/Categories/categories.selectors';
 
-export const HomeScreen: FC<
-	StackScreenProps<TabsNavigatorParamList, 'home'>
-> = () => {
+export const HomeScreen: FC<StackScreenProps<TabsNavigatorParamList, 'home'>> = () => {
+	const ProductStore = useTypedSelector((state) => state.ProductStore);
+	const CategoriesStore = useTypedSelector((state) => state.CategoriesStore);
 
-	const ProductStore = useTypedSelector(state => state.ProductStore)
-	const CategoriesStore = useTypedSelector(state => state.CategoriesStore)
+	const fruits = useTypedSelector(ProductsSelector.fruits);
+	const vegetables = useTypedSelector(ProductsSelector.vegetables);
+	const allProducts = useTypedSelector(ProductsSelector.allProducts);
+	const categories = useTypedSelector(CategoriesSelector.categories);
 
-	const fruits = useTypedSelector(ProductsSelector.fruits)
-	const vegetables = useTypedSelector(ProductsSelector.vegetables)
-	const allProducts = useTypedSelector(ProductsSelector.allProducts)
-	const categories = useTypedSelector(CategoriesSelector.categories)
-	
 	if (ProductStore.isLoading || CategoriesStore.isLoading) {
-		return <Loading />
+		return <Loading />;
 	}
-	
+
 	return (
 		<Screen style={styles.container} preset="scroll">
 			{/* TODO: Make this a slider fadeinout thing */}
@@ -50,13 +42,10 @@ export const HomeScreen: FC<
 
 			<CategoriesList categories={categories} />
 
-			<ProductList
-				title="All"
-				productsList={allProducts}
-			/>
+			<ProductList title="All" productsList={allProducts} />
 		</Screen>
 	);
-}
+};
 
 const styles = StyleSheet.create({
 	container: {

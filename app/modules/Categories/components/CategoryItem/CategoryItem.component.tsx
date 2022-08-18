@@ -2,20 +2,17 @@
 import React from 'react';
 import { StyleSheet, Image, TouchableOpacity } from 'react-native';
 // Types and utils
-import { CategoryItemContainerProps } from './CategoryItem.container';
+import { CategoryItemComponentProps } from './CategoryItem.props';
 import { spacing } from '../../../../theme';
 // Components
 import { Block, Text } from '../../../../components';
 
-interface CategoryItemComponentProps extends CategoryItemContainerProps {
-	navigateToCategory?: () => void
-}
-
 export const CategoryItemComponent = (props: CategoryItemComponentProps) => {
+	// TODO: change arrow func
 	const {  category, navigateToCategory = () => {} } = props;
-	
 
 	return (
+		// CONTAINER
 		<Block
 			shadow
 			row
@@ -26,8 +23,10 @@ export const CategoryItemComponent = (props: CategoryItemComponentProps) => {
 			color={category.color}
 			marginVertical={10}
 		>
+			{/* Pressable Content */}
 			<TouchableOpacity style={{ padding: spacing[2] }} onPress={navigateToCategory}>
 				<Block row align="center">
+					{/*Category Image */}
 					<Image
 						// @ts-ignore
 						source={category.picture}
@@ -37,6 +36,7 @@ export const CategoryItemComponent = (props: CategoryItemComponentProps) => {
 							resizeMode: 'contain'
 						}}
 					/>
+					{/* Category Info */}
 					<Text weight="bold" size="large">
 						{category.name}
 					</Text>

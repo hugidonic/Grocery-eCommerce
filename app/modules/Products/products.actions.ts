@@ -3,7 +3,6 @@ import { Dispatch } from 'redux';
 import { data } from '../../utils/data';
 
 /**
- * // Loads products async from API or async storage and passes it to store
  * Load products from data.ts and pass to store
  */
 export const loadProducts = () => async (dispatch: Dispatch<ProductsActions>) => {

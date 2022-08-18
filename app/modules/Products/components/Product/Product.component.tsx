@@ -1,10 +1,10 @@
 // React and packages
 import React from 'react';
 import { Dimensions, TouchableOpacity, Image } from 'react-native';
-import Feather from 'react-native-vector-icons/Feather';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 // Types and utils
 import { colors, spacing } from '../../../../theme';
-import { ProductContainerProps } from './Product.container';
+import { ProductComponentProps } from './Product.props';
 // Components
 import { Block, Text } from '../../../../components';
 
@@ -12,23 +12,18 @@ import { Block, Text } from '../../../../components';
 const { width } = Dimensions.get('screen');
 const IMAGE_SIZE = 120;
 
-interface ProductComponentProps extends ProductContainerProps {
-	isProductInCart?: boolean;
-	addToCart?: () => void;
-	removeFromCart?: () => void;
-	handleNavigation?: () => void;
-}
-
 export const ProductComponent = (props: ProductComponentProps) => {
-	const { 
+	const {
 		product,
 		isProductInCart = false,
+		// TODO: turn arrow functions into one
 		handleNavigation = () => {},
 		addToCart = () => {},
-		removeFromCart = () => {},
+		removeFromCart = () => {}
 	} = props;
 
 	return (
+		// Card Container
 		<Block
 			shadow
 			bRadius={20}
@@ -36,8 +31,10 @@ export const ProductComponent = (props: ProductComponentProps) => {
 			color="#fff"
 			padding={[ 8, 8, 8, 8 ]}
 			margin={[ 8, 8, 12, 8 ]}
-		>
+		>	
+		{/* Inner pressable container */}
 			<TouchableOpacity onPress={handleNavigation} style={{ padding: spacing[2] }}>
+				{/* Product image */}
 				<Image
 					// @ts-ignore
 					source={product.picture}
@@ -48,6 +45,7 @@ export const ProductComponent = (props: ProductComponentProps) => {
 					}}
 				/>
 
+				{/* Product information */}
 				<Block style={{ marginVertical: 8 }}>
 					<Text weight="bold" size="medium">
 						{product.name}
@@ -56,23 +54,29 @@ export const ProductComponent = (props: ProductComponentProps) => {
 						{product.description}
 					</Text>
 				</Block>
-
+				
+				{/* Product price and Add to cart button */}
 				<Block row align="center" justify="space-between">
 					<Text weight="bold" size="medium">
 						$ {product.price}
 					</Text>
 
 					<TouchableOpacity
-						onPress={isProductInCart ? removeFromCart: addToCart}
+						onPress={isProductInCart ? removeFromCart : addToCart}
 						style={{
-							backgroundColor: isProductInCart? colors.primaryDarker: colors.primary,
+							backgroundColor: isProductInCart ? colors.primaryDarker : colors.primary,
 							borderRadius: 18,
 							padding: spacing[2]
 						}}
 					>
-						<Feather name={isProductInCart? "minus" :"plus"} size={28} color="#fff" />
+						<MaterialCommunityIcons
+							name={isProductInCart ? 'cart-off' : 'cart'}
+							size={28}
+							color="#fff"
+						/>
 					</TouchableOpacity>
 				</Block>
+				
 			</TouchableOpacity>
 		</Block>
 	);

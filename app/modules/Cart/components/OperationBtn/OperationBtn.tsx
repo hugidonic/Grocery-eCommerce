@@ -1,13 +1,12 @@
 // React and packages
 import React from 'react';
-import { StyleSheet, StyleProp, ViewStyle, Pressable } from 'react-native';
+import { StyleSheet, Pressable } from 'react-native';
 import Feather from 'react-native-vector-icons/Feather';
 // Types and utils
 import { colors } from '../../../../theme';
 // Components
 
 export interface OperationBtnProps {
-	
 	type?: 'Decrement' | 'Increment';
 	func?: () => void;
 }

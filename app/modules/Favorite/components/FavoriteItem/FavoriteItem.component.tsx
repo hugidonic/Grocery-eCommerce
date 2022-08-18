@@ -4,20 +4,17 @@ import { StyleSheet, Pressable, Image } from 'react-native';
 import Entypo from 'react-native-vector-icons/Entypo';
 // Types and utils
 import { colors } from '../../../../theme';
-import { FavoriteItemContainerProps } from './FavoriteItem.container';
 // Components
 import { Block, Text } from '../../../../components';
-
-export interface FavoriteItemComponentProps extends FavoriteItemContainerProps {
-	removeProductFromFavorite?: () => void;
-}
+import { FavoriteItemComponentProps } from './FavoriteItem.props';
 
 export const FavoriteItemComponent = (props: FavoriteItemComponentProps) => {
-	const { style, favoriteItem, removeProductFromFavorite = () => {} } = props;
+	const { favoriteItem, removeProductFromFavorite = () => {} } = props;
 	
-
 	return (
+		// Container
 		<Block row color="#fff" shadow bRadius={20} style={styles.container}>
+			{/* Product image */}
 			<Image
 				//@ts-ignore
 				source={favoriteItem.picture}
@@ -28,6 +25,7 @@ export const FavoriteItemComponent = (props: FavoriteItemComponentProps) => {
 					marginRight: 20
 				}}
 			/>
+			{/* Product info */}
 			<Block>
 				<Block style={{ marginBottom: 8 }}>
 					<Text weight="black" size="large">
@@ -37,6 +35,7 @@ export const FavoriteItemComponent = (props: FavoriteItemComponentProps) => {
 				</Block>
 			</Block>
 
+			{/* Cross button to remove product from list */}
 			<Pressable
 				onPress={removeProductFromFavorite}
 				style={styles.deleteIcon}

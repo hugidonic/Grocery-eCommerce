@@ -4,16 +4,10 @@ import { StyleSheet, TouchableOpacity, Image } from 'react-native';
 import Entypo from 'react-native-vector-icons/Entypo';
 // Types and utils
 import { colors } from '../../../../theme';
-import { CartItemContainerProps } from './CartItem.container';
-import { CartItemType } from '../../cart.types';
 // Components
 import { OperationBtn } from '..';
 import { Block, Text } from '../../../../components';
-
-interface CartItemComponentProps extends CartItemContainerProps {
-	removeProductFromCart?: () => void;
-	updateCartItem?: (cartItem: CartItemType) => void;
-}
+import { CartItemComponentProps } from './CartItem.props';
 
 export const CartItemComponent = (props: CartItemComponentProps) => {
 	const {
@@ -40,7 +34,9 @@ export const CartItemComponent = (props: CartItemComponentProps) => {
 	}, [count])
 
 	return (
+		// Cart item container
 		<Block color="#fff" row shadow bRadius={20} style={styles.container}>
+			{/* Product image */}
 			<Block flex={1}>
 				<Image
 					//@ts-ignore
@@ -54,19 +50,23 @@ export const CartItemComponent = (props: CartItemComponentProps) => {
 				/>
 			</Block>
 
+			{/* Content  */}
 			<Block flex={2}>
 				<Block flex row justify="space-between">
+					{/* Cart item product info (title, description) */}
 					<Block style={{ marginBottom: 8 }}>
 						<Text weight="black" size="large">
 							{cartItem.product.name}
 						</Text>
 						<Text color={colors.dim}>{cartItem.product.description}</Text>
 					</Block>
+					{/* Cross icon to remove cart item */}
 					<TouchableOpacity onPress={removeProductFromCart}>
 						<Entypo name="cross" size={36} color="black" />
 					</TouchableOpacity>
 				</Block>
 
+				{/* Counter with buttons */}
 				<Block row justify="space-between" align="center">
 					<Block row>
 						<OperationBtn func={decrement} type="Decrement" />
