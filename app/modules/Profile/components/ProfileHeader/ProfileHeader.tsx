@@ -1,27 +1,23 @@
 // React and packages
 import React from "react"
-import { StyleProp, ViewStyle } from "react-native"
-
+import { Pressable, StyleProp, StyleSheet, ViewStyle } from "react-native"
 // Types and utils
 import { colors, spacing } from "../../../../theme"
 // Components
 import { Text, Block } from "../../../../components"
+import { useAppNavigation } from "../../../../navigators"
 
 export interface ProfileHeaderProps {
   style?: StyleProp<ViewStyle>
 }
 
 export const ProfileHeader = (props: ProfileHeaderProps) => {
+	const nav = useAppNavigation()
+	
   return (
-		<Block
-			row
-			style={{
-				borderBottomWidth: 1,
-				borderBottomColor: colors.dim,
-				paddingHorizontal: spacing[5],
-				height: 140
-			}}
-			align="center"
+		<Pressable
+			style={styles.profileHeader}
+			onPress={() => nav.navigate('ProfileStack', {screen: 'profileInfo'})}
 		>
 			<Block
 				style={{ width: 80, height: 80 }}
@@ -35,7 +31,18 @@ export const ProfileHeader = (props: ProfileHeaderProps) => {
 				</Text>
 				<Text color={colors.dim}>hugidonic@ya.ru</Text>
 			</Block>
-		</Block>
+		</Pressable>
 	);
 }
 
+
+const styles = StyleSheet.create({
+	profileHeader: {
+		flexDirection: 'row',
+		alignItems: 'center',
+		borderBottomWidth: 1,
+		borderBottomColor: colors.dim,
+		paddingHorizontal: spacing[5],
+		height: 140
+	}
+})
