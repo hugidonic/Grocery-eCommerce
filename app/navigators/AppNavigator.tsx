@@ -9,7 +9,7 @@ import {
 } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { navigationRef, useBackButtonHandler } from './navigation-utilities';
-import { ProfileNavigatorParamList, TabsNavigator, TabsNavigatorParamList } from '.';
+import { ProfileNavigatorParamList, TabsNavigator, ProfileNavigator, TabsNavigatorParamList } from '.';
 // import { CreateProductScreen } from '../screens';
 import { StackNavigationProp } from '@react-navigation/stack';
 // Types
@@ -51,6 +51,7 @@ const AppStack = () => {
 			initialRouteName='TabsStack'
 		>
 			<Stack.Screen name="TabsStack" component={TabsNavigator} />
+			<Stack.Screen name='ProfileStack' component={ProfileNavigator} />
 			<Stack.Screen name="productDetails" component={ProductDetailsScreen} />
 			<Stack.Screen name="category" component={CategoryScreen} />
 

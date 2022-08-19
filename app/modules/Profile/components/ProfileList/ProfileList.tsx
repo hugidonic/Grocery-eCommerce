@@ -1,7 +1,7 @@
 // React and packages
 import React from 'react';
-import { StyleProp, ViewStyle } from 'react-native';
-
+// Navigation
+import { useAppNavigation } from '../../../../navigators';
 // Types and utils
 // Components
 import { ProfileListItem } from '..';
@@ -14,64 +14,63 @@ export interface ProfileListProps {
 export const ProfileList = (
 	props: ProfileListProps
 ) => {
-	// const nav = useNavigation<NavigatorScreenProps>();
-	const nav = {
-		navigate: (name: string, obj: any) => {}
-	}
+	const nav = useAppNavigation();
+
+
 	return (
 		<Block>
 			<ProfileListItem
-				title="Orders"
+				title="My orders"
 				iconType="Ionicons"
 				iconName="ios-receipt-outline"
-				func={() => nav.navigate('ProfileStack', { screen: 'orders' })}
+				onPress={() => nav.navigate('ProfileStack', {screen: 'myOrders'})}
 			/>
 			<ProfileListItem
 				title="My Details"
 				iconType="Ionicons"
 				iconName="person-outline"
-				func={() =>
+				onPress={() =>
 					nav.navigate('ProfileStack', { screen: 'myDetails' })}
 			/>
 			<ProfileListItem
 				title="Delivery Address"
 				iconType="SimpleLineIcons"
 				iconName="location-pin"
-				func={() =>
+				onPress={() =>
 					nav.navigate('ProfileStack', { screen: 'deliveryAddress' })}
 			/>
 			<ProfileListItem
 				title="Payment Methods"
 				iconType="Ionicons"
 				iconName="ios-card-outline"
-				func={() =>
+				onPress={() =>
 					nav.navigate('ProfileStack', { screen: 'paymentMethods' })}
 			/>
 			<ProfileListItem
 				title="Promo Cards"
 				iconType="Ionicons"
 				iconName="md-gift-outline"
-				func={() =>
+				onPress={() =>
 					nav.navigate('ProfileStack', { screen: 'promoCards' })}
 			/>
 			<ProfileListItem
 				title="Notifications"
 				iconType="Ionicons"
 				iconName="notifications-outline"
-				func={() =>
+				onPress={() =>
 					nav.navigate('ProfileStack', { screen: 'notifications' })}
 			/>
 			<ProfileListItem
 				title="Help"
 				iconType="SimpleLineIcons"
 				iconName="question"
-				func={() => nav.navigate('ProfileStack', { screen: 'help' })}
+				onPress={() => nav.navigate('ProfileStack', { screen: 'help' })}
 			/>
 			<ProfileListItem
 				title="About"
 				iconType="SimpleLineIcons"
 				iconName="exclamation"
-				func={() => nav.navigate('ProfileStack', { screen: 'about' })}
+				onPress={() => nav.navigate('ProfileStack', { screen: 'about' })}
 			/>
 		</Block>
 	);

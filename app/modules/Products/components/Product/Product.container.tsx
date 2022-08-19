@@ -1,6 +1,5 @@
 // React and packages
 import React from 'react';
-import { StyleProp, ViewStyle } from 'react-native';
 import { navigationRef, useAppNavigation } from '../../../../navigators';
 // Types
 import { ProductContainerProps } from './Product.props';

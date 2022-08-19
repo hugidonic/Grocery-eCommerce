@@ -9,3 +9,11 @@ export * from "./CreateProduct/CreateProductScreen"
 export * from "./ProductDetails/ProductDetailsScreen"
 export * from "./Category/CategoryScreen"
 export * from "./Cart/CartScreen"
+export * from './MyOrders/MyOrdersScreen';
+export * from './MyDetails/MyDetailsScreen';
+export * from './DeliveryAddress/DeliveryAddressScreen';
+export * from './PaymentMethods/PaymentMethodsScreen';
+export * from './PromoCards/PromoCardsScreen';
+export * from './Notifications/NotificationsScreen';
+export * from './Help/HelpScreen';
+export * from './About/AboutScreen';

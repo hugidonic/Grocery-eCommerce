@@ -12,19 +12,17 @@ import {
 	Text,
 	Loading,
 } from '../../components';
+import { ProfileNavigatorParamList } from '../../navigators';
 
-<Stack.Screen name="{{camelCase name}}" component={ {{pascalCase name}}Screen } />
-{{camelCase name}}: undefined
-
-interface {{pascalCase name}}ScreenProps extends StackScreenProps<ParamList, '{{camelCase name}}'> {
+interface AboutScreenProps extends StackScreenProps<ProfileNavigatorParamList, 'about'> {
 
 }
 
-export const {{pascalCase name}}Screen = (props: {{pascalCase name}}ScreenProps) => {
+export const AboutScreen = (props: AboutScreenProps) => {
 
   return (
     <Screen style={[styles.container, styles.center]} preset="scroll">
-			<Text> {{pascalCase name}} Screen </Text>
+			<Text> About Screen </Text>
     </Screen>
   )
 }

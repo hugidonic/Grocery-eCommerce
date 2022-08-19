@@ -24,16 +24,16 @@ type ProfileListItemProps = {
 		| 'notifications-outline'
 		| 'question'
 		| 'exclamation';
-	func: () => void;
+	onPress: () => void;
 };
 const ICONSIZE = 26;
 
 export const ProfileListItem = (
 	props: ProfileListItemProps
 ) => {
-	const { title, iconType, iconName, func } = props;
+	const { title, iconType, iconName, onPress } = props;
 	return (
-		<TouchableOpacity onPress={() => func()}>
+		<TouchableOpacity onPress={onPress}>
 			<Block row align="center" style={styles.container}>
 				{iconType == 'Ionicons' ? (
 					<Ionicons

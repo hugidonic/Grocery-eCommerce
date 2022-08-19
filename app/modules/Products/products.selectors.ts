@@ -36,8 +36,6 @@ export const vegetables = createSelector(allProducts, (allProducts) =>
  */
 export const isProductInCart = (productId: ProductType['productId']) => (
 	createSelector(cartItems, (cartItems) => {
-    console.log(productId);
-    
     return cartItems.findIndex(item => item.product.productId == productId) >= 0
   })
 )
