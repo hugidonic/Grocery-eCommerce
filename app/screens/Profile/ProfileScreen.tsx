@@ -22,7 +22,7 @@ export const ProfileScreen = (props: ProfileScreenProps) => {
 			<ProfileList />
 
 			<Block justify="center" align="center" style={{ marginTop: 40 }}>
-				<Button preset="outline" text="Log out" onPress={clearCartList} />
+				<Button preset="secondary" text="Log out"  onPress={clearCartList} />
 			</Block>
 		</Screen>
 	);

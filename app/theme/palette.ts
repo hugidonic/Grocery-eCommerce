@@ -3,13 +3,13 @@ export const palette = {
   white: "#ffffff",
   offWhite: "#EFF4FF",
 
-  green: "#4ea56e",
+  green: "#53B176",
   darkerGreen: "#35734C",
   lightenGreen: "#DEFAE8",
 
   grey: "#9C9C9C",
   lightGrey: "#939AA4",
-  lighterGrey: "#CDD4DA",
+  lighterGrey: "#E3E8F2",
 
   red: "#FF1D1C",
   lightenRed: '#FFE8E9',
