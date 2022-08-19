@@ -8,12 +8,10 @@ import {
 	MyOrdersScreen,
 	NotificationsScreen,
 	PaymentMethodsScreen,
-	ProfileInfoScreen,
 	PromoCardsScreen
 } from '../../screens';
 
 export type ProfileNavigatorParamList = {
-	profileInfo: undefined;
 	myOrders: undefined;
 	myDetails: undefined;
 	deliveryAddress: undefined;
@@ -31,8 +29,6 @@ export const ProfileNavigator = () => {
 		<Stack.Navigator
 			screenOptions={{ cardStyle: { backgroundColor: 'transparent' }, headerShown: false }}
 		>
-			<Stack.Screen name="profileInfo" component={ProfileInfoScreen} />
-
 			<Stack.Screen name="myOrders" component={MyOrdersScreen} />
 			<Stack.Screen name="myDetails" component={MyDetailsScreen} />
 			<Stack.Screen name="deliveryAddress" component={DeliveryAddressScreen} />
@@ -41,6 +37,7 @@ export const ProfileNavigator = () => {
 			<Stack.Screen name="notifications" component={NotificationsScreen} />
 			<Stack.Screen name="help" component={HelpScreen} />
 			<Stack.Screen name="about" component={AboutScreen} />
+			
 		</Stack.Navigator>
 	);
 };

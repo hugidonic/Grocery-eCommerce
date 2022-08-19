@@ -17,4 +17,3 @@ export * from './PromoCards/PromoCardsScreen';
 export * from './Notifications/NotificationsScreen';
 export * from './Help/HelpScreen';
 export * from './About/AboutScreen';
-export * from './ProfileInfo/ProfileInfoScreen';

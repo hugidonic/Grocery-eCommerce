@@ -45,16 +45,27 @@ export const viewPresets: Record<string, ViewStyle> = {
     paddingVertical: spacing[4],
     width: '80%'
 	} as ViewStyle,
+
+	secondary: {
+		...BASE_VIEW,
+		backgroundColor: colors.palette.lighterGrey,
+		width: '80%',
+		paddingVertical: spacing[4],
+		paddingHorizontal: spacing[2],
+	} as ViewStyle,
+
 	
 	outline: {
 		...BASE_VIEW,
-		backgroundColor: colors.palette.lighterGrey,
-		borderWidth: 2,
+		backgroundColor: colors.palette.lightenGreen,
+		borderWidth: 1,
+		borderColor: colors.palette.lighterGrey,
 		borderRadius: spacing[4],
     paddingVertical: spacing[4],
 		paddingHorizontal: spacing[2],
     width: '80%'
 	} as ViewStyle,
+
 	/**
    * A button without extras.
    */
@@ -71,6 +82,13 @@ export const textPresets: Record<ButtonPresetNames, TextStyle> = {
 		...BASE_TEXT,
 		color: colors.palette.white
 	} as TextStyle,
+
+	secondary: {
+		...BASE_TEXT,
+		fontWeight: 'bold',
+		color: colors.primary
+	} as TextStyle,
+	
 	outline: {
 		...BASE_TEXT,
 		color: colors.palette.black,

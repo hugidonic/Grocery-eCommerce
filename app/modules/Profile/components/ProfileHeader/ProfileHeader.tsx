@@ -17,7 +17,7 @@ export const ProfileHeader = (props: ProfileHeaderProps) => {
   return (
 		<Pressable
 			style={styles.profileHeader}
-			onPress={() => nav.navigate('ProfileStack', {screen: 'profileInfo'})}
+			onPress={() => nav.navigate('ProfileStack', {screen: 'myDetails'})}
 		>
 			<Block
 				style={{ width: 80, height: 80 }}
