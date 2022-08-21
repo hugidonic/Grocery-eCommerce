@@ -20,7 +20,12 @@ export interface TextProps extends TextProperties {
    */
 	weight?: FontWeightsType;
   /**
-   * Font size of the text
+   * The size of the text 
+   * * small: 14, 
+   * * regular: 16, 
+   * * medium: 18, 
+   * * large: 20, 
+   * * title: 24, 
    */
    size?: FontSizesType;
 	/**
@@ -44,11 +49,11 @@ export const FontWeights = {
 }
 
 export const FontSizes = {
-	small: 14,
-  regular: 16,
-  medium: 18,
-  large: 20,
-  title: 24,
+   small: 14,
+   regular: 16,
+   medium: 18,
+   large: 20,
+   title: 24,
 }
 
 export type FontWeightsType = keyof typeof FontWeights

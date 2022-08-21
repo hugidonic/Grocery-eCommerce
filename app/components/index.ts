@@ -8,3 +8,4 @@ export * from "./Text/Text"
 export * from "./TextField/TextField"
 export * from "./Loading/Loading"
 export * from "./Divider/Divider"
+export * from './Header/Header';

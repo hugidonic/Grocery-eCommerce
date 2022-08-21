@@ -46,6 +46,29 @@ export * from './constants'`
     ],
   })
 
+  plop.setGenerator("Component", {
+    description: "Creates a new component",
+    prompts: [
+      {
+        type: 'input',
+        name: 'name',
+        message: "Enter the name of the component",
+      }
+    ],
+    actions: [
+      {
+        type: 'add',
+        path: './app/components/{{pascalCase name}}/{{pascalCase name}}.tsx',
+        templateFile: './templates/COMPONENT.hbs'
+      },
+      {
+        type: 'append',
+        path: './app/components/index.ts',
+        template: `export * from './{{pascalCase name}}/{{pascalCase name}}';`,
+      }
+    ]
+  })
+
   plop.setGenerator("Screen", {
     description: "Creates new Screen",
     prompts: [

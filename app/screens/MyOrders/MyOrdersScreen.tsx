@@ -8,10 +8,12 @@ import { colors, spacing } from '../../theme';
 // Components
 import {
 	Screen,
+	Header,
 	Block,
 	Text,
 } from '../../components';
 import { ProfileNavigatorParamList } from '../../navigators';
+import { FilterOrders } from '../../modules/Orders';
 
 interface MyOrdersScreenProps extends StackScreenProps<ProfileNavigatorParamList, 'myOrders'> {
 
@@ -20,8 +22,12 @@ interface MyOrdersScreenProps extends StackScreenProps<ProfileNavigatorParamList
 export const MyOrdersScreen = (props: MyOrdersScreenProps) => {
 
   return (
-    <Screen style={[styles.container, styles.center]} preset="scroll">
-			<Text>My Orders Screen</Text>
+    <Screen style={[styles.container]} preset="fixed">
+			<Header title="My orders"/>
+			{/* Filter orders */}	
+			<FilterOrders />
+
+			{/* Orders */}
     </Screen>
   )
 }
@@ -32,9 +38,5 @@ const styles = StyleSheet.create({
 		paddingHorizontal: spacing[5],
 		paddingVertical: spacing[6]
 	},
-	center: {
-		justifyContent: 'center',
-		alignItems: 'center',
-		flex: 1,
-	}
 });
+

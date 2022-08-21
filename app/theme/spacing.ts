@@ -27,17 +27,14 @@
  * 
  * The available spacing.
  *
- * Here's the rough guideline.  Customize this for you usage.  It's ok to put exceptions
- * within the components themselves if they are truly exceptions.
- *
- * 0 = none    - nothing. only here to bust out of a zero-based array.
- * 1 = tiny    - elements contextually close to each other
- * 2 = smaller - for groups of closely related items or perhaps borders
- * 3 = small   - ?
- * 4 = medium  - ?
- * 5 = medium+ - ?
- * 6 = large   - between groups of content that aren't related?
- * 7 = huge    - ?
- * 8 = massive - an uncomfortable amount of whitespace
+ * * 0 = 0  
+ * * 1 = 4
+ * * 2 = 8
+ * * 3 = 12
+ * * 4 = 16
+ * * 5 = 24
+ * * 6 = 32
+ * * 7 = 48
+ * * 8 = 64
  */
 export const spacing = [0, 4, 8, 12, 16, 24, 32, 48, 64]

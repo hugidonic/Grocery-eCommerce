@@ -1,4 +1,6 @@
 rootProject.name = 'GroceryApp'
+include ':react-native-linear-gradient'
+project(':react-native-linear-gradient').projectDir = new File(rootProject.projectDir, '../node_modules/.pnpm/react-native-linear-gradient@2.6.2_a5hapli5vbqqtmqpdw5vljnehu/node_modules/react-native-linear-gradient/android')
 include ':react-native-gesture-handler'
 project(':react-native-gesture-handler').projectDir = new File(rootProject.projectDir, '../node_modules/.pnpm/react-native-gesture-handler@1.10.3/node_modules/react-native-gesture-handler/android')
 include ':react-native-gesture-handler'
