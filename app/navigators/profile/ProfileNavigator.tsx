@@ -7,12 +7,15 @@ import {
 	MyDetailsScreen,
 	MyOrdersScreen,
 	NotificationsScreen,
+	OrderDetailsScreen,
 	PaymentMethodsScreen,
 	PromoCardsScreen
 } from '../../screens';
+import { OrderItemType } from '../../modules/Orders';
 
 export type ProfileNavigatorParamList = {
 	myOrders: undefined;
+	orderDetails: {orderItem: OrderItemType};
 	myDetails: undefined;
 	deliveryAddress: undefined;
 	paymentMethods: undefined;
@@ -30,6 +33,7 @@ export const ProfileNavigator = () => {
 			screenOptions={{ cardStyle: { backgroundColor: 'transparent' }, headerShown: false }}
 		>
 			<Stack.Screen name="myOrders" component={MyOrdersScreen} />
+			<Stack.Screen name="orderDetails" component={ OrderDetailsScreen } />
 			<Stack.Screen name="myDetails" component={MyDetailsScreen} />
 			<Stack.Screen name="deliveryAddress" component={DeliveryAddressScreen} />
 			<Stack.Screen name="paymentMethods" component={PaymentMethodsScreen} />

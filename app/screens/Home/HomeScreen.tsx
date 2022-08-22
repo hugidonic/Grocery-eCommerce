@@ -51,6 +51,6 @@ const styles = StyleSheet.create({
 	container: {
 		backgroundColor: colors.palette.offWhite,
 		paddingHorizontal: spacing[5],
-		paddingVertical: spacing[6]
+		minHeight: '100%'
 	}
 });

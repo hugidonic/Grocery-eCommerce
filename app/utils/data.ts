@@ -1,4 +1,5 @@
 import { CategoryType } from '../modules/Categories/categories.types';
+import { OrderItemType } from '../modules/Orders';
 import { ProductType } from '../modules/Products/products.types';
 import uuid from './uuid';
 
@@ -17,76 +18,75 @@ const colors: string[] = [
 const fruitImages = [
 	{
 		name: 'Bananas',
-		image: require('../../assets/images/Bananas.png'),
+		image: require('../../assets/images/Bananas.png')
 	},
 	{
 		name: 'Apples',
-		image: require('../../assets/images/Apples.png'),
+		image: require('../../assets/images/Apples.png')
 	},
 	{
 		name: 'Kiwies',
-		image: require('../../assets/images/Kiwies.png'),
+		image: require('../../assets/images/Kiwies.png')
 	},
 	{
 		name: 'Oranges',
-		image: require('../../assets/images/Oranges.png'),
+		image: require('../../assets/images/Oranges.png')
 	},
 	{
 		name: 'Pears',
-		image: require('../../assets/images/Pears.png'),
-	},
-]
+		image: require('../../assets/images/Pears.png')
+	}
+];
 
 const categoryImages = [
 	{
 		name: 'Drinks',
-		image: require('../../assets/images/Drinks.png'),
+		image: require('../../assets/images/Drinks.png')
 	},
 	{
 		name: 'Diary',
-		image: require('../../assets/images/Diary.png'),
+		image: require('../../assets/images/Diary.png')
 	},
 	{
 		name: 'Sauces',
-		image: require('../../assets/images/Sauces.png'),
+		image: require('../../assets/images/Sauces.png')
 	},
 	{
 		name: 'Rice',
-		image: require('../../assets/images/Rice.png'),
+		image: require('../../assets/images/Rice.png')
 	},
 	{
 		name: 'Pulses',
-		image: require('../../assets/images/Pulses.png'),
+		image: require('../../assets/images/Pulses.png')
 	},
 	{
 		name: 'Oils',
-		image: require('../../assets/images/Oils.png'),
-	},
-]
+		image: require('../../assets/images/Oils.png')
+	}
+];
 
 const vegetableImages = [
-	
 	{
 		name: 'Carrots',
-		image: require('../../assets/images/Carrots.png'),
+		image: require('../../assets/images/Carrots.png')
 	},
 	{
 		name: 'Potatoes',
-		image: require('../../assets/images/Potatoes.png'),
+		image: require('../../assets/images/Potatoes.png')
 	},
 	{
 		name: 'Cucumbers',
-		image: require('../../assets/images/Cucumbers.png'),
+		image: require('../../assets/images/Cucumbers.png')
 	},
 	{
 		name: 'Corns',
-		image: require('../../assets/images/Corns.png'),
+		image: require('../../assets/images/Corns.png')
 	},
 	{
 		name: 'Tomatoes',
-		image: require('../../assets/images/Tomatoes.png'),
-	},
-]
+		image: require('../../assets/images/Tomatoes.png')
+	}
+];
 
 export type DataType = {
 	products?: {
@@ -107,7 +107,7 @@ export const data: DataType = {
 				name: picture.name,
 				description: 'Organic',
 				price: 4.99,
-				picture: picture.image,
+				picture: picture.image
 			};
 		}),
 		vegetable: vegetableImages.map((picture) => {
@@ -117,24 +117,73 @@ export const data: DataType = {
 				name: picture.name,
 				description: 'Organic',
 				price: 4.99,
-				picture: picture.image,
+				picture: picture.image
 			};
 		}),
 		all: [],
-		default: [],
+		default: []
 	},
 	categories: categoryImages.map((picture, idx) => {
-    return {
-      categoryId: uuid(),
-      name: picture.name,
-      picture: picture.image,
-      color: colors[idx],
-    };
-  }),
+		return {
+			categoryId: uuid(),
+			name: picture.name,
+			picture: picture.image,
+			color: colors[idx]
+		};
+	})
 };
 
 data.products.all = [ ...data.products.fruit, ...data.products.vegetable ];
-data.products.default = [ ...data.products.fruit.slice(0,4) ];
+data.products.default = [ ...data.products.fruit.slice(0, 4) ];
 
+
+const randomInt = () => Math.floor( Math.random() * data.products.all.length );
+
+export const orders: OrderItemType[] = [
+	{
+		num: uuid().slice(0, 3),
+		date: new Date().toISOString(),
+		price: 1234.99,
+		type: 'FINISHED',
+		cartItems: [
+			{
+				cartItemId: '589946',
+				count: 4,
+				product: data.products.all[randomInt()]
+			},
+			{
+				cartItemId: '128026',
+				count: 1,
+				product: data.products.all[randomInt()]
+			},
+			{
+				cartItemId: '4015535',
+				count: 2,
+				product: data.products.all[randomInt()]
+			},
+			{
+				cartItemId: '6097562',
+				count: 1,
+				product: data.products.all[randomInt()]
+			},
+			{
+				cartItemId: '9820821',
+				count: 1,
+				product: data.products.all[randomInt()]
+			}
+		]
+	},
+	{
+		num: uuid().slice(0, 3),
+		date: new Date().toISOString(),
+		price: 3.99,
+		type: 'FINISHED',
+		cartItems: data.products.all.map(prod => ({
+			cartItemId: prod.productId,
+			count: 2,
+			product: prod
+		}))
+	}
+];
 
 export const dataJSON = JSON.stringify(data);

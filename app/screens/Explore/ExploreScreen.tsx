@@ -104,7 +104,8 @@ export const ExploreScreen: FC<ExploreScreenProps> = (props) => {
 const styles = StyleSheet.create({
 	container: {
 		backgroundColor: colors.palette.offWhite,
-		paddingHorizontal: spacing[5]
+		paddingHorizontal: spacing[5],
+		minHeight: '100%'
 	},
 	image: {
 		resizeMode: 'contain',

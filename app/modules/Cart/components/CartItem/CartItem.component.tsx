@@ -68,7 +68,7 @@ export const CartItemComponent = (props: CartItemComponentProps) => {
 
 				{/* Counter with buttons */}
 				<Block row justify="space-between" align="center">
-					<Block row>
+					<Block row align="center">
 						<OperationBtn func={decrement} type="Decrement" />
 						<Block
 							style={{ width: 40, height: 40 }}
@@ -94,6 +94,5 @@ const styles = StyleSheet.create({
 	container: {
 		position: 'relative',
 		padding: 15,
-		marginHorizontal: 20
 	}
 });

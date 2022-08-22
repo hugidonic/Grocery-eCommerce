@@ -11,6 +11,8 @@ export interface OperationBtnProps {
 	func?: () => void;
 }
 
+const SIZE_BUTTON = 35
+
 export const OperationBtn = ({
 	type = 'Increment',
 	func = () => {}
@@ -19,19 +21,20 @@ export const OperationBtn = ({
 		<Pressable style={styles.btn} onPress={func}>
 			<Feather
 				name={type == 'Decrement' ? 'minus' : 'plus'}
-				size={26}
+				size={22}
 				color={type == 'Decrement' ? colors.dim : colors.primary}
 			/>
 		</Pressable>
 	);
 };
+
 const styles = StyleSheet.create({
 	btn: {
 		borderWidth: 1,
 		borderColor: colors.palette.black,
-		borderRadius: 14,
-		width: 40,
-		height: 40,
+		borderRadius: 12,
+		width: SIZE_BUTTON,
+		height: SIZE_BUTTON,
 		justifyContent: 'center',
 		alignItems: 'center'
 	}

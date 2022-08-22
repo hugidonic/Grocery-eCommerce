@@ -1,6 +1,8 @@
 // React and packages
-import { Pressable, StyleSheet } from 'react-native';
 import React from 'react';
+import { StyleSheet } from 'react-native';
+import moment from 'moment';
+// Navigation
 // Types and Theme
 import { OrderItemProps } from './OrderItem.props';
 import { colors, spacing } from '../../../../theme';
@@ -8,13 +10,12 @@ import { colors, spacing } from '../../../../theme';
 import { Block, Text } from '../../../../components';
 // Icons
 import Entypo from 'react-native-vector-icons/Entypo';
-import moment from 'moment';
 
 export const OrderItem = (props: OrderItemProps) => {
 	const { idx, date, num, price } = props;
 
 	return (
-		<Pressable style={styles.container}>
+		<Block style={styles.container}>
 			{/* NUMBER */}
 			<Block flex={1} justify="center" align="center">
 				<Text color={colors.dim} size="large">
@@ -33,8 +34,8 @@ export const OrderItem = (props: OrderItemProps) => {
 					</Text>
 				</Block>
 
-				<Block flex={1}>
-					<Text numberOfLines={1} lineBreakMode="clip" size="large" weight="medium">
+				<Block flex={1} align="flex-end">
+					<Text numberOfLines={1} lineBreakMode="clip" size="medium" weight="medium">
 						$ {price}
 					</Text>
 				</Block>
@@ -43,7 +44,7 @@ export const OrderItem = (props: OrderItemProps) => {
 			<Block style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
 				<Entypo name="chevron-right" size={30} color={colors.palette.black} />
 			</Block>
-		</Pressable>
+		</Block>
 	);
 };
 
