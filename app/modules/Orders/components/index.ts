@@ -1,1 +1,2 @@
-export * from './FilterOrders'
+export * from './FilterOrders/FilterOrders'
+export * from './OrderItem/OrderItem'
