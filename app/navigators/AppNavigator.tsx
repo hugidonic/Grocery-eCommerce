@@ -15,7 +15,7 @@ import { StackNavigationProp } from '@react-navigation/stack';
 // Types
 import { ProductType } from '../modules';
 // Screens
-import { CategoryScreen, ProductDetailsScreen } from '../screens';
+import { CategoryScreen, ProductDetailsScreen, TermsAndConditionsScreen } from '../screens';
 import { CategoryType } from '../modules/Categories';
 
 /**
@@ -34,6 +34,7 @@ export type NavigatorParamList = {
 	productDetails: {product: ProductType };
 	createProduct: undefined;
 	category: {categoryId: CategoryType['categoryId']} | undefined;
+	termsAndConditions: undefined
 };
 
 export type NavigatorScreenProps = StackNavigationProp<NavigatorParamList>
@@ -54,7 +55,7 @@ const AppStack = () => {
 			<Stack.Screen name='ProfileStack' component={ProfileNavigator} />
 			<Stack.Screen name="productDetails" component={ProductDetailsScreen} />
 			<Stack.Screen name="category" component={CategoryScreen} />
-
+			<Stack.Screen name="termsAndConditions" component={ TermsAndConditionsScreen } />
 			{/* <Stack.Screen name="createProduct" component={CreateProductScreen} /> */}
 		</Stack.Navigator>
 	);

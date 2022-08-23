@@ -19,3 +19,4 @@ export * from './Help/HelpScreen';
 export * from './About/AboutScreen';
 
 export * from './OrderDetails/OrderDetailsScreen';
+export * from './TermsAndConditions/TermsAndConditionsScreen';

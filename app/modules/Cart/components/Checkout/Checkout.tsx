@@ -97,7 +97,7 @@ export const Checkout = (props: CheckoutProps) => {
 
 						<Text size="small" style={{ marginVertical: spacing[4] }}>
 							By placing an order you agree to the{' '}
-							<Text size="small" color={colors.primary}>
+							<Text onPress={() => nav.navigate('termsAndConditions')} size="small" color={colors.primary}>
 								terms and conditions
 							</Text>
 						</Text>
