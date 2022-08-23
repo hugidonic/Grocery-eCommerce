@@ -23,7 +23,7 @@ interface {{pascalCase name}}ScreenProps extends StackScreenProps<ParamList, '{{
 export const {{pascalCase name}}Screen = (props: {{pascalCase name}}ScreenProps) => {
 
   return (
-    <Screen style={[styles.container, styles.center]} preset="scroll">
+    <Screen style={styles.container} preset="scroll">
 			<Text> {{pascalCase name}} Screen </Text>
     </Screen>
   )
@@ -33,11 +33,6 @@ const styles = StyleSheet.create({
 	container: {
 		backgroundColor: colors.palette.offWhite,
 		paddingHorizontal: spacing[5],
-		paddingVertical: spacing[6]
+		minHeight: '100%',
 	},
-	center: {
-		justifyContent: 'center',
-		alignItems: 'center',
-		flex: 1,
-	}
 });

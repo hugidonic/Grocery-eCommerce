@@ -35,6 +35,7 @@ export const MyOrdersScreen = (props: MyOrdersScreenProps) => {
 			{/* Orders */}
 			<FlatList
 				data={visibleOrders}
+				showsVerticalScrollIndicator={false}
 				renderItem={({ item, index }) => (
 					<Pressable onPress={() => nav.navigate('ProfileStack', {screen: 'orderDetails', params: {orderItem: item}})}>
 						<OrderItem idx={index + 1} num={item.num} date={item.date} price={item.price} />
@@ -45,8 +46,6 @@ export const MyOrdersScreen = (props: MyOrdersScreenProps) => {
 		</Screen>
 	);
 };
-
-
 
 const styles = StyleSheet.create({
 	container: {
