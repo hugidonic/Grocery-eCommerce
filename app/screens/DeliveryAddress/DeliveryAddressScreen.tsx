@@ -23,34 +23,32 @@ export const DeliveryAddressScreen = (props: DeliveryAddressScreenProps) => {
 	const [ activeIdx, setActiveIdx ] = React.useState<number>(0);
 
 	return (
-		<Screen style={styles.container} preset="scroll">
-			<Header title="Delivery address" />
+		<React.Fragment>
+			<Screen style={styles.container} preset="scroll">
+				<Header title="Delivery address" />
 
-			{UsersDeliveryAddress.map((address, idx) => {
-				return (
-					<Block
-						key={idx.toString()}
-						row
-						justify="space-between"
-						marginVertical={spacing[2]}
-					>
-						<Text numberOfLines={1} style={{ width: '85%' }} size="medium">
-							{address.country}, {address.city}, {address.street}, {address.house}
-						</Text>
-						<Pressable onPress={() => setActiveIdx(idx)}>
-							<RadioButton isActive={idx === activeIdx} />
-						</Pressable>
-					</Block>
-				);
-			})}
-
-			<Block
-				align="center"
-				style={{ position: 'absolute', bottom: 40, right: 0, left: 0 }}
-			>
-				<Button shadow text="Add new address" />
+				{UsersDeliveryAddress.map((address, idx) => {
+					return (
+						<Block
+							key={idx.toString()}
+							row
+							justify="space-between"
+							marginVertical={spacing[2]}
+						>
+							<Text numberOfLines={1} style={{ width: '85%' }} size="medium">
+								{address.country}, {address.city}, {address.street}, {address.house}
+							</Text>
+							<Pressable onPress={() => setActiveIdx(idx)}>
+								<RadioButton isActive={idx === activeIdx} />
+							</Pressable>
+						</Block>
+					);
+				})}
+			</Screen>
+			<Block align="center" style={{ position: 'absolute', bottom: 40, right: 0, left: 0 }}>
+				<Button shadow preset="primary" text="Add new address" />
 			</Block>
-		</Screen>
+		</React.Fragment>
 	);
 };
 

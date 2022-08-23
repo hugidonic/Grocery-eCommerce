@@ -6,7 +6,7 @@ import { StyleSheet } from 'react-native';
 // import { ParamList } from '../../navigators';
 import { colors, spacing } from '../../theme';
 // Components
-import { Screen, Block, Text, Header, Divider } from '../../components';
+import { Screen, Block, Text, Header, Divider, Button } from '../../components';
 import { ProfileNavigatorParamList } from '../../navigators';
 import uuid from '../../utils/uuid';
 import moment from 'moment';
@@ -15,48 +15,58 @@ interface PromoCardsScreenProps extends StackScreenProps<ProfileNavigatorParamLi
 
 export const PromoCardsScreen = (props: PromoCardsScreenProps) => {
 	return (
-		<Screen style={styles.container} preset="scroll">
-			<Header title="Promo Cards" />
+		<React.Fragment>
+			<Screen style={styles.container} preset="scroll">
+				<Header title="Promo Cards" />
 
-			<Divider opacity={1} />
+				<Divider opacity={1} />
 
-			{UsersPromoCards.map((promo, idx) => {
-				return (
-					<Block key={promo.id} style={styles.promoContainer}>
-						{/* NUMBER */}
-						<Block flex={1} justify="center" align="center">
-							<Text color={colors.dim} size="large">
-								#{idx + 1}
-							</Text>
-						</Block>
-
-						{/* ORDER INFO */}
-						<Block flex={6} row justify="space-between" align="center">
-							<Block flex={2}>
-								<Text color={colors.text} size="large">
-									Order №{promo.id}
-								</Text>
-								<Text color={colors.dim} size="regular">
-									{moment(promo.beginDate).format('L')} - {' '}
-									{moment(promo.endDate).format('L')}
+				{UsersPromoCards.map((promo, idx) => {
+					return (
+						<Block key={promo.id} style={styles.promoContainer}>
+							{/* NUMBER */}
+							<Block flex={1} justify="center" align="center">
+								<Text color={colors.dim} size="large">
+									#{idx + 1}
 								</Text>
 							</Block>
 
-							<Block flex={1} align="flex-end">
-								<Text
-									numberOfLines={1}
-									lineBreakMode="clip"
-									size="medium"
-									weight="medium"
-								>
-									$ {promo.price.toFixed(2)}
-								</Text>
+							{/* ORDER INFO */}
+							<Block flex={6} row justify="space-between" align="center">
+								<Block flex={2}>
+									<Text color={colors.text} size="large">
+										Order №{promo.id}
+									</Text>
+									<Text color={colors.dim} size="regular">
+										{moment(promo.beginDate).format('L')} - {' '}
+										{moment(promo.endDate).format('L')}
+									</Text>
+								</Block>
+
+								<Block flex={1} align="flex-end">
+									<Text
+										numberOfLines={1}
+										lineBreakMode="clip"
+										size="medium"
+										weight="medium"
+									>
+										$ {promo.price.toFixed(2)}
+									</Text>
+								</Block>
 							</Block>
 						</Block>
-					</Block>
-				);
-			})}
-		</Screen>
+					);
+				})}
+			</Screen>
+
+			<Block
+				justify="center"
+				align="center"
+				style={{ position: 'absolute', bottom: 40, right: 0, left: 0 }}
+			>
+				<Button preset="primary" text="Add new Promo" shadow />
+			</Block>
+		</React.Fragment>
 	);
 };
 
