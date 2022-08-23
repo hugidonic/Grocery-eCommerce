@@ -1,7 +1,7 @@
 import React from "react"
-import { StyleProp, StyleSheet, TextInput, TextInputProps, TextStyle, View, ViewStyle } from "react-native"
+import { StyleProp, TextInput, TextInputProps, TextStyle, View, ViewStyle } from "react-native"
 import { Text } from ".."
-import { colors, spacing, typography } from "../../theme"
+import { colors, spacing } from "../../theme"
 
 // the base styling for the container
 const CONTAINER: ViewStyle = {
@@ -10,16 +10,18 @@ const CONTAINER: ViewStyle = {
 
 // the base styling for the TextInput
 const INPUT: TextStyle = {
-  fontFamily: typography.primary,
-  borderBottomWidth: StyleSheet.hairlineWidth,
+  borderBottomWidth: 3,
+  borderBottomColor: colors.primary,
+  borderTopLeftRadius: 8,
+  borderTopRightRadius: 8,
+
   color: colors.text,
   paddingHorizontal: spacing[2],
-  minHeight: 44,
+  minHeight: 40,
   fontSize: 18,
-  backgroundColor: colors.palette.lightenGreen,
+  backgroundColor: colors.palette.lighterGrey,
 }
 
-// currently we have no presets, but that changes quickly when you build your app.
 const PRESETS: { [name: string]: ViewStyle } = {
   default: {},
 }
@@ -75,7 +77,7 @@ export function TextField(props: TextFieldProps) {
       <Text preset="fieldLabel" text={label} />
       <TextInput
         placeholder={placeholder}
-        placeholderTextColor={colors.palette.lighterGrey}
+        placeholderTextColor={colors.palette.grey}
         underlineColorAndroid={colors.transparent}
         {...rest}
         style={inputStyles}

@@ -1,41 +1,45 @@
 // React and packages
 import React from 'react';
 import { StackScreenProps } from '@react-navigation/stack';
-import { StyleSheet } from 'react-native'
+import { StyleSheet } from 'react-native';
 // Types and utils
 // import { ParamList } from '../../navigators';
 import { colors, spacing } from '../../theme';
 // Components
-import {
-	Screen,
-	Block,
-	Text,
-	Loading,
-} from '../../components';
+import { Screen, Block,  Header, TextField, Button } from '../../components';
 import { ProfileNavigatorParamList } from '../../navigators';
 
-interface HelpScreenProps extends StackScreenProps<ProfileNavigatorParamList, 'help'> {
-
-}
+interface HelpScreenProps extends StackScreenProps<ProfileNavigatorParamList, 'help'> {}
 
 export const HelpScreen = (props: HelpScreenProps) => {
+	return (
+		<Screen style={styles.container} preset="fixed">
+			<Header title="Help" />
 
-  return (
-    <Screen style={[styles.container, styles.center]} preset="scroll">
-			<Text> Help Screen </Text>
-    </Screen>
-  )
-}
+			<TextField placeholder="Type here..." label="Name" />
+			<TextField placeholder="Type here..." label="Email" />
+			<TextField
+				placeholder="Type here..."
+				label="Your Message"
+				multiline
+				numberOfLines={7}
+				textAlignVertical="top"
+			/>
+			<Block
+				justify="center"
+				align="center"
+				style={{ position: 'absolute', bottom: 40, right: 0, left: 0 }}
+			>
+				<Button preset="primary" text="Send" shadow />
+			</Block>
+		</Screen>
+	);
+};
 
 const styles = StyleSheet.create({
 	container: {
 		backgroundColor: colors.palette.offWhite,
 		paddingHorizontal: spacing[5],
-		paddingVertical: spacing[6]
-	},
-	center: {
-		justifyContent: 'center',
-		alignItems: 'center',
-		flex: 1,
+		minHeight: '100%'
 	}
 });
