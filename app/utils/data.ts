@@ -183,7 +183,150 @@ export const orders: OrderItemType[] = [
 			count: 2,
 			product: prod
 		}))
-	}
+	},
+	{
+		num: uuid().slice(0, 3),
+		date: new Date().toISOString(),
+		price: 3.99,
+		type: 'FINISHED',
+		cartItems: data.products.all.map(prod => ({
+			cartItemId: prod.productId,
+			count: 2,
+			product: prod
+		}))
+	},
+	{
+		num: uuid().slice(0, 3),
+		date: new Date().toISOString(),
+		price: 3.99,
+		type: 'FINISHED',
+		cartItems: data.products.all.map(prod => ({
+			cartItemId: prod.productId,
+			count: 2,
+			product: prod
+		}))
+	},
+	{
+		num: uuid().slice(0, 3),
+		date: new Date().toISOString(),
+		price: 3.99,
+		type: 'FINISHED',
+		cartItems: data.products.all.map(prod => ({
+			cartItemId: prod.productId,
+			count: 2,
+			product: prod
+		}))
+	},
+	{
+		num: uuid().slice(0, 3),
+		date: new Date().toISOString(),
+		price: 3.99,
+		type: 'FINISHED',
+		cartItems: data.products.all.map(prod => ({
+			cartItemId: prod.productId,
+			count: 2,
+			product: prod
+		}))
+	},
+	{
+		num: uuid().slice(0, 3),
+		date: new Date().toISOString(),
+		price: 3.99,
+		type: 'FINISHED',
+		cartItems: data.products.all.map(prod => ({
+			cartItemId: prod.productId,
+			count: 2,
+			product: prod
+		}))
+	},
+	{
+		num: uuid().slice(0, 3),
+		date: new Date().toISOString(),
+		price: 3.99,
+		type: 'FINISHED',
+		cartItems: data.products.all.map(prod => ({
+			cartItemId: prod.productId,
+			count: 2,
+			product: prod
+		}))
+	},
+	{
+		num: uuid().slice(0, 3),
+		date: new Date().toISOString(),
+		price: 3.99,
+		type: 'FINISHED',
+		cartItems: data.products.all.map(prod => ({
+			cartItemId: prod.productId,
+			count: 2,
+			product: prod
+		}))
+	},
+	{
+		num: uuid().slice(0, 3),
+		date: new Date().toISOString(),
+		price: 3.99,
+		type: 'FINISHED',
+		cartItems: data.products.all.map(prod => ({
+			cartItemId: prod.productId,
+			count: 2,
+			product: prod
+		}))
+	},
+	{
+		num: uuid().slice(0, 3),
+		date: new Date().toISOString(),
+		price: 3.99,
+		type: 'FINISHED',
+		cartItems: data.products.all.map(prod => ({
+			cartItemId: prod.productId,
+			count: 2,
+			product: prod
+		}))
+	},
+	{
+		num: uuid().slice(0, 3),
+		date: new Date().toISOString(),
+		price: 3.99,
+		type: 'FINISHED',
+		cartItems: data.products.all.map(prod => ({
+			cartItemId: prod.productId,
+			count: 2,
+			product: prod
+		}))
+	},
+	{
+		num: uuid().slice(0, 3),
+		date: new Date().toISOString(),
+		price: 3.99,
+		type: 'FINISHED',
+		cartItems: data.products.all.map(prod => ({
+			cartItemId: prod.productId,
+			count: 2,
+			product: prod
+		}))
+	},
+	{
+		num: uuid().slice(0, 3),
+		date: new Date().toISOString(),
+		price: 3.99,
+		type: 'FINISHED',
+		cartItems: data.products.all.map(prod => ({
+			cartItemId: prod.productId,
+			count: 2,
+			product: prod
+		}))
+	},
+	{
+		num: uuid().slice(0, 3),
+		date: new Date().toISOString(),
+		price: 3.99,
+		type: 'FINISHED',
+		cartItems: data.products.all.map(prod => ({
+			cartItemId: prod.productId,
+			count: 2,
+			product: prod
+		}))
+	},
 ];
 
 export const dataJSON = JSON.stringify(data);
