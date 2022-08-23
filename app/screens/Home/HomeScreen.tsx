@@ -8,20 +8,21 @@ import { TabsNavigatorParamList } from '../../navigators';
 import { colors, spacing } from '../../theme';
 // Components
 import { Screen, BgSlider, Loading } from '../../components';
-import { CategoriesList, ProductList } from '../../modules';
+import { CategoriesList, CategoryType, ProductList, ProductType } from '../../modules';
 /* Selectors */
 import { useTypedSelector } from '../../redux/hooks/useTypedSelector';
 import * as ProductsSelector from '../../modules/Products/products.selectors';
 import * as CategoriesSelector from '../../modules/Categories/categories.selectors';
+import { RootStateType } from '../../redux/store';
 
 export const HomeScreen: FC<StackScreenProps<TabsNavigatorParamList, 'home'>> = () => {
-	const ProductStore = useTypedSelector((state) => state.ProductStore);
-	const CategoriesStore = useTypedSelector((state) => state.CategoriesStore);
+	const ProductStore = useTypedSelector((state: RootStateType) => state.ProductStore);
+	const CategoriesStore = useTypedSelector((state: RootStateType) => state.CategoriesStore);
 
-	const fruits = useTypedSelector(ProductsSelector.fruits);
-	const vegetables = useTypedSelector(ProductsSelector.vegetables);
-	const allProducts = useTypedSelector(ProductsSelector.allProducts);
-	const categories = useTypedSelector(CategoriesSelector.categories);
+	const fruits: ProductType[] = useTypedSelector(ProductsSelector.getFruits);
+	const vegetables: ProductType[] = useTypedSelector(ProductsSelector.getVegetables);
+	const allProducts: ProductType[] = useTypedSelector(ProductsSelector.allProducts);
+	const categories: CategoryType[] = useTypedSelector(CategoriesSelector.categories);
 
 	if (ProductStore.isLoading || CategoriesStore.isLoading) {
 		return <Loading />;
