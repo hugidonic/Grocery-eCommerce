@@ -12,7 +12,7 @@ import { Block, Text } from '../../../../components';
 import Entypo from 'react-native-vector-icons/Entypo';
 
 export const OrderItem = (props: OrderItemProps) => {
-	const { idx, date, num, price } = props;
+	const { idx, date, id, price } = props;
 
 	return (
 		<Block style={styles.container}>
@@ -27,7 +27,7 @@ export const OrderItem = (props: OrderItemProps) => {
 			<Block flex={6} row justify="space-between" align="center">
 				<Block flex={2}>
 					<Text color={colors.text} size="large">
-						Order №{num}
+						Order №{id}
 					</Text>
 					<Text color={colors.dim} size="regular">
 						{moment(date).format('L - LT')} 

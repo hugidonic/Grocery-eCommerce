@@ -38,10 +38,10 @@ export const MyOrdersScreen = (props: MyOrdersScreenProps) => {
 				showsVerticalScrollIndicator={false}
 				renderItem={({ item, index }) => (
 					<Pressable onPress={() => nav.navigate('ProfileStack', {screen: 'orderDetails', params: {orderItem: item}})}>
-						<OrderItem idx={index + 1} num={item.num} date={item.date} price={item.price} />
+						<OrderItem idx={index + 1} id={item.id} date={item.date} price={item.price} />
 					</Pressable>
 				)}
-				keyExtractor={(item) => item.num}
+				keyExtractor={(item) => item.id}
 			/>
 		</Screen>
 	);

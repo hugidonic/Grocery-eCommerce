@@ -1,10 +1,11 @@
 // Redux and stuff
 import { Dispatch } from 'redux';
 // Actions
-import { CartActions, CartTypes, CartItemType } from './cart.types';
+import { CartActions, CartTypes } from './cart.actionTypes';
 // Async Storage
 import { load, save, STORAGE_KEYS } from '../../utils/storage';
 // Types
+import { CartItemType } from './cart.types';
 import { ProductType } from '../Products';
 import { RootStateType } from '../../redux/store';
 // Favroite Actions

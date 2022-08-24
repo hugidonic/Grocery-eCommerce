@@ -1,4 +1,5 @@
-import { CartActions, CartStateType, CartTypes } from './cart.types';
+import { CartActions, CartTypes } from './cart.actionTypes';
+import { CartStateType} from './cart.types';
 
 const initialState: CartStateType = {
 	isLoading: true,

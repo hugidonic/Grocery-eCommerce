@@ -1,7 +1,7 @@
 import { CartItemType } from "../Cart"
 
 export type OrderItemType = {
-	num: string
+	id: string
 	date: string
 	price: number,
 	type: 'FINISHED' | "ACTIVE",

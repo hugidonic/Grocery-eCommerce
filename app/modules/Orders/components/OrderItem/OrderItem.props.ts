@@ -6,7 +6,7 @@ export interface OrderItemProps {
   /**
    * Code number of the order
    */
-  num: string;
+  id: string;
   /**
    * Order's date
    */
