@@ -17,26 +17,31 @@ export default function(plop) {
         type: 'add',
         path: './app/modules/{{pascalCase name}}/index.ts',
         template: `export * from './components'
-export * from './actions'
-export * from './actionTypes'
-export * from './reducer'
-export * from './constants'`
+export * from './{{lowerCase name}}.actions'
+export * from './{{lowerCase name}}.selectors'
+export * from './{{lowerCase name}}.types'
+export * from './{{lowerCase name}}.reducer'
+export * from './{{lowerCase name}}.constants'`
       },
       {
         type: 'add',
-        path: './app/modules/{{pascalCase name}}/actions.ts',
+        path: './app/modules/{{pascalCase name}}/{{lowerCase name}}.actions.ts',
       },
       {
         type: 'add',
-        path: './app/modules/{{pascalCase name}}/actionTypes.ts',
+        path: './app/modules/{{pascalCase name}}/{{lowerCase name}}.selectors.ts',
       },
       {
         type: 'add',
-        path: './app/modules/{{pascalCase name}}/reducer.ts',
+        path: './app/modules/{{pascalCase name}}/{{lowerCase name}}.types.ts',
       },
       {
         type: 'add',
-        path: './app/modules/{{pascalCase name}}/constants.ts',
+        path: './app/modules/{{pascalCase name}}/{{lowerCase name}}.reducer.ts',
+      },
+      {
+        type: 'add',
+        path: './app/modules/{{pascalCase name}}/{{lowerCase name}}.constants.ts',
       },
       {
         type: 'append',
