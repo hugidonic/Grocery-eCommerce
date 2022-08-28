@@ -1,6 +1,8 @@
+import { DeliveryAddressType, PaymentMethodType } from '../modules';
 import { CategoryType } from '../modules/Categories/categories.types';
 import { OrderItemType } from '../modules/Orders';
 import { ProductType } from '../modules/Products/products.types';
+import {colors as CONSTANT_COLORS} from '../theme'
 import uuid from './uuid';
 
 const colors: string[] = [
@@ -141,7 +143,7 @@ const randomInt = () => Math.floor( Math.random() * data.products.all.length );
 
 export const orders: OrderItemType[] = [
 	{
-		num: uuid().slice(0, 3),
+		id: uuid().slice(0, 3),
 		date: new Date().toISOString(),
 		price: 1234.99,
 		type: 'FINISHED',
@@ -174,7 +176,7 @@ export const orders: OrderItemType[] = [
 		]
 	},
 	{
-		num: uuid().slice(0, 3),
+		id: uuid().slice(0, 3),
 		date: new Date().toISOString(),
 		price: 3.99,
 		type: 'FINISHED',
@@ -185,7 +187,7 @@ export const orders: OrderItemType[] = [
 		}))
 	},
 	{
-		num: uuid().slice(0, 3),
+		id: uuid().slice(0, 3),
 		date: new Date().toISOString(),
 		price: 3.99,
 		type: 'FINISHED',
@@ -196,7 +198,7 @@ export const orders: OrderItemType[] = [
 		}))
 	},
 	{
-		num: uuid().slice(0, 3),
+		id: uuid().slice(0, 3),
 		date: new Date().toISOString(),
 		price: 3.99,
 		type: 'FINISHED',
@@ -207,7 +209,7 @@ export const orders: OrderItemType[] = [
 		}))
 	},
 	{
-		num: uuid().slice(0, 3),
+		id: uuid().slice(0, 3),
 		date: new Date().toISOString(),
 		price: 3.99,
 		type: 'FINISHED',
@@ -218,7 +220,7 @@ export const orders: OrderItemType[] = [
 		}))
 	},
 	{
-		num: uuid().slice(0, 3),
+		id: uuid().slice(0, 3),
 		date: new Date().toISOString(),
 		price: 3.99,
 		type: 'FINISHED',
@@ -229,7 +231,7 @@ export const orders: OrderItemType[] = [
 		}))
 	},
 	{
-		num: uuid().slice(0, 3),
+		id: uuid().slice(0, 3),
 		date: new Date().toISOString(),
 		price: 3.99,
 		type: 'FINISHED',
@@ -240,7 +242,7 @@ export const orders: OrderItemType[] = [
 		}))
 	},
 	{
-		num: uuid().slice(0, 3),
+		id: uuid().slice(0, 3),
 		date: new Date().toISOString(),
 		price: 3.99,
 		type: 'FINISHED',
@@ -251,7 +253,7 @@ export const orders: OrderItemType[] = [
 		}))
 	},
 	{
-		num: uuid().slice(0, 3),
+		id: uuid().slice(0, 3),
 		date: new Date().toISOString(),
 		price: 3.99,
 		type: 'FINISHED',
@@ -262,7 +264,7 @@ export const orders: OrderItemType[] = [
 		}))
 	},
 	{
-		num: uuid().slice(0, 3),
+		id: uuid().slice(0, 3),
 		date: new Date().toISOString(),
 		price: 3.99,
 		type: 'FINISHED',
@@ -273,7 +275,7 @@ export const orders: OrderItemType[] = [
 		}))
 	},
 	{
-		num: uuid().slice(0, 3),
+		id: uuid().slice(0, 3),
 		date: new Date().toISOString(),
 		price: 3.99,
 		type: 'FINISHED',
@@ -284,7 +286,7 @@ export const orders: OrderItemType[] = [
 		}))
 	},
 	{
-		num: uuid().slice(0, 3),
+		id: uuid().slice(0, 3),
 		date: new Date().toISOString(),
 		price: 3.99,
 		type: 'FINISHED',
@@ -295,7 +297,7 @@ export const orders: OrderItemType[] = [
 		}))
 	},
 	{
-		num: uuid().slice(0, 3),
+		id: uuid().slice(0, 3),
 		date: new Date().toISOString(),
 		price: 3.99,
 		type: 'FINISHED',
@@ -306,7 +308,7 @@ export const orders: OrderItemType[] = [
 		}))
 	},
 	{
-		num: uuid().slice(0, 3),
+		id: uuid().slice(0, 3),
 		date: new Date().toISOString(),
 		price: 3.99,
 		type: 'FINISHED',
@@ -317,7 +319,7 @@ export const orders: OrderItemType[] = [
 		}))
 	},
 	{
-		num: uuid().slice(0, 3),
+		id: uuid().slice(0, 3),
 		date: new Date().toISOString(),
 		price: 3.99,
 		type: 'FINISHED',
@@ -329,4 +331,83 @@ export const orders: OrderItemType[] = [
 	},
 ];
 
+export const UsersPaymentMethods: PaymentMethodType[] = [
+	{
+		id: uuid(),
+		last4digits: '2334',
+		color: CONSTANT_COLORS.primary,
+		cardName: 'MasterCard'
+	},
+	{
+		id: uuid(),
+		last4digits: '4355',
+		color: CONSTANT_COLORS.palette.deepPurple,
+		cardName: 'MIR'
+	},
+	{
+		id: uuid(),
+		last4digits: '1232',
+		color: CONSTANT_COLORS.palette.black,
+		cardName: 'MAESTRO'
+	},
+	{
+		id: uuid(),
+		last4digits: '5466',
+		color: CONSTANT_COLORS.primary,
+		cardName: 'VISA'
+	},
+	{
+		id: uuid(),
+		last4digits: '3452',
+		color: CONSTANT_COLORS.palette.darkerGreen,
+		cardName: 'VISA'
+	},
+	{
+		id: uuid(),
+		last4digits: '5465',
+		color: CONSTANT_COLORS.palette.green,
+		cardName: 'MIR'
+	},
+	{
+		id: uuid(),
+		last4digits: '0978',
+		color: CONSTANT_COLORS.palette.black,
+		cardName: 'MasterCard'
+	}
+];
+
+
+
+export const UsersDeliveryAddresses: DeliveryAddressType[] = [
+	{
+		id: uuid(),
+		city: 'Kazan',
+		street: 'Sirtlanova',
+		house: '18',
+		country: 'Russia'
+	},
+	{
+		id: uuid(),
+		city: 'Ufa',
+		street: 'dfgdfjghlkejdsdrfsdfsdrtlkgtjelr',
+		house: '18',
+		country: 'Russia'
+	},
+	{
+		id: uuid(),
+		city: 'Moscow',
+		street: 'Orenbsdfsdgrsd',
+		house: '8',
+		country: 'Russia'
+	},
+	{
+		id: uuid(),
+		city: 'Agidel',
+		street: 'Mosdsagk',
+		house: '23',
+		country: 'USA'
+	}
+];
+
 export const dataJSON = JSON.stringify(data);
+
