@@ -7,16 +7,21 @@ import { ProfileNavigatorParamList, useAppNavigation } from '../../navigators';
 import { colors, spacing } from '../../theme';
 // Components
 import { Screen, Header, Text } from '../../components';
-import { FilterOrders, OrderItem } from '../../modules/Orders';
-// Data
-import { orders } from '../../utils/data';
+import { FilterOrders, OrderItem, OrderItemType } from '../../modules/Orders';
+// Selectors
+import * as OrderSelectors from '../../modules/Orders/order.selectors'
+import { useTypedSelector } from '../../redux/hooks/useTypedSelector';
 
 interface MyOrdersScreenProps extends StackScreenProps<ProfileNavigatorParamList, 'myOrders'> {}
 
 export const MyOrdersScreen = (props: MyOrdersScreenProps) => {
 	const [ activeType, setActiveType ] = React.useState<'ACTIVE' | 'FINISHED'>('ACTIVE');
-
-	const visibleOrders = orders.filter((o) => o.type === activeType);
+	
+	// Get orderItems from store
+	const orderItems: OrderItemType[] = useTypedSelector(OrderSelectors.getOrderItems)
+	// Order items to display depending on active type 
+	const visibleOrders = orderItems.filter((o) => o.type === activeType);
+	// To navigate to order details
 	const nav = useAppNavigation();
 
 	return (
