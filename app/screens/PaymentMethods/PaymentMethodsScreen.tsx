@@ -1,14 +1,21 @@
 // React and packages
 import React from 'react';
 import { StackScreenProps } from '@react-navigation/stack';
-import { StyleSheet, Dimensions, Pressable } from 'react-native';
-// Types and utils
+import { StyleSheet, Dimensions, Pressable, TouchableOpacity } from 'react-native';
+// Types
 import { ProfileNavigatorParamList } from '../../navigators';
+import { PaymentMethodType } from '../../modules';
+// Theme
 import { colors, spacing } from '../../theme';
 // Components
 import { Screen, Block, Text, Header } from '../../components';
+// Icons
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import { TouchableOpacity } from 'react-native';
+// Selectors
+import { useTypedSelector } from '../../redux/hooks/useTypedSelector';
+import * as PaymentSelectors from '../../modules/Payment/payment.selectors'
+// Redux Actions
+import { useActions } from '../../redux/hooks/useActions';
 
 const SCREEN_WIDTH = Dimensions.get('screen').width;
 
@@ -16,14 +23,17 @@ interface PaymentMethodsScreenProps
 	extends StackScreenProps<ProfileNavigatorParamList, 'paymentMethods'> {}
 
 export const PaymentMethodsScreen = (props: PaymentMethodsScreenProps) => {
-	const [ activeIdx, setActiveIdx ] = React.useState<number>(0);
+
+	const PaymentMethodItems: PaymentMethodType[] = useTypedSelector(PaymentSelectors.getPaymentItems)
+	const pickedPaymentMethodIdx: number = useTypedSelector(PaymentSelectors.getPickedPaymentMethodIdx)
+	const {pickPaymentMethod} = useActions()
 
 	return (
 		<Screen style={styles.container} preset="scroll">
 			<Header title="Payment Methods" />
 
 			<Block row style={{ flexWrap: 'wrap', justifyContent: 'space-between' }}>
-				{UsersPaymentMethods.map((card, idx) => {
+				{PaymentMethodItems.map((card, idx) => {
 					return (
 						<Block key={idx} shadow style={styles.card}>
 							{/* CARD ICON */}
@@ -39,22 +49,22 @@ export const PaymentMethodsScreen = (props: PaymentMethodsScreenProps) => {
 							</Block>
 
 							<Pressable
-								onPress={() => setActiveIdx(idx)}
+								onPress={() => pickPaymentMethod(card.id)}
 								style={[
 									styles.button,
 									{
 										backgroundColor:
-											activeIdx === idx
+											pickedPaymentMethodIdx === idx
 												? colors.primary
 												: colors.palette.lighterGrey
 									}
 								]}
 							>
 								<Text
-									color={activeIdx === idx ? colors.palette.white : colors.text}
+									color={pickedPaymentMethodIdx === idx ? colors.palette.white : colors.text}
 									size="small"
 								>
-									{activeIdx === idx ? 'Choosen' : 'Choose'}
+									{pickedPaymentMethodIdx === idx ? 'Choosen' : 'Choose'}
 								</Text>
 							</Pressable>
 						</Block>
@@ -129,40 +139,3 @@ const styles = StyleSheet.create({
 	}
 });
 
-const UsersPaymentMethods = [
-	{
-		last4digits: '2334',
-		color: colors.primary,
-		cardName: 'MasterCard'
-	},
-	{
-		last4digits: '4355',
-		color: colors.palette.deepPurple,
-		cardName: 'MIR'
-	},
-	{
-		last4digits: '1232',
-		color: colors.palette.black,
-		cardName: 'Maestro'
-	},
-	{
-		last4digits: '5466',
-		color: colors.primary,
-		cardName: 'VISA'
-	},
-	{
-		last4digits: '3452',
-		color: colors.palette.darkerGreen,
-		cardName: 'VISA'
-	},
-	{
-		last4digits: '5465',
-		color: colors.palette.green,
-		cardName: 'MIR'
-	},
-	{
-		last4digits: '0978',
-		color: colors.palette.black,
-		cardName: 'MasterCard'
-	}
-];
