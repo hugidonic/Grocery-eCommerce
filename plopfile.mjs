@@ -18,6 +18,7 @@ export default function(plop) {
         path: './app/modules/{{pascalCase name}}/index.ts',
         template: `export * from './components'
 export * from './{{lowerCase name}}.actions'
+export * from './{{lowerCase name}}.actionTypes'
 export * from './{{lowerCase name}}.selectors'
 export * from './{{lowerCase name}}.types'
 export * from './{{lowerCase name}}.reducer'
@@ -26,6 +27,10 @@ export * from './{{lowerCase name}}.constants'`
       {
         type: 'add',
         path: './app/modules/{{pascalCase name}}/{{lowerCase name}}.actions.ts',
+      },
+      {
+        type: 'add',
+        path: './app/modules/{{pascalCase name}}/{{lowerCase name}}.actionTypes.ts',
       },
       {
         type: 'add',
