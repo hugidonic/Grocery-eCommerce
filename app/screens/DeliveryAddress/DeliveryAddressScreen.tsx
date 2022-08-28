@@ -8,6 +8,11 @@ import { ProfileNavigatorParamList } from '../../navigators';
 import { colors, spacing } from '../../theme';
 // Components
 import { Screen, Block, Text, Header, RadioButton, Button } from '../../components';
+// Selectors
+import { useTypedSelector } from '../../redux/hooks/useTypedSelector';
+import * as DeliverySelector from '../../modules/Delivery/delivery.selectors';
+import { DeliveryAddressType } from '../../modules';
+import { useActions } from '../../redux/hooks/useActions';
 
 interface DeliveryAddressScreenProps
 	extends StackScreenProps<ProfileNavigatorParamList, 'deliveryAddress'> {}
@@ -20,28 +25,36 @@ interface DeliveryAddressScreenProps
  */
 
 export const DeliveryAddressScreen = (props: DeliveryAddressScreenProps) => {
-	const [ activeIdx, setActiveIdx ] = React.useState<number>(0);
+	const { pickDeliveryAddress } = useActions();
+
+	// Delivery Addresse List
+	const usersDeliveryAddresses: DeliveryAddressType[] = useTypedSelector(
+		DeliverySelector.getUsersDeliveryAddresses
+	);
+	// Picked Delivery Address
+	const pickedDeliveryIdx: number = useTypedSelector(DeliverySelector.getPickedDeliveryAddressIdx);
 
 	return (
 		<React.Fragment>
 			<Screen style={styles.container} preset="scroll">
 				<Header title="Delivery address" />
 
-				{UsersDeliveryAddress.map((address, idx) => {
+				{usersDeliveryAddresses.map((address, idx) => {
 					return (
-						<Block
+						<Pressable
 							key={idx.toString()}
-							row
-							justify="space-between"
-							marginVertical={spacing[2]}
+							onPress={() => pickDeliveryAddress(address.id)}
+							style={{
+								flexDirection: 'row',
+								justifyContent: 'space-between',
+								marginVertical: spacing[2]
+							}}
 						>
 							<Text numberOfLines={1} style={{ width: '85%' }} size="medium">
 								{address.country}, {address.city}, {address.street}, {address.house}
 							</Text>
-							<Pressable onPress={() => setActiveIdx(idx)}>
-								<RadioButton isActive={idx === activeIdx} />
-							</Pressable>
-						</Block>
+							<RadioButton isActive={idx === pickedDeliveryIdx} />
+						</Pressable>
 					);
 				})}
 			</Screen>
@@ -51,33 +64,6 @@ export const DeliveryAddressScreen = (props: DeliveryAddressScreenProps) => {
 		</React.Fragment>
 	);
 };
-
-const UsersDeliveryAddress = [
-	{
-		city: 'Kazan',
-		street: 'Sirtlanova',
-		house: '18',
-		country: 'Russia'
-	},
-	{
-		city: 'Ufa',
-		street: 'dfgdfjghlkejdsdrfsdfsdrtlkgtjelr',
-		house: '18',
-		country: 'Russia'
-	},
-	{
-		city: 'Moscow',
-		street: 'Orenbsdfsdgrsd',
-		house: '8',
-		country: 'Russia'
-	},
-	{
-		city: 'Agidel',
-		street: 'Mosdsagk',
-		house: '23',
-		country: 'USA'
-	}
-];
 
 const styles = StyleSheet.create({
 	container: {
