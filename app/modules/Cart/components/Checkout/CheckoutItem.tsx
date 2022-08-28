@@ -23,12 +23,12 @@ export const CheckoutItem = (props: CheckoutItemProps) => {
 				<TouchableOpacity
 					disabled={!withChevron}
 					onPress={onPress}
-					style={{ flexDirection: 'row', alignItems: 'center' }}
+					style={{ flexDirection: 'row', width:'64%', justifyContent: 'flex-end', alignItems: 'center' }}
 				>
 					{subtitleComponent}
 					{withChevron ? (
 						<Entypo
-							style={{ marginLeft: 15 }}
+							style={{ paddingLeft: 5 }}
 							name="chevron-right"
 							size={26}
 							color={colors.palette.black}

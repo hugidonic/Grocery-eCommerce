@@ -13,12 +13,22 @@ import { colors, spacing } from '../../../../theme';
 import { CheckoutProps } from './Checkout.props';
 // Navigation
 import { useAppNavigation } from '../../../../navigators';
+// Selectors
+import { useTypedSelector } from '../../../../redux/hooks/useTypedSelector';
+import { DeliveryAddressType, getPickedDeliveryAddress } from '../../../Delivery';
+import { getPickedPaymentMethod, PaymentMethodType } from '../../../Payment';
 
 const BOTTOMSHEETHEIGHT = 520;
 const SCREENWIDTH = Dimensions.get('screen').width;
 
 export const Checkout = (props: CheckoutProps) => {
 	const { sheetRef = React.useRef<any>(null), initialPos = 0, totalCost = 0 } = props;
+
+	// Picked delivery address
+	const deliveryAddress: DeliveryAddressType = useTypedSelector(getPickedDeliveryAddress)
+
+	// Picked Payment method
+	const paymentMethod: PaymentMethodType = useTypedSelector(getPickedPaymentMethod)
 
 	// Snap points for bottomsheet
 	const snapPoints = React.useMemo(() => [ 0, BOTTOMSHEETHEIGHT ], []);
@@ -28,6 +38,7 @@ export const Checkout = (props: CheckoutProps) => {
 		sheetRef.current.snapTo(0);
 	};
 
+	// To navigate to profile screens to pick 
 	const nav = useAppNavigation()
 
 	return (
@@ -63,15 +74,22 @@ export const Checkout = (props: CheckoutProps) => {
 							title="Delivery"
 							onPress={() => nav.navigate('ProfileStack', {screen: 'deliveryAddress'}) }
 							subtitleComponent={
-								<Text size="medium" weight="medium" color={colors.text}>
-									Select Method
-								</Text>
+								<Block flex align="flex-end">
+									<Text numberOfLines={1} lineBreakMode='middle' color={colors.text}>
+										{
+											(deliveryAddress &&
+											`${deliveryAddress.country}, ${deliveryAddress.city}, ${deliveryAddress.street}, ${deliveryAddress.house}`)
+											?? `Select Address`
+										}
+										</Text>
+								</Block>
 							}
 						/>
 						<CheckoutItem
 							title="Payment"
 							onPress={() => nav.navigate('ProfileStack', {screen: 'paymentMethods'}) }
 							subtitleComponent={
+								(paymentMethod && <Text>{paymentMethod.cardName}, ****-{paymentMethod.last4digits}</Text>) ??
 								<Ionicons name="ios-card-outline" size={26} color={colors.palette.black} />
 							}
 						/>
