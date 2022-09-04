@@ -1,9 +1,10 @@
+import { orders } from '../../utils/data';
 import { OrderActions, OrderTypes } from './order.actionTypes';
 import { OrderItemType, OrderStateType } from './order.types';
 
 const initialState: OrderStateType = {
 	isLoading: false,
-	orderItems: null
+	orderItems: orders,
 };
 
 export default (state = initialState, action: OrderActions): OrderStateType => {

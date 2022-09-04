@@ -4,8 +4,9 @@ import './utils/ignore-warnings';
 import React from 'react';
 import { gestureHandlerRootHOC } from 'react-native-gesture-handler';
 import { SafeAreaProvider, initialWindowMetrics } from 'react-native-safe-area-context';
+import * as storage from "./utils/storage"
 // Wrappers
-import { AppNavigator } from './navigators';
+import { AppNavigator, useNavigationPersistence } from './navigators';
 import { ToggleStorybook } from '../storybook/toggle-storybook';
 import { ErrorBoundary } from './screens/Error/ErrorBoundry';
 import { Provider } from 'react-redux';
@@ -18,7 +19,9 @@ export const NAVIGATION_PERSISTENCE_KEY = 'NAVIGATION_STATE';
 const App = () => {
 	const {loadCategories, loadProducts, loadCartItems, loadFavoriteItems} = useActions()
 
-	React.useEffect(() => {
+
+  // Kick off initial async loading actions
+  React.useEffect(() => {
 		// Load Products to show them in HomeScreen
 		loadProducts();
 		// Load categories to show them in HomeScreen
@@ -27,8 +30,9 @@ const App = () => {
 		loadCartItems();
 		// Load Favorite items to check is product
 		loadFavoriteItems();
-	}, [])
+  }, [])
 
+	
 	return (
 		<ToggleStorybook>
 			<SafeAreaProvider initialMetrics={initialWindowMetrics}>

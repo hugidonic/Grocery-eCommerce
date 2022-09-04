@@ -2,7 +2,8 @@ import { DeliveryAddressType, PaymentMethodType } from '../modules';
 import { CategoryType } from '../modules/Categories/categories.types';
 import { OrderItemType } from '../modules/Orders';
 import { ProductType } from '../modules/Products/products.types';
-import {colors as CONSTANT_COLORS} from '../theme'
+import { colors as CONSTANT_COLORS } from '../theme';
+import randomInt from './randomInt';
 import uuid from './uuid';
 
 const colors: string[] = [
@@ -139,7 +140,7 @@ data.products.all = [ ...data.products.fruit, ...data.products.vegetable ];
 data.products.default = [ ...data.products.fruit.slice(0, 4) ];
 
 
-const randomInt = () => Math.floor( Math.random() * data.products.all.length );
+const prodLength = data.products.all.length;
 
 export const orders: OrderItemType[] = [
 	{
@@ -151,28 +152,18 @@ export const orders: OrderItemType[] = [
 			{
 				cartItemId: '589946',
 				count: 4,
-				product: data.products.all[randomInt()]
+				product: data.products.all[randomInt(0, prodLength)]
 			},
 			{
 				cartItemId: '128026',
 				count: 1,
-				product: data.products.all[randomInt()]
+				product: data.products.all[randomInt(0, prodLength)]
 			},
 			{
 				cartItemId: '4015535',
 				count: 2,
-				product: data.products.all[randomInt()]
+				product: data.products.all[randomInt(0, prodLength)]
 			},
-			{
-				cartItemId: '6097562',
-				count: 1,
-				product: data.products.all[randomInt()]
-			},
-			{
-				cartItemId: '9820821',
-				count: 1,
-				product: data.products.all[randomInt()]
-			}
 		]
 	},
 	{
@@ -180,7 +171,7 @@ export const orders: OrderItemType[] = [
 		date: new Date().toISOString(),
 		price: 3.99,
 		type: 'FINISHED',
-		cartItems: data.products.all.map(prod => ({
+		cartItems: data.products.all.map((prod) => ({
 			cartItemId: prod.productId,
 			count: 2,
 			product: prod
@@ -191,7 +182,7 @@ export const orders: OrderItemType[] = [
 		date: new Date().toISOString(),
 		price: 3.99,
 		type: 'FINISHED',
-		cartItems: data.products.all.map(prod => ({
+		cartItems: data.products.all.map((prod) => ({
 			cartItemId: prod.productId,
 			count: 2,
 			product: prod
@@ -202,7 +193,7 @@ export const orders: OrderItemType[] = [
 		date: new Date().toISOString(),
 		price: 3.99,
 		type: 'FINISHED',
-		cartItems: data.products.all.map(prod => ({
+		cartItems: data.products.all.map((prod) => ({
 			cartItemId: prod.productId,
 			count: 2,
 			product: prod
@@ -213,7 +204,7 @@ export const orders: OrderItemType[] = [
 		date: new Date().toISOString(),
 		price: 3.99,
 		type: 'FINISHED',
-		cartItems: data.products.all.map(prod => ({
+		cartItems: data.products.all.map((prod) => ({
 			cartItemId: prod.productId,
 			count: 2,
 			product: prod
@@ -224,7 +215,7 @@ export const orders: OrderItemType[] = [
 		date: new Date().toISOString(),
 		price: 3.99,
 		type: 'FINISHED',
-		cartItems: data.products.all.map(prod => ({
+		cartItems: data.products.all.map((prod) => ({
 			cartItemId: prod.productId,
 			count: 2,
 			product: prod
@@ -235,7 +226,7 @@ export const orders: OrderItemType[] = [
 		date: new Date().toISOString(),
 		price: 3.99,
 		type: 'FINISHED',
-		cartItems: data.products.all.map(prod => ({
+		cartItems: data.products.all.map((prod) => ({
 			cartItemId: prod.productId,
 			count: 2,
 			product: prod
@@ -246,7 +237,7 @@ export const orders: OrderItemType[] = [
 		date: new Date().toISOString(),
 		price: 3.99,
 		type: 'FINISHED',
-		cartItems: data.products.all.map(prod => ({
+		cartItems: data.products.all.map((prod) => ({
 			cartItemId: prod.productId,
 			count: 2,
 			product: prod
@@ -257,7 +248,7 @@ export const orders: OrderItemType[] = [
 		date: new Date().toISOString(),
 		price: 3.99,
 		type: 'FINISHED',
-		cartItems: data.products.all.map(prod => ({
+		cartItems: data.products.all.map((prod) => ({
 			cartItemId: prod.productId,
 			count: 2,
 			product: prod
@@ -268,7 +259,7 @@ export const orders: OrderItemType[] = [
 		date: new Date().toISOString(),
 		price: 3.99,
 		type: 'FINISHED',
-		cartItems: data.products.all.map(prod => ({
+		cartItems: data.products.all.map((prod) => ({
 			cartItemId: prod.productId,
 			count: 2,
 			product: prod
@@ -279,7 +270,7 @@ export const orders: OrderItemType[] = [
 		date: new Date().toISOString(),
 		price: 3.99,
 		type: 'FINISHED',
-		cartItems: data.products.all.map(prod => ({
+		cartItems: data.products.all.map((prod) => ({
 			cartItemId: prod.productId,
 			count: 2,
 			product: prod
@@ -290,7 +281,7 @@ export const orders: OrderItemType[] = [
 		date: new Date().toISOString(),
 		price: 3.99,
 		type: 'FINISHED',
-		cartItems: data.products.all.map(prod => ({
+		cartItems: data.products.all.map((prod) => ({
 			cartItemId: prod.productId,
 			count: 2,
 			product: prod
@@ -301,7 +292,7 @@ export const orders: OrderItemType[] = [
 		date: new Date().toISOString(),
 		price: 3.99,
 		type: 'FINISHED',
-		cartItems: data.products.all.map(prod => ({
+		cartItems: data.products.all.map((prod) => ({
 			cartItemId: prod.productId,
 			count: 2,
 			product: prod
@@ -312,7 +303,7 @@ export const orders: OrderItemType[] = [
 		date: new Date().toISOString(),
 		price: 3.99,
 		type: 'FINISHED',
-		cartItems: data.products.all.map(prod => ({
+		cartItems: data.products.all.map((prod) => ({
 			cartItemId: prod.productId,
 			count: 2,
 			product: prod
@@ -323,12 +314,12 @@ export const orders: OrderItemType[] = [
 		date: new Date().toISOString(),
 		price: 3.99,
 		type: 'FINISHED',
-		cartItems: data.products.all.map(prod => ({
+		cartItems: data.products.all.map((prod) => ({
 			cartItemId: prod.productId,
 			count: 2,
 			product: prod
 		}))
-	},
+	}
 ];
 
 export const UsersPaymentMethods: PaymentMethodType[] = [
@@ -376,8 +367,6 @@ export const UsersPaymentMethods: PaymentMethodType[] = [
 	}
 ];
 
-
-
 export const UsersDeliveryAddresses: DeliveryAddressType[] = [
 	{
 		id: uuid(),
@@ -409,5 +398,43 @@ export const UsersDeliveryAddresses: DeliveryAddressType[] = [
 	}
 ];
 
-export const dataJSON = JSON.stringify(data);
+export const UsersPromoCards = [
+	{
+		id: uuid().slice(0, 4),
+		beginDate: new Date('2022-09-23').toISOString(),
+		endDate: new Date('2022-11-23').toISOString(),
+		price: 10
+	},
+	{
+		id: uuid().slice(0, 4),
+		beginDate: new Date('2022-02-23').toISOString(),
+		endDate: new Date('2024-12-23').toISOString(),
+		price: 500
+	},
+	{
+		id: uuid().slice(0, 4),
+		beginDate: new Date('2022-09-23').toISOString(),
+		endDate: new Date('2023-01-23').toISOString(),
+		price: 5
+	},
+	{
+		id: uuid().slice(0, 4),
+		beginDate: new Date('2022-09-23').toISOString(),
+		endDate: new Date('2023-01-23').toISOString(),
+		price: 15
+	},
+	{
+		id: uuid().slice(0, 4),
+		beginDate: new Date('2022-09-23').toISOString(),
+		endDate: new Date('2023-01-23').toISOString(),
+		price: randomInt() + 1
+	},
+	{
+		id: uuid().slice(0, 4),
+		beginDate: new Date('2022-09-23').toISOString(),
+		endDate: new Date('2023-01-23').toISOString(),
+		price: randomInt() + 1
+	}
+];
 
+export const dataJSON = JSON.stringify(data);

@@ -8,6 +8,7 @@ import * as FavoriteActionCreators from '../../modules/Favorite/favorite.actions
 import * as DeliveryAddressActionCreators from '../../modules/Delivery/delivery.actions';
 import * as OrderActionCreators from '../../modules/Orders/order.actions'
 import * as PaymentActionCreators from '../../modules/Payment/payment.actions'
+import * as PromoCardActionCreators from '../../modules/PromoCards/promocards.actions'
 
 export const useActions = () => {
 	const dispatch = useAppDispatch();
@@ -19,7 +20,8 @@ export const useActions = () => {
 			...FavoriteActionCreators,
 			...DeliveryAddressActionCreators,
 			...OrderActionCreators,
-			...PaymentActionCreators
+			...PaymentActionCreators,
+			...PromoCardActionCreators,
 		},
 		dispatch
 	);

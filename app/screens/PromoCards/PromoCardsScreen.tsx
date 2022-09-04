@@ -1,19 +1,45 @@
 // React and packages
 import React from 'react';
 import { StackScreenProps } from '@react-navigation/stack';
-import { StyleSheet } from 'react-native';
-// Types and utils
-// import { ParamList } from '../../navigators';
+import { Pressable, StyleSheet } from 'react-native';
+import moment from 'moment';
+// Types
+import { ProfileNavigatorParamList } from '../../navigators';
+import { PromoCardType } from '../../modules';
+// Theme
 import { colors, spacing } from '../../theme';
 // Components
 import { Screen, Block, Text, Header, Divider, Button } from '../../components';
-import { ProfileNavigatorParamList } from '../../navigators';
-import uuid from '../../utils/uuid';
-import moment from 'moment';
+// Selectors
+import * as PromoCardSelector from '../../modules/PromoCards/promocards.selectors';
+import { useTypedSelector } from '../../redux/hooks/useTypedSelector';
+import { useActions } from '../../redux/hooks/useActions';
 
 interface PromoCardsScreenProps extends StackScreenProps<ProfileNavigatorParamList, 'promoCards'> {}
 
 export const PromoCardsScreen = (props: PromoCardsScreenProps) => {
+	const { fromScreenName, cartPrice } = props.route.params;
+
+	const UsersPromoCards: PromoCardType[] = useTypedSelector(PromoCardSelector.getPromoCardItems);
+	const { pickPromoCard } = useActions();
+
+	/**
+	 * Runs only when the previous screen name is cart
+	 * becouse when the fromScreenName === 'profile' the pressable is disabled
+	 */
+	const goBackToCartScreen = (promo: PromoCardType) => {
+		if (promo.price < cartPrice + 1) {
+			pickPromoCard(promo.id);
+			props.navigation.goBack();
+		} else {
+			/**
+			 * TODO: 
+			 * * THROW a notification on the screen saying that
+			 * * you cannot pick this card cos the cart price is lower than promocard's price
+			 */
+		}
+	};
+
 	return (
 		<React.Fragment>
 			<Screen style={styles.container} preset="scroll">
@@ -23,7 +49,12 @@ export const PromoCardsScreen = (props: PromoCardsScreenProps) => {
 
 				{UsersPromoCards.map((promo, idx) => {
 					return (
-						<Block key={promo.id} style={styles.promoContainer}>
+						<Pressable
+							disabled={fromScreenName === 'profile'}
+							onPress={() => goBackToCartScreen(promo)}
+							key={promo.id}
+							style={styles.promoContainer}
+						>
 							{/* NUMBER */}
 							<Block flex={1} justify="center" align="center">
 								<Text color={colors.dim} size="large">
@@ -35,7 +66,7 @@ export const PromoCardsScreen = (props: PromoCardsScreenProps) => {
 							<Block flex={6} row justify="space-between" align="center">
 								<Block flex={2}>
 									<Text color={colors.text} size="large">
-										Order №{promo.id}
+										Promo №{promo.id}
 									</Text>
 									<Text color={colors.dim} size="regular">
 										{moment(promo.beginDate).format('L')} - {' '}
@@ -54,7 +85,7 @@ export const PromoCardsScreen = (props: PromoCardsScreenProps) => {
 									</Text>
 								</Block>
 							</Block>
-						</Block>
+						</Pressable>
 					);
 				})}
 			</Screen>
@@ -83,24 +114,3 @@ const styles = StyleSheet.create({
 		paddingVertical: spacing[3]
 	}
 });
-
-const UsersPromoCards = [
-	{
-		id: uuid().slice(0, 4),
-		beginDate: new Date('2022-09-23').toISOString(),
-		endDate: new Date('2022-11-23').toISOString(),
-		price: 100.0
-	},
-	{
-		id: uuid().slice(0, 4),
-		beginDate: new Date('2022-09-23').toISOString(),
-		endDate: new Date('2023-01-23').toISOString(),
-		price: 500.0
-	},
-	{
-		id: uuid().slice(0, 4),
-		beginDate: new Date('2022-02-23').toISOString(),
-		endDate: new Date('2024-12-23').toISOString(),
-		price: 300.0
-	}
-];

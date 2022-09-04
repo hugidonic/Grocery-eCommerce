@@ -85,7 +85,7 @@ export function useBackButtonHandler(canExit: (routeName: string) => boolean) {
 export function useNavigationPersistence(storage: any, persistenceKey: string) {
   const [initialNavigationState, setInitialNavigationState] = useState()
 
-  // This feature is particularly useful in development mode.
+  // This feature is useful in development mode.
   // It is selectively enabled in development mode with
   // the following approach. If you'd like to use navigation persistence
   // in production, remove the __DEV__ and set the state to true

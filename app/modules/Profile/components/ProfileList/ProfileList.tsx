@@ -51,7 +51,7 @@ export const ProfileList = (
 				iconType="Ionicons"
 				iconName="md-gift-outline"
 				onPress={() =>
-					nav.navigate('ProfileStack', { screen: 'promoCards' })}
+					nav.navigate('ProfileStack', { screen: 'promoCards', params: {fromScreenName: "profile"} } )}
 			/>
 			<ProfileListItem
 				title="Notifications"

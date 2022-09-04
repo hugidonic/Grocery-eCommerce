@@ -16,10 +16,11 @@ import { OrderItemType } from '../../modules/Orders';
 export type ProfileNavigatorParamList = {
 	myOrders: undefined;
 	orderDetails: {orderItem: OrderItemType};
+	
 	myDetails: undefined;
 	deliveryAddress: undefined;
 	paymentMethods: undefined;
-	promoCards: undefined;
+	promoCards: {fromScreenName: "cart" | "profile", cartPrice?: number};
 	notifications: undefined;
 	help: undefined;
 	about: undefined;

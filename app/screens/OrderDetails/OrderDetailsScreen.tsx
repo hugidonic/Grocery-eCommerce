@@ -55,7 +55,7 @@ export const OrderDetailsScreen = (props: OrderDetailsScreenProps) => {
 
 	return (
 		<Screen style={[ styles.container ]} preset="scroll">
-			<Header title={`Order №${orderItem.num}`} />
+			<Header title={`Order №${orderItem.id}`} />
 
 			<Block marginVertical={spacing[5]} row>
 				<Block flex>

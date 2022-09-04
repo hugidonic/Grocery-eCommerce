@@ -17,6 +17,8 @@ import { useAppNavigation } from '../../../../navigators';
 import { useTypedSelector } from '../../../../redux/hooks/useTypedSelector';
 import { DeliveryAddressType, getPickedDeliveryAddress } from '../../../Delivery';
 import { getPickedPaymentMethod, PaymentMethodType } from '../../../Payment';
+import { getPickedPromoCard, PromoCardType } from '../../../PromoCards';
+import { useActions } from '../../../../redux/hooks/useActions';
 
 const BOTTOMSHEETHEIGHT = 520;
 const SCREENWIDTH = Dimensions.get('screen').width;
@@ -25,10 +27,14 @@ export const Checkout = (props: CheckoutProps) => {
 	const { sheetRef = React.useRef<any>(null), initialPos = 0, totalCost = 0 } = props;
 
 	// Picked delivery address
-	const deliveryAddress: DeliveryAddressType = useTypedSelector(getPickedDeliveryAddress)
+	const deliveryAddress: DeliveryAddressType | null = useTypedSelector(getPickedDeliveryAddress)
 
 	// Picked Payment method
-	const paymentMethod: PaymentMethodType = useTypedSelector(getPickedPaymentMethod)
+	const paymentMethod: PaymentMethodType | null = useTypedSelector(getPickedPaymentMethod)
+	// Picked Promo card
+	const promoCard: PromoCardType | null = useTypedSelector(getPickedPromoCard)
+	// Unpick picked promo card
+	const {unpickPromoCard} = useActions()
 
 	// Snap points for bottomsheet
 	const snapPoints = React.useMemo(() => [ 0, BOTTOMSHEETHEIGHT ], []);
@@ -75,11 +81,11 @@ export const Checkout = (props: CheckoutProps) => {
 							onPress={() => nav.navigate('ProfileStack', {screen: 'deliveryAddress'}) }
 							subtitleComponent={
 								<Block flex align="flex-end">
-									<Text numberOfLines={1} lineBreakMode='middle' color={colors.text}>
+									<Text numberOfLines={1} lineBreakMode='middle'>
 										{
 											(deliveryAddress &&
 											`${deliveryAddress.country}, ${deliveryAddress.city}, ${deliveryAddress.street}, ${deliveryAddress.house}`)
-											?? `Select Address`
+											?? <Text weight='medium'>Select Address</Text>
 										}
 										</Text>
 								</Block>
@@ -95,20 +101,26 @@ export const Checkout = (props: CheckoutProps) => {
 						/>
 						<CheckoutItem
 							title="Promo Code"
-							onPress={() => nav.navigate('ProfileStack', {screen: 'promoCards'}) }
+							onPress={() => nav.navigate('ProfileStack', {screen: 'promoCards', params: {fromScreenName: "cart", cartPrice: totalCost}}) }
+							withChevron={!promoCard}
 							subtitleComponent={
-								<Text size="medium" weight="medium" color={colors.text}>
+								(promoCard && (
+									<Block row align="center">
+										<Text style={{marginRight: 10}}>- ${promoCard.price}.00</Text>
+										<Entypo onPress={unpickPromoCard} name="cross" size={26} color={colors.palette.black} />
+									</Block>
+								)) ?? 
+								(<Text weight="medium">
 									Pick Discount
-								</Text>
+								</Text>)
 							}
 						/>
 						<CheckoutItem
 							title="Total Cost"
 							withChevron={false}
 							subtitleComponent={
-								<Text size="medium" weight="medium" color={colors.text}>
-									$
-									{totalCost}
+								<Text weight="medium">
+									$ {promoCard ? (totalCost - promoCard.price).toFixed(2) : totalCost} 
 								</Text>
 							}
 						/>

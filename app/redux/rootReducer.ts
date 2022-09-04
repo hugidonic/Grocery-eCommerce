@@ -6,6 +6,7 @@ import productsReducer from "../modules/Products/products.reducer";
 import deliveryReducer from "../modules/Delivery/delivery.reducer";
 import orderReducer from "../modules/Orders/order.reducer";
 import paymentReducer from "../modules/Payment/payment.reducer";
+import promocardsReducer from "../modules/PromoCards/promocards.reducer";
 
 export const rootReducer = combineReducers({
   ProductStore: productsReducer,
@@ -14,5 +15,6 @@ export const rootReducer = combineReducers({
   CartStore: cartReducer,
   DeliveryStore: deliveryReducer,
   OrderStore: orderReducer,
-  PaymentStore: paymentReducer
+  PaymentStore: paymentReducer,
+  PromoCardStore: promocardsReducer
 })
