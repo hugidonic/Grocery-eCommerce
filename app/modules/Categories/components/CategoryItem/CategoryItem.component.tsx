@@ -1,7 +1,7 @@
 // React and packages
 import React from 'react';
 import { StyleSheet, Image, TouchableOpacity } from 'react-native';
-// Types and utils
+// Theme
 import { CategoryItemComponentProps } from './CategoryItem.props';
 import { spacing } from '../../../../theme';
 // Components

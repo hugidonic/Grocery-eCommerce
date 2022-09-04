@@ -1,6 +1,6 @@
 // React and packages
 import React from 'react';
-// Types and utils
+// Theme
 import { spacing } from '../../../../theme';
 import { FavoriteItemType } from '../../favorite.types';
 // Components

@@ -5,7 +5,7 @@ import { Pressable, StyleSheet } from 'react-native';
 import moment from 'moment';
 // Types
 import { ProfileNavigatorParamList } from '../../navigators';
-import { PromoCardType } from '../../modules';
+import { PromoCardType } from '../../modules/PromoCards';
 // Theme
 import { colors, spacing } from '../../theme';
 // Components
@@ -13,6 +13,7 @@ import { Screen, Block, Text, Header, Divider, Button } from '../../components';
 // Selectors
 import * as PromoCardSelector from '../../modules/PromoCards/promocards.selectors';
 import { useTypedSelector } from '../../redux/hooks/useTypedSelector';
+// Actions
 import { useActions } from '../../redux/hooks/useActions';
 
 interface PromoCardsScreenProps extends StackScreenProps<ProfileNavigatorParamList, 'promoCards'> {}
@@ -28,7 +29,7 @@ export const PromoCardsScreen = (props: PromoCardsScreenProps) => {
 	 * becouse when the fromScreenName === 'profile' the pressable is disabled
 	 */
 	const goBackToCartScreen = (promo: PromoCardType) => {
-		if (promo.price+1 < cartPrice) {
+		if (promo.price + 1 < cartPrice) {
 			pickPromoCard(promo.id);
 			props.navigation.goBack();
 		} else {

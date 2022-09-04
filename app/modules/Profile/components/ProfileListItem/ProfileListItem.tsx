@@ -7,7 +7,7 @@ import {
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
 
-// Types and utils
+// Theme
 import { colors, spacing } from '../../../../theme';
 // Components
 import { Block, Text } from '../../../../components';

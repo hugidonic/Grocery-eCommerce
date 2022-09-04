@@ -1,15 +1,15 @@
 // React and packages
 import React from 'react';
 import { StackScreenProps } from '@react-navigation/stack';
-import { FlatList, Image, Pressable, SectionList, StyleSheet } from 'react-native';
-// Types and utils
-import { ProfileNavigatorParamList } from '../../navigators';
-// import { ParamList } from '../../navigators';
+import { Image, StyleSheet } from 'react-native';
+import moment from 'moment';
+// Theme
 import { colors, spacing } from '../../theme';
 // Components
 import { Block, Divider, Header, Screen, Text } from '../../components';
-import { CartItemType } from '../../modules';
-import moment from 'moment';
+// Types
+import { ProfileNavigatorParamList } from '../../navigators';
+import { CartItemType } from '../../modules/Cart';
 
 interface OrderDetailsScreenProps
 	extends StackScreenProps<ProfileNavigatorParamList, 'orderDetails'> {}

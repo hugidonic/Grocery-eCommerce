@@ -1,19 +1,22 @@
 // React and packages
 import React, { FC } from 'react';
-
 import { StyleSheet } from 'react-native';
 import { StackScreenProps } from '@react-navigation/stack';
-// Types and utils
-import { TabsNavigatorParamList } from '../../navigators';
+// Theme
 import { colors, spacing } from '../../theme';
-// Components
+// Types
+import { RootStateType } from '../../redux/store';
+import { TabsNavigatorParamList } from '../../navigators';
+// Category Module
+import { CategoriesList, CategoryType } from '../../modules/Categories';
+// Product Module
+import { ProductList, ProductType } from '../../modules/Products';
+// Shared Components
 import { Screen, BgSlider, Loading } from '../../components';
-import { CategoriesList, CategoryType, ProductList, ProductType } from '../../modules';
 /* Selectors */
 import { useTypedSelector } from '../../redux/hooks/useTypedSelector';
 import * as ProductsSelector from '../../modules/Products/products.selectors';
 import * as CategoriesSelector from '../../modules/Categories/categories.selectors';
-import { RootStateType } from '../../redux/store';
 
 export const HomeScreen: FC<StackScreenProps<TabsNavigatorParamList, 'home'>> = () => {
 	const ProductStore = useTypedSelector((state: RootStateType) => state.ProductStore);

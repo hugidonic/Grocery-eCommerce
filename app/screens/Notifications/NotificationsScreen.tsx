@@ -1,15 +1,14 @@
 // React and packages
 import React from 'react';
 import { StackScreenProps } from '@react-navigation/stack';
-import { Pressable, StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native';
 // Theme
 import { colors, spacing } from '../../theme';
 // Components
-import { Screen, Block, Text, Header, Button } from '../../components';
+import { Screen, Block, Header, Button } from '../../components';
+import { NotificationItem } from '../../modules/Notifications';
 // Types
 import { ProfileNavigatorParamList } from '../../navigators';
-// Icons
-import Entypo from 'react-native-vector-icons/Entypo';
 // Selectors
 import { useTypedSelector } from '../../redux/hooks/useTypedSelector';
 import { getUsersNotifications, NotificationType } from '../../modules/Notifications';
@@ -19,15 +18,10 @@ interface NotificationsScreenProps
 	extends StackScreenProps<ProfileNavigatorParamList, 'notifications'> {}
 
 export const NotificationsScreen = (props: NotificationsScreenProps) => {
-	const notifyTypes = {
-		FIRE: '🔥',
-		QUESTION: '🤨',
-		SALE: '🤑'
-	};
 
-	const {clearAllNotifications} = useActions()
+	const { clearAllNotifications } = useActions();
 
-	const UsersNotifications: NotificationType[] = useTypedSelector(getUsersNotifications)
+	const UsersNotifications: NotificationType[] = useTypedSelector(getUsersNotifications);
 
 	/**
 	 * TODO:
@@ -35,42 +29,19 @@ export const NotificationsScreen = (props: NotificationsScreenProps) => {
 	 *  ? Make clear all notifcations with animations 
 	 *  ? Add "Mute notifications" button in header menu
 	 *  ? Change notifyTypes emojis into react-native-emoji 
-	 */ 
+	 */
 
 	return (
 		<React.Fragment>
 			<Screen style={styles.container} preset="scroll">
 				<Header title="Notifications" />
 
-				{UsersNotifications.map((notify, idx) => {
-					return (
-						<Block key={notify.id} shadow style={styles.card} marginVertical={10} row>
-							{/* ICON */}
-							<Block justify="center" align="center" style={{ width: '15%' }}>
-								<Text size="title">{notifyTypes[notify.type]}</Text>
-							</Block>
-							{/* TEXT */}
-							<Block flex>
-								<Text numberOfLines={3}>{notify.text}</Text>
-							</Block>
-							{/* CHEVRON */}
-							<Pressable
-								style={{
-									width: '15%',
-									justifyContent: 'center',
-									alignItems: 'center'
-								}}
-							>
-								<Entypo
-									name="chevron-right"
-									size={30}
-									color={colors.palette.black}
-								/>
-							</Pressable>
-						</Block>
-					);
-				})}
+				{UsersNotifications.map((notify) => (
+					<NotificationItem key={notify.id} notificationItem={notify} />
+				))}
 			</Screen>
+
+			{/* Floting button to clear all notifications*/}
 			<Block
 				justify="center"
 				align="center"
@@ -88,12 +59,4 @@ const styles = StyleSheet.create({
 		paddingHorizontal: spacing[5],
 		minHeight: '100%'
 	},
-	card: {
-		backgroundColor: colors.palette.white,
-		borderRadius: 14,
-		paddingVertical: spacing[2],
-		paddingHorizontal: spacing[1]
-	}
 });
-
-

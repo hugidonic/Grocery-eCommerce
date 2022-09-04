@@ -2,7 +2,7 @@
 import React from 'react';
 // Navigation
 import { useAppNavigation } from '../../../../navigators';
-// Types and utils
+// Theme
 // Components
 import { ProfileListItem } from '..';
 import { Block } from '../../../../components';

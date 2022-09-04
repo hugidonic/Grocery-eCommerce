@@ -4,7 +4,7 @@ import { StackScreenProps } from '@react-navigation/stack';
 import { StyleSheet, Dimensions, Pressable, TouchableOpacity } from 'react-native';
 // Types
 import { ProfileNavigatorParamList } from '../../navigators';
-import { PaymentMethodType } from '../../modules';
+import { PaymentMethodType } from '../../modules/Payment';
 // Theme
 import { colors, spacing } from '../../theme';
 // Components
@@ -13,7 +13,7 @@ import { Screen, Block, Text, Header } from '../../components';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 // Selectors
 import { useTypedSelector } from '../../redux/hooks/useTypedSelector';
-import * as PaymentSelectors from '../../modules/Payment/payment.selectors'
+import * as PaymentSelectors from '../../modules/Payment/payment.selectors';
 // Redux Actions
 import { useActions } from '../../redux/hooks/useActions';
 
@@ -23,10 +23,13 @@ interface PaymentMethodsScreenProps
 	extends StackScreenProps<ProfileNavigatorParamList, 'paymentMethods'> {}
 
 export const PaymentMethodsScreen = (props: PaymentMethodsScreenProps) => {
-
-	const PaymentMethodItems: PaymentMethodType[] = useTypedSelector(PaymentSelectors.getPaymentItems)
-	const pickedPaymentMethodIdx: number = useTypedSelector(PaymentSelectors.getPickedPaymentMethodIdx)
-	const {pickPaymentMethod} = useActions()
+	const PaymentMethodItems: PaymentMethodType[] = useTypedSelector(
+		PaymentSelectors.getPaymentItems
+	);
+	const pickedPaymentMethodIdx: number = useTypedSelector(
+		PaymentSelectors.getPickedPaymentMethodIdx
+	);
+	const { pickPaymentMethod } = useActions();
 
 	return (
 		<Screen style={styles.container} preset="scroll">
@@ -61,7 +64,13 @@ export const PaymentMethodsScreen = (props: PaymentMethodsScreenProps) => {
 								]}
 							>
 								<Text
-									color={pickedPaymentMethodIdx === idx ? colors.palette.white : colors.text}
+									color={
+										pickedPaymentMethodIdx === idx ? (
+											colors.palette.white
+										) : (
+											colors.text
+										)
+									}
 									size="small"
 								>
 									{pickedPaymentMethodIdx === idx ? 'Choosen' : 'Choose'}
@@ -72,7 +81,7 @@ export const PaymentMethodsScreen = (props: PaymentMethodsScreenProps) => {
 				})}
 
 				<TouchableOpacity
-					activeOpacity={.8}
+					activeOpacity={0.8}
 					style={[
 						styles.card,
 						{
@@ -85,7 +94,7 @@ export const PaymentMethodsScreen = (props: PaymentMethodsScreenProps) => {
 							},
 							shadowOpacity: 0.2,
 							shadowRadius: 4.65,
-							elevation: 8,
+							elevation: 8
 						}
 					]}
 				>
@@ -138,4 +147,3 @@ const styles = StyleSheet.create({
 		bottom: 14
 	}
 });
-

@@ -2,7 +2,7 @@
 import React from 'react';
 import { Dimensions, TouchableOpacity, Image } from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-// Types and utils
+// Theme
 import { colors, spacing } from '../../../../theme';
 import { ProductComponentProps } from './Product.props';
 // Components

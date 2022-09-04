@@ -4,15 +4,17 @@ import { Pressable, StyleSheet } from 'react-native';
 // Navigation styles
 import { StackScreenProps } from '@react-navigation/stack';
 import { ProfileNavigatorParamList } from '../../navigators';
-// import { ParamList } from '../../navigators';
+// Delivery Module
+import { DeliveryAddressType } from '../../modules/Delivery';
+// Actions
+import { useActions } from '../../redux/hooks/useActions';
+// Theme
 import { colors, spacing } from '../../theme';
-// Components
+// Shared Components
 import { Screen, Block, Text, Header, RadioButton, Button } from '../../components';
 // Selectors
 import { useTypedSelector } from '../../redux/hooks/useTypedSelector';
 import * as DeliverySelector from '../../modules/Delivery/delivery.selectors';
-import { DeliveryAddressType } from '../../modules';
-import { useActions } from '../../redux/hooks/useActions';
 
 interface DeliveryAddressScreenProps
 	extends StackScreenProps<ProfileNavigatorParamList, 'deliveryAddress'> {}
@@ -32,7 +34,9 @@ export const DeliveryAddressScreen = (props: DeliveryAddressScreenProps) => {
 		DeliverySelector.getUsersDeliveryAddresses
 	);
 	// Picked Delivery Address
-	const pickedDeliveryIdx: number = useTypedSelector(DeliverySelector.getPickedDeliveryAddressIdx);
+	const pickedDeliveryIdx: number = useTypedSelector(
+		DeliverySelector.getPickedDeliveryAddressIdx
+	);
 
 	return (
 		<React.Fragment>

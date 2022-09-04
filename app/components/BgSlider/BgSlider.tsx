@@ -1,10 +1,7 @@
 // React and packages
 import React from 'react';
-import { StyleSheet, StyleProp, ViewStyle, Image, Dimensions } from 'react-native';
+import { StyleSheet, Image, Dimensions } from 'react-native';
 import FadeCarousel from 'rn-fade-carousel';
-// Types and utils
-import { colors } from '../../theme';
-
 // Components
 import { Block } from '..';
 

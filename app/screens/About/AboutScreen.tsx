@@ -1,16 +1,16 @@
 // React and packages
 import React from 'react';
 import { StyleSheet } from 'react-native';
-// Types and utils
+// Theme
 import { colors, spacing } from '../../theme';
 // Components
-import { Block, Header, Screen, Text } from '../../components';
+import { Header, Screen, Text } from '../../components';
 
 export const AboutScreen = () => {
 	return (
 		<Screen style={styles.container} preset="scroll">
 			<Header title="About us" />
-			<Text size="medium" style={{textAlign: 'center', marginTop: 60,}}>
+			<Text size="medium" style={{ textAlign: 'center', marginTop: 60 }}>
 				Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
 				doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore
 				veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam

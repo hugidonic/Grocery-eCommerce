@@ -1,7 +1,7 @@
 // React and packages
 import React from "react"
 import { Pressable, StyleProp, StyleSheet, ViewStyle } from "react-native"
-// Types and utils
+// Theme
 import { colors, spacing } from "../../../../theme"
 // Components
 import { Text, Block } from "../../../../components"

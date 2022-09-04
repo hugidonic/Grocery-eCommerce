@@ -2,7 +2,7 @@
 import React from 'react';
 import { StyleSheet, Pressable } from 'react-native';
 import Feather from 'react-native-vector-icons/Feather';
-// Types and utils
+// Theme
 import { colors } from '../../../../theme';
 // Components
 

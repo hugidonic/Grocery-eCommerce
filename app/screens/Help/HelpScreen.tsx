@@ -2,11 +2,11 @@
 import React from 'react';
 import { StackScreenProps } from '@react-navigation/stack';
 import { StyleSheet } from 'react-native';
-// Types and utils
-// import { ParamList } from '../../navigators';
+// Theme
 import { colors, spacing } from '../../theme';
 // Components
-import { Screen, Block,  Header, TextField, Button } from '../../components';
+import { Screen, Block, Header, TextField, Button } from '../../components';
+// Types
 import { ProfileNavigatorParamList } from '../../navigators';
 
 interface HelpScreenProps extends StackScreenProps<ProfileNavigatorParamList, 'help'> {}

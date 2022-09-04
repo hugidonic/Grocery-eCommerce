@@ -7,7 +7,7 @@ import ProgressCircle from 'react-native-progress-circle';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-// Types and utils
+// Theme
 import { ProductDetailsInfoComponentProps } from './ProductDetailsInfo.props';
 import { colors, spacing } from '../../../../theme';
 // Components

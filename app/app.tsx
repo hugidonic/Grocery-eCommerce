@@ -4,9 +4,8 @@ import './utils/ignore-warnings';
 import React from 'react';
 import { gestureHandlerRootHOC } from 'react-native-gesture-handler';
 import { SafeAreaProvider, initialWindowMetrics } from 'react-native-safe-area-context';
-import * as storage from "./utils/storage"
 // Wrappers
-import { AppNavigator, useNavigationPersistence } from './navigators';
+import { AppNavigator } from './navigators';
 import { ToggleStorybook } from '../storybook/toggle-storybook';
 import { ErrorBoundary } from './screens/Error/ErrorBoundry';
 import { Provider } from 'react-redux';
@@ -17,11 +16,10 @@ import { useActions } from './redux/hooks/useActions';
 export const NAVIGATION_PERSISTENCE_KEY = 'NAVIGATION_STATE';
 
 const App = () => {
-	const {loadCategories, loadProducts, loadCartItems, loadFavoriteItems} = useActions()
+	const { loadCategories, loadProducts, loadCartItems, loadFavoriteItems } = useActions();
 
-
-  // Kick off initial async loading actions
-  React.useEffect(() => {
+	// Kick off initial async loading actions
+	React.useEffect(() => {
 		// Load Products to show them in HomeScreen
 		loadProducts();
 		// Load categories to show them in HomeScreen
@@ -30,9 +28,8 @@ const App = () => {
 		loadCartItems();
 		// Load Favorite items to check is product
 		loadFavoriteItems();
-  }, [])
+	}, []);
 
-	
 	return (
 		<ToggleStorybook>
 			<SafeAreaProvider initialMetrics={initialWindowMetrics}>
@@ -49,5 +46,5 @@ export default gestureHandlerRootHOC(() => {
 		<Provider store={store}>
 			<App />
 		</Provider>
-	)
+	);
 });

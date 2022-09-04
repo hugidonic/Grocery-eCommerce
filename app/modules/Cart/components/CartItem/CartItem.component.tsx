@@ -2,7 +2,7 @@
 import React from 'react';
 import { StyleSheet, TouchableOpacity, Image } from 'react-native';
 import Entypo from 'react-native-vector-icons/Entypo';
-// Types and utils
+// Theme
 import { colors } from '../../../../theme';
 // Components
 import { OperationBtn } from '..';

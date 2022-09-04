@@ -1,15 +1,17 @@
 // React and packages
 import React, { FC } from 'react';
-
-import { Dimensions, Image, StyleSheet, TouchableOpacity, FlatList } from 'react-native';
+import { Dimensions, Image, StyleSheet, TouchableOpacity } from 'react-native';
 import { StackScreenProps } from '@react-navigation/stack';
-// Types and utils
-import { CategoryType } from '../../modules/Categories';
-import { NavigatorParamList } from '../../navigators';
+// Theme
 import { colors, spacing } from '../../theme';
-// Components
+// Category Module
+import { CategoryType } from '../../modules/Categories';
+// Product Module
+import { Product, ProductType } from '../../modules/Products';
+// Types
+import { NavigatorParamList } from '../../navigators';
+// Shared Components
 import { Block, Loading, Screen, SearchBar, Text } from '../../components';
-import { Product, ProductType } from '../../modules';
 // Selectors
 import * as ProductSelectors from '../../modules/Products/products.selectors';
 import * as CategoriesSelectors from '../../modules/Categories/categories.selectors';

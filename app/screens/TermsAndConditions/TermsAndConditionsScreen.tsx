@@ -1,28 +1,22 @@
 // React and packages
 import React from 'react';
 import { StackScreenProps } from '@react-navigation/stack';
-import { StyleSheet } from 'react-native'
-// Types and utils
+import { StyleSheet } from 'react-native';
+// Theme
 import { colors, spacing } from '../../theme';
 // Components
-import {
-	Screen,
-	Text,
-	Header,
-} from '../../components';
+import { Screen, Text, Header } from '../../components';
+// Types
 import { NavigatorParamList } from '../../navigators';
 
-
-interface TermsAndConditionsScreenProps extends StackScreenProps<NavigatorParamList, 'termsAndConditions'> {
-
-}
+interface TermsAndConditionsScreenProps
+	extends StackScreenProps<NavigatorParamList, 'termsAndConditions'> {}
 
 export const TermsAndConditionsScreen = (props: TermsAndConditionsScreenProps) => {
-
-  return (
-    <Screen style={styles.container} preset="scroll">
+	return (
+		<Screen style={styles.container} preset="scroll">
 			<Header title="Terms and Conditions" />
-			<Text size="medium" style={{textAlign: 'center', marginTop: 60,}}>
+			<Text size="medium" style={{ textAlign: 'center', marginTop: 60 }}>
 				Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
 				doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore
 				veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam
@@ -35,14 +29,14 @@ export const TermsAndConditionsScreen = (props: TermsAndConditionsScreenProps) =
 				iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur,
 				vel illum qui dolorem eum fugiat quo voluptas nulla pariatur
 			</Text>
-    </Screen>
-  )
-}
+		</Screen>
+	);
+};
 
 const styles = StyleSheet.create({
 	container: {
 		backgroundColor: colors.palette.offWhite,
 		paddingHorizontal: spacing[5],
-		minHeight: '100%',
-	},
+		minHeight: '100%'
+	}
 });

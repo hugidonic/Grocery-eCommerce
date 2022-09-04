@@ -5,7 +5,7 @@ import { useTypedSelector } from '../../../../redux/hooks/useTypedSelector';
 import { useActions } from '../../../../redux/hooks/useActions';
 import * as FavoriteSelectors from '../../../Favorite/favorite.selectors';
 import * as ProductSelector from '../../../Products/products.selectors';
-// Types and utils
+// Theme
 import { ProductDetailsInfoContainerProps } from './ProductDetailsInfo.props';
 // Component
 import { ProductDetailsInfoComponent } from './ProductDetailsInfo.component';

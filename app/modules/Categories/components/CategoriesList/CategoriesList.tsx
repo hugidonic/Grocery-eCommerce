@@ -1,7 +1,7 @@
 // React and packages
 import React from "react";
 import { FlatList, Dimensions } from "react-native";
-// Types and utils
+// Theme
 import { CategoryType } from "../../categories.types";
 // Components
 import { Block } from "../../../../components";

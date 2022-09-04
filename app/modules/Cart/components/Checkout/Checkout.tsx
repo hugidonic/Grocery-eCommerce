@@ -8,7 +8,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 // Components
 import { Text, Block, Button, Divider } from '../../../../components';
 import { CheckoutItem } from './CheckoutItem';
-// Types and utils
+// Theme
 import { colors, spacing } from '../../../../theme';
 import { CheckoutProps } from './Checkout.props';
 // Navigation
