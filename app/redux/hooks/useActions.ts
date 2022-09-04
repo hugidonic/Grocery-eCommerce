@@ -9,6 +9,7 @@ import * as DeliveryAddressActionCreators from '../../modules/Delivery/delivery.
 import * as OrderActionCreators from '../../modules/Orders/order.actions'
 import * as PaymentActionCreators from '../../modules/Payment/payment.actions'
 import * as PromoCardActionCreators from '../../modules/PromoCards/promocards.actions'
+import * as NotificationActionCreators from '../../modules/Notifications/notifications.actions'
 
 export const useActions = () => {
 	const dispatch = useAppDispatch();
@@ -22,6 +23,7 @@ export const useActions = () => {
 			...OrderActionCreators,
 			...PaymentActionCreators,
 			...PromoCardActionCreators,
+			...NotificationActionCreators,
 		},
 		dispatch
 	);

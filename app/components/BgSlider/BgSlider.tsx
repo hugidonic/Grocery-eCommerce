@@ -20,7 +20,7 @@ export interface BgSliderProps {
 
 const { width: ScreenWidth } = Dimensions.get('screen');
 const IMAGE_WIDTH = ScreenWidth * 0.9;
-const IMAGE_HEIGHT = 120;
+const IMAGE_HEIGHT = 120; 
 
 export const BgSlider = (props: BgSliderProps) => {
 	const slides = React.useMemo(

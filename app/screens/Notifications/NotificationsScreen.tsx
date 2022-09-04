@@ -2,14 +2,18 @@
 import React from 'react';
 import { StackScreenProps } from '@react-navigation/stack';
 import { Pressable, StyleSheet } from 'react-native';
-// Types and utils
-// import { ParamList } from '../../navigators';
+// Theme
 import { colors, spacing } from '../../theme';
 // Components
 import { Screen, Block, Text, Header, Button } from '../../components';
+// Types
 import { ProfileNavigatorParamList } from '../../navigators';
-import uuid from '../../utils/uuid';
+// Icons
 import Entypo from 'react-native-vector-icons/Entypo';
+// Selectors
+import { useTypedSelector } from '../../redux/hooks/useTypedSelector';
+import { getUsersNotifications, NotificationType } from '../../modules/Notifications';
+import { useActions } from '../../redux/hooks/useActions';
 
 interface NotificationsScreenProps
 	extends StackScreenProps<ProfileNavigatorParamList, 'notifications'> {}
@@ -21,10 +25,17 @@ export const NotificationsScreen = (props: NotificationsScreenProps) => {
 		SALE: '🤑'
 	};
 
+	const {clearAllNotifications} = useActions()
+
+	const UsersNotifications: NotificationType[] = useTypedSelector(getUsersNotifications)
+
 	/**
 	 * TODO:
-	 *  * MAKE DELETE ANIMATION
-	 */
+	 *  ! MAKE DELETE ANIMATION
+	 *  ? Make clear all notifcations with animations 
+	 *  ? Add "Mute notifications" button in header menu
+	 *  ? Change notifyTypes emojis into react-native-emoji 
+	 */ 
 
 	return (
 		<React.Fragment>
@@ -65,7 +76,7 @@ export const NotificationsScreen = (props: NotificationsScreenProps) => {
 				align="center"
 				style={{ position: 'absolute', bottom: 40, right: 0, left: 0 }}
 			>
-				<Button preset="primary" text="Clear all" shadow />
+				<Button onPress={clearAllNotifications} preset="primary" text="Clear all" shadow />
 			</Block>
 		</React.Fragment>
 	);
@@ -85,45 +96,4 @@ const styles = StyleSheet.create({
 	}
 });
 
-const UsersNotifications = [
-	{
-		id: uuid(),
-		text: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nec feugiat in fermentum posuere urna nec tincidunt praesent. Morbi tempus iaculis urna id volutpat.`,
-		type: 'FIRE'
-	},
-	{
-		id: uuid(),
-		text: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nec feugiat in fermentum posuere urna nec tincidunt praesent. Morbi tempus iaculis urna id volutpat.`,
-		type: 'SALE'
-	},
-	{
-		id: uuid(),
-		text: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nec feugiat in fermentum posuere urna nec tincidunt praesent. Morbi tempus iaculis urna id volutpat.`,
-		type: 'QUESTION'
-	},
-	{
-		id: uuid(),
-		text: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nec feugiat in fermentum posuere urna nec tincidunt praesent. Morbi tempus iaculis urna id volutpat.`,
-		type: 'SALE'
-	},
-	{
-		id: uuid(),
-		text: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nec feugiat in fermentum posuere urna nec tincidunt praesent. Morbi tempus iaculis urna id volutpat.`,
-		type: 'QUESTION'
-	},
-	{
-		id: uuid(),
-		text: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nec feugiat in fermentum posuere urna nec tincidunt praesent. Morbi tempus iaculis urna id volutpat.`,
-		type: 'FIRE'
-	},
-	{
-		id: uuid(),
-		text: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nec feugiat in fermentum posuere urna nec tincidunt praesent. Morbi tempus iaculis urna id volutpat.`,
-		type: 'SALE'
-	},
-	{
-		id: uuid(),
-		text: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nec feugiat in fermentum posuere urna nec tincidunt praesent. Morbi tempus iaculis urna id volutpat.`,
-		type: 'FIRE'
-	}
-];
+

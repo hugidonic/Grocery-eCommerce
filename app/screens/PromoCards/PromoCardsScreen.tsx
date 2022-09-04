@@ -28,7 +28,7 @@ export const PromoCardsScreen = (props: PromoCardsScreenProps) => {
 	 * becouse when the fromScreenName === 'profile' the pressable is disabled
 	 */
 	const goBackToCartScreen = (promo: PromoCardType) => {
-		if (promo.price < cartPrice + 1) {
+		if (promo.price+1 < cartPrice) {
 			pickPromoCard(promo.id);
 			props.navigation.goBack();
 		} else {

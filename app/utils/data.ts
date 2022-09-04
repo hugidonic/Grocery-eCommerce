@@ -1,4 +1,4 @@
-import { DeliveryAddressType, PaymentMethodType } from '../modules';
+import { DeliveryAddressType, NotificationType, PaymentMethodType } from '../modules';
 import { CategoryType } from '../modules/Categories/categories.types';
 import { OrderItemType } from '../modules/Orders';
 import { ProductType } from '../modules/Products/products.types';
@@ -438,3 +438,55 @@ export const UsersPromoCards = [
 ];
 
 export const dataJSON = JSON.stringify(data);
+
+
+export const UsersNotifications: NotificationType[] = [
+	{
+		id: uuid(),
+		isRead: false,
+		text: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nec feugiat in fermentum posuere urna nec tincidunt praesent. Morbi tempus iaculis urna id volutpat.`,
+		type: 'FIRE'
+	},
+	{
+		id: uuid(),
+		isRead: false,
+		text: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nec feugiat in fermentum posuere urna nec tincidunt praesent. Morbi tempus iaculis urna id volutpat.`,
+		type: 'SALE'
+	},
+	{
+		id: uuid(),
+		isRead: false,
+		text: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nec feugiat in fermentum posuere urna nec tincidunt praesent. Morbi tempus iaculis urna id volutpat.`,
+		type: 'QUESTION'
+	},
+	{
+		id: uuid(),
+		isRead: false,
+		text: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nec feugiat in fermentum posuere urna nec tincidunt praesent. Morbi tempus iaculis urna id volutpat.`,
+		type: 'SALE'
+	},
+	{
+		id: uuid(),
+		isRead: false,
+		text: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nec feugiat in fermentum posuere urna nec tincidunt praesent. Morbi tempus iaculis urna id volutpat.`,
+		type: 'QUESTION'
+	},
+	{
+		id: uuid(),
+		isRead: false,
+		text: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nec feugiat in fermentum posuere urna nec tincidunt praesent. Morbi tempus iaculis urna id volutpat.`,
+		type: 'FIRE'
+	},
+	{
+		id: uuid(),
+		isRead: false,
+		text: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nec feugiat in fermentum posuere urna nec tincidunt praesent. Morbi tempus iaculis urna id volutpat.`,
+		type: 'SALE'
+	},
+	{
+		id: uuid(),
+		isRead: false,
+		text: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nec feugiat in fermentum posuere urna nec tincidunt praesent. Morbi tempus iaculis urna id volutpat.`,
+		type: 'FIRE'
+	}
+];
