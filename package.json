@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "server": "npm run start --prefix server",
+    "server": "npm run start --prefix ../groceryApp-server ",
     "start": "react-native start",
     "ios": "react-native run-ios",
     "android": "react-native run-android",
