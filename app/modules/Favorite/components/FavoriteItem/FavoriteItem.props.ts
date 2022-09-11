@@ -1,7 +1,7 @@
-import { FavoriteItemType } from "../..";
+import { ProductType } from "../../../Products";
 
 export interface FavoriteItemContainerProps {
-  favoriteItem: FavoriteItemType;
+  favoriteItem: ProductType;
 }
 export interface FavoriteItemComponentProps extends FavoriteItemContainerProps {
   /**

@@ -16,8 +16,7 @@ export const FavoriteItemComponent = (props: FavoriteItemComponentProps) => {
 		<Block row color="#fff" shadow bRadius={20} style={styles.container}>
 			{/* Product image */}
 			<Image
-				//@ts-ignore
-				source={favoriteItem.picture}
+				source={{uri: favoriteItem.pictureUri}}
 				style={{
 					width: 100,
 					height: 100,
