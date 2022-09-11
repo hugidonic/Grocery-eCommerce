@@ -33,8 +33,7 @@ export const ProductDetailsScreen: FC<StackScreenProps<NavigatorParamList, 'prod
 
 			<Block justify="center" align="center" style={{ marginVertical: 15 }}>
 				<Image
-					// @ts-ignore
-					source={product.picture}
+					source={{uri: product.pictureUri}}
 					style={styles.picture}
 				/>
 			</Block>

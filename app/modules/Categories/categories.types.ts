@@ -31,5 +31,5 @@ export type CategoryType = {
 	categoryId: string;
 	name: string;
 	color: string;
-	picture: ReturnType<typeof require>;
+	pictureUri: string;
 };

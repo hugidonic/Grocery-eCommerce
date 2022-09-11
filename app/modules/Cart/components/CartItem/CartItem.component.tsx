@@ -10,11 +10,7 @@ import { Block, Text } from '../../../../components';
 import { CartItemComponentProps } from './CartItem.props';
 
 export const CartItemComponent = (props: CartItemComponentProps) => {
-	const {
-		cartItem,
-		removeProductFromCart = () => {},
-		updateCartItem = () => {}
-	} = props;
+	const { cartItem, removeProductFromCart = () => {}, updateCartItem = () => {} } = props;
 	// Count state of the cart item
 	const [ count, setCount ] = React.useState<number>(cartItem.count);
 	// Methods to set count
@@ -26,12 +22,15 @@ export const CartItemComponent = (props: CartItemComponentProps) => {
 	};
 
 	// Watch for every count state change and update the store
-	React.useEffect(() => {
-		updateCartItem({
-			...cartItem,
-			count,
-		})
-	}, [count])
+	React.useEffect(
+		() => {
+			updateCartItem({
+				...cartItem,
+				count
+			});
+		},
+		[ count ]
+	);
 
 	return (
 		// Cart item container
@@ -39,8 +38,7 @@ export const CartItemComponent = (props: CartItemComponentProps) => {
 			{/* Product image */}
 			<Block flex={1}>
 				<Image
-					//@ts-ignore
-					source={cartItem.product.picture}
+					source={{ uri: cartItem.product.pictureUri }}
 					style={{
 						width: 100,
 						height: 100,
@@ -70,11 +68,7 @@ export const CartItemComponent = (props: CartItemComponentProps) => {
 				<Block row justify="space-between" align="center">
 					<Block row align="center">
 						<OperationBtn func={decrement} type="Decrement" />
-						<Block
-							style={{ width: 40, height: 40 }}
-							justify="center"
-							align="center"
-						>
+						<Block style={{ width: 40, height: 40 }} justify="center" align="center">
 							<Text weight="bold" size="large">
 								{count}
 							</Text>
@@ -93,6 +87,6 @@ export const CartItemComponent = (props: CartItemComponentProps) => {
 const styles = StyleSheet.create({
 	container: {
 		position: 'relative',
-		padding: 15,
+		padding: 15
 	}
 });

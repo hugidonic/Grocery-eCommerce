@@ -49,8 +49,7 @@ export const ExploreScreen: FC<ExploreScreenProps> = (props) => {
 						categoryId: category.categoryId
 					})}
 			>
-				{/* @ts-ignore */}
-				<Image source={category.picture} style={styles.image} />
+				<Image source={{uri: category.pictureUri}} style={styles.image} />
 				<Text weight="bold" size="large">
 					{category.name}
 				</Text>

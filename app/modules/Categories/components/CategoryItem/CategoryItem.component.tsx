@@ -28,8 +28,7 @@ export const CategoryItemComponent = (props: CategoryItemComponentProps) => {
 				<Block row align="center">
 					{/*Category Image */}
 					<Image
-						// @ts-ignore
-						source={category.picture}
+						source={{ uri: category.pictureUri }}
 						style={{
 							width: 80,
 							height: 80,

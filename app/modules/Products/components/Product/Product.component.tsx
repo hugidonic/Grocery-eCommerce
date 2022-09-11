@@ -36,8 +36,7 @@ export const ProductComponent = (props: ProductComponentProps) => {
 			<TouchableOpacity onPress={handleNavigation} style={{ padding: spacing[2] }}>
 				{/* Product image */}
 				<Image
-					// @ts-ignore
-					source={product.picture}
+					source={{uri: product.pictureUri}}
 					style={{
 						resizeMode: 'contain',
 						width: IMAGE_SIZE,

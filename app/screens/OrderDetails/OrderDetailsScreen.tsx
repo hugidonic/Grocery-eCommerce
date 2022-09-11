@@ -23,8 +23,7 @@ export const OrderDetailsScreen = (props: OrderDetailsScreenProps) => {
 				{/* Cart item picture */}
 				<Block flex={2}>
 					<Image
-						//@ts-ignore
-						source={product.picture}
+						source={{ uri: product.pictureUri }}
 						style={{
 							width: 80,
 							height: 80,
