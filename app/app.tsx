@@ -12,18 +12,21 @@ import { Provider } from 'react-redux';
 // Redux
 import { store } from './redux/store';
 import { useActions } from './redux/hooks/useActions';
-// Utils
-export const NAVIGATION_PERSISTENCE_KEY = 'NAVIGATION_STATE';
+// API
+import { API } from './services/api';
 
 const App = () => {
 	const { loadCategories, loadProducts, loadCartItems, loadFavoriteItems } = useActions();
 
+	const Api = new API();
+	Api.setup()
+
 	// Kick off initial async loading actions
 	React.useEffect(() => {
 		// Load Products to show them in HomeScreen
-		loadProducts();
+		loadProducts(Api);
 		// Load categories to show them in HomeScreen
-		loadCategories();
+		loadCategories(Api);
 		// Load cart items to check added items
 		loadCartItems();
 		// Load Favorite items to check is product
@@ -41,6 +44,7 @@ const App = () => {
 	);
 };
 
+// Data Providers
 export default gestureHandlerRootHOC(() => {
 	return (
 		<Provider store={store}>
