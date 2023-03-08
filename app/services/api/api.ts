@@ -61,7 +61,7 @@ export class API {
     const convertProducts = (rawProduct) => ({
       productId: rawProduct.id,
       name: rawProduct.name,
-      type: rawProduct.type,
+      type: rawProduct.type, 
       description: rawProduct.description,
       richDescription: rawProduct.richDescription,
       price: rawProduct.price,

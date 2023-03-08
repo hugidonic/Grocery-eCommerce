@@ -8,3 +8,4 @@
 // export * from './Notifications'
 // export * from './PromoCards'
 // export * from './Delivery'
+export * from './Auth'

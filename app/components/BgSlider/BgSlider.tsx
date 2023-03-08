@@ -20,6 +20,14 @@ const IMAGE_WIDTH = ScreenWidth * 0.9;
 const IMAGE_HEIGHT = 120; 
 
 export const BgSlider = (props: BgSliderProps) => {
+	const [isStart, setIsStart] = React.useState(true)
+	
+	React.useEffect(() => {
+		return () => {
+			setIsStart(false)
+		}
+	}, [])
+	
 	const slides = React.useMemo(
 		() =>
 			images.map((uri) => {
@@ -43,7 +51,7 @@ export const BgSlider = (props: BgSliderProps) => {
 					elements={slides}
 					fadeDuration={FADE_DURATION}
 					stillDuration={SLIDE_DURATION}
-					start={true}
+					start={isStart}
 				/>
 			</Block>
 		</Block>
