@@ -1,58 +1,57 @@
 // React and packages
 import React, { FC } from 'react';
-
 import { Dimensions, Image, StyleSheet } from 'react-native';
 import { StackScreenProps } from '@react-navigation/stack';
-// Types and utils
+// Types
 import { NavigatorParamList } from '../../navigators';
+// Theme
 import { colors, spacing } from '../../theme';
 // Components
 import { Block, Screen } from '../../components';
-import { ProductDetailsHeader, ProductDetailsInfo } from '../../modules';
+import { ProductDetailsHeader, ProductDetailsInfo } from '../../modules/Products';
 
-const {height} = Dimensions.get('screen')
+const { height } = Dimensions.get('screen');
 
-export const ProductDetailsScreen: FC<
-	StackScreenProps<NavigatorParamList, 'productDetails'>
-> = (props) => {
+export const ProductDetailsScreen: FC<StackScreenProps<NavigatorParamList, 'productDetails'>> = (
+	props
+) => {
+	const { product } = props.route.params;
 
-  const {product} = props.route.params
+	React.useEffect(
+		() => {
+			if (!product) {
+				props.navigation.navigate('TabsStack', { screen: 'home' });
+				return null;
+			}
+		},
+		[ product ]
+	);
 
-  React.useEffect(() => {
-    if (!product) {
-      props.navigation.navigate('TabsStack', {screen: 'home'})
-      return null
-    } 
-  }, [product])
-  
-  
-  return (
-    <Screen preset='fixed' style={styles.container}>
-      <ProductDetailsHeader goBack={props.navigation.goBack} />
-      
-      <Block justify="center" align="center" style={{marginVertical: 15}}>
-        <Image
-          // @ts-ignore
-          source={product.picture}
-          style={styles.picture}
-        />
-      </Block>
+	return (
+		<Screen preset="fixed" style={styles.container}>
+			<ProductDetailsHeader goBack={props.navigation.goBack} />
 
-      <ProductDetailsInfo product={product} />
-    </Screen>
-  )
-}
-const PictureSize = height*0.25
+			<Block justify="center" align="center" style={{ marginVertical: 15 }}>
+				<Image
+					source={{uri: product.pictureUri}}
+					style={styles.picture}
+				/>
+			</Block>
+
+			<ProductDetailsInfo product={product} />
+		</Screen>
+	);
+};
+const PictureSize = height * 0.25;
 
 const styles = StyleSheet.create({
 	container: {
 		backgroundColor: colors.palette.offWhite,
-    paddingVertical: spacing[2]
+		paddingVertical: spacing[2]
 	},
 	picture: {
 		width: PictureSize,
 		height: PictureSize,
 		resizeMode: 'contain'
-	},
-
+	}
 });

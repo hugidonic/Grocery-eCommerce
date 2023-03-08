@@ -17,26 +17,36 @@ export default function(plop) {
         type: 'add',
         path: './app/modules/{{pascalCase name}}/index.ts',
         template: `export * from './components'
-export * from './actions'
-export * from './actionTypes'
-export * from './reducer'
-export * from './constants'`
+export * from './{{lowerCase name}}.actions'
+export * from './{{lowerCase name}}.actionTypes'
+export * from './{{lowerCase name}}.selectors'
+export * from './{{lowerCase name}}.types'
+export * from './{{lowerCase name}}.reducer'
+export * from './{{lowerCase name}}.constants'`
       },
       {
         type: 'add',
-        path: './app/modules/{{pascalCase name}}/actions.ts',
+        path: './app/modules/{{pascalCase name}}/{{lowerCase name}}.actions.ts',
       },
       {
         type: 'add',
-        path: './app/modules/{{pascalCase name}}/actionTypes.ts',
+        path: './app/modules/{{pascalCase name}}/{{lowerCase name}}.actionTypes.ts',
       },
       {
         type: 'add',
-        path: './app/modules/{{pascalCase name}}/reducer.ts',
+        path: './app/modules/{{pascalCase name}}/{{lowerCase name}}.selectors.ts',
       },
       {
         type: 'add',
-        path: './app/modules/{{pascalCase name}}/constants.ts',
+        path: './app/modules/{{pascalCase name}}/{{lowerCase name}}.types.ts',
+      },
+      {
+        type: 'add',
+        path: './app/modules/{{pascalCase name}}/{{lowerCase name}}.reducer.ts',
+      },
+      {
+        type: 'add',
+        path: './app/modules/{{pascalCase name}}/{{lowerCase name}}.constants.ts',
       },
       {
         type: 'append',
@@ -44,6 +54,29 @@ export * from './constants'`
         template: `export * from './{{pascalCase name}}'`
       },
     ],
+  })
+
+  plop.setGenerator("Component", {
+    description: "Creates a new component",
+    prompts: [
+      {
+        type: 'input',
+        name: 'name',
+        message: "Enter the name of the component",
+      }
+    ],
+    actions: [
+      {
+        type: 'add',
+        path: './app/components/{{pascalCase name}}/{{pascalCase name}}.tsx',
+        templateFile: './templates/COMPONENT.hbs'
+      },
+      {
+        type: 'append',
+        path: './app/components/index.ts',
+        template: `export * from './{{pascalCase name}}/{{pascalCase name}}';`,
+      }
+    ]
   })
 
   plop.setGenerator("Screen", {

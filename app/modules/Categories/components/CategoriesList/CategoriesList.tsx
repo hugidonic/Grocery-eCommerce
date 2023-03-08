@@ -1,14 +1,13 @@
 // React and packages
 import React from "react";
-import { StyleProp, ViewStyle, FlatList, Dimensions } from "react-native";
-// Types and utils
+import { FlatList, Dimensions } from "react-native";
+// Theme
 import { CategoryType } from "../../categories.types";
 // Components
 import { Block } from "../../../../components";
 import { CategoryItem } from "../CategoryItem";
 
 export interface CategoriesListProps {
-  
 	categories?: CategoryType[];
 }
 

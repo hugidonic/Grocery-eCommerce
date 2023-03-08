@@ -2,20 +2,21 @@
 import React from 'react';
 import { StackScreenProps } from '@react-navigation/stack';
 import { StyleSheet } from 'react-native'
-// Types and utils
+// Theme
 // import { ParamList } from '../../navigators';
 import { colors, spacing } from '../../theme';
 // Components
 import {
 	Screen,
+	Block,
+	Text,
 	Loading,
 } from '../../components';
 
+<Stack.Screen name="{{camelCase name}}" component={ {{pascalCase name}}Screen } />
+{{camelCase name}}: undefined
 
-<Stack.Screen name="{{lowerCase name}}" component={ {{pascalCase name}}Screen } />
-{{lowerCase name}}: undefined
-
-interface {{pascalCase name}}ScreenProps extends StackScreenProps<ParamList, {{lowerCase name}}> {
+interface {{pascalCase name}}ScreenProps extends StackScreenProps<ParamList, '{{camelCase name}}'> {
 
 }
 
@@ -23,7 +24,7 @@ export const {{pascalCase name}}Screen = (props: {{pascalCase name}}ScreenProps)
 
   return (
     <Screen style={styles.container} preset="scroll">
-
+			<Text> {{pascalCase name}} Screen </Text>
     </Screen>
   )
 }
@@ -32,6 +33,6 @@ const styles = StyleSheet.create({
 	container: {
 		backgroundColor: colors.palette.offWhite,
 		paddingHorizontal: spacing[5],
-		paddingVertical: spacing[6]
-	}
+		minHeight: '100%',
+	},
 });

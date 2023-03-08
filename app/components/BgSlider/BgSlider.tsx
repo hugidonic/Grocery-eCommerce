@@ -1,10 +1,7 @@
 // React and packages
 import React from 'react';
-import { StyleSheet, StyleProp, ViewStyle, Image, Dimensions } from 'react-native';
+import { StyleSheet, Image, Dimensions } from 'react-native';
 import FadeCarousel from 'rn-fade-carousel';
-// Types and utils
-import { colors } from '../../theme';
-
 // Components
 import { Block } from '..';
 
@@ -20,7 +17,7 @@ export interface BgSliderProps {
 
 const { width: ScreenWidth } = Dimensions.get('screen');
 const IMAGE_WIDTH = ScreenWidth * 0.9;
-const IMAGE_HEIGHT = 120;
+const IMAGE_HEIGHT = 120; 
 
 export const BgSlider = (props: BgSliderProps) => {
 	const slides = React.useMemo(

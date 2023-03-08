@@ -1,14 +1,17 @@
 // React and packages
 import React, { FC } from 'react';
-
+import { StyleSheet } from 'react-native';
 import { StackScreenProps } from '@react-navigation/stack';
 import BottomSheet from 'reanimated-bottom-sheet';
-// Components
+// Shared Components
 import { Screen, Text, Block, Button, Loading } from '../../components';
-import { CartList, Checkout } from '../../modules';
-// Types and utils
+// Cart Module
+import { CartList, Checkout } from '../../modules/Cart';
+// Theme
+import { colors, spacing } from '../../theme';
+// Types
 import { TabsNavigatorParamList } from '../../navigators';
-import { colors } from '../../theme';
+//  Selectors
 import { useTypedSelector } from '../../redux/hooks/useTypedSelector';
 import * as CartSelector from '../../modules/Cart/cart.selectors';
 
@@ -26,7 +29,7 @@ export const CartScreen: FC<CartScreenProps> = (props: CartScreenProps) => {
 
 	return (
 		<React.Fragment>
-			<Screen backgroundColor={colors.palette.offWhite} preset="scroll">
+			<Screen style={styles.container} preset="scroll">
 				<Block justify="center" row style={{ marginVertical: 30 }}>
 					<Text weight="black" size="title">
 						My Cart
@@ -54,3 +57,11 @@ export const CartScreen: FC<CartScreenProps> = (props: CartScreenProps) => {
 		</React.Fragment>
 	);
 };
+
+const styles = StyleSheet.create({
+	container: {
+		backgroundColor: colors.palette.offWhite,
+		paddingHorizontal: spacing[5],
+		minHeight: '100%'
+	}
+});

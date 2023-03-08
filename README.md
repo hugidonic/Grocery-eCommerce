@@ -10,7 +10,7 @@ Currently includes:
 
 - React Native
 - React Navigation
-- MobX State Tree
+- REDUX(MobX State Tree)
 - TypeScript
 - And more!
 

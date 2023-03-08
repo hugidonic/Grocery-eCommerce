@@ -1,17 +1,15 @@
 // React and packages
 import React from 'react';
-import { StyleProp, ViewStyle } from 'react-native';
-
-// Types and utils
+// Theme
 import { spacing } from '../../../../theme';
-import { FavoriteItemType } from '../../favorite.types';
 // Components
 import { Block } from '../../../../components';
 import { FavoriteItem } from '../FavoriteItem';
+// Types
+import { ProductType } from '../../../Products';
  
 export interface FavoriteListProps {
-	
-	favoriteItems?: FavoriteItemType[]
+	favoriteItems?: ProductType[]
 }
 
 export const FavoriteList = (props: FavoriteListProps) => {
@@ -20,7 +18,7 @@ export const FavoriteList = (props: FavoriteListProps) => {
 	} = props
 	
 	const renderFavoriteItem = (
-		favoriteItem: FavoriteItemType,
+		favoriteItem: ProductType,
 		) => {
 			return (
 			<Block key={favoriteItem.productId} marginVertical={spacing[2]}>

@@ -1,4 +1,4 @@
-import { FavoriteActions, FavoriteTypes, FavoriteItemType } from './favorite.types';
+import { FavoriteActions, FavoriteTypes } from './favorite.types';
 import { Dispatch } from 'redux';
 import { load, save, STORAGE_KEYS } from '../../utils/storage';
 import { ProductType } from '../Products';
@@ -8,7 +8,7 @@ const updateFavoriteItemsInStorage = (getState: () => RootStateType) => {
 	// Also take new favorite items list from store 
 	const newFavoriteItems = getState().FavoriteStore.favoriteItems
 	// And pass it to async storage
-	save<FavoriteItemType[]>(STORAGE_KEYS.FAVORITE_ITEMS, newFavoriteItems)
+	save<ProductType[]>(STORAGE_KEYS.FAVORITE_ITEMS, newFavoriteItems)
 }
 
 /**
@@ -20,9 +20,13 @@ export const loadFavoriteItems = () => async (dispatch: Dispatch<FavoriteActions
 		type: FavoriteTypes.LOAD_FAVORITE_ITEMS
 	});
 	try {
-		// Take cart items from storage
+		/**
+		 * TODO:
+		 * ? Move the cart items list to local server cos cartItems ids gonna be redefined on server rerun
+		 */
+		// Take favprite items from storage
 		// if obj is nullable then return empty array
-		const favoriteItems = await load<FavoriteItemType[]>(STORAGE_KEYS.FAVORITE_ITEMS) ?? [];
+		const favoriteItems = await load<ProductType[]>(STORAGE_KEYS.FAVORITE_ITEMS) ?? [];
 		// Dispatch favroite items to the store
 		dispatch({
 			type: FavoriteTypes.SET_FAVORITE_ITEMS,
@@ -41,7 +45,7 @@ export const addProductToFavorite = (product: ProductType) => (
 	getState: () => RootStateType
 ) => {
 	// Make favorite item from the product
-	const favoriteItem: FavoriteItemType = {
+	const favoriteItem: ProductType = {
 		...product
 	};
 	// Check if the product is already in the favorite list
@@ -63,7 +67,7 @@ export const addProductToFavorite = (product: ProductType) => (
 /**
  * Removes a favorite item from the favorite list
  */
-export const removeProductFromFavorite = (productId: FavoriteItemType['productId']) => (
+export const removeProductFromFavorite = (productId: ProductType['productId']) => (
 	dispatch: Dispatch<FavoriteActions>,
 	getState: () => RootStateType
 ) => {

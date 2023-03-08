@@ -2,7 +2,7 @@
 import React from "react"
 import { FlatList, Dimensions } from "react-native"
 
-// Types and utils
+// Theme
 import { ProductListContainerProps } from "./ProductList.container";
 // Components
 import { Block, Button, Text } from "../../../../components"

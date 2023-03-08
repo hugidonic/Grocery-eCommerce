@@ -3,20 +3,21 @@ import React, { FC } from 'react';
 
 import { FlatList, StyleSheet } from 'react-native';
 import { StackScreenProps } from '@react-navigation/stack';
-// Types and utils
+// Theme
+import { colors } from '../../theme';
+// Types
 import { NavigatorParamList } from '../../navigators';
-import { colors, spacing } from '../../theme';
-// Components
-import { Screen, Text } from '../../components';
-import { Product, ProductDetailsHeader } from '../../modules';
+// Shared Components
+import { Screen } from '../../components';
+// Product Module
+import { Product, ProductDetailsHeader } from '../../modules/Products';
+// Selectors
 import { useTypedSelector } from '../../redux/hooks/useTypedSelector';
-import * as ProductSelectors from '../../modules/Products/products.selectors'
+import * as ProductSelectors from '../../modules/Products/products.selectors';
 
-export const CategoryScreen: FC<StackScreenProps<NavigatorParamList, 'category'>> = (
-	props
-) => {
+export const CategoryScreen: FC<StackScreenProps<NavigatorParamList, 'category'>> = (props) => {
 	// const { categoryId } = props.route.params;
-  const allProducts = useTypedSelector(ProductSelectors.allProducts)
+	const allProducts = useTypedSelector(ProductSelectors.allProducts);
 	return (
 		<Screen style={styles.container} preset="fixed">
 			<ProductDetailsHeader goBack={props.navigation.goBack} />

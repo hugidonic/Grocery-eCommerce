@@ -3,7 +3,7 @@ import React from 'react';
 import { StyleSheet, TextInput } from 'react-native';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
-// Types and utils;
+// Theme;
 import { colors, spacing } from '../../theme';
 // Components;
 import { Block } from '..';

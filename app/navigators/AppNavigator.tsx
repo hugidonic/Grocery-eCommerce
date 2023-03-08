@@ -9,13 +9,13 @@ import {
 } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { navigationRef, useBackButtonHandler } from './navigation-utilities';
-import { ProfileNavigatorParamList, TabsNavigator, TabsNavigatorParamList } from '.';
+import { ProfileNavigatorParamList, TabsNavigator, ProfileNavigator, TabsNavigatorParamList } from '.';
 // import { CreateProductScreen } from '../screens';
 import { StackNavigationProp } from '@react-navigation/stack';
 // Types
 import { ProductType } from '../modules';
 // Screens
-import { CategoryScreen, ProductDetailsScreen } from '../screens';
+import { CategoryScreen, ProductDetailsScreen, TermsAndConditionsScreen } from '../screens';
 import { CategoryType } from '../modules/Categories';
 
 /**
@@ -34,6 +34,7 @@ export type NavigatorParamList = {
 	productDetails: {product: ProductType };
 	createProduct: undefined;
 	category: {categoryId: CategoryType['categoryId']} | undefined;
+	termsAndConditions: undefined
 };
 
 export type NavigatorScreenProps = StackNavigationProp<NavigatorParamList>
@@ -51,9 +52,10 @@ const AppStack = () => {
 			initialRouteName='TabsStack'
 		>
 			<Stack.Screen name="TabsStack" component={TabsNavigator} />
+			<Stack.Screen name='ProfileStack' component={ProfileNavigator} />
 			<Stack.Screen name="productDetails" component={ProductDetailsScreen} />
 			<Stack.Screen name="category" component={CategoryScreen} />
-
+			<Stack.Screen name="termsAndConditions" component={ TermsAndConditionsScreen } />
 			{/* <Stack.Screen name="createProduct" component={CreateProductScreen} /> */}
 		</Stack.Navigator>
 	);
@@ -70,7 +72,7 @@ export const AppNavigator = (props: NavigationProps) => {
 		<NavigationContainer
 			ref={navigationRef}
 			theme={colorScheme === 'dark' ? DarkTheme : DefaultTheme}
-			// {...props}
+			{...props}
 		>
 			<AppStack />
 		</NavigationContainer>

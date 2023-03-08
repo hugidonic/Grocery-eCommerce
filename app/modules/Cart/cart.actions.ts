@@ -1,10 +1,11 @@
 // Redux and stuff
 import { Dispatch } from 'redux';
 // Actions
-import { CartActions, CartTypes, CartItemType } from './cart.types';
+import { CartActions, CartTypes } from './cart.actionTypes';
 // Async Storage
 import { load, save, STORAGE_KEYS } from '../../utils/storage';
 // Types
+import { CartItemType } from './cart.types';
 import { ProductType } from '../Products';
 import { RootStateType } from '../../redux/store';
 // Favroite Actions
@@ -29,6 +30,10 @@ export const loadCartItems = () => async (dispatch: Dispatch<CartActions>) => {
 	});
 
 	try {
+		/**
+		 * TODO:
+		 * ? Move the cart items list to local server cos cartItems ids gonna be redefined on server rerun
+		 */
 		// Take cart items from storage
 		// if obj is nullable then return empty array
 		const cartItems = await load<CartItemType[]>(STORAGE_KEYS.CART_ITEMS) ?? [];

@@ -39,5 +39,5 @@ export type ProductType = {
 	richDescription?: string;
 	price: number;
 
-	picture: ReturnType<typeof require>;
+	pictureUri: string;
 };

@@ -6,9 +6,10 @@ import ProgressCircle from 'react-native-progress-circle';
 // Icons
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-// Types and utils
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+// Theme
+import { ProductDetailsInfoComponentProps } from './ProductDetailsInfo.props';
 import { colors, spacing } from '../../../../theme';
-import { ProductDetailsInfoContainerProps } from './ProductDetailsInfo.container';
 // Components
 import { Block, Text } from '../../../../components';
 
@@ -20,30 +21,25 @@ const banana = {
 };
 
 const all = banana.protein + banana.fats + banana.carbs;
-
+// Percentages of the suplements in priduct
 const proteinPercentage = +(banana.protein / all * 100).toFixed(2);
 const fatsPercentage = +(banana.fats / all * 100).toFixed(2);
 const carbsPercentage = +(banana.carbs / all * 100).toFixed(2);
 
 const { height } = Dimensions.get('screen');
 
-// Props type
-export interface ProductDetailsInfoComponentProps
-	extends ProductDetailsInfoContainerProps {
-	addToFavorite?: () => void;
-	removeFromFavorite?: () => void;
-	isFavorite: boolean;
-}
-
 export const ProductDetailsInfoComponent = (props: ProductDetailsInfoComponentProps) => {
 	const {
-		style,
 		product,
+		// TODO: change all this arrow funcs to one nullable function
 		addToFavorite = () => {},
 		removeFromFavorite = () => {},
-		isFavorite = false
+		isFavorite = false,
+
+		isProductInCart,
+		removeFromCart = () => {},
+		addToCart = () => {}
 	} = props;
-	
 
 	const handleLikePress = isFavorite ? removeFromFavorite : addToFavorite;
 
@@ -57,54 +53,61 @@ export const ProductDetailsInfoComponent = (props: ProductDetailsInfoComponentPr
 			isRoundBorderWithTipHeader
 			overDrag={false}
 			body={
-				<Block
-					color="#fff"
-					paddingHorizontal={spacing[5]}
-					style={{ paddingTop: 10 }}
-				>
-					<Block
-						row
-						justify="space-between"
-						align="center"
-						style={{ marginVertical: 15 }}
-					>
-						<Block style={styles.price}>
-							<Text weight="black" size="medium" color={colors.primary}>
-								${product.price}
-							</Text>
+				// CONTAINER
+				<Block color="#fff" paddingHorizontal={spacing[5]} style={{ paddingTop: 10 }}>
+					{/* HEADER */}
+					<Block row justify="space-between" align="center" style={{ marginVertical: 15 }}>
+						<Block row>
+							<Block style={styles.price}>
+								<Text weight="black" size="medium" color={colors.primary}>
+									${product.price}
+								</Text>
+							</Block>
+
+							<TouchableOpacity
+								onPress={handleLikePress}
+								style={[
+									styles.favoriteBtn,
+									{
+										backgroundColor: isFavorite ? colors.palette.lightenRed : colors.transparent,
+										borderWidth: 2,
+										borderColor: colors.palette.lightenRed,
+										marginLeft: 10
+									}
+								]}
+							>
+								<AntDesign
+									name={isFavorite ? 'heart' : 'hearto'}
+									size={20}
+									color={isFavorite ? colors.palette.red : colors.palette.black}
+								/>
+							</TouchableOpacity>
 						</Block>
 
 						<TouchableOpacity
-							onPress={handleLikePress}
-							style={[
-								styles.favoriteBtn,
-								{
-									backgroundColor: isFavorite
-										? colors.palette.lightenRed
-										: colors.transparent
-								}
-							]}
+							onPress={isProductInCart ? removeFromCart : addToCart}
+							style={{
+								backgroundColor: isProductInCart ? colors.primaryDarker : colors.primary,
+								borderRadius: 18,
+								padding: spacing[2]
+							}}
 						>
-							<AntDesign
-								name={isFavorite ? 'heart' : 'hearto'}
-								size={20}
-								color={isFavorite ? colors.palette.red : 'black'}
+							<MaterialCommunityIcons
+								name={isProductInCart ? 'cart-off' : 'cart'}
+								size={28}
+								color="#fff"
 							/>
 						</TouchableOpacity>
 					</Block>
 
+					{/* CONTENT */}
 					<Block>
 						<Text weight="black" size="title">
 							{product.name}
 						</Text>
 						<Block row align="center" style={{ marginVertical: 15 }}>
 							<Block row align="center" style={{ marginRight: 40 }}>
-								<AntDesign
-									name="star"
-									size={24}
-									color={colors.primary}
-									style={{ marginRight: 10 }}
-								/>
+								<AntDesign name="star" size={24} color={colors.primary} style={{ marginRight: 10 }} />
 								<Text color={colors.dim}>4,8 Rating</Text>
 							</Block>
 							<Block row align="center">
@@ -119,18 +122,12 @@ export const ProductDetailsInfoComponent = (props: ProductDetailsInfoComponentPr
 						</Block>
 
 						<Text color={colors.dim}>
-							Бананы — одна из древнейших пищевых культур, а для тропических
-							стран важнейшее пищевое растение и главная статья экспорта.
-							Спелые бананы широко употребляются в пищу по всему миру, их
-							используют при приготовлении большого количества блюд
+							Бананы — одна из древнейших пищевых культур, а для тропических стран важнейшее пищевое
+							растение и главная статья экспорта. Спелые бананы широко употребляются в пищу по всему миру,
+							их используют при приготовлении большого количества блюд
 						</Text>
 
-						<Block
-							style={{ marginTop: 50 }}
-							row
-							justify="space-between"
-							align="center"
-						>
+						<Block style={{ marginTop: 50 }} row justify="space-between" align="center">
 							<Block align="center">
 								<ProgressCircle
 									percent={proteinPercentage}

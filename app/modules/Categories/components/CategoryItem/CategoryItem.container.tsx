@@ -1,17 +1,18 @@
+// React
 import React from 'react'
+// Component
 import { CategoryItemComponent } from './CategoryItem.component'
-import { StyleProp, ViewStyle } from 'react-native';
-import { CategoryType } from '../../categories.types';
+// Types
+import { CategoryItemContainerProps } from './CategoryItem.props';
+// Navigation
 import { navigationRef, useAppNavigation } from '../../../../navigators';
 
-export interface CategoryItemContainerProps {
-	category: CategoryType;
-	
-}
 
 export const CategoryItemContainer = (props: CategoryItemContainerProps) => {
 	const nav = useAppNavigation();
-	
+	/**
+	 * Navigates to the category screen
+	 */
 	const handleNavigation = () => {
 		if (navigationRef.isReady()) {
 			nav.navigate('category', {categoryId: props.category.categoryId});

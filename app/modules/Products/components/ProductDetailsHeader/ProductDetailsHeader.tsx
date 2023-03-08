@@ -1,9 +1,9 @@
 // React and packages
 import React from "react"
-import { StyleSheet, StyleProp, ViewStyle, Pressable } from "react-native"
+import { StyleSheet, Pressable } from "react-native"
 import Entypo from 'react-native-vector-icons/Entypo'
 
-// Types and utils
+// Theme
 import { colors, spacing } from "../../../../theme"
 // Components
 import { Block } from "../../../../components"

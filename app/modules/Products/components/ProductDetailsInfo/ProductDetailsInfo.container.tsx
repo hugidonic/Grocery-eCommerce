@@ -1,23 +1,30 @@
 // React
 import React from 'react';
-import { StyleProp, ViewStyle } from 'react-native';
 // Redux and selectors
 import { useTypedSelector } from '../../../../redux/hooks/useTypedSelector';
 import { useActions } from '../../../../redux/hooks/useActions';
 import * as FavoriteSelectors from '../../../Favorite/favorite.selectors';
-// Types and utils
-import { ProductType } from '../../products.types';
+import * as ProductSelector from '../../../Products/products.selectors';
+// Theme
+import { ProductDetailsInfoContainerProps } from './ProductDetailsInfo.props';
 // Component
 import { ProductDetailsInfoComponent } from './ProductDetailsInfo.component';
 
-export interface ProductDetailsInfoContainerProps {
-	
-	product: ProductType;
-}
-
 export const ProductDetailsInfoContainer = (props: ProductDetailsInfoContainerProps) => {
-	const { addProductToFavorite, removeProductFromFavorite } = useActions();
-	const isFavorite = useTypedSelector(FavoriteSelectors.isFavorite(props.product.productId));
+	const {
+		addProductToFavorite,
+		removeProductFromFavorite,
+		addProductToCart,
+		removeProductFromCart
+	} = useActions();
+
+	const isFavorite = useTypedSelector(
+		FavoriteSelectors.isFavorite(props.product.productId)
+	);
+
+	const isProductInCart: boolean = useTypedSelector(
+		ProductSelector.isProductInCart(props.product.productId)
+	);
 
 	return (
 		<ProductDetailsInfoComponent
@@ -25,6 +32,9 @@ export const ProductDetailsInfoContainer = (props: ProductDetailsInfoContainerPr
 			addToFavorite={() => addProductToFavorite(props.product)}
 			removeFromFavorite={() => removeProductFromFavorite(props.product.productId)}
 			isFavorite={isFavorite}
+			isProductInCart={isProductInCart}
+			addToCart={() => addProductToCart(props.product)}
+			removeFromCart={() => removeProductFromCart(props.product.productId)}
 		/>
 	);
 };

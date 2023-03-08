@@ -15,7 +15,7 @@ interface LoadFavoriteItemsAction {
 }
 export interface SetFavoriteItemsAction {
 	type: FavoriteTypes.SET_FAVORITE_ITEMS;
-	payload: FavoriteItemType[];
+	payload: ProductType[];
 }
 interface SetErrorAction {
 	type: FavoriteTypes.SET_ERROR;
@@ -24,11 +24,11 @@ interface SetErrorAction {
 
 interface AddProductToFavoriteAction {
 	type: FavoriteTypes.ADD_PRODUCT_TO_FAVORITE;
-	payload: FavoriteItemType;
+	payload: ProductType;
 }
 interface RemoveProductFromFavoriteAction {
 	type: FavoriteTypes.REMOVE_PRODUCT_FROM_FAVORITE;
-	payload: FavoriteItemType['productId'];
+	payload: ProductType['productId'];
 }
 
 /**
@@ -42,7 +42,6 @@ export type FavoriteActions =
 	| SetErrorAction;
 
 export interface FavoriteStateType extends BaseInitialState {
-	favoriteItems: FavoriteItemType[];
+	favoriteItems: ProductType[];
 }
 
-export interface FavoriteItemType extends ProductType {}

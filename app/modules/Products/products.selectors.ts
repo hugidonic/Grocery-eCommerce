@@ -20,14 +20,14 @@ export const allProducts = (state: RootStateType) => state.ProductStore.products
 /**
  * returns a list of fruits
  */
-export const fruits = createSelector(allProducts, (allProducts) =>
+export const getFruits = createSelector(allProducts, (allProducts) =>
 	allProducts && allProducts.filter((product) => product.type === 'fruit')
 );
 
 /**
  * returns a list of vegetables
  */
-export const vegetables = createSelector(allProducts, (allProducts) =>
+export const getVegetables = createSelector(allProducts, (allProducts) =>
 	allProducts && allProducts.filter((product) => product.type === 'vegetable')
 );
 
@@ -36,12 +36,12 @@ export const vegetables = createSelector(allProducts, (allProducts) =>
  */
 export const isProductInCart = (productId: ProductType['productId']) => (
 	createSelector(cartItems, (cartItems) => {
-    return cartItems.findIndex(item => item.product.productId === productId) >= 0
+    return cartItems.findIndex(item => item.product.productId == productId) >= 0
   })
 )
 
 export const productsFilteredByName = (searchName: string) => (
 	createSelector(allProducts, (allProducts) => {
-    return allProducts.filter(prod => prod.name.toLowerCase().includes(searchName))
+    return allProducts.filter(prod => prod.name.toLowerCase().includes(searchName.toLowerCase()))
   })
 )
